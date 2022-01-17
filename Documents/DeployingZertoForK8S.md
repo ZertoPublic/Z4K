@@ -16,16 +16,16 @@ For deployment prerequisites, installation instructions, and initial use, click 
 
 ## Zerto for Kubernetes on a Single Kubernetes Cluster Deployment
 
-![SingleCLuster](images/singlecluster.png)
+![SingleCLuster](images/Z4K_Single_Kubernetes_Cluster_Deployment.png)
 
 ## Zerto for Kubernetes on Multiple Kubernetes Cluster Deployments
 
 In this deployment Zerto recommends installing the Zerto Kubernetes Manager on the recovery cluster.
 
-![MultipleCLuster](images/singlecluster.png)
+![MultipleCLuster](images/Z4K_Multiple_Kubernetes_Cluster_Deployments.png)
 
 ## Zerto for Kubernetes on Multiple Kubernetes Cluster Deployments - with a Separate Zerto Kubernetes Manager Cluster
 
 In this deployment Zerto recommends installing the Zerto Kubernetes Manager on the recovery cluster.
 
-![MultipleCLusterSeparateManager](images/singlecluster.png)
+![MultipleCLusterSeparateManager](images/Z4K_Multiple_Kubernetes_Cluster_Deployments_Separate_ZKM.png)
