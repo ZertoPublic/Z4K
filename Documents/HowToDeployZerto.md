@@ -3,7 +3,7 @@
 
 Perform the following procedures:
 
-1.	[Prepare Helm](##Prepare-Helm)
+1.	[Prepare Helm](##Prepare%20Helm)
 2.	[Obtain the Image Pull Key Secret](##Obtain-the-Image-Pull-Key-Secret)
 3.	Next, select one of the following installation procedures:
   -	Install Zerto for Kubernetes on a Kubernetes Cluster
