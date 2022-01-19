@@ -93,7 +93,7 @@ Consider the following:
 
 | Parameter | Comment |
 | --------- | ------- |
-| /<installation names/> | Specify an easy to recognize name. |
+| \<installation names\> | Specify an easy to recognize name. |
 | $NAMESPACE | A dedicated Zerto namespace. We recommend using the namespace zerto. |
 | $SITE |	A unique site name. |
 
