@@ -132,29 +132,29 @@ chmod +x generate_initial_access_token.bash
 1.	Edit your hosts file so that **zkm.z4k.zerto.com** points to your load balancer address.
 2.	Browse to Keycloak: [https://zkm.z4k.zerto.com/auth](https://zkm.z4k.zerto.com/auth)
 
-![Browse](Images/Keycloak_Option2_Browse.png)
+![Browse](Images/Keycloak_Option2_Browse.png?raw=true)
 
 3.	Login to the **Administration Console** using your **$KEYCLOAK_USER** and **$KEYCLOAK_PASSWORD**.
 
-![Sign In](Images/Keycloak_Option2_SignIn.png)
+![Sign In](Images/Keycloak_Option2_SignIn.png?raw=true)
 
 The Keycloak Zerto Realm page opens.
 
 4.	In the left pane, click **Realm Settings**, and in the right pane, select the tab **Client Registration**.
 The Initial Access Tokens tab is opened by default.
 
-![Zerto Realm](Images/Keycloak_Option2_ZertoRealm.png)
+![Zerto Realm](Images/Keycloak_Option2_ZertoRealm.png?raw=true)
 
 5.	On the right side of the page, click **Create**.
 
-![Create](Images/Keycloak_Option2_InitialAccessToken_Create.png)
+![Create](Images/Keycloak_Option2_InitialAccessToken_Create.png?raw=true)
 
 The Add Initial Access Token area becomes available.
 
 6.	In the **Expiration** fields, define a time-frame within which the token will expire; **Seconds/Minutes/Hours/Days**.
 7.	In the **Count** field, define the token usage count.
 
-![Token Expiration](Images/Keycloak_Option2_TokenExpiration.png)
+![Token Expiration](Images/Keycloak_Option2_TokenExpiration.png?raw=true)
 
 8.	Save the token and click **Back**.
 
