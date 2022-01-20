@@ -228,14 +228,63 @@ To configure Long-term Retention for your Kubernetes environment, use the follow
 To backup a VPG to a target LTR repository, you first need to create the VPG and update the VPG yaml file (vpg.yaml) with the LTR repository type.
 
 Use the following examples as guidelines.
-
+Then, continue to Manually Trigger a Backup
+  
 Example vpg.yaml File - Backing Up to AWS S3
+  
+```
+apiVersion: z4k.zerto.com/v1
+kind: vpg
+spec:
+	Name: test_vpg
+	SourceSite:
+		Id: site1
+	TargetSite:
+		Id: site1
+	RecoveryStorageClass: zgp2
+	BackupSettings:
+		RepositoryInformation:
+			BackTargetType: AmazonS3
+			AwsBackupRepositoryInformation:
+				Region: eu-centeral-1
+				Bucket: mybucket
+				CredentialSecretReference:
+					Site:
+						Id: site1
+					Id:
+						Name: mysecret
+						NamespaceId:
+							NamespaceName: default
+		IsCompressionEnabled: true
+```
 
 Example vpg.yaml File - Backing Up to Azure Blob Storage
-
-Then, continue to Manually Trigger a Backup
-
-Example vpg.yaml File - Backing Up to AWS S3
+  
+```
+apiVersion: z4k.zerto.com/v1
+kind: vpg
+spec:
+	Name: test_vpg
+	SourceSite:
+		Id: site1
+	TargetSite:
+		Id: site1
+	RecoveryStorageClass: zgp2
+	BackupSettings:
+		RepositoryInformation:
+			BackTargetType: AzureBlob
+			AzureBackupRepositoryInformation:
+				StorageAccountName: mystorageaccount
+				DirectoryId: c659fda3-cf53-43ad-befe-776ee475dcf5
+				CredentialSecretReference:
+					Site:
+						Id: site1
+					Id:
+						Name: mysecret
+						NamespaceId:
+							NamespaceName: default
+		IsCompressionEnabled: true
+```
 
 -	The AWS S3 access key and secret key should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is mysecret.
 -	The secret must contain a data item for the AccessKey and a data item for the SecretKey, and can be created in any site to which Zerto Kubernetes Manager has access. In the example above, this is site1.
@@ -269,6 +318,49 @@ To schedule Long-term Retention backups, add SchedulingAndRetentionSettings to t
 
 Use the following example as guideline.
 
+```
+apiVersion: z4k.zerto.com/v1
+kind: vpg
+spec:
+	Name: test_vpg
+	SourceSite:
+		Id: site1
+	TargetSite:
+		Id: site1
+	RecoveryStorageClass: zgp2
+	BackupSettings:
+		RepositoryInformation:
+			BackTargetType: AmazonS3
+			AwsBackupRepositoryInformation:
+				Region: eu-centeral-1
+				Bucket: mybucket
+				CredentialSecretReference:
+					Site:
+						Id: site1
+					Id:
+						Name: mysecret
+						NamespaceId:
+							NamespaceName: default
+		IsCompressionEnabled: true
+		SchedulingAndRetentionSettings:
+			PeriodsSettings:
+			- PeriodType: Yearly
+			  Method: Full
+			  ExpiresAfterValue: 7
+			  ExpiresAfterUnit: Years
+			- PeriodType: Monthly
+			  Method: Full
+			  ExpiresAfterValue: 12
+			  ExpiresAfterUnit: Months							
+			- PeriodType: Weekly
+			  Method: Full
+			  ExpiresAfterValue: 4
+			  ExpiresAfterUnit: Weeks
+			- PeriodType: Daily
+			  Method: Incremental
+			  ExpiresAfterValue: 7
+			  ExpiresAfterUnit: Days
+```
 
 
 SchedulingAndRetentionSettings considerations:
