@@ -158,7 +158,7 @@ The Add Initial Access Token area becomes available.
 
 8.	Save the token and click **Back**.
 
-![Back](Keycloak_Option2_InitialAccessToken_Back.png)
+![Back](Keycloak_Option2_InitialAccessToken_Back.png?raw=true)
 
 
 ## Installing Zerto Kubernetes Manager on a Kubernetes Cluster
