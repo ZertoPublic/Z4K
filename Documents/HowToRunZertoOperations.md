@@ -317,9 +317,28 @@ kubectl-zrt collect-logs <case/bug number>
 
 - Or, you could do the following:
 
-1.	Connect to the pod using the following command: ```kubectl exec```
-2.	Run the following script: ```/scripts/collect_logs_lt.bash```
+1.	Connect to the pod using the following command: 
+
+```
+kubectl exec
+```
+  
+2.	Run the following script: 
+
+```
+/scripts/collect_logs_lt.bash
+```
 
 -	Running a script on Zerto Kubernetes Manager (ZKM)
-1.	Connect to the pod using the following command: ```kubectl exec```
-2.	Run the following script: ```/scripts/collect_logs_ng.bash```
+  
+1.	Connect to the pod using the following command: 
+
+```
+kubectl exec
+```
+  
+2.	Run the following script: 
+
+```
+/scripts/collect_logs_ng.bash
+```
