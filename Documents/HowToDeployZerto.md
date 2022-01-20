@@ -163,4 +163,62 @@ The Add Initial Access Token area becomes available.
 
 ## Install Zerto Kubernetes Manager Proxy on Additional Clusters
 
+The following are commands to install Zerto Kubernetes Manager Proxy on additional clusters, on any one of the Zerto supported Kubernetes platforms.
+
+-	Perform one of the following:
+-	Either enter the following commands:
+
+```
+helm install <installation name> zerto-4k/zkm-px \
+--set global.imagePullSecret=$IMAGE_PULL_KEY \
+--set global.authentication.initialAccessToken =$INITINAL_ACCESS_TOKEN
+--set config.siteId=$SITE \
+--set config.zkmUrl=$ZKM_URL \
+--set config.zkeycloakUrl=$ZKEYCLOAK_URL \
+--namespace $NAMESPACE
+```
+
+-	Or, first create the following values.yaml:
+
+```
+global:
+authentication:
+initialAccessToken: $INITIAL_ACCESS_TOKEN
+imagePullSecret: $IMAGE_PULL_KEY
+config:
+siteId: $SITE
+zkmUrl: $ZKM_URL
+zkeycloakUrl: $ZKEYCLOAK_URL
+```
+
+And then install using the following command:
+```
+helm install <installation names> zerto-z4k/zkm-px -f values.yaml --namespace $NAMESPACE
+```
+
+In **OpenShift** on **VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes.
+
+As such, to enable VRA communication, you need to disable ingress deployment and provide the external IP of the sites.
+
+-	To do this, enter the following commands:
+
+```
+--set zkmProxyIngressControllerEnabled=false
+--set config.externalIp=$SITE_IP
+```
+
+Consider the following:
+
+| Parameter	| Comment |
+| --------- | ------- | 
+|\<installation names\>	| Specify an easy to recognize name. |
+| $NAMESPACE | A dedicated Zerto namespace. We recommend using the namespace zerto. |
+| $SITE |	A unique site name. |
+| $ZKM_URL |	URL for ZKM 
+Typically: https://<load balancer addr>/zkm |
+| $ZKEYCLOAK _URL | URL for Keycloak
+Typically: https://<load balancer addr>/auth |
+
+## Installing Zerto Kubernetes Manager on a Kubernetes Cluster
+    
 ## Downloading the Zerto Operations Help Utility
