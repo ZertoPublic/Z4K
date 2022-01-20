@@ -158,7 +158,7 @@ The Add Initial Access Token area becomes available.
 
 8.	Save the token and click **Back**.
 
-![Back](Keycloak_Option2_InitialAccessToken_Back.png?raw=true)
+![Back](Images/Keycloak_Option2_InitialAccessToken_Back.png?raw=true)
 
 
 ## Install Zerto Kubernetes Manager Proxy on Additional Clusters
@@ -273,3 +273,21 @@ Consider the following:
 | $NAMESPACE |	A dedicated Zerto namespace. We recommend using the namespace zerto. |
 
 ## Downloading the Zerto Operations Help Utility
+    
+To facilitate entering of Zerto operations commands, download the Help Utility. This is a bash script wrapper for the kubectl API extension.
+
+To use the Help Utility, you first download then run the command, kubectl-zrt.
+
+To facilitate Zerto operation commands:
+
+-	On the Kubernetes platform, enter the following commands:
+
+```
+wget https://z4k.zerto.com/public/kubectl-zrt
+chmod +x kubectl-zrt
+sudo cp kubectl-zrt /usr/bin/
+```
+
+- To view all Zerto commands, run kubectl-zrt –
+
+![kubectl-zrt](Images/Z4K_Kubernetes_Commands.png?raw=true)
