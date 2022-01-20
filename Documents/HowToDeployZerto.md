@@ -105,6 +105,62 @@ This installation includes the following:
 1.	[Get an initial access token from Keycloak](#)
 2.	[Install Zerto Kubernetes Manager Proxy on Additional Clusters](#)
 
+## Get an initial access token from Keycloak
+Before you can begin to install Zerto Kubernetes Manager Proxy on additional Kubernetes clusters, you first need to get an initial access token from Keycloak, which was installed as part of ***z4k/zkm*** installation.
+
+Creating an initial access token can be achieved in one of two ways:
+
+### Create Initial Access Token - Option 1
+
+Generate an initial access token via REST commands to Keycloak.
+
+> Note:	If two-factor authentication (2FA ) was enabled for the Keycloak management user, do not run this script.
+
+-	Download and execute the following script
+
+```
+wget https://z4k.zerto.com/public/generate_initial_access_token.bash
+chmod +x generate_initial_access_token.bash
+./generate_initial_access_token.bash
+```
+
+> Note:	The url should end with /auth
+
+### Create Initial Access Token - Option 2
+
+
+1.	Edit your hosts file so that **zkm.z4k.zerto.com** points to your load balancer address.
+2.	Browse to Keycloak: [https://zkm.z4k.zerto.com/auth](https://zkm.z4k.zerto.com/auth)
+
+![Browse](Images/Keycloak_Option2_Browse.png)
+
+3.	Login to the **Administration Console** using your **$KEYCLOAK_USER** and **$KEYCLOAK_PASSWORD**.
+
+![Sign In](Images/Keycloak_Option2_SignIn.png)
+
+The Keycloak Zerto Realm page opens.
+
+4.	In the left pane, click **Realm Settings**, and in the right pane, select the tab **Client Registration**.
+The Initial Access Tokens tab is opened by default.
+
+![Zerto Realm](Images/Keycloak_Option2_ZertoRealm.png)
+
+5.	On the right side of the page, click **Create**.
+
+![Create](Images/Keycloak_Option2_InitialAccessToken_Create.png)
+
+The Add Initial Access Token area becomes available.
+
+6.	In the **Expiration** fields, define a time-frame within which the token will expire; **Seconds/Minutes/Hours/Days**.
+7.	In the **Count** field, define the token usage count.
+
+![Token Expiration](Images/Keycloak_Option2_TokenExpiration.png)
+
+8.	Save the token and click **Back**.
+
+![Back](Keycloak_Option2_InitialAccessToken_Back.png)
+
+
 ## Installing Zerto Kubernetes Manager on a Kubernetes Cluster
 
 ## Downloading the Zerto Operations Help Utility
