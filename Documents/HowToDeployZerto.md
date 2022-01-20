@@ -102,7 +102,7 @@ Consider the following:
 This installation includes the following:
 
 -	Zerto Kubernetes Manager Proxy (ZKM-PX)
-1.	[Get an initial access token from Keycloak](#)
+1.	[Get an initial access token from Keycloak](#get-an-initial-access-token-from-keycloak)
 2.	[Install Zerto Kubernetes Manager Proxy on Additional Clusters](#)
 
 ## Get an initial access token from Keycloak
@@ -161,6 +161,6 @@ The Add Initial Access Token area becomes available.
 ![Back](Keycloak_Option2_InitialAccessToken_Back.png?raw=true)
 
 
-## Installing Zerto Kubernetes Manager on a Kubernetes Cluster
+## Install Zerto Kubernetes Manager Proxy on Additional Clusters
 
 ## Downloading the Zerto Operations Help Utility
