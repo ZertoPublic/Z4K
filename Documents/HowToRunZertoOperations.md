@@ -214,6 +214,7 @@ Zerto for Kubernetes supports two LTR repository types:
 
 - AWS S3
 - Azure Blob Storage
+	
 To configure Long-term Retention for your Kubernetes environment, use the following procedures:
 
 1.	Backing up a VPG
