@@ -37,14 +37,14 @@ In the below example the VPG webApp1:
 apiVersion: z4k.zerto.com/v1
 kind: vpg
 spec:
-Name : “webApp1”
-SourceCluster :
-Id: "prod_cluster”
-TargetCluster :
-Id: "prod_cluster"
-RecoveryStorageClass : GoldSC
-JournalDiskSizeInGb : 160
-JournalHistoryInHours : 12
+	Name : “webApp1”
+	SourceCluster :
+		Id: "prod_cluster”
+	TargetCluster :
+		Id: "prod_cluster"
+	RecoveryStorageClass : GoldSC
+	JournalDiskSizeInGb : 160
+	JournalHistoryInHours : 12
 ```
 
 2.	Annotate Kubernetes entities to include them in the VPG.
@@ -58,33 +58,32 @@ See the following example of deployment protection:
 ```
 kind: Deployment
 metadata:
-name: debian
-labels:
-app: debian
-annotations:
-vpg: webApp1 /<VPG name as configured in VPG.yaml>
+	name: debian
+	labels:
+		app: debian
+	annotations:
+		vpg: webApp1 /<VPG name as configured in VPG.yaml>
 spec:
-
-replicas: 1
-selector:
-matchLabels:
-app: debian
-template:
-metadata:
-labels:
-app: debian
-spec:
-containers:
-- name: debian1
-image: debian:stable
-command: ["/usr/bin/tail","-f","/dev/null"]
-volumeMounts:
-- mountPath: "/var/gil1"
-name: external1
-volumes:
-- name: external1
-persistentVolumeClaim:
-claimName: my-vol1-debian-5to6
+	replicas: 1
+	selector:
+		matchLabels:
+			app: debian
+	template:
+		metadata:
+			labels:
+				app: debian
+		spec:
+			containers:
+				- name: debian1
+				image: debian:stable
+				command: ["/usr/bin/tail","-f","/dev/null"]
+				volumeMounts:
+				- mountPath: "/var/gil1"
+				name: external1
+				volumes:
+					- name: external1
+				persistentVolumeClaim:
+					claimName: my-vol1-debian-5to6
 ```
 
 3.	Create the VPG by running the following command:
