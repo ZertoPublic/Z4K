@@ -4,12 +4,12 @@
 Perform the following procedures:
 
 1.	[Prepare Helm](#PrepareHelm)
-2.	[Obtain the Image Pull Key Secret](#ObtaintheImagePullKeySecret)
+2.	[Obtain the Image Pull Key Secret](#Obtain-the-Image-Pull-Key-Secret)
 3.	Next, select one of the following installation procedures:
-    -	[Install Zerto for Kubernetes on a Kubernetes Cluster](#InstallZertoforKubernetesonaKubernetesCluster)
-    - [Install Zerto Kubernetes Manager Proxy on Additional Kubernetes Clusters](#InstallZertoKubernetesManagerProxyonAdditionalKubernetesClusters)
-    -	[Installing Zerto Kubernetes Manager on a Kubernetes Cluster](#InstallingZertoKubernetesManageronaKubernetesCluster)
-4.	[Downloading the Zerto Operations Help Utility](#DownloadingtheZertoOperationsHelpUtility)
+    -	[Install Zerto for Kubernetes on a Kubernetes Cluster](#Install-Zerto-for-Kubernetes-on-a-Kubernetes-Cluster)
+    - [Install Zerto Kubernetes Manager Proxy on Additional Kubernetes Clusters](#Install-Zerto-Kubernetes-Manager-Proxy-on-Additional-Kubernetes-Clusters)
+    -	[Installing Zerto Kubernetes Manager on a Kubernetes Cluster](#Installing-Zerto-Kubernetes-Manager-on-a-Kubernetes-Cluster)
+4.	[Downloading the Zerto Operations Help Utility](#Downloading-the-Zerto-Operations-Help-Utility)
 
 ## Prepare Helm
 
@@ -44,6 +44,8 @@ Perform one of the following:
 
 1.	Either enter the following commands:
 
+> Note: Replace "$" variables with values relevant to your deployment.
+
 ```
 helm install <installation names> zerto-z4k/z4k \
 --set global.imagePullSecret=$IMAGE_PULL_KEY \
@@ -55,20 +57,20 @@ helm install <installation names> zerto-z4k/z4k \
 --namespace $NAMESPACE
 ```
 
+
 2.	Or, first create the following values.yaml:
 
 ```
 global:
-authentication:
-adminPassword: $ADMIN_PASSWORD
-adminUser: $ADMIN_USER
-managementPassword: $KEYCLOAK_PASSWORD
-managementUser: $KEYCLOAK_USER
-imagePullSecret: $IMAGE_PULL_KEY
+    authentication:
+        adminPassword: $ADMIN_PASSWORD
+        adminUser: $ADMIN_USER
+        managementPassword: $KEYCLOAK_PASSWORD
+        managementUser: $KEYCLOAK_USER
+    imagePullSecret: $IMAGE_PULL_KEY
 zkm-px:
-
-config:
-siteId: $SITE
+    config:
+        siteId: $SITE
 ```
 
 And then install using the following command:
@@ -182,13 +184,13 @@ helm install <installation name> zerto-4k/zkm-px \
 
 ```
 global:
-authentication:
-initialAccessToken: $INITIAL_ACCESS_TOKEN
-imagePullSecret: $IMAGE_PULL_KEY
+    authentication:
+        initialAccessToken: $INITIAL_ACCESS_TOKEN
+    imagePullSecret: $IMAGE_PULL_KEY
 config:
-siteId: $SITE
-zkmUrl: $ZKM_URL
-zkeycloakUrl: $ZKEYCLOAK_URL
+    siteId: $SITE
+    zkmUrl: $ZKM_URL
+    zkeycloakUrl: $ZKEYCLOAK_URL
 ```
 
 And then install using the following command:
@@ -241,12 +243,12 @@ helm install <installation name> zerto/zkm \
 
 ```
 global:
-authentication:
-adminPassword: $ADMIN_PASSWORD
-adminUser: $ADMIN_USER
-managementPassword: $KEYCLOAK_PASSWORD
-managementUser: $KEYCLOAK_USER
-imagePullSecret: $IMAGE_PULL_KEY
+    authentication:
+        adminPassword: $ADMIN_PASSWORD
+        adminUser: $ADMIN_USER
+        managementPassword: $KEYCLOAK_PASSWORD
+        managementUser: $KEYCLOAK_USER
+    imagePullSecret: $IMAGE_PULL_KEY
 ```
     
 And then install using the following command:
@@ -287,6 +289,8 @@ wget https://z4k.zerto.com/public/kubectl-zrt
 chmod +x kubectl-zrt
 sudo cp kubectl-zrt /usr/bin/
 ```
+
+> Note: In case kubectl-zrt is not installed in /usr/bin, you need to point it to the relevant location.
 
 - To view all Zerto commands, run kubectl-zrt –
 
