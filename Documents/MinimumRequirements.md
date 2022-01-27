@@ -11,4 +11,4 @@
 -	Zerto Kubernetes Manager: 3 GB
 -	Zerto Kubernetes Manager Proxy: 1 GB
 -	Keycloak Database: 2 GB
--	Zerto for Kubernetes supports protection of Persistent Volumes, configured with VolumeBindingMode, of the type WaitForFirstConsumer.
+-	A storageClass with VolumeBindingMode of type "WaitForFirstConsumer" is needed for Zerto to work with persistent volumes.
