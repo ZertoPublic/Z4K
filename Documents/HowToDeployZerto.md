@@ -89,6 +89,13 @@ As such, to enable VRA communication, you need to disable ingress deployment and
 --set zkm-px.zkmProxyIngressControllerEnabled =false
 --set zkm-px.config.externalIp=$SITE_IP
 --set zkm.useNginxRoutePath=false
+
+*In case the used IngressClassName is not the default names, the below flags can be used to specify the used IngressClassName
+--set zkm-px.vras.ingressClass=$ingressClassName
+--set zkm-px.ingress-nginx.controller.ingressClass=$ingressClassName
+--set zkm.ingress-nginx.controller.ingressClass=$ingressClassName
+--set zkm.ingress.annotations.kubernetes\\.io/ingress\\.class=$ingressClassName
+--set zkm.zkeycloak.ingress.annotations.kubernetes\\.io/ingress\\.class=$ingressClassName
 ```
 
 Consider the following:
