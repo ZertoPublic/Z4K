@@ -102,8 +102,6 @@ By running this command, you can also see an overview of which entities are prot
 
 ## Tagging a Checkpoint
 
-To tag a checkpoint, first review the list of available checkpoints, and only then tag the checkpoint.
-
 To view available checkpoints:
 
 •	Run the following command.
