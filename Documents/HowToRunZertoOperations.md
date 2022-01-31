@@ -248,11 +248,11 @@ spec:
         Region: eu-centeral-1
 	Bucket: mybucket
 	CredentialSecretReference:
-	  Site:
-	    Id: site1
+          Site:
+            Id: site1
 	  Id:
 	    Name: mysecret
-	    NamespaceId:
+            NamespaceId:
 	      NamespaceName: default
   
 ```
@@ -338,7 +338,7 @@ spec:
           Site:
             Id: site1
           Id:
-	    Name: mysecret
+            Name: mysecret
             NamespaceId:
               NamespaceName: default
   SchedulingAndRetentionSettings:
