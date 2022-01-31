@@ -62,15 +62,15 @@ helm install <installation names> zerto-z4k/z4k \
 
 ```
 global:
-    authentication:
-        adminPassword: $ADMIN_PASSWORD
-        adminUser: $ADMIN_USER
-        managementPassword: $KEYCLOAK_PASSWORD
-        managementUser: $KEYCLOAK_USER
+  authentication:
+    adminPassword: $ADMIN_PASSWORD
+    adminUser: $ADMIN_USER
+    managementPassword: $KEYCLOAK_PASSWORD
+    managementUser: $KEYCLOAK_USER
     imagePullSecret: $IMAGE_PULL_KEY
 zkm-px:
-    config:
-        siteId: $SITE
+  config:
+    siteId: $SITE
 ```
 
 And then install using the following command:
@@ -191,13 +191,13 @@ helm install <installation name> zerto-4k/zkm-px \
 
 ```
 global:
-    authentication:
-        initialAccessToken: $INITIAL_ACCESS_TOKEN
+  authentication:
+    initialAccessToken: $INITIAL_ACCESS_TOKEN
     imagePullSecret: $IMAGE_PULL_KEY
 config:
-    siteId: $SITE
-    zkmUrl: $ZKM_URL
-    zkeycloakUrl: $ZKEYCLOAK_URL
+  siteId: $SITE
+  zkmUrl: $ZKM_URL
+  zkeycloakUrl: $ZKEYCLOAK_URL
 ```
 
 And then install using the following command:
@@ -250,11 +250,11 @@ helm install <installation name> zerto/zkm \
 
 ```
 global:
-    authentication:
-        adminPassword: $ADMIN_PASSWORD
-        adminUser: $ADMIN_USER
-        managementPassword: $KEYCLOAK_PASSWORD
-        managementUser: $KEYCLOAK_USER
+  authentication:
+    adminPassword: $ADMIN_PASSWORD
+    adminUser: $ADMIN_USER
+    managementPassword: $KEYCLOAK_PASSWORD
+    managementUser: $KEYCLOAK_USER
     imagePullSecret: $IMAGE_PULL_KEY
 ```
     
