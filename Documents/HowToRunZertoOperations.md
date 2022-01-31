@@ -335,7 +335,7 @@ spec:
 	Region: eu-centeral-1
 	Bucket: mybucket
 	CredentialSecretReference:
-          Site:
+	  Site:
             Id: site1
           Id:
             Name: mysecret
