@@ -37,14 +37,14 @@ In the below example the VPG webApp1:
 apiVersion: z4k.zerto.com/v1
 kind: vpg
 spec:
-	Name : “webApp1”
-	SourceCluster :
-		Id: "prod_cluster”
-	TargetCluster :
-		Id: "prod_cluster"
-	RecoveryStorageClass : GoldSC
-	JournalDiskSizeInGb : 160
-	JournalHistoryInHours : 12
+  Name : “webApp1”
+  SourceCluster :
+    Id: "prod_cluster”
+  TargetCluster :
+    Id: "prod_cluster"
+  RecoveryStorageClass : GoldSC
+  JournalDiskSizeInGb : 160
+  JournalHistoryInHours : 12
 ```
 
 2.	Annotate Kubernetes entities to include them in the VPG.
@@ -58,32 +58,32 @@ See the following example of deployment protection:
 ```
 kind: Deployment
 metadata:
-	name: debian
-	labels:
-		app: debian
-	annotations:
-		vpg: webApp1 /<VPG name as configured in VPG.yaml>
+  name: debian
+  labels:
+    app: debian
+  annotations:
+    vpg: webApp1 /<VPG name as configured in VPG.yaml>
 spec:
-	replicas: 1
-	selector:
-		matchLabels:
-			app: debian
-	template:
-		metadata:
-			labels:
-				app: debian
-		spec:
-			containers:
-				- name: debian1
-				image: debian:stable
-				command: ["/usr/bin/tail","-f","/dev/null"]
-				volumeMounts:
-				- mountPath: "/var/gil1"
-				name: external1
-				volumes:
-					- name: external1
-				persistentVolumeClaim:
-					claimName: my-vol1-debian-5to6
+  replicas: 1
+  selector:
+    matchLabels:
+      app: debian
+  template:
+    metadata:
+      labels:
+        app: debian
+    spec:
+      containers:
+        - name: debian1
+          image: debian:stable
+	  command: ["/usr/bin/tail","-f","/dev/null"]
+	  volumeMounts:
+	  - mountPath: "/var/gil1"
+	    name: external1
+      volumes:
+        - name: external1
+	  persistentVolumeClaim:
+	    claimName: my-vol1-debian-5to6
 ```
 
 3.	Create the VPG by running the following command:
@@ -234,26 +234,27 @@ Example vpg.yaml File - Backing Up to AWS S3
 apiVersion: z4k.zerto.com/v1
 kind: vpg
 spec:
-	Name: test_vpg
-	SourceSite:
-		Id: site1
-	TargetSite:
-		Id: site1
-	RecoveryStorageClass: zgp2
-	BackupSettings:
-		RepositoryInformation:
-			BackTargetType: AmazonS3
-			AwsBackupRepositoryInformation:
-				Region: eu-centeral-1
-				Bucket: mybucket
-				CredentialSecretReference:
-					Site:
-						Id: site1
-					Id:
-						Name: mysecret
-						NamespaceId:
-							NamespaceName: default
-		IsCompressionEnabled: true
+  Name: test_vpg
+  SourceSite:
+    Id: site1
+  TargetSite:
+    Id: site1
+  RecoveryStorageClass: zgp2
+  BackupSettings:
+    IsCompressionEnabled: true  
+    RepositoryInformation:
+      BackTargetType: AmazonS3
+      AwsBackupRepositoryInformation:
+        Region: eu-centeral-1
+	Bucket: mybucket
+	CredentialSecretReference:
+	  Site:
+	    Id: site1
+	  Id:
+	    Name: mysecret
+	    NamespaceId:
+	      NamespaceName: default
+  
 ```
 
 Example vpg.yaml File - Backing Up to Azure Blob Storage
@@ -262,26 +263,26 @@ Example vpg.yaml File - Backing Up to Azure Blob Storage
 apiVersion: z4k.zerto.com/v1
 kind: vpg
 spec:
-	Name: test_vpg
-	SourceSite:
-		Id: site1
-	TargetSite:
-		Id: site1
-	RecoveryStorageClass: zgp2
-	BackupSettings:
-		RepositoryInformation:
-			BackTargetType: AzureBlob
-			AzureBackupRepositoryInformation:
-				StorageAccountName: mystorageaccount
-				DirectoryId: c659fda3-cf53-43ad-befe-776ee475dcf5
-				CredentialSecretReference:
-					Site:
-						Id: site1
-					Id:
-						Name: mysecret
-						NamespaceId:
-							NamespaceName: default
-		IsCompressionEnabled: true
+  Name: test_vpg
+  SourceSite:
+    Id: site1
+  TargetSite:
+    Id: site1
+  RecoveryStorageClass: zgp2
+  BackupSettings:
+    IsCompressionEnabled: true
+    RepositoryInformation:
+      BackTargetType: AzureBlob
+      AzureBackupRepositoryInformation:
+	StorageAccountName: mystorageaccount
+	DirectoryId: c659fda3-cf53-43ad-befe-776ee475dcf5
+	CredentialSecretReference:
+          Site:
+	    Id: site1
+	  Id:
+	    Name: mysecret
+            NamespaceId:
+	      NamespaceName: default
 ```
 
 -	The AWS S3 access key and secret key should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is mysecret.
@@ -320,44 +321,44 @@ Use the following example as guideline.
 apiVersion: z4k.zerto.com/v1
 kind: vpg
 spec:
-	Name: test_vpg
-	SourceSite:
-		Id: site1
-	TargetSite:
-		Id: site1
-	RecoveryStorageClass: zgp2
-	BackupSettings:
-		RepositoryInformation:
-			BackTargetType: AmazonS3
-			AwsBackupRepositoryInformation:
-				Region: eu-centeral-1
-				Bucket: mybucket
-				CredentialSecretReference:
-					Site:
-						Id: site1
-					Id:
-						Name: mysecret
-						NamespaceId:
-							NamespaceName: default
-		IsCompressionEnabled: true
-		SchedulingAndRetentionSettings:
-			PeriodsSettings:
-			- PeriodType: Yearly
-			  Method: Full
-			  ExpiresAfterValue: 7
-			  ExpiresAfterUnit: Years
-			- PeriodType: Monthly
-			  Method: Full
-			  ExpiresAfterValue: 12
-			  ExpiresAfterUnit: Months							
-			- PeriodType: Weekly
-			  Method: Full
-			  ExpiresAfterValue: 4
-			  ExpiresAfterUnit: Weeks
-			- PeriodType: Daily
-			  Method: Incremental
-			  ExpiresAfterValue: 7
-			  ExpiresAfterUnit: Days
+  Name: test_vpg
+  SourceSite:
+    Id: site1
+  TargetSite:
+    Id: site1
+  RecoveryStorageClass: zgp2
+  BackupSettings:
+    IsCompressionEnabled: true	
+    RepositoryInformation:
+      BackTargetType: AmazonS3
+      AwsBackupRepositoryInformation:
+	Region: eu-centeral-1
+	Bucket: mybucket
+	CredentialSecretReference:
+          Site:
+            Id: site1
+          Id:
+	    Name: mysecret
+            NamespaceId:
+              NamespaceName: default
+  SchedulingAndRetentionSettings:
+    PeriodsSettings:
+    - PeriodType: Yearly
+      Method: Full
+      ExpiresAfterValue: 7
+      ExpiresAfterUnit: Years
+    - PeriodType: Monthly
+      Method: Full
+      ExpiresAfterValue: 12
+      ExpiresAfterUnit: Months							
+    - PeriodType: Weekly
+      Method: Full
+      ExpiresAfterValue: 4
+      ExpiresAfterUnit: Weeks
+    - PeriodType: Daily
+      Method: Incremental
+      ExpiresAfterValue: 7
+      ExpiresAfterUnit: Days
 ```
 
 
