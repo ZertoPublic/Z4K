@@ -277,11 +277,11 @@ spec:
 	StorageAccountName: mystorageaccount
 	DirectoryId: c659fda3-cf53-43ad-befe-776ee475dcf5
 	CredentialSecretReference:
-          Site:
+	  Site:
 	    Id: site1
 	  Id:
 	    Name: mysecret
-            NamespaceId:
+	    NamespaceId:
 	      NamespaceName: default
 ```
 
