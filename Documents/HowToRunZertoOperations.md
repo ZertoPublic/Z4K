@@ -335,12 +335,12 @@ spec:
 	Region: eu-centeral-1
 	Bucket: mybucket
 	CredentialSecretReference:
-	  Site:
+          Site:
             Id: site1
-          Id:
+	  Id:
 	    Name: mysecret
             NamespaceId:
-              NamespaceName: default
+	      NamespaceName: default
   SchedulingAndRetentionSettings:
     PeriodsSettings:
     - PeriodType: Yearly
