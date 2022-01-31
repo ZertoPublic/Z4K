@@ -338,7 +338,7 @@ spec:
 	  Site:
             Id: site1
           Id:
-            Name: mysecret
+	    Name: mysecret
             NamespaceId:
               NamespaceName: default
   SchedulingAndRetentionSettings:
