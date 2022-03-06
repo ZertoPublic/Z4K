@@ -8,7 +8,7 @@ nav:
   - Home: index.md
   - Requirements: MinimumRequirements.md
   - Z4K Deployment Architecture: DeployingZertoForK8S.md
-  - How To Install Zerto: HowToDeployZerto.md
+  - How To Deploy Zerto: HowToDeployZerto.md
   - How To Run Zerto Operations: HowToRunZertoOperations.md
   - Supported Platforms: SupportedPlatforms.md
   - More Resources: MoreResources.md
