@@ -10,7 +10,7 @@ Welcome to Z4K's documentation!
    :maxdepth: 2
    :caption: Contents:
    
-.. mdinclude:: ../../README.md
+.. include:: ../../README.md
 
 
 Indices and tables
