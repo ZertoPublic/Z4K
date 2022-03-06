@@ -1,0 +1,7 @@
+{
+    "rst.preview.pythonPath": "python3",
+    "rst.trace": "verbose",
+    "esbonio.server.enabled": true,
+    "restructuredtext.confPath": "${workspaceFolder}/docs/source",
+    "esbonio.sphinx.confDir": "/home/yurik/source/repos/Z4K/docs/source"
+}
