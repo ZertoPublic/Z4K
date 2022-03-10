@@ -1,18 +1,16 @@
 site_name: Z4K
-
 theme:
-    name: readthedocs
-    highlightjs: true
-
+  name: readthedocs
+  highlightjs: true
 nav:
-  - Home: index.md
-  - Requirements: MinimumRequirements.md
-  - Z4K Deployment Architecture: DeployingZertoForK8S.md
-  - How To Deploy Zerto: HowToDeployZerto.md
-  - How To Run Zerto Operations: HowToRunZertoOperations.md
-  - Supported Platforms: SupportedPlatforms.md
-  - More Resources: MoreResources.md
-  - Changes:
-    - '1.0': ./changes/version1.x.x.md
-    - 2.0: ./changes/version2.x.x.md
-  
+- Home: index.md
+- Requirements: MinimumRequirements.md
+- Z4K Deployment Architecture: DeployingZertoForK8S.md
+- How To Deploy Zerto: HowToDeployZerto.md
+- How To Run Zerto Operations: HowToRunZertoOperations.md
+- Supported Platforms: SupportedPlatforms.md
+- More Resources: MoreResources.md
+- Changes:
+  - '1.x.x': ./changes/version1.x.x.md
+  - '2.x.x': ./changes/version2.x.x.md
+  - '3.x.x': ./changes/version3.x.x.md
