@@ -12,4 +12,7 @@ nav:
   - How To Run Zerto Operations: HowToRunZertoOperations.md
   - Supported Platforms: SupportedPlatforms.md
   - More Resources: MoreResources.md
+  - Changes:
+    - '1.0': ./changes/version1.x.x.md
+    - 2.0: ./changes/version2.x.x.md
   
