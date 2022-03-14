@@ -8,4 +8,4 @@ python:
   version: "3.7"
   install:
     - method: pip
-    path: mkdocs-render-swagger-plugin
+      path: mkdocs-render-swagger-plugin
