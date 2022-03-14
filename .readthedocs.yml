@@ -7,5 +7,4 @@ mkdocs:
 python:
   version: "3.7"
   install:
-    - method: pip
-      path: mkdocs-render-swagger-plugin
+    - requirements: docs/requirements.txt
