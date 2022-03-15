@@ -5,7 +5,6 @@ mkdocs:
   fail_on_warning: false
 
 python:
-  setup_py_install: true
   version: "3.8"
   install:
     - requirements: docs/requirements.txt
