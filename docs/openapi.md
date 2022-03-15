@@ -1,1 +1,1 @@
-!!swagger api.json!!
+!!zswagger api.json!!

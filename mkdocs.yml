@@ -1,7 +1,7 @@
 site_name: Z4K
 
 theme:
-    name: cyborg
+    name: flatly
     highlightjs: true
 
 nav:
@@ -18,5 +18,4 @@ nav:
     - 2.0: ./changes/version2.x.x.md
 
 plugins:
-  - render_swagger
-  
+  - zerto_swagger
