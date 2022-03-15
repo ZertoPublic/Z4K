@@ -1,7 +1,7 @@
 site_name: Z4K
 
 theme:
-    name: readthedocs
+    name: cyborg
     highlightjs: true
 
 nav:

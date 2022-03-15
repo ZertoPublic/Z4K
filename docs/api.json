@@ -3,12 +3,7 @@
   "info": {
     "title": "Z4K REST API",
     "version": "1"
-  },
-  "servers": [
-    {
-      "url": "https://a39f691960c6c49979cb070d4ce7b0db-322177308.eu-central-1.elb.amazonaws.com/zkm"
-    }
-  ],
+  },  
   "paths": {
     "/api/v1/alerts": {
       "get": {
