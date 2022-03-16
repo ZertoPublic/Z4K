@@ -1176,7 +1176,14 @@
     }
   },
   "components": {
-    
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Please insert JWT with Bearer into field",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
   },
   "security": [
     {

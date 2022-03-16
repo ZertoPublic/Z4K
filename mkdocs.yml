@@ -1,8 +1,8 @@
 site_name: Z4K
 
 theme:
-    name: flatly
-    highlightjs: true
+    name: readthedocs
+    highlightjs: false
 
 nav:
   - Home: index.md
