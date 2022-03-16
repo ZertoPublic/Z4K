@@ -18,13 +18,6 @@ TEMPLATE = string.Template("""
 <div id="swagger-ui"></div>
 <script src="$swagger_lib_js" charset="UTF-8"></script>
 <script>
-  const DisableAuthorizePlugin = function() {
-    return {
-      wrapComponents: {
-        AuthorizeBtn: () => () => null
-      }
-    }
-  }
   const DisableTryItOutPlugin = function() {
     return {
       statePlugins: {
@@ -40,8 +33,7 @@ TEMPLATE = string.Template("""
     url: '$path',
     dom_id: '#swagger-ui',
     plugins: [
-      DisableTryItOutPlugin,
-      DisableAuthorizePlugin
+      DisableTryItOutPlugin      
     ]
   })
 </script>
@@ -63,8 +55,8 @@ def swagger_lib(config) -> dict:
     Provides the actual swagger library used
     """
     lib_swagger = {
-        'css': "https://unpkg.com/swagger-ui-dist@3/swagger-ui.css",
-        'js': "https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"
+        'css': "https://unpkg.com/swagger-ui-dist@4.6.2/swagger-ui.css",
+        'js': "https://unpkg.com/swagger-ui-dist@4.6.2/swagger-ui-bundle.js"
     }
 
     extra_javascript = config.get('extra_javascript', [])
