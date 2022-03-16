@@ -15,28 +15,35 @@ USAGE_MSG = ("Usage: '!!zswagger <filename>!!' or '!!zswagger-http <url>!!'. "
 TEMPLATE = string.Template("""
 
 <link type="text/css" rel="stylesheet" href="$swagger_lib_css">
-<div id="swagger-ui">
-</div>
+<div id="swagger-ui"></div>
 <script src="$swagger_lib_js" charset="UTF-8"></script>
 <script>
-    const DisableTryItOutPlugin = function() {
-       return {
-       statePlugins: {
-         spec: {
-           wrapSelectors: {
-             allowTryItOutFor: () => () => false
-           }
-         }
-       }
-     }
+  const DisableAuthorizePlugin = function() {
+    return {
+      wrapComponents: {
+        AuthorizeBtn: () => () => null
+      }
     }
-    const ui = SwaggerUIBundle({
+  }
+  const DisableTryItOutPlugin = function() {
+    return {
+      statePlugins: {
+        spec: {
+          wrapSelectors: {
+            allowTryItOutFor: () => () => false
+          }
+        }
+      }
+    }
+  }
+  const ui = SwaggerUIBundle({
     url: '$path',
     dom_id: '#swagger-ui',
     plugins: [
-      DisableTryItOutPlugin
+      DisableTryItOutPlugin,
+      DisableAuthorizePlugin
     ]
-    })
+  })
 </script>
 
 """)

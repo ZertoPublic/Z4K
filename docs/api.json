@@ -3,7 +3,12 @@
   "info": {
     "title": "Z4K REST API",
     "version": "1"
-  },  
+  },
+  "servers": [
+    {
+      "url": "https://<z4k-ingress-nginx-controller-EXTERNAL-IP>/zkm"
+    }
+  ],
   "paths": {
     "/api/v1/alerts": {
       "get": {
@@ -1171,14 +1176,7 @@
     }
   },
   "components": {
-    "securitySchemes": {
-      "Bearer": {
-        "type": "apiKey",
-        "description": "Please insert JWT with Bearer into field",
-        "name": "Authorization",
-        "in": "header"
-      }
-    }
+    
   },
   "security": [
     {
