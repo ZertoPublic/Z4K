@@ -1,1 +1,0 @@
-zerto_swagger

@@ -23,6 +23,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+plugins/swagger/mkdocs_zerto_swagger_plugin.egg-info/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template

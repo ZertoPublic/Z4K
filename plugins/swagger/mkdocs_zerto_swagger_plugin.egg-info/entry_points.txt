@@ -1,3 +1,0 @@
-[mkdocs.plugins]
-zerto_swagger = zerto_swagger:ZertoSwaggerPlugin
-
