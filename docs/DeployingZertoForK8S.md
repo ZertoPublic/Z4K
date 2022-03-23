@@ -25,6 +25,6 @@ In this deployment Zerto recommends installing the Zerto Kubernetes Manager on t
 
 ## Zerto for Kubernetes on Multiple Kubernetes Cluster Deployments - with a Separate Zerto Kubernetes Manager Cluster
 
-In this deployment Zerto recommends installing the Zerto Kubernetes manager on the recovery cluster.
+In this deployment Zerto recommends installing the Zerto Kubernetes Manager on the recovery cluster.
 
 ![MultipleCLusterSeparateManager](Images/Z4K_Multiple_Kubernetes_Cluster_Deployments_Separate_ZKM.png?raw=true)
