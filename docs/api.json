@@ -1,0 +1,1342 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Z4K REST API",
+    "version": "1"
+  },
+  "servers": [
+    {
+      "url": "https://<z4k-ingress-nginx-controller-EXTERNAL-IP>/zkm"
+    }
+  ],
+  "paths": {
+    "/api/v1/alerts": {
+      "get": {
+        "tags": [
+          "Alerts"
+        ],
+        "summary": "Get current Z4K alerts",
+        "description": "Get a list of current Z4K alerts, e.g. Site Disconnected, Site Synchronization Problem, Vra Disconnected, Missing External Address.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/backup-sets": {
+      "get": {
+        "tags": [
+          "BackupSets"
+        ],
+        "summary": "Get BackupSets info for specific VPG.",
+        "description": "Get BackupSets info for specific VPG.",
+        "parameters": [
+          {
+            "name": "vpg",
+            "in": "query",
+            "description": "VPG ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/backup-sets/{id}": {
+      "delete": {
+        "tags": [
+          "BackupSets"
+        ],
+        "summary": "Unregister BackupSets by ID.",
+        "description": "Unregister BackupSets by ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "BackupSet ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/backup-sets/refresh": {
+      "post": {
+        "tags": [
+          "BackupSets"
+        ],
+        "summary": "Refresh BackupSets.",
+        "description": "Unregister BackupSets by ID.",
+        "parameters": [
+          {
+            "name": "sync",
+            "in": "query",
+            "description": "wait or not for task to complete",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "enqueue",
+            "in": "query",
+            "description": "When enqueue = False will check if VPG is busy",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/events": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Get events",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/job": {
+      "get": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Get jobs",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/operations/starttest/{id}/{cp}": {
+      "post": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Start FO Test",
+        "description": "Start FO Test",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "VPG id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cp",
+            "in": "path",
+            "description": "Checkpoint id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sync",
+            "in": "query",
+            "description": "sync - true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "enqueue",
+            "in": "query",
+            "description": "waitIfVpgBusy true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/operations/stoptest/{id}": {
+      "post": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Stop FO Test",
+        "description": "Stop FO Test",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "VPG id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sync",
+            "in": "query",
+            "description": "sync - true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "enqueue",
+            "in": "query",
+            "description": "waitIfVpgBusy true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/operations/checkpoints/{id}": {
+      "get": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Get available checkpoint in time range",
+        "description": "MinAge and MaxAge should be provided as query params",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "VPG id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "maxAge",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "minAge",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/operations/checkpoints/{id}/{tag}": {
+      "post": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Create tagget checkpoint",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "VPG id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tag",
+            "in": "path",
+            "description": "Tag",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/operations/restore/test/{id}/{cp}": {
+      "post": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Production Restore Test",
+        "description": "Start Production Restore Test",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "VPG id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cp",
+            "in": "path",
+            "description": "Checkpoint id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sync",
+            "in": "query",
+            "description": "sync - true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "enqueue",
+            "in": "query",
+            "description": "waitIfVpgBusy true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/operations/restore/rollback/{id}": {
+      "post": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Production Restore rollback",
+        "description": "Production Restore rollback",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "VPG id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sync",
+            "in": "query",
+            "description": "sync - true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "enqueue",
+            "in": "query",
+            "description": "waitIfVpgBusy true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/operations/restore/commit/{id}": {
+      "post": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Production Restore Commit",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "VPG id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sync",
+            "in": "query",
+            "description": "sync - true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "enqueue",
+            "in": "query",
+            "description": "waitIfVpgBusy true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/operations/startlive/{id}/{cp}": {
+      "post": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Start Failover Live",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "VPG id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cp",
+            "in": "path",
+            "description": "Checkpoint id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sync",
+            "in": "query",
+            "description": "sync - true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "enqueue",
+            "in": "query",
+            "description": "waitIfVpgBusy true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/operations/livecommit/{id}": {
+      "post": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Failover Live commit",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "VPG id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sync",
+            "in": "query",
+            "description": "sync - true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "enqueue",
+            "in": "query",
+            "description": "waitIfVpgBusy true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/operations/liverollback/{id}": {
+      "post": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Failover Live rollback",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "VPG id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sync",
+            "in": "query",
+            "description": "sync - true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "enqueue",
+            "in": "query",
+            "description": "waitIfVpgBusy true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/operations/move/{id}": {
+      "post": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Start Move operation",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "VPG id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sync",
+            "in": "query",
+            "description": "sync - true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "enqueue",
+            "in": "query",
+            "description": "waitIfVpgBusy true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/operations/movecommit/{id}": {
+      "post": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Commit Move",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "VPG id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sync",
+            "in": "query",
+            "description": "sync - true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "enqueue",
+            "in": "query",
+            "description": "waitIfVpgBusy true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/operations/moverollback/{id}": {
+      "post": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Rollback move operation",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "VPG id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sync",
+            "in": "query",
+            "description": "sync - true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "enqueue",
+            "in": "query",
+            "description": "waitIfVpgBusy true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/operations/ltrbackup/{id}/{cp}": {
+      "post": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "LTR backup",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "VPG id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cp",
+            "in": "path",
+            "description": "Checkpoint id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sync",
+            "in": "query",
+            "description": "sync - true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "enqueue",
+            "in": "query",
+            "description": "waitIfVpgBusy true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/operations/ltrrestore/{bsid}": {
+      "post": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "LTR Restore",
+        "parameters": [
+          {
+            "name": "bsid",
+            "in": "path",
+            "description": "BackupSet Id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "site",
+            "in": "query",
+            "description": "Site Id",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sc",
+            "in": "query",
+            "description": "Storage class name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ns",
+            "in": "query",
+            "description": "Namespace",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sync",
+            "in": "query",
+            "description": "sync - true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "enqueue",
+            "in": "query",
+            "description": "waitIfVpgBusy true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/saas/version": {
+      "get": {
+        "tags": [
+          "Saas"
+        ],
+        "summary": "Get Z4K installed Version.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/logcollector/collect": {
+      "get": {
+        "tags": [
+          "SiteLogCollection"
+        ],
+        "summary": "Start log collection",
+        "description": "Start log collection task",
+        "parameters": [
+          {
+            "name": "caseNum",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/logcollector/result/{taskid}": {
+      "get": {
+        "tags": [
+          "SiteLogCollection"
+        ],
+        "summary": "Get log collection result by task id",
+        "description": "Get log collection full report by task id",
+        "parameters": [
+          {
+            "name": "taskid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/logcollector/status/{taskid}": {
+      "get": {
+        "tags": [
+          "SiteLogCollection"
+        ],
+        "summary": "Get log collection status by task id",
+        "description": "Get log collection status by task id",
+        "parameters": [
+          {
+            "name": "taskid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/logcollector/id": {
+      "get": {
+        "tags": [
+          "SiteLogCollection"
+        ],
+        "summary": "Get ZKM unique id",
+        "description": "Get ZKM unique id",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/site": {
+      "get": {
+        "tags": [
+          "Sites"
+        ],
+        "summary": "Get all sites info",
+        "description": "Get all sites info",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/site/{id}": {
+      "delete": {
+        "tags": [
+          "Sites"
+        ],
+        "summary": "Delete site by ID",
+        "description": "Get sites info",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Site id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sync",
+            "in": "query",
+            "description": "sync - true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "enqueue",
+            "in": "query",
+            "description": "waitIfVpgBusy true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/task": {
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "summary": "Get all tasks",
+        "description": "Get all tasks",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/tweaks": {
+      "get": {
+        "tags": [
+          "Tweaks"
+        ],
+        "summary": "Get tweaks",
+        "description": "Get tweaks .",
+        "parameters": [
+          {
+            "name": "all",
+            "in": "query",
+            "description": "If is true returns all tweaks otherwise only overridden",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tweaks"
+        ],
+        "summary": "Set tweaks",
+        "description": "Set tweaks . The list of tweaks should be defined in the body of the request",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/versions": {
+      "get": {
+        "tags": [
+          "Versions"
+        ],
+        "summary": "Get API Version",
+        "description": "Get API Version",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/volumes": {
+      "get": {
+        "tags": [
+          "Volumes"
+        ],
+        "summary": "Get volumes info",
+        "description": "Get volumes info",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/vpg": {
+      "get": {
+        "tags": [
+          "Vpg"
+        ],
+        "summary": "Get all VPGs",
+        "description": "Get sites info",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Vpg"
+        ],
+        "summary": "Create VPG",
+        "description": "Create VPG\r\n{\r\n\"Name\":\"website-vpg1\",\r\n\"SourceSite\":{\r\n\"Id\":\"node-1\"\r\n},\r\n\"TargetSite\":{\r\n\"Id\":\"node-1\"\r\n},\r\n\"RecoveryStorageClass\":\"gp2\"\r\n}",
+        "parameters": [
+          {
+            "name": "sync",
+            "in": "query",
+            "description": "sync - true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "enqueue",
+            "in": "query",
+            "description": "waitIfVpgBusy true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/vpg/{id}": {
+      "get": {
+        "tags": [
+          "Vpg"
+        ],
+        "summary": "Describe VPG",
+        "description": "Describe VPG by vpg id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "VPG id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Vpg"
+        ],
+        "summary": "Update VPG",
+        "description": "Update VPG by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "VPG ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sync",
+            "in": "query",
+            "description": "sync - true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "enqueue",
+            "in": "query",
+            "description": "waitIfVpgBusy true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Vpg"
+        ],
+        "summary": "Delete VPG",
+        "description": "Delete VPG by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "VPG ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sync",
+            "in": "query",
+            "description": "sync - true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "enqueue",
+            "in": "query",
+            "description": "waitIfVpgBusy true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "force",
+            "in": "query",
+            "description": "Force delete",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/vpg/raw/{id}": {
+      "get": {
+        "tags": [
+          "Vpg"
+        ],
+        "summary": "Get raw VPG info",
+        "description": "Get DB raw VPG info by vpg id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/vpg/settings/{id}": {
+      "get": {
+        "tags": [
+          "Vpg"
+        ],
+        "summary": "Get VPG settings",
+        "description": "Get VPG settings by vpg id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/vpg/refresh/{id}": {
+      "post": {
+        "tags": [
+          "Vpg"
+        ],
+        "summary": "Refresh VPG",
+        "description": "Refresh VPG by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "VPG id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sync",
+            "in": "query",
+            "description": "sync - true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "enqueue",
+            "in": "query",
+            "description": "waitIfVpgBusy true / false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/vra/{id}": {
+      "get": {
+        "tags": [
+          "Vra"
+        ],
+        "summary": "Get VRA's by site ID",
+        "description": "Get VRA's info by site id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Site id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/vra": {
+      "get": {
+        "tags": [
+          "Vra"
+        ],
+        "summary": "Get all VRA's info from all sites",
+        "description": "Get VRA's info from all sites",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Please insert JWT with Bearer into field",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}
