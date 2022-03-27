@@ -15,6 +15,8 @@
         "tags": [
           "Alerts"
         ],
+        "summary": "Get current Z4K alerts",
+        "description": "Get a list of current Z4K alerts, e.g. Site Disconnected, Site Synchronization Problem, Vra Disconnected, Missing External Address.",
         "responses": {
           "200": {
             "description": "Success"
@@ -27,10 +29,13 @@
         "tags": [
           "BackupSets"
         ],
+        "summary": "Get BackupSets info for specific VPG.",
+        "description": "Get BackupSets info for specific VPG.",
         "parameters": [
           {
             "name": "vpg",
             "in": "query",
+            "description": "VPG ID",
             "schema": {
               "type": "string"
             }
@@ -48,10 +53,13 @@
         "tags": [
           "BackupSets"
         ],
+        "summary": "Unregister BackupSets by ID.",
+        "description": "Unregister BackupSets by ID.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "BackupSet ID",
             "required": true,
             "schema": {
               "type": "string"
@@ -70,10 +78,13 @@
         "tags": [
           "BackupSets"
         ],
+        "summary": "Refresh BackupSets.",
+        "description": "Unregister BackupSets by ID.",
         "parameters": [
           {
             "name": "sync",
             "in": "query",
+            "description": "wait or not for task to complete",
             "schema": {
               "type": "boolean"
             }
@@ -81,6 +92,7 @@
           {
             "name": "enqueue",
             "in": "query",
+            "description": "When enqueue = False will check if VPG is busy",
             "schema": {
               "type": "boolean"
             }
@@ -98,6 +110,7 @@
         "tags": [
           "Events"
         ],
+        "summary": "Get events",
         "responses": {
           "200": {
             "description": "Success"
@@ -110,6 +123,7 @@
         "tags": [
           "Jobs"
         ],
+        "summary": "Get jobs",
         "responses": {
           "200": {
             "description": "Success"
@@ -122,10 +136,13 @@
         "tags": [
           "Operations"
         ],
+        "summary": "Start FO Test",
+        "description": "Start FO Test",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "VPG id",
             "required": true,
             "schema": {
               "type": "string"
@@ -134,6 +151,7 @@
           {
             "name": "cp",
             "in": "path",
+            "description": "Checkpoint id",
             "required": true,
             "schema": {
               "type": "string"
@@ -142,6 +160,7 @@
           {
             "name": "sync",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -149,6 +168,7 @@
           {
             "name": "enqueue",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -166,10 +186,13 @@
         "tags": [
           "Operations"
         ],
+        "summary": "Stop FO Test",
+        "description": "Stop FO Test",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "VPG id",
             "required": true,
             "schema": {
               "type": "string"
@@ -178,6 +201,7 @@
           {
             "name": "sync",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -185,6 +209,7 @@
           {
             "name": "enqueue",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -202,10 +227,13 @@
         "tags": [
           "Operations"
         ],
+        "summary": "Get available checkpoint in time range",
+        "description": "MinAge and MaxAge should be provided as query params",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "VPG id",
             "required": true,
             "schema": {
               "type": "string"
@@ -214,6 +242,7 @@
           {
             "name": "maxAge",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "string"
             }
@@ -221,6 +250,7 @@
           {
             "name": "minAge",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "string"
             }
@@ -238,10 +268,12 @@
         "tags": [
           "Operations"
         ],
+        "summary": "Create tagget checkpoint",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "VPG id",
             "required": true,
             "schema": {
               "type": "string"
@@ -250,6 +282,7 @@
           {
             "name": "tag",
             "in": "path",
+            "description": "Tag",
             "required": true,
             "schema": {
               "type": "string"
@@ -268,10 +301,13 @@
         "tags": [
           "Operations"
         ],
+        "summary": "Production Restore Test",
+        "description": "Start Production Restore Test",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "VPG id",
             "required": true,
             "schema": {
               "type": "string"
@@ -280,6 +316,7 @@
           {
             "name": "cp",
             "in": "path",
+            "description": "Checkpoint id",
             "required": true,
             "schema": {
               "type": "string"
@@ -288,6 +325,7 @@
           {
             "name": "sync",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -295,6 +333,7 @@
           {
             "name": "enqueue",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -312,10 +351,13 @@
         "tags": [
           "Operations"
         ],
+        "summary": "Production Restore rollback",
+        "description": "Production Restore rollback",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "VPG id",
             "required": true,
             "schema": {
               "type": "string"
@@ -324,6 +366,7 @@
           {
             "name": "sync",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -331,6 +374,7 @@
           {
             "name": "enqueue",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -348,10 +392,12 @@
         "tags": [
           "Operations"
         ],
+        "summary": "Production Restore Commit",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "VPG id",
             "required": true,
             "schema": {
               "type": "string"
@@ -360,6 +406,7 @@
           {
             "name": "sync",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -367,6 +414,7 @@
           {
             "name": "enqueue",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -384,10 +432,12 @@
         "tags": [
           "Operations"
         ],
+        "summary": "Start Failover Live",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "VPG id",
             "required": true,
             "schema": {
               "type": "string"
@@ -396,6 +446,7 @@
           {
             "name": "cp",
             "in": "path",
+            "description": "Checkpoint id",
             "required": true,
             "schema": {
               "type": "string"
@@ -404,6 +455,7 @@
           {
             "name": "sync",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -411,6 +463,7 @@
           {
             "name": "enqueue",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -428,10 +481,12 @@
         "tags": [
           "Operations"
         ],
+        "summary": "Failover Live commit",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "VPG id",
             "required": true,
             "schema": {
               "type": "string"
@@ -440,6 +495,7 @@
           {
             "name": "sync",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -447,6 +503,7 @@
           {
             "name": "enqueue",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -464,10 +521,12 @@
         "tags": [
           "Operations"
         ],
+        "summary": "Failover Live rollback",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "VPG id",
             "required": true,
             "schema": {
               "type": "string"
@@ -476,6 +535,7 @@
           {
             "name": "sync",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -483,6 +543,7 @@
           {
             "name": "enqueue",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -500,10 +561,12 @@
         "tags": [
           "Operations"
         ],
+        "summary": "Start Move operation",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "VPG id",
             "required": true,
             "schema": {
               "type": "string"
@@ -512,6 +575,7 @@
           {
             "name": "sync",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -519,6 +583,7 @@
           {
             "name": "enqueue",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -536,10 +601,12 @@
         "tags": [
           "Operations"
         ],
+        "summary": "Commit Move",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "VPG id",
             "required": true,
             "schema": {
               "type": "string"
@@ -548,6 +615,7 @@
           {
             "name": "sync",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -555,6 +623,7 @@
           {
             "name": "enqueue",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -572,10 +641,12 @@
         "tags": [
           "Operations"
         ],
+        "summary": "Rollback move operation",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "VPG id",
             "required": true,
             "schema": {
               "type": "string"
@@ -584,6 +655,7 @@
           {
             "name": "sync",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -591,6 +663,7 @@
           {
             "name": "enqueue",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -608,10 +681,12 @@
         "tags": [
           "Operations"
         ],
+        "summary": "LTR backup",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "VPG id",
             "required": true,
             "schema": {
               "type": "string"
@@ -620,6 +695,7 @@
           {
             "name": "cp",
             "in": "path",
+            "description": "Checkpoint id",
             "required": true,
             "schema": {
               "type": "string"
@@ -628,6 +704,7 @@
           {
             "name": "sync",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -635,6 +712,7 @@
           {
             "name": "enqueue",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -652,10 +730,12 @@
         "tags": [
           "Operations"
         ],
+        "summary": "LTR Restore",
         "parameters": [
           {
             "name": "bsid",
             "in": "path",
+            "description": "BackupSet Id",
             "required": true,
             "schema": {
               "type": "string"
@@ -664,6 +744,7 @@
           {
             "name": "site",
             "in": "query",
+            "description": "Site Id",
             "schema": {
               "type": "string"
             }
@@ -671,6 +752,7 @@
           {
             "name": "sc",
             "in": "query",
+            "description": "Storage class name",
             "schema": {
               "type": "string"
             }
@@ -678,6 +760,7 @@
           {
             "name": "ns",
             "in": "query",
+            "description": "Namespace",
             "schema": {
               "type": "string"
             }
@@ -685,6 +768,7 @@
           {
             "name": "sync",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -692,6 +776,7 @@
           {
             "name": "enqueue",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -709,6 +794,7 @@
         "tags": [
           "Saas"
         ],
+        "summary": "Get Z4K installed Version.",
         "responses": {
           "200": {
             "description": "Success"
@@ -798,6 +884,8 @@
         "tags": [
           "Sites"
         ],
+        "summary": "Get sites info",
+        "description": "Get sites info",
         "responses": {
           "200": {
             "description": "Success"
@@ -810,10 +898,13 @@
         "tags": [
           "Sites"
         ],
+        "summary": "Delete site by ID",
+        "description": "Get sites info",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Site ID",
             "required": true,
             "schema": {
               "type": "string"
@@ -822,6 +913,7 @@
           {
             "name": "sync",
             "in": "query",
+            "description": "Wait for",
             "schema": {
               "type": "boolean"
             }
@@ -829,6 +921,7 @@
           {
             "name": "enqueue",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "boolean"
             }
@@ -863,6 +956,8 @@
         "tags": [
           "Tasks"
         ],
+        "summary": "Get all tasks",
+        "description": "Get all tasks",
         "responses": {
           "200": {
             "description": "Success"
@@ -875,10 +970,13 @@
         "tags": [
           "Tweaks"
         ],
+        "summary": "Get tweaks",
+        "description": "Get tweaks .",
         "parameters": [
           {
             "name": "all",
             "in": "query",
+            "description": "If is true returns all tweaks otherwise only overridden",
             "schema": {
               "type": "string"
             }
@@ -894,6 +992,8 @@
         "tags": [
           "Tweaks"
         ],
+        "summary": "Set tweaks",
+        "description": "Set tweaks . The list of tweaks should be defined in the body of the request",
         "responses": {
           "200": {
             "description": "Success"
@@ -906,6 +1006,8 @@
         "tags": [
           "Versions"
         ],
+        "summary": "Get API Version",
+        "description": "Get API Version",
         "responses": {
           "200": {
             "description": "Success"
@@ -918,6 +1020,8 @@
         "tags": [
           "Volumes"
         ],
+        "summary": "Get volumes info",
+        "description": "Get volumes info",
         "responses": {
           "200": {
             "description": "Success"
@@ -1145,10 +1249,13 @@
         "tags": [
           "Vra"
         ],
+        "summary": "Get VRA's by site ID",
+        "description": "Get sites info",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Site id",
             "required": true,
             "schema": {
               "type": "string"
@@ -1167,6 +1274,8 @@
         "tags": [
           "Vra"
         ],
+        "summary": "Get all VRA's from all sites",
+        "description": "Get sites info",
         "responses": {
           "200": {
             "description": "Success"

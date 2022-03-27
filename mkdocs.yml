@@ -13,9 +13,8 @@ nav:
   - Supported Platforms: SupportedPlatforms.md
   - More Resources: MoreResources.md
   - Quick Reference: openapi.md
-  - Changes:
-    - '1.0': ./changes/version1.x.x.md
-    - 2.0: ./changes/version2.x.x.md
+  - ChangeLog:
+    - No changes 
 
 plugins:
   - zerto_swagger
