@@ -1,6 +1,6 @@
 # Deploying Zerto for Kubernetes
 
-Zerto helps customers accelerate IT transformation through a single, scalable platform for cloud data management and protection. Built for enterprise scale, Zerto’s simple, software-only platform uses continuous data protection to converge disaster recovery, backup, and data mobility and eliminate the risks and complexity of modernization and cloud adoption. Zerto enables an always-on customer experience by simplifying the protection, recovery, and mobility of applications and data across private, public, and hybrid clouds. Zerto is trusted by over 9,500 customers globally and is powering offerings for Microsoft Azure, IBM Cloud, AWS, Google Cloud, Oracle Cloud, and more than 450 managed service providers.
+Zerto helps customers accelerate IT transformation through a single, scalable platform for cloud data management and protection. 
 Zerto for Kubernetes integrates continuous backup and disaster recovery into the application deployment lifecycle for containerized applications running on-premises or in the cloud as part of its cloud data management and protection platform. Easily protect and recover any Kubernetes application and its persistent data for accelerated delivery and deployment.
 In a Kubernetes environment, Zerto for Kubernetes is installed and designed to protect next generation applications.
 
