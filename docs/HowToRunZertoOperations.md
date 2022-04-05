@@ -433,3 +433,53 @@ kubectl exec
 ```
 /scripts/collect_logs_ng.bash
 ```
+
+## Protecting Ingress Controller Resources
+
+There are 2 options to configure Ingress Controller Resources with a deployment for protection:
+1. Upon new deployment creation (YAML example below):
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    vpg: website-vpg1
+spec:
+  ingressClassName: nginx-example
+  rules:
+  - http:
+    paths:
+    - path: /testpath
+      pathType: Prefix
+      backend:
+        service:
+        name: test
+        port:
+          number: 80
+```
+2. Protecting using an existing deployment (CLI command):
+```
+$ kubectl get pod ingress-nginx-2-controller-6dcb748f9-7z6bz -n ingress-nginx-2 -o json | jq .metadata.annotations
+{
+  "kubernetes.io/psp": "eks.privileged"
+}
+$ kubectl annotate pod <ingress_pod_id> -n <namespace> vpg=<vpg_id>
+pod/ingress-nginx-2-controller-6dcb748f9-7z6bz annotated
+```	
+In order to see Ingress controller annotation run the following command:
+```	
+$ kubectl get pod <ingress_pod_id> -n <namespace> -o json | jq .metadata.annotations
+{
+  "kubernetes.io/psp": "eks.privileged",
+  "vpg": "website-vpg1"
+}
+```	
+Example output for checking VPG configuration with Ingress controller protected:
+```
+$ kubectl get vpg -n <namespace>
+  NAME         STATE      SYNC   SOURCE TARGET STATEFULSETS DEPLOYMENTS SERVICES CONFIGMAPS SECRETS INGRESSES NUMCP RPO       JOURNALHISTORY JOURNALSIZEMB
+  website-vpg1 Protecting        node-1 node-1 0            1           0        0          0       1         10    6 seconds 49 seconds     2
+```
+	
