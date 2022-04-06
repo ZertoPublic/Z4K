@@ -5,6 +5,7 @@ After deploying Zerto for Kubernetes, create a VPG, tag checkpoints then test fa
 1.	[Creating a VPG](#creating-a-vpg)
 2.	[Tagging a Checkpoint](#tagging-a-checkpoint)
 3.	[Testing Failover](#testing-failover)
+4.	[Restoring a VPG](#Restoring-a-Single-VPG)
 
 Then, when you need to, perform one of the following:
 
@@ -492,4 +493,4 @@ Note: Nodes that are tainted with a taint that does not allow VRA installation c
 Taints and tolerations are not being replicated.
 When Taints and Tolerations are in use they need to be predefined in pods and nodes for VPG protection, before recovery oeprations take place.
 
-For more info on Taints and Tolerations use the following link: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
+For more info on Taints and Tolerations use the following link: [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
