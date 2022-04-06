@@ -22,6 +22,9 @@ Log collection occurs automatically, and the logs are uploaded to Amazon S3. You
 Zerto for Kubernetes supports replicating Ingress Controller Resources so networking configuration can be replicated and easily deployed on the recovery site.
 -	[Protecting Ingress Controller Resources](Protecting-Ingress-Controller-Resources)
 
+Taints and Tolerations are supported by Zerto, for more info:
+-	[Taints and Tolerations](#Taints-and-Tolerations)
+
 ## Creating a VPG
 
 To create a VPG:
