@@ -6,7 +6,7 @@ After deploying Zerto for Kubernetes, create a VPG, tag checkpoints then test fa
 2.	[Tagging a Checkpoint](#tagging-a-checkpoint)
 3.	[Testing Failover](#testing-failover)
 4.	[Restoring a VPG](#Restoring-a-Single-VPG)
-5.	[Performing a failover](#Long-term Retention (LTR) in Kubernetes Environments)
+5.	[Performing a failover](#Long-term-Retention-(LTR)-in-Kubernetes-Environments)
 
 Then, when you need to, perform one of the following:
 
