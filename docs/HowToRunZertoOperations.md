@@ -483,3 +483,13 @@ $ kubectl get vpg -n <namespace>
   website-vpg1 Protecting        node-1 node-1 0            1           0        0          0       1         10    6 seconds 49 seconds     2
 ```
 	
+## Taints and Tolerations
+	
+Z4K supports taints and tolerations configuration for nodes and pods.
+
+Note: Nodes that are tainted with a taint that does not allow VRA installation cannot have it's deployments protected.
+	
+Taints and tolerations are not being replicated.
+When Taints and Tolerations are in use they need to be predefined in pods and nodes for VPG protection, before recovery oeprations take place.
+
+For more info on Taints and Tolerations use the following link: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
