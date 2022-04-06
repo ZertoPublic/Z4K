@@ -5,8 +5,6 @@ After deploying Zerto for Kubernetes, create a VPG, tag checkpoints then test fa
 1.	[Creating a VPG](#creating-a-vpg)
 2.	[Tagging a Checkpoint](#tagging-a-checkpoint)
 3.	[Testing Failover](#testing-failover)
-4.	[Restoring a VPG](#Restoring-a-Single-VPG)
-5.	[Performing a failover](#Long-term-Retention-(LTR)-in-Kubernetes-Environments)
 
 Then, when you need to, perform one of the following:
 
@@ -20,6 +18,9 @@ Zerto for Kubernetes supports backing up Kubernetes workloads and their data to 
 Log collection occurs automatically, and the logs are uploaded to Amazon S3. You can also collect logs ad hoc.
 
 - [Log Collection](#log-collection)
+
+Zerto for Kubernetes supports replicating Ingress Controller Resources so networking configuration can be replicated and easily deployed on the recovery site.
+-	[Protecting Ingress Controller Resources](Protecting-Ingress-Controller-Resources)
 
 ## Creating a VPG
 
