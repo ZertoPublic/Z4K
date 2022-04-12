@@ -8,7 +8,7 @@
 
 [Next-Gen Protection For Next-Gen Application(Video)](https://content.zerto.com/ws-kubernetes/next-gen-protection-for-next-gen-applications_wb_op_vid)
 
-## Techincal Documents
+## Technical Documents
 
 [State Of Data Protection For Kubernetes - Whitepaper](https://content.zerto.com/ws-kubernetes/state_of_data_protection-for-kubernetes_wp_gt_pdf)
 
