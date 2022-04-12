@@ -469,17 +469,17 @@ kubectl-zrt collect-logs <case/bug number>
 
 *-OR-*
 
-1.	Connect to the pod using the command: 
+1.  Connect to the pod using the command:
 
-```
-kubectl exec
-```
-  
-2.	Run one of the following scripts: 
+    ```
+    kubectl exec
+    ```
 
-```
-/scripts/collect_logs_lt.bash
-```
+2.  Run one of the following scripts:
+
+    ```
+    /scripts/collect_logs_lt.bash
+    ```
 
 *-OR-*
 
