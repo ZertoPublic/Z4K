@@ -18,6 +18,8 @@ Then, when you need to, perform one of the following:
 	>	Zerto for Kubernetes supports replicating Ingress Controller Resources so networking configuration can be replicated and easily deployed on the recovery site.
 -	[Taints and Tolerations](#taints-and-tolerations)
 	>	Z4K supports taints and tolerations configuration for nodes and pods.
+-	[Tweaks](#tweaks)
+	>	How to view and configure tweaks and values.
 
 
 ## Creating a VPG
@@ -499,3 +501,31 @@ Z4K supports taints and tolerations configuration for nodes and pods.
 -	Taints and tolerations are not replicated.
 -	When Taints and Tolerations are in use they need to be predefined in pods and nodes for VPG protection, before recovery oeprations take place.
 -	For more info on Taints and Tolerations see [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
+
+## Tweaks
+
+Z4K allows users to view and customize tweaks for Z4K components using the following commands:
+
+To view existing tweaks and values:
+```
+$ kubectl zrt get-potential-tweaks
+NAME                                                  VALUE               DEFAULT             DESCRIPTION
+SyncMonitorIntervalInSeconds                          300                 300
+EnableZertoAnalyticsTransmitter                       True                True                Enable Zerto Analytics Transmitter
+DisableUndoLog                                        False               False
+ScratchSizeInGb                                       2                   2
+```
+To set a new value for an existing tweak:
+```
+$ kubectl zrt set-tweak ScratchSizeInGb 4
+ztweak.z4k.zerto.com/ScratchSizeInGb created
+```
+	
+After the change in value you can review the tweaks value to confirm the change:
+```
+$ kubectl zrt get-potential-tweaks
+NAME                                                  VALUE               DEFAULT             DESCRIPTION
+ScratchSizeInGb                                       4                   2
+```
+
+
