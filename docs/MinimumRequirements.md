@@ -4,7 +4,7 @@
 - All Zerto for Kubernetes components communication occurs using HTTPS, over port 443.
 
 ## Prerequisites
-- Helm Package Manager
+- Helm Package Manager, minimum version 3.
 
 ## Storage Requirements
 -	Zerto for Kubernetes containerized applications also consume storage:
