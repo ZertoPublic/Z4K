@@ -395,9 +395,10 @@ Where:
 | storage-class | Storage class, with which persistent volumes for the restored data is created. |
 | namespace | namespace in which you want the restored Kubernetes entities to be created. |
 
-These parameters give you flexibility in restoring to the original site, or to a different site or namespace.
+These parameters give you flexibility in restoring a VPG to the original site, or to a different site or namespace.
+You can also restore from a repository that has VPGs backupsets from a different site and restore them to a new site using the parameter backupset-id.
 	
-A restore task is triggered. When the restore task completes successfully, Kubernetes entities with the prefix "res-" are created in the specified site and namespace.
+When the restore task completes successfully, Kubernetes entities with the prefix "res-" are created in the specified site and namespace.
 
 ## Log Collection
 
