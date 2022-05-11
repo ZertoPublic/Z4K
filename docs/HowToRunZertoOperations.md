@@ -102,7 +102,23 @@ spec:
 	  persistentVolumeClaim:
 	    claimName: my-vol1-debian-5to6
 ```
+# One 2 Many
+- Z4K has ability to protect the same entity a multiple time. 
+  This feature is to serve two main goals:
+    1.	To allow to have HA for protected VPGs.
+    2.	Allow CDP (Continues Data Protection) during migration by having a local and a remote copy.
 
+    To protected the same entity several times - add the all VPG names in the annotation field with ';' delimiter sign:
+```
+kind: Deployment
+metadata:
+  name: debian
+  labels:
+    app: debian
+  annotations:
+    vpg: webApp1Self; webApp1Site2; webApp1Site3 /<VPG names as configured in VPG yaml files>
+    * * *
+```   
 
 -	Create the VPG by running the command:
 
