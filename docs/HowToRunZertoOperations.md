@@ -1,13 +1,11 @@
 # How To Run Zerto Operations
 
-After deploying Zerto for Kubernetes, create a VPG, tag checkpoints then test failover:
+After deploying Zerto for Kubernetes, create a VPG, configure one-to-many, tag checkpoints, and then test failover:
 
 1.	[Create a VPG](#creating-a-vpg)
-    
-    a.  [One2Many](#one-2-many)
-    
-2.	[Tag a Checkpoint](#tagging-a-checkpoint)
-3.	[Test Failover](#testing-failover)
+2.	[Configure One-to-Many](#configuring-one-to-many)
+3.	[Tag a Checkpoint](#tagging-a-checkpoint)
+4.	[Test Failover](#testing-failover)
 
 Then, when you need to, perform one of the following:
 
@@ -28,7 +26,7 @@ Then, when you need to, perform one of the following:
 ## Creating a VPG
 
 
--	Create a .yaml file to represent a VPG.
+1. Create a .yaml file to represent a VPG.
 
 
 > In the following example the VPG webApp1:
@@ -64,7 +62,7 @@ spec:
 ```
 
 
--	Annotate Kubernetes entities to include them in the VPG.
+2.	Annotate Kubernetes entities to include them in the VPG.
 
 >>-	A VPG can contain a selection of entities like stateful sets, deployments, services, secrets and configmaps.
 
@@ -105,13 +103,19 @@ spec:
 	  persistentVolumeClaim:
 	    claimName: my-vol1-debian-5to6
 ```
-# One 2 Many
-- Z4K has ability to protect the same entity a multiple time. 
-  This feature is to serve two main goals:
-    1.	To allow to have HA for protected VPGs.
-    2.	Allow CDP (Continues Data Protection) during migration by having a local and a remote copy.
 
-    To protected the same entity several times - add the all VPG names in the annotation field with ';' delimiter sign:
+## Configuring One-to-Many
+
+Z4K can protect the same entity multiple times. 
+
+This feature serves two main goals:
+1.	Enables high availability (HA) for protected VPGs.
+2.	Enables Continuous Data Protection (CDP) during migration with a local and a remote copy.
+
+To protected the same entity several times:
+
+- Add all of the VPG names in the annotation field with a ';' delimiter sign:
+
 ```
 kind: Deployment
 metadata:
@@ -123,7 +127,7 @@ metadata:
     * * *
 ```   
 
--	Create the VPG by running the command:
+- Create the VPG by running the command:
 
 
 ```
