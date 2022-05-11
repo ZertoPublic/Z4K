@@ -3,6 +3,9 @@
 After deploying Zerto for Kubernetes, create a VPG, tag checkpoints then test failover:
 
 1.	[Create a VPG](#creating-a-vpg)
+    
+    a.  [One2Many](#one-2-many)
+    
 2.	[Tag a Checkpoint](#tagging-a-checkpoint)
 3.	[Test Failover](#testing-failover)
 
