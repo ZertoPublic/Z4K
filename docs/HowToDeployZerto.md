@@ -47,10 +47,10 @@ Enter the following commands:
 ```
 helm install <installation names> zerto-z4k/z4k \
 --set global.imagePullSecret=$IMAGE_PULL_KEY \
---set global.authentication. managementUser=$KEYCLOAK_USER
---set global.authentication. managementPassword =$KEYCLOAK_PASSWORD
---set global.authentication. adminUser =$ADMIN_USER
---set global.authentication. adminPassword =$ADMIN_PASSWORD
+--set global.authentication.managementUser=$KEYCLOAK_USER
+--set global.authentication.managementPassword=$KEYCLOAK_PASSWORD
+--set global.authentication.adminUser=$ADMIN_USER
+--set global.authentication.adminPassword=$ADMIN_PASSWORD
 --set zkm-px.config.siteId=$SITE \
 --namespace $NAMESPACE
 ```
@@ -93,8 +93,8 @@ As such, to enable VRA communication, you need to disable ingress deployment and
 **To disable ingress deployment and provide the external IP of the sites** enter the following commands:
 
 ```
---set zkm.zkmIngressControllerEnabled =false
---set zkm-px.zkmProxyIngressControllerEnabled =false
+--set zkm.zkmIngressControllerEnabled=false
+--set zkm-px.zkmProxyIngressControllerEnabled=false
 --set zkm-px.config.externalIp=$SITE_IP
 --set zkm.useNginxRoutePath=false
 ```
@@ -129,7 +129,7 @@ Creating an initial access token can be achieved in one of two ways:
 
 2.  Download and execute the following script.
 
-> Note:	Do not run this script if two-factor authentication (2FA ) was enabled for the Keycloak management user.
+> Note:	Do not run this script if two-factor authentication (2FA) was enabled for the Keycloak management user.
 
 
 ```
@@ -246,10 +246,10 @@ Enter the following commands:
 ```    
 helm install <installation name> zerto/zkm \
 --set global.imagePullSecret=$IMAGE_PULL_KEY \
---set global.authentication. managementUser=$KEYCLOAK_USER
---set global.authentication. managementPassword =$KEYCLOAK_PASSWORD
---set global.authentication. adminUser =$ADMIN_USER
---set global.authentication. adminPassword =$ADMIN_PASSWORD
+--set global.authentication.managementUser=$KEYCLOAK_USER
+--set global.authentication.managementPassword =$KEYCLOAK_PASSWORD
+--set global.authentication.adminUser =$ADMIN_USER
+--set global.authentication.adminPassword =$ADMIN_PASSWORD
 --namespace $NAMESPACE
 ```
     
