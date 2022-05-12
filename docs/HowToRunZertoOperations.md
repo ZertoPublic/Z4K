@@ -112,7 +112,7 @@ This feature serves two main goals:
 1.	Enables high availability (HA) for protected VPGs.
 2.	Enables Continuous Data Protection (CDP) during migration with a local and a remote copy.
 
-To protected the same entity several times:
+To protect the same entity several times:
 
 - Add all of the VPG names in the annotation field with a ';' delimiter sign:
 
