@@ -12,7 +12,7 @@ nav:
 - More Resources: MoreResources.md
 - API Documentation: openapi.md
 - ChangeLog:
-  - No Changes
+  - '2.x.x': ./changes/version2.x.x.md
 plugins:
-  - zerto_swagger
-  - search
+- zerto_swagger
+- search
