@@ -347,7 +347,7 @@ kubectl get backupset
 
 ### Scheduling Long-term Retention Backups
 
-To schedule Long-term Retention backups, add SchedulingAndRetentionSettings to the VPGs BackupSettings.
+To schedule Long-term Retention backups, add **SchedulingAndRetentionSettings** to the VPGs **BackupSettings**.
 
 Use the following example as a guideline.
 
@@ -395,7 +395,7 @@ spec:
       ExpiresAfterUnit: Days
 ```
 
-> Important SchedulingAndRetentionSettings Considerations:
+#### Important Considerations for SchedulingAndRetentionSettings
 
 -	There must be at least one Full Method.
 -	There can be no more than one Incremental Method.
@@ -425,13 +425,29 @@ When the restore task completes successfully, Kubernetes entities with the prefi
 
 ## Log Collection
 
-Zerto for Kubernetes logs are collected by the system and automatically uploaded to Amazon S3.
+Zerto for Kubernetes uses Apache log4net™ logging framework to generate, collect and output log statements.
 
-Log location: S3 bucket
+#### Log Volume Size
+- A ZKM service can have up to 200 log files.
+- A ZKM-PX service can have up to 50 log files.
+
+#### Log Rotation
+- Log files are automatically archived when the log file size exceeds 10MB. 
+- Archived log files can be deleted manually.
+
+#### Required Storage
+- A log file is 0.6MB after automatic archiving.
+
+Therefore:
+- A ZKM service needs 200 x 0.6MB = ~120MB
+- A ZKM-PX service needs 50 x 0.5MB = ~30MB
+
+#### Log Location
+Logs are automatically uploaded to Amazon S3 bucket.
 
 ### Ad Hoc Log Collection
 
-Use one of the following methods:
+Use one of the following methods to generate logs.
 
 #### Ad Hoc Log Collection Method 1
 Run the following command, which runs a script on Zerto Kubernetes Manager Proxy (ZKM-PX) in the background:
