@@ -423,7 +423,7 @@ You can also restore from a repository that has VPGs backupsets from a different
 	
 When the restore task completes successfully, Kubernetes entities with the prefix "res-" are created in the specified site and namespace.
 
-## Log Collection
+## Log Retention
 
 Zerto for Kubernetes uses Apache log4net™ logging framework to generate, collect and output log statements.
 
@@ -443,7 +443,7 @@ Therefore:
 - A ZKM-PX service needs 50 x 0.5MB = ~30MB
 
 #### Log Location
-Logs are automatically uploaded to Amazon S3 bucket.
+Logs are stored locally on zkm/zkm-px pods /logs. After ad hoc log collection logs are uploaded to Amazon and stored in S3 bucket.
 
 ### Ad Hoc Log Collection
 
