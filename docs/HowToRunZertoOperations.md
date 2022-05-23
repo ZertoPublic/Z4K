@@ -13,7 +13,7 @@ Then, you can perform one of the following:
 -	[Restore a Single VPG](#restoring-a-single-vpg)
 -	[Configure Long-term Retention (LTR) in Kubernetes Environments](#long-term-retention-ltr-in-kubernetes-environments)
 	>	Zerto for Kubernetes supports backing up Kubernetes workloads and their data to a Long-term Repository and restoring them from the Long-term Repository to the original site, or to a different site/namespace.
-- [Log Collection](#log-collection)
+- [Log Retention](#log-retention)
 	>	Log collection occurs automatically, and the logs are uploaded to Amazon S3. You can also collect logs ad hoc.
 -	[Protect Ingress Controller Resources](protecting-ingress-controller-resources)
 	>	Zerto for Kubernetes supports replicating Ingress Controller Resources so networking configuration can be replicated and easily deployed on the recovery site.
