@@ -108,7 +108,9 @@ spec:
 
 Z4K can protect the same entity multiple times. 
 
-This feature serves two main goals:
+The recommended configuration is to replicate no more than 3 VPGs (inbound & outbound). Exceeding this configuration is possible, bearing in mind that performance degradation may appear if POD/Cluster resources are being overutilized.
+
+One-to-Many serves two main goals:
 1.	Enables high availability (HA) for protected VPGs.
 2.	Enables Continuous Data Protection (CDP) during migration with a local and a remote copy.
 
