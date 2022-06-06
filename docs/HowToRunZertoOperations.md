@@ -27,42 +27,26 @@ Then, you can perform one of the following:
 
 
 1. Create a .yaml file to represent a VPG.
-
-
-> In the following example the VPG webApp1:
-
-
->>-	Is configured to self replicate to its source cluster.
-
-
->>-	Will use the storage class goldSC.
-
-
->>-	SLA is 12 hours of history.
-
-
->>-	The Journal can expand up to 160 GB to meet the history requirement.
-
-
->> Note:	It is not mandatory to configure the Journal disk size (JournalDiskSizeInGb) and history (JournalHistoryInHours); they have default values of 2 GB and 8 hours respectively.
-
-
-```
-apiVersion: z4k.zerto.com/v1
-kind: vpg
-spec:
-  Name : “webApp1”
-  SourceCluster :
-    Id: "prod_cluster”
-  TargetCluster :
-    Id: "prod_cluster"
-  RecoveryStorageClass : GoldSC
-  JournalDiskSizeInGb : 160
-  JournalHistoryInHours : 12
-```
-
-
-2.	Annotate Kubernetes entities to include them in the VPG.
+    > In the following example the VPG webApp1:
+    >>-	Is configured to self replicate to its source cluster.
+    >>-	Will use the storage class goldSC.
+    >>-	SLA is 12 hours of history.
+    >>-	The Journal can expand up to 160 GB to meet the history requirement.
+    >> Note:	It is not mandatory to configure the Journal disk size (JournalDiskSizeInGb) and history (JournalHistoryInHours); they have default values of 2 GB and 8 hours respectively.
+    ```
+    apiVersion: z4k.zerto.com/v1
+    kind: vpg
+    spec:
+      Name : “webApp1”
+      SourceCluster :
+        Id: "prod_cluster”
+       TargetCluster :
+        Id: "prod_cluster"
+      RecoveryStorageClass : GoldSC
+      JournalDiskSizeInGb : 160
+      JournalHistoryInHours : 12
+     ```
+2. Annotate Kubernetes entities to include them in the VPG.
 
 >>-	A VPG can contain a selection of entities like stateful sets, deployments, services, secrets and configmaps.
 
