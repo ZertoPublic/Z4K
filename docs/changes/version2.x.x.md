@@ -1,3 +1,3 @@
-2.2 implement one2many vpg configuration
+2.2 Implement One-to-Many VPG configuration
 ========================================
-* Support hpe new csi
+* Support HPE new CSI
