@@ -1,2 +1,2 @@
 2.2 Implement One-to-Many VPG configuration
-* Support HPE new CSI
+    Support HPE new CSI
