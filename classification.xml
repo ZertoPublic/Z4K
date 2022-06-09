@@ -53,12 +53,12 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MAP</Data></Cell>
-    <Cell><Data ss:Type="String">azure</Data></Cell>
+    <Cell><Data ss:Type="String">kubernetes</Data></Cell>
     <Cell><Data ss:Type="String">Z4K</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">apply-ALL</Data></Cell>
-    <Cell><Data ss:Type="String">azure</Data></Cell>
+    <Cell><Data ss:Type="String">kubernetes</Data></Cell>
     <Cell><Data ss:Type="String">Z4K</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -81,7 +81,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
