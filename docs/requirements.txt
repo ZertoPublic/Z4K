@@ -1,2 +1,2 @@
 mkdocs-bootswatch
-Pygments
+pymdown-extensions
