@@ -27,18 +27,18 @@ Keep in mind, the filename has to be `swagger-ui.css` for the CSS and `swagger-u
 
 To specify this use `extra_javascript` and `extra_css` in your mkdocs.yaml:
 ``` yaml
-extra_javascript:
-  - assets/js/swagger-ui-bundle.js
-
-extra_css:
+--- 
+extra_css: 
   - assets/css/swagger-ui.css
+extra_javascript: 
+  - assets/js/swagger-ui-bundle.js
 ```
 
 ## Contributing & Developing Locally
 
 After downloading and extracting the `.tar.gz`, install this package locally using `pip` and the `--editable` flag:
 
-```bash
+``` bash
 pip install --editable .
 ```
 

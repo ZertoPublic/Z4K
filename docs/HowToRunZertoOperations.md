@@ -34,19 +34,20 @@ Then, you can perform one of the following:
     >>-	The Journal can expand up to 160 GB to meet the history requirement.
     >> Note:	It is not mandatory to configure the Journal disk size (JournalDiskSizeInGb) and history (JournalHistoryInHours); they have default values of 2 GB and 8 hours respectively.
         
-    ``` yaml
-    apiVersion: z4k.zerto.com/v1
-    kind: vpg
-    spec:
-      Name : “webApp1”
-      SourceCluster :
-        Id: "prod_cluster”
-       TargetCluster :
-        Id: "prod_cluster"
-      RecoveryStorageClass : GoldSC
-      JournalDiskSizeInGb : 160
-      JournalHistoryInHours : 12
-     ```
+``` yaml
+--- 
+apiVersion: z4k.zerto.com/v1
+kind: vpg
+spec: 
+  JournalDiskSizeInGb: 160
+  JournalHistoryInHours: 12
+  Name: “webApp1”
+  RecoveryStorageClass: GoldSC
+  SourceCluster: 
+    Id: prod_cluster
+  TargetCluster: 
+    Id: prod_cluster
+```
 2. Annotate Kubernetes entities to include them in the VPG.
 
 >>-	A VPG can contain a selection of entities like stateful sets, deployments, services, secrets and configmaps.
@@ -59,34 +60,43 @@ Use the following example of deployment protection for guidelines.
 
 
 ``` yaml
+--- 
 kind: Deployment
-metadata:
-  name: debian
-  labels:
+metadata: 
+  annotations: 
+    vpg: "webApp1 /<VPG name as configured in VPG.yaml>"
+  labels: 
     app: debian
-  annotations:
-    vpg: webApp1 /<VPG name as configured in VPG.yaml>
-spec:
+  name: debian
+spec: 
   replicas: 1
-  selector:
-    matchLabels:
+  selector: 
+    matchLabels: 
       app: debian
-  template:
-    metadata:
-      labels:
+  spec: 
+    containers: 
+      - 
+        image: 
+          command: 
+            - /usr/bin/tail
+            - "-f"
+            - /dev/null
+          debian: stable
+          volumeMounts: 
+            - 
+              mountPath: /var/gil1
+              name: external1
+        name: debian1
+    volumes: 
+      - 
+        claimName: my-vol1-debian-5to6
+        name: external1
+        persistentVolumeClaim: ~
+  template: 
+    metadata: 
+      labels: 
         app: debian
-  spec:
-      containers:
-      - name: debian1
-          image: debian:stable
-          command: ["/usr/bin/tail","-f","/dev/null"]
-          volumeMounts:
-          - mountPath: "/var/gil1"
-            name: external1
-      volumes:
-        - name: external1
-            persistentVolumeClaim:
-            claimName: my-vol1-debian-5to6
+
 ```
 
 ## Configuring One-to-Many
@@ -104,13 +114,14 @@ To protect the same entity multiple times:
 - Add all of the VPG names in the annotation field with a ';' delimiter sign:
 
 ``` yaml
+--- 
 kind: Deployment
-metadata:
-  name: debian
-  labels:
+metadata: 
+  annotations: 
+    vpg: "webApp1Self; webApp1Site2; webApp1Site3 /<VPG names as configured in VPG yaml files>"
+  labels: 
     app: debian
-  annotations:
-    vpg: webApp1Self; webApp1Site2; webApp1Site3 /<VPG names as configured in VPG yaml files>
+  name: debian
     * * *
 ```   
 
@@ -249,58 +260,61 @@ Use the following examples as guidelines.
 *Example vpg.yaml File - Backing Up to AWS S3*
   
 ``` yaml
+--- 
 apiVersion: z4k.zerto.com/v1
 kind: vpg
-spec:
-  Name: test_vpg
-  SourceSite:
-    Id: site1
-  TargetSite:
-    Id: site1
-  RecoveryStorageClass: zgp2
-  BackupSettings:
+spec: 
+  BackupSettings: 
     IsCompressionEnabled: true
-    RepositoryInformation:
-      BackTargetType: AmazonS3
-      AwsBackupRepositoryInformation:
-        Region: eu-centeral-1
+    RepositoryInformation: 
+      AwsBackupRepositoryInformation: 
         Bucket: mybucket
-        CredentialSecretReference:
-          Site:
-            Id: site1
-          Id:
+        CredentialSecretReference: 
+          Id: 
             Name: mysecret
-            NamespaceId:
+            NamespaceId: ~
             NamespaceName: default
+          Site: 
+            Id: site1
+        Region: eu-centeral-1
+      BackTargetType: AmazonS3
+  Name: test_vpg
+  RecoveryStorageClass: zgp2
+  SourceSite: 
+    Id: site1
+  TargetSite: 
+    Id: site1
   
 ```
 
 *Example vpg.yaml File - Backing Up to Azure Blob Storage*
   
 ``` yaml
+--- 
 apiVersion: z4k.zerto.com/v1
 kind: vpg
-spec:
-  Name: test_vpg
-  SourceSite:
-    Id: site1
-  TargetSite:
-    Id: site1
-  RecoveryStorageClass: zgp2
-  BackupSettings:
+spec: 
+  BackupSettings: 
     IsCompressionEnabled: true
-    RepositoryInformation:
-      BackTargetType: AzureBlob
-      AzureBackupRepositoryInformation:
-        StorageAccountName: mystorageaccount
-        DirectoryId: c659fda3-cf53-43ad-befe-776ee475dcf5
-        CredentialSecretReference:
-          Site:
-            Id: site1
-          Id:
+    RepositoryInformation: 
+      AzureBackupRepositoryInformation: 
+        CredentialSecretReference: 
+          Id: 
             Name: mysecret
-            NamespaceId:
+            NamespaceId: ~
             NamespaceName: default
+          Site: 
+            Id: site1
+        DirectoryId: c659fda3-cf53-43ad-befe-776ee475dcf5
+        StorageAccountName: mystorageaccount
+      BackTargetType: AzureBlob
+  Name: test_vpg
+  RecoveryStorageClass: zgp2
+  SourceSite: 
+    Id: site1
+  TargetSite: 
+    Id: site1
+
 ```
 
 -	The AWS S3 access key and secret key should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is mysecret.
@@ -339,47 +353,53 @@ To schedule Long-term Retention backups, add **SchedulingAndRetentionSettings** 
 Use the following example as a guideline.
 
 ``` yaml
+--- 
 apiVersion: z4k.zerto.com/v1
 kind: vpg
-spec:
-  Name: test_vpg
-  SourceSite:
-    Id: site1
-  TargetSite:
-    Id: site1
-  RecoveryStorageClass: zgp2
-  BackupSettings:
-    IsCompressionEnabled: true	
-    RepositoryInformation:
-      BackTargetType: AmazonS3
-      AwsBackupRepositoryInformation:
-        Region: eu-centeral-1
+spec: 
+  BackupSettings: 
+    IsCompressionEnabled: true
+    RepositoryInformation: 
+      AwsBackupRepositoryInformation: 
         Bucket: mybucket
-        CredentialSecretReference:
-          Site:
-           Id: site1
-          Id:
+        CredentialSecretReference: 
+          Id: 
             Name: mysecret
-            NamespaceId:
+            NamespaceId: ~
             NamespaceName: default
-  SchedulingAndRetentionSettings:
-    PeriodsSettings:
-    - PeriodType: Yearly
-      Method: Full
-      ExpiresAfterValue: 7
-      ExpiresAfterUnit: Years
-    - PeriodType: Monthly
-      Method: Full
-      ExpiresAfterValue: 12
-      ExpiresAfterUnit: Months
-    - PeriodType: Weekly
-      Method: Full
-      ExpiresAfterValue: 4
-      ExpiresAfterUnit: Weeks
-    - PeriodType: Daily
-      Method: Incremental
-      ExpiresAfterValue: 7
-      ExpiresAfterUnit: Days
+          Site: 
+            Id: site1
+        Region: eu-centeral-1
+      BackTargetType: AmazonS3
+  Name: test_vpg
+  RecoveryStorageClass: zgp2
+  SchedulingAndRetentionSettings: 
+    PeriodsSettings: 
+      - 
+        ExpiresAfterUnit: Years
+        ExpiresAfterValue: 7
+        Method: Full
+        PeriodType: Yearly
+      - 
+        ExpiresAfterUnit: Months
+        ExpiresAfterValue: 12
+        Method: Full
+        PeriodType: Monthly
+      - 
+        ExpiresAfterUnit: Weeks
+        ExpiresAfterValue: 4
+        Method: Full
+        PeriodType: Weekly
+      - 
+        ExpiresAfterUnit: Days
+        ExpiresAfterValue: 7
+        Method: Incremental
+        PeriodType: Daily
+  SourceSite: 
+    Id: site1
+  TargetSite: 
+    Id: site1
+
 ```
 
 #### Important Considerations for SchedulingAndRetentionSettings
@@ -468,25 +488,29 @@ There are 2 options to configure Ingress Controller Resources with a deployment 
 -	Configure protection when creating a new deployment, as illustrated in the YAML example below:
 
 ``` yaml
+--- 
 apiVersion: networking.k8s.io/v1
 kind: Ingress
-metadata:
-  name: minimal-ingress
-  annotations:
+metadata: 
+  annotations: 
     nginx.ingress.kubernetes.io/rewrite-target: /
     vpg: website-vpg1
-spec:
+  name: minimal-ingress
+spec: 
   ingressClassName: nginx-example
-  rules:
-  - http:
-    paths:
-    - path: /testpath
-      pathType: Prefix
-      backend:
-        service:
-        name: test
-        port:
-          number: 80
+  rules: 
+    - 
+      http: ~
+      paths: 
+        - 
+          backend: 
+            name: test
+            port: 
+              number: 80
+            service: ~
+          path: /testpath
+          pathType: Prefix
+
 ```
 
 	

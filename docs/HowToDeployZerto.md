@@ -14,7 +14,7 @@ Perform the following procedures:
 
 On the Kubernetes platform, enter the following commands:
 
-```
+``` shell
 helm repo add zerto-z4k https://zapps-helm.zerto.com/z4k/stable
 helm repo update
 ```
@@ -42,7 +42,7 @@ Use either of these options to install Zerto for Kubernetes on any of the Zerto 
 ### Option 1
 
 Enter the following command, replacing the "$" variables with values relevant to your deployment.
-```
+``` shell
 helm install <installation names> zerto-z4k/z4k \
 --set global.imagePullSecret=$IMAGE_PULL_KEY \
 --set global.authentication.managementUser=$KEYCLOAK_USER
@@ -55,20 +55,21 @@ helm install <installation names> zerto-z4k/z4k \
 
 ### Option 2
 1.	Create the following values.yaml:
->    ``` yaml
->     global:
->       authentication:
->         adminPassword: $ADMIN_PASSWORD
->         adminUser: $ADMIN_USER
->        managementPassword: $KEYCLOAK_PASSWORD
->        managementUser: $KEYCLOAK_USER
->        imagePullSecret: $IMAGE_PULL_KEY
->    zkm-px:
->      config:
->        siteId: $SITE
->    ```
-2. Install using the following command:
+``` yaml
+--- 
+global: 
+  authentication: 
+    adminPassword: $ADMIN_PASSWORD
+    adminUser: $ADMIN_USER
+    imagePullSecret: $IMAGE_PULL_KEY
+    managementPassword: $KEYCLOAK_PASSWORD
+    managementUser: $KEYCLOAK_USER
+zkm-px: 
+  config: 
+    siteId: $SITE
 ```
+2. Install using the following command:
+``` shell
 helm install <installation names> zerto-z4k/z4k -f values.yaml --namespace $NAMESPACE
 ```
 Where,
@@ -83,7 +84,7 @@ Therefore, to enable VRA communication, you must disable ingress deployment and 
 
 
 **To disable ingress deployment and provide the external IP of the sites** enter the following commands:
-```
+``` shell
 --set zkm.zkmIngressControllerEnabled=false
 --set zkm-px.zkmProxyIngressControllerEnabled=false
 --set zkm-px.config.externalIp=$SITE_IP
@@ -91,7 +92,7 @@ Therefore, to enable VRA communication, you must disable ingress deployment and 
 ```
 
 If the IngressClassNames are not the default names, use the following flags to specify the used IngressClassNames:
-```
+``` shell
 --set zkm-px.vras.ingressClass=$ingressClassName
 --set zkm-px.ingress-nginx.controller.ingressClass=$ingressClassName
 --set zkm.ingress-nginx.controller.ingressClass=$ingressClassName
@@ -120,7 +121,7 @@ Creating an initial access token can be achieved in one of two ways:
 > 
 1.  Generate an initial access token via REST commands to Keycloak.
 2.  Download and execute the following script:
-```
+``` shell
 wget https://z4k.zerto.com/public/generate_initial_access_token.bash
 chmod +x generate_initial_access_token.bash
 ./generate_initial_access_token.bash
@@ -152,7 +153,7 @@ Use either of these options to install Zerto Kubernetes Manager Proxy on additio
 
 ### Option 1
 Enter the following commands:
-```
+``` shell
 helm install <installation name> zerto-4k/zkm-px \
 --set global.imagePullSecret=$IMAGE_PULL_KEY \
 --set global.authentication.initialAccessToken =$INITINAL_ACCESS_TOKEN
@@ -171,16 +172,17 @@ helm install <installation name> zerto-4k/zkm-px \
 
 ### Option 2    
 1. Create the following values.yaml:
-   ``` yaml
-    global:
-      authentication:
-        initialAccessToken: $INITIAL_ACCESS_TOKEN
-        imagePullSecret: $IMAGE_PULL_KEY
-    config:
-      siteId: $SITE
-      zkmUrl: $ZKM_URL
-      zkeycloakUrl: $ZKEYCLOAK_URL
-    ```
+``` yaml
+--- 
+config: 
+  siteId: $SITE
+  zkeycloakUrl: $ZKEYCLOAK_URL
+  zkmUrl: $ZKM_URL
+global: 
+  authentication: 
+    imagePullSecret: $IMAGE_PULL_KEY
+    initialAccessToken: $INITIAL_ACCESS_TOKEN
+```
 2.  Install using the following command:
     ```
     helm install <installation names> zerto-z4k/zkm-px -f values.yaml --namespace $NAMESPACE
@@ -207,7 +209,7 @@ Use one of these options to install the Zerto Kubernetes Manager (ZKM) on any of
 
 Enter the following commands:
 
-```    
+``` shell
 helm install <installation name> zerto/zkm \
 --set global.imagePullSecret=$IMAGE_PULL_KEY \
 --set global.authentication.managementUser=$KEYCLOAK_USER
@@ -228,13 +230,14 @@ Where,
     
 1.  Create the following values.yaml:
     ``` yaml
-    global:
-       authentication:
-        adminPassword: $ADMIN_PASSWORD
-        adminUser: $ADMIN_USER
-        managementPassword: $KEYCLOAK_PASSWORD
-        managementUser: $KEYCLOAK_USER
-        imagePullSecret: $IMAGE_PULL_KEY
+--- 
+global: 
+  authentication: 
+    adminPassword: $ADMIN_PASSWORD
+    adminUser: $ADMIN_USER
+    imagePullSecret: $IMAGE_PULL_KEY
+    managementPassword: $KEYCLOAK_PASSWORD
+    managementUser: $KEYCLOAK_USER
     ``` 
 2. Install using the following command:  
     ```
@@ -257,7 +260,7 @@ Where,
     ```kubectl-zrt```
 -   To run Zerto operation commands, on the Kubernetes platform enter the following commands:
 
-```
+``` shell
 wget https://z4k.zerto.com/public/kubectl-zrt
 chmod +x kubectl-zrt
 sudo cp kubectl-zrt /usr/bin/
