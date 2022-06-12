@@ -33,7 +33,8 @@ Then, you can perform one of the following:
     >>-	SLA is 12 hours of history.
     >>-	The Journal can expand up to 160 GB to meet the history requirement.
     >> Note:	It is not mandatory to configure the Journal disk size (JournalDiskSizeInGb) and history (JournalHistoryInHours); they have default values of 2 GB and 8 hours respectively.
-    ```
+        
+    ```yaml
     apiVersion: z4k.zerto.com/v1
     kind: vpg
     spec:
@@ -57,7 +58,7 @@ Then, you can perform one of the following:
 Use the following example of deployment protection for guidelines.
 
 
-```
+```yaml
 kind: Deployment
 metadata:
   name: debian
@@ -74,18 +75,18 @@ spec:
     metadata:
       labels:
         app: debian
-    spec:
+  spec:
       containers:
-        - name: debian1
+      - name: debian1
           image: debian:stable
-	  command: ["/usr/bin/tail","-f","/dev/null"]
-	  volumeMounts:
-	  - mountPath: "/var/gil1"
-	    name: external1
+          command: ["/usr/bin/tail","-f","/dev/null"]
+          volumeMounts:
+          - mountPath: "/var/gil1"
+            name: external1
       volumes:
         - name: external1
-	  persistentVolumeClaim:
-	    claimName: my-vol1-debian-5to6
+            persistentVolumeClaim:
+            claimName: my-vol1-debian-5to6
 ```
 
 ## Configuring One-to-Many
@@ -102,7 +103,7 @@ To protect the same entity multiple times:
 
 - Add all of the VPG names in the annotation field with a ';' delimiter sign:
 
-```
+```yaml
 kind: Deployment
 metadata:
   name: debian
@@ -116,7 +117,7 @@ metadata:
 - Create the VPG by running the command:
 
 
-```
+```shell
 kubectl create -f vpg.yaml
 ```
 
@@ -125,7 +126,7 @@ kubectl create -f vpg.yaml
 To display the VPG status as well as an overview of which entities are protected within the VPG, the VPG’s SLA and it's settings, run the command:
 
 
-```
+```shell
 kubectl get vpg
 ```
 
@@ -134,7 +135,7 @@ kubectl get vpg
 
 To tag a checkpoint, run the command:
 
-```
+```shell
 kubectl zrt tag [vpg-name] [tag-name]
 ```
 
@@ -143,7 +144,7 @@ kubectl zrt tag [vpg-name] [tag-name]
 -	To display a list of all available checkpoints for a VPG, including properties like the checkpoint ID, run the command:
 
 
-```
+```shell
 kubectl get checkpoints --selector="vpg=vpgs;minAge=5m;maxAge=3d"
 ```
 
@@ -160,7 +161,7 @@ Where:
 
 -	To test failover, run the command:
 
-```
+```shell
 kubectl zrt failover-test [vpg-name] [checkpoint-id]
 ```
 
@@ -168,7 +169,7 @@ kubectl zrt failover-test [vpg-name] [checkpoint-id]
 
 -	To stop the test run, run the command:
 
-```
+```shell
 kubectl zrt stop-test [vpg-name]
 ```
 
@@ -176,7 +177,7 @@ kubectl zrt stop-test [vpg-name]
 	
 -	To failover run the command:
 
-```
+```shell
 kubectl zrt failover-live [vpg-name] [checkpoint-id]
 ```
 
@@ -184,13 +185,13 @@ kubectl zrt failover-live [vpg-name] [checkpoint-id]
 
 -	To commit the failover, run the command:
 
-```
+```shell
 kubectl zrt commit [vpg-name]
 ```
 	
 -	To rollback the failover, run the command:
 
-```
+```shell
 kubectl zrt rollback [vpg-name]
 ```
 	
@@ -200,7 +201,7 @@ On a single cluster deployment, only the restore and failover test operations ar
 
 -	To restore a single VPG, run the command:
 
-```
+```shell
 kubectl zrt restore [vpg-name] [checkpoint-id]
 ```
 	
@@ -209,14 +210,14 @@ kubectl zrt restore [vpg-name] [checkpoint-id]
 -	To commit the restore, run the command:
 
 
-```
+```shell
 kubectl zrt commit-restore [vpg-name]
 ```
 
 -	To rollback the restore, run the command:
 
 
-```
+```shell
 kubectl zrt rollback-restore [vpg-name]
 ```
 
@@ -247,7 +248,7 @@ Use the following examples as guidelines.
   
 *Example vpg.yaml File - Backing Up to AWS S3*
   
-```
+```yaml
 apiVersion: z4k.zerto.com/v1
 kind: vpg
 spec:
@@ -258,25 +259,25 @@ spec:
     Id: site1
   RecoveryStorageClass: zgp2
   BackupSettings:
-    IsCompressionEnabled: true  
+    IsCompressionEnabled: true
     RepositoryInformation:
       BackTargetType: AmazonS3
       AwsBackupRepositoryInformation:
         Region: eu-centeral-1
-	Bucket: mybucket
-	CredentialSecretReference:
+        Bucket: mybucket
+        CredentialSecretReference:
           Site:
             Id: site1
-	  Id:
-	    Name: mysecret
+          Id:
+            Name: mysecret
             NamespaceId:
-	      NamespaceName: default
+            NamespaceName: default
   
 ```
 
 *Example vpg.yaml File - Backing Up to Azure Blob Storage*
   
-```
+```yaml
 apiVersion: z4k.zerto.com/v1
 kind: vpg
 spec:
@@ -291,15 +292,15 @@ spec:
     RepositoryInformation:
       BackTargetType: AzureBlob
       AzureBackupRepositoryInformation:
-	StorageAccountName: mystorageaccount
-	DirectoryId: c659fda3-cf53-43ad-befe-776ee475dcf5
-	CredentialSecretReference:
-	  Site:
-	    Id: site1
-	  Id:
-	    Name: mysecret
-	    NamespaceId:
-	      NamespaceName: default
+        StorageAccountName: mystorageaccount
+        DirectoryId: c659fda3-cf53-43ad-befe-776ee475dcf5
+        CredentialSecretReference:
+          Site:
+            Id: site1
+          Id:
+            Name: mysecret
+            NamespaceId:
+            NamespaceName: default
 ```
 
 -	The AWS S3 access key and secret key should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is mysecret.
@@ -318,7 +319,7 @@ You must manually trigger a backup to create a retention set.
 
 -	To manually trigger a backup, run the command:
 
-```
+```shell
 kubectl zrt ltr-backup [vpg-name] [checkpoint-id]
 ```
 
@@ -327,7 +328,7 @@ kubectl zrt ltr-backup [vpg-name] [checkpoint-id]
 
 -	To access the generated retention set ID (backupset ID), run the command:
 
-```
+```shell
 kubectl get backupset
 ```
 
@@ -337,7 +338,7 @@ To schedule Long-term Retention backups, add **SchedulingAndRetentionSettings** 
 
 Use the following example as a guideline.
 
-```
+```yaml
 apiVersion: z4k.zerto.com/v1
 kind: vpg
 spec:
@@ -352,15 +353,15 @@ spec:
     RepositoryInformation:
       BackTargetType: AmazonS3
       AwsBackupRepositoryInformation:
-	Region: eu-centeral-1
-	Bucket: mybucket
-	CredentialSecretReference:
-	  Site:
-	    Id: site1
-	  Id:
-	    Name: mysecret
-	    NamespaceId:
-	      NamespaceName: default
+        Region: eu-centeral-1
+        Bucket: mybucket
+        CredentialSecretReference:
+          Site:
+           Id: site1
+          Id:
+            Name: mysecret
+            NamespaceId:
+            NamespaceName: default
   SchedulingAndRetentionSettings:
     PeriodsSettings:
     - PeriodType: Yearly
@@ -370,7 +371,7 @@ spec:
     - PeriodType: Monthly
       Method: Full
       ExpiresAfterValue: 12
-      ExpiresAfterUnit: Months							
+      ExpiresAfterUnit: Months
     - PeriodType: Weekly
       Method: Full
       ExpiresAfterValue: 4
@@ -466,7 +467,7 @@ There are 2 options to configure Ingress Controller Resources with a deployment 
 	
 -	Configure protection when creating a new deployment, as illustrated in the YAML example below:
 
-```
+```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
