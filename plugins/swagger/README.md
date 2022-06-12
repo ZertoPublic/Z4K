@@ -26,7 +26,7 @@ You can explicitly specify the swagger-ui css and js dependencies if you wish to
 Keep in mind, the filename has to be `swagger-ui.css` for the CSS and `swagger-ui-bundle.js` for the JS.
 
 To specify this use `extra_javascript` and `extra_css` in your mkdocs.yaml:
-```yaml
+``` yaml
 extra_javascript:
   - assets/js/swagger-ui-bundle.js
 
