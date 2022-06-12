@@ -16,3 +16,6 @@ nav:
 plugins:
 - zerto_swagger
 - search
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
