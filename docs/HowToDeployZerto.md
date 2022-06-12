@@ -55,7 +55,7 @@ helm install <installation names> zerto-z4k/z4k \
 
 ### Option 2
 1.	Create the following values.yaml:
->    ```
+>    ```yaml
 >     global:
 >       authentication:
 >         adminPassword: $ADMIN_PASSWORD
@@ -171,7 +171,7 @@ helm install <installation name> zerto-4k/zkm-px \
 
 ### Option 2    
 1. Create the following values.yaml:
-   ```
+   ```yaml
     global:
       authentication:
         initialAccessToken: $INITIAL_ACCESS_TOKEN
@@ -227,7 +227,7 @@ Where,
 ### Option 2 
     
 1.  Create the following values.yaml:
-    ```
+    ```yaml
     global:
        authentication:
         adminPassword: $ADMIN_PASSWORD
