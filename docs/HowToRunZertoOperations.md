@@ -268,28 +268,28 @@ spec:
     IsCompressionEnabled: true
     RepositoryInformation: 
       AwsBackupRepositoryInformation: 
-        Bucket: mybucket
-        CredentialSecretReference: 
-          Id: 
-            Name: mysecret
-            NamespaceId: ~
-            NamespaceName: default
-          Site: 
-            Id: site1
-        Region: eu-centeral-1
-      BackTargetType: AmazonS3
-  Name: test_vpg
-  RecoveryStorageClass: zgp2
+        Bucket: <BucketName>
+        CredentialsSecretReference: 
+          Name: <SecretName>
+          NamespaceId: 
+            NamespaceName: <SecretNamespace>
+        Region: <BucketRegion>
+      BackupTargetType: AmazonS3
+  JournalDiskSizeInGb: 8
+  JournalHistoryInHours: 8
+  Name: "<VPG Name>"
+  RecoveryStorageClass: <RecoveryStorageClass>
   SourceSite: 
-    Id: site1
+    Id: <SourceSite>
   TargetSite: 
-    Id: site1
+    Id: <TargetSite>
   
 ```
 
 *Example vpg.yaml File - Backing Up to Azure Blob Storage*
   
 ``` yaml
+--- 
 --- 
 apiVersion: z4k.zerto.com/v1
 kind: vpg
@@ -302,18 +302,18 @@ spec:
           Id: 
             Name: mysecret
             NamespaceId: ~
-            NamespaceName: default
+            NamespaceName: <Secret Namespace>
           Site: 
             Id: site1
         DirectoryId: c659fda3-cf53-43ad-befe-776ee475dcf5
-        StorageAccountName: mystorageaccount
-      BackTargetType: AzureBlob
-  Name: test_vpg
-  RecoveryStorageClass: zgp2
+        StorageAccountName: <Storageaccount>
+      BackupTargetType: AzureBlob
+  Name: <VPG Name>
+  RecoveryStorageClass: <RecoveryStorageClass>
   SourceSite: 
-    Id: site1
+    Id: <SourceSite>
   TargetSite: 
-    Id: site1
+    Id: <TargetSite>
 
 ```
 
@@ -361,45 +361,43 @@ spec:
     IsCompressionEnabled: true
     RepositoryInformation: 
       AwsBackupRepositoryInformation: 
-        Bucket: mybucket
-        CredentialSecretReference: 
-          Id: 
-            Name: mysecret
-            NamespaceId: ~
-            NamespaceName: default
-          Site: 
-            Id: site1
-        Region: eu-centeral-1
-      BackTargetType: AmazonS3
-  Name: test_vpg
-  RecoveryStorageClass: zgp2
-  SchedulingAndRetentionSettings: 
-    PeriodsSettings: 
-      - 
-        ExpiresAfterUnit: Years
-        ExpiresAfterValue: 7
-        Method: Full
-        PeriodType: Yearly
-      - 
-        ExpiresAfterUnit: Months
-        ExpiresAfterValue: 12
-        Method: Full
-        PeriodType: Monthly
-      - 
-        ExpiresAfterUnit: Weeks
-        ExpiresAfterValue: 4
-        Method: Full
-        PeriodType: Weekly
-      - 
-        ExpiresAfterUnit: Days
-        ExpiresAfterValue: 7
-        Method: Incremental
-        PeriodType: Daily
+        Bucket: <BucketName>
+        CredentialsSecretReference: 
+          Name: mysecret
+          NamespaceId: 
+            NamespaceName: <SecretNamespace>
+        Region: <BucketRegion>
+      BackupTargetType: AmazonS3
+    SchedulingAndRetentionSettings: 
+      PeriodsSettings: 
+        - 
+          ExpiresAfterUnit: Years
+          ExpiresAfterValue: 1
+          Method: Full
+          PeriodType: Yearly
+        - 
+          ExpiresAfterUnit: Months
+          ExpiresAfterValue: 12
+          Method: Full
+          PeriodType: Monthly
+        - 
+          ExpiresAfterUnit: Weeks
+          ExpiresAfterValue: 4
+          Method: Full
+          PeriodType: Weekly
+        - 
+          ExpiresAfterUnit: Days
+          ExpiresAfterValue: 7
+          Method: Incremental
+          PeriodType: Daily
+  JournalDiskSizeInGb: 8
+  JournalHistoryInHours: 8
+  Name: <VPG Name>
+  RecoveryStorageClass: <RecoveryStorageClass>
   SourceSite: 
-    Id: site1
+    Id: <SourceSite>
   TargetSite: 
-    Id: site1
-
+    Id: <TargetSite>
 ```
 
 #### Important Considerations for SchedulingAndRetentionSettings
