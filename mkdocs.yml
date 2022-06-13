@@ -13,6 +13,7 @@ nav:
 - API Documentation: openapi.md
 - ChangeLog:
   - '2.x.x': ./changes/version2.x.x.md
+  - '13.x.x': ./changes/version13.x.x.md
 plugins:
 - zerto_swagger
 - search
