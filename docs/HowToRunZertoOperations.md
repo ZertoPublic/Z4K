@@ -290,7 +290,6 @@ spec:
   
 ``` yaml
 --- 
---- 
 apiVersion: z4k.zerto.com/v1
 kind: vpg
 spec: 
