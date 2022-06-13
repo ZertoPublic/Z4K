@@ -301,7 +301,7 @@ spec:
           Id: 
             Name: mysecret
             NamespaceId: ~
-            NamespaceName: <Secret Namespace>
+              NamespaceName: <Secret Namespace>
           Site: 
             Id: site1
         DirectoryId: c659fda3-cf53-43ad-befe-776ee475dcf5
