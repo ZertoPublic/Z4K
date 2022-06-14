@@ -1,5 +1,7 @@
 # How To Run Zerto Operations
 
+## Workflow
+
 After deploying Zerto for Kubernetes, create a VPG, configure one-to-many (optional), tag checkpoints, and then test failover:
 
 1.	[Create a VPG](#creating-a-vpg)
