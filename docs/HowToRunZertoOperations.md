@@ -297,7 +297,9 @@ spec:
     IsCompressionEnabled: true
     RepositoryInformation: 
       AzureBackupRepositoryInformation: 
-        CredentialSecretReference: 
+        CredentialsSecretReference: 
+          Site: 
+            Id: "<site id where is secret installed>"                      
           Id: 
             Name: mysecret
             NamespaceId: ~
