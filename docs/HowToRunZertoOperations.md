@@ -270,9 +270,12 @@ spec:
       AwsBackupRepositoryInformation: 
         Bucket: <BucketName>
         CredentialsSecretReference: 
-          Name: <SecretName>
-          NamespaceId: 
-            NamespaceName: <SecretNamespace>
+          Site: 
+            Id: "<site id where is secret installed>"                      
+          Id: 
+            Name: mysecret
+            NamespaceId: ~
+              NamespaceName: <Secret Namespace>
         Region: <BucketRegion>
       BackupTargetType: AmazonS3
   JournalDiskSizeInGb: 8
@@ -303,9 +306,7 @@ spec:
           Id: 
             Name: mysecret
             NamespaceId: ~
-              NamespaceName: <Secret Namespace>
-          Site: 
-            Id: site1
+              NamespaceName: <Secret Namespace>         
         DirectoryId: c659fda3-cf53-43ad-befe-776ee475dcf5
         StorageAccountName: <Storageaccount>
       BackupTargetType: AzureBlob
