@@ -365,9 +365,12 @@ spec:
       AwsBackupRepositoryInformation: 
         Bucket: <BucketName>
         CredentialsSecretReference: 
-          Name: mysecret
-          NamespaceId: 
-            NamespaceName: <SecretNamespace>
+          Site: 
+            Id: "<site id where is secret installed>"                      
+          Id: 
+            Name: mysecret
+            NamespaceId: ~
+              NamespaceName: <Secret Namespace>
         Region: <BucketRegion>
       BackupTargetType: AmazonS3
     SchedulingAndRetentionSettings: 
