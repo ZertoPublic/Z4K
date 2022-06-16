@@ -34,7 +34,9 @@ Then, you can perform one of the following:
     >>-	Will use the storage class goldSC.
     >>-	SLA is 12 hours of history.
     >>-	The Journal can expand up to 160 GB to meet the history requirement.
-    >> Note:	It is not mandatory to configure the Journal disk size (JournalDiskSizeInGb) and history (JournalHistoryInHours); they have default values of 2 GB and 8 hours respectively.
+    
+    <span class="Note">Note:	It is not mandatory to configure the Journal disk size (JournalDiskSizeInGb) and history (JournalHistoryInHours); they have default values of 2 GB and 8 hours respectively.</span>
+    
     ```
     apiVersion: z4k.zerto.com/v1
     kind: vpg
