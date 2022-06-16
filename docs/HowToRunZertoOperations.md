@@ -262,7 +262,7 @@ spec:
   BackupSettings:
     IsCompressionEnabled: true  
     RepositoryInformation:
-      BackTargetType: AmazonS3
+      BackupTargetType: AmazonS3
       AwsBackupRepositoryInformation:
         Region: eu-centeral-1
 	Bucket: mybucket
@@ -291,7 +291,7 @@ spec:
   BackupSettings:
     IsCompressionEnabled: true
     RepositoryInformation:
-      BackTargetType: AzureBlob
+      BackupTargetType: AzureBlob
       AzureBackupRepositoryInformation:
 	StorageAccountName: mystorageaccount
 	DirectoryId: c659fda3-cf53-43ad-befe-776ee475dcf5
@@ -352,7 +352,7 @@ spec:
   BackupSettings:
     IsCompressionEnabled: true	
     RepositoryInformation:
-      BackTargetType: AmazonS3
+      BackupTargetType: AmazonS3
       AwsBackupRepositoryInformation:
 	Region: eu-centeral-1
 	Bucket: mybucket
