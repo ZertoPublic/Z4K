@@ -2,13 +2,13 @@
 
 Perform the following procedures:
 
-1.	[Prepare Helm](#Preparing-Helm)
-2.	[Obtain the Image Pull Key Secret](#Obtaining-the-Image-Pull-Key-Secret)
+1.	[Prepare Helm](#preparing-helm)
+2.	[Obtain the Image Pull Key Secret](#obtaining-the-image-pull-key-secret)
 3.	Next, select one of the following installation procedures:
-    -	[Install Zerto for Kubernetes on a Kubernetes Cluster](#Installing-Zerto-for-Kubernetes-on-a-Kubernetes-Cluster)
-    -   [Install Zerto Kubernetes Manager Proxy on Additional Kubernetes Clusters](#Installing-Zerto-Kubernetes-Manager-Proxy-on-Additional-Kubernetes-Clusters)
-    -	[Installing Zerto Kubernetes Manager on a Kubernetes Cluster](#Installing-Zerto-Kubernetes-Manager-on-a-Kubernetes-Cluster)
-4.	[Downloading the Zerto Operations Help Utility](#Downloading-the-Zerto-Operations-Help-Utility)
+    -	[Install Zerto for Kubernetes on a Kubernetes Cluster](#installing-zerto-for-kubernetes-on-a-kubernetes-cluster)
+    -   [Install Zerto Kubernetes Manager Proxy on Additional Kubernetes Clusters](#installing-zerto-kubernetes-manager-proxy-on-additional-kubernetes-clusters)
+    -	[Installing Zerto Kubernetes Manager on a Kubernetes Cluster](#installing-zerto-kubernetes-manager-on-a-kubernetes-cluster)
+4.	[Downloading the Zerto Operations Help Utility](#downloading-the-zerto-operations-help-utility)
 
 ## Preparing Helm
 
@@ -263,7 +263,7 @@ chmod +x kubectl-zrt
 sudo cp kubectl-zrt /usr/bin/
 ```
 
-> **Note:**	If kubectl-zrt is not installed in /usr/bin, you must point to the relevant location.
+<span class="Note">Note: If kubectl-zrt is not installed in /usr/bin, you must point to the relevant location.</span>
 
 -   To view all Zerto commands, run 
     ```kubectl-zrt –```
