@@ -2,24 +2,24 @@
 
 After deploying Zerto for Kubernetes, create a VPG, configure one-to-many (optional), tag checkpoints, and then test failover:
 
-1.	[Create a VPG](#creating-a-vpg)
-2.	[Configure One-to-Many](#configuring-one-to-many)
-3.	[Tag a Checkpoint](#tagging-a-checkpoint)
-4.	[Test Failover](#testing-failover)
+1.	[Create a VPG](creating-a-vpg)
+2.	[Configure One-to-Many](configuring-one-to-many)
+3.	[Tag a Checkpoint](tagging-a-checkpoint)
+4.	[Test Failover](testing-failover)
 
 Then, you can perform one of the following:
 
--	[Perform a Failover](#performing-a-failover)
--	[Restore a Single VPG](#restoring-a-single-vpg)
--	[Configure Long-term Retention (LTR) in Kubernetes Environments](#long-term-retention-ltr-in-kubernetes-environments)
+-	[Perform a Failover](performing-a-failover)
+-	[Restore a Single VPG](restoring-a-single-vpg)
+-	[Configure Long-term Retention (LTR) in Kubernetes Environments](long-term-retention-ltr-in-kubernetes-environments)
 	>	Zerto for Kubernetes supports backing up Kubernetes workloads and their data to a Long-term Repository and restoring them from the Long-term Repository to the original site, or to a different site/namespace.
-- [Log Retention](#log-retention)
+- [Log Retention](log-retention)
 	>	Log collection occurs automatically, and the logs are uploaded to Amazon S3. You can also collect logs ad hoc.
 -	[Protect Ingress Controller Resources](protecting-ingress-controller-resources)
 	>	Zerto for Kubernetes supports replicating Ingress Controller Resources so networking configuration can be replicated and easily deployed on the recovery site.
--	[Taints and Tolerations](#taints-and-tolerations)
+-	[Taints and Tolerations](taints-and-tolerations)
 	>	Z4K supports taints and tolerations configuration for nodes and pods.
--	[Tweaks](#tweaks)
+-	[Tweaks](tweaks)
 	>	How to view and configure tweaks and values.
 
 
@@ -237,10 +237,10 @@ Zerto for Kubernetes supports two LTR repository types:
 	
 To configure Long-term Retention for your Kubernetes environment, use the following procedures:
 
-1.	[Back up the VPG](#backing-up-a-vpg)
-2.	[Manually trigger a Backup](#manually-trigger-a-backup)
-3.	[Schedule Long-term Retention Backups](#scheduling-long-term-retention-backups)
-4.	[Restore the VPG from a Long-term Repository](#restoring-a-vpg-from-a-long-term-repository)
+1.	[Back up the VPG](backing-up-a-vpg)
+2.	[Manually trigger a Backup](manually-trigger-a-backup)
+3.	[Schedule Long-term Retention Backups](scheduling-long-term-retention-backups)
+4.	[Restore the VPG from a Long-term Repository](restoring-a-vpg-from-a-long-term-repository)
 
 
 ### Backing up a VPG
