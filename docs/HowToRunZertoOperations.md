@@ -32,7 +32,8 @@ Then, you can perform one of the following:
     >>-	Will use the storage class goldSC.
     >>-	SLA is 12 hours of history.
     >>-	The Journal can expand up to 160 GB to meet the history requirement.
-    >> Note:	It is not mandatory to configure the Journal disk size (JournalDiskSizeInGb) and history (JournalHistoryInHours); they have default values of 2 GB and 8 hours respectively.
+
+<span class="Note">Note: It is not mandatory to configure the Journal disk size (JournalDiskSizeInGb) and history (JournalHistoryInHours); they have default values of 2 GB and 8 hours respectively.</span>
     ```
     apiVersion: z4k.zerto.com/v1
     kind: vpg
@@ -522,7 +523,7 @@ $ kubectl get vpg -n <namespace>
 	
 Z4K supports taints and tolerations configuration for nodes and pods.
 
-> Note: Nodes that are tainted with a taint that does not allow VRA installation cannot have it's deployments protected.
+<span class="Note">Note: Nodes that are tainted with a taint that does not allow VRA installation cannot have it's deployments protected.</span>
 	
 -	Taints and tolerations are not replicated.
 -	When Taints and Tolerations are in use they need to be predefined in pods and nodes for VPG protection, before recovery oeprations take place.
