@@ -2,13 +2,13 @@
 
 Perform the following procedures:
 
-1.	[Prepare Helm](#preparing-helm)
-2.	[Obtain the Image Pull Key Secret](#obtaining-the-image-pull-key-secret)
+1.	[Prepare Helm](#preparing helm)
+2.	[Obtain the Image Pull Key Secret](#obtaining the image pull key secret)
 3.	Next, select one of the following installation procedures:
-    -	[Install Zerto for Kubernetes on a Kubernetes Cluster](#installing-zerto-for-kubernetes-on-a-kubernetes-cluster)
-    -   [Install Zerto Kubernetes Manager Proxy on Additional Kubernetes Clusters](#installing-zerto-kubernetes-manager-proxy-on-additional-kubernetes-clusters)
-    -	[Installing Zerto Kubernetes Manager on a Kubernetes Cluster](#installing-zerto-kubernetes-manager-on-a-kubernetes-cluster)
-4.	[Downloading the Zerto Operations Help Utility](#downloading-the-zerto-operations-help-utility)
+    -	[Install Zerto for Kubernetes on a Kubernetes Cluster](#installing zerto for kubernetes on a kubernetes cluster)
+    -   [Install Zerto Kubernetes Manager Proxy on Additional Kubernetes Clusters](#installing zerto kubernetes manager proxy on additional kubernetes clusters)
+    -	[Installing Zerto Kubernetes Manager on a Kubernetes Cluster](#installing zerto kubernetes manager on a kubernetes cluster)
+4.	[Downloading the Zerto Operations Help Utility](#downloading the zerto operations help utility)
 
 ## Preparing Helm
 
