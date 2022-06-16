@@ -19,7 +19,7 @@ helm repo add zerto-z4k https://zapps-helm.zerto.com/z4k/stable
 helm repo update
 ```
 
-> **Note**:	Helm name (in the example above, zerto-z4k) should be a logical name entered by the user.
+<span class="Note">Note:	Helm name (in the example above, zerto-z4k) should be a logical name entered by the user.</span>
 
 ## Obtaining the Image Pull Key Secret
 
