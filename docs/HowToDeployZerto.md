@@ -2,13 +2,13 @@
 
 Perform the following procedures:
 
-1.	[Prepare Helm](#Preparing-Helm)
-2.	[Obtain the Image Pull Key Secret](#Obtaining-the-Image-Pull-Key-Secret)
+1.	[Prepare Helm](preparing-helm)
+2.	[Obtain the Image Pull Key Secret](obtaining-the-image-pull-key-secret)
 3.	Next, select one of the following installation procedures:
-    -	[Install Zerto for Kubernetes on a Kubernetes Cluster](#Installing-Zerto-for-Kubernetes-on-a-Kubernetes-Cluster)
-    -   [Install Zerto Kubernetes Manager Proxy on Additional Kubernetes Clusters](#Installing-Zerto-Kubernetes-Manager-Proxy-on-Additional-Kubernetes-Clusters)
-    -	[Installing Zerto Kubernetes Manager on a Kubernetes Cluster](#Installing-Zerto-Kubernetes-Manager-on-a-Kubernetes-Cluster)
-4.	[Downloading the Zerto Operations Help Utility](#Downloading-the-Zerto-Operations-Help-Utility)
+    -	[Install Zerto for Kubernetes on a Kubernetes Cluster](installing-zerto-for-kubernetes-on-a-kubernetes-cluster)
+    -   [Install Zerto Kubernetes Manager Proxy on Additional Kubernetes Clusters](installing-zerto-kubernetes-manager-proxy-on-additional-kubernetes-clusters)
+    -	[Installing Zerto Kubernetes Manager on a Kubernetes Cluster](installing-zerto-kubernetes-manager-on-a-kubernetes-cluster)
+4.	[Downloading the Zerto Operations Help Utility](downloading-the-zerto-operations-help-utility)
 
 ## Preparing Helm
 
@@ -28,7 +28,7 @@ helm repo update
 3.	Navigate to [Support & Downloads > Software Downloads > Zerto for K8s](https://www.zerto.com/myzerto/support/downloads/#z4k), and click **Generate Registry Key**.
 4.	Copy the Registry Key. You will need it later when installing the Zerto software.
 
-![PullKey](Images/PullKey.png?raw=true)
+[PullKey](Images/PullKey.png?raw=true)
 
 ## Installing Zerto for Kubernetes on a Kubernetes Cluster
 
@@ -107,8 +107,8 @@ This installation includes the following components:
 
 Perform these steps:
 
-1.	[Get an initial access token from Keycloak](#getting-an-initial-access-token-from-keycloak)
-2.	[Install Zerto Kubernetes Manager Proxy on Additional Clusters](#installing-zerto-kubernetes-manager-proxy-on-additional-clusters)
+1.	[Get an initial access token from Keycloak](getting-an-initial-access-token-from-keycloak)
+2.	[Install Zerto Kubernetes Manager Proxy on Additional Clusters](installing-zerto-kubernetes-manager-proxy-on-additional-clusters)
 
 ## Getting an initial access token from Keycloak
 Before you can begin to install Zerto Kubernetes Manager Proxy on additional Kubernetes clusters, you first need to get an initial access token from Keycloak, which was installed as part of ***z4k/zkm*** installation.
