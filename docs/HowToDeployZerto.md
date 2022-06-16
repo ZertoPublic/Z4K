@@ -19,7 +19,7 @@ helm repo add zerto-z4k https://zapps-helm.zerto.com/z4k/stable
 helm repo update
 ```
 
-<span class="Note">Note:	Helm name (in the example above, zerto-z4k) should be a logical name entered by the user.</span>
+<span class="Note">Note: Helm name (in the example above, zerto-z4k) should be a logical name entered by the user.</span>
 
 ## Obtaining the Image Pull Key Secret
 
@@ -116,7 +116,7 @@ Creating an initial access token can be achieved in one of two ways:
 
 ### Creating an Initial Access Token - Option 1
 
-> **Note:**	Use this option only if two-factor authentication (2FA) is **not** enabled for the Keycloak management user.
+<span class="Note">Note: Use this option only if two-factor authentication (2FA) is **not** enabled for the Keycloak management user.</span>
 > 
 1.  Generate an initial access token via REST commands to Keycloak.
 2.  Download and execute the following script:
@@ -125,7 +125,7 @@ wget https://z4k.zerto.com/public/generate_initial_access_token.bash
 chmod +x generate_initial_access_token.bash
 ./generate_initial_access_token.bash
 ```
-> **Note:**	The URL should end with /auth
+<span class="Note">Note: The URL should end with /auth.</span>
 
 ### Creating an Initial Access Token - Option 2
 
