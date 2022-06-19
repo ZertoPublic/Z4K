@@ -10,7 +10,7 @@ Perform the following procedures:
     -	[Installing Zerto Kubernetes Manager on a Kubernetes Cluster](#installing-zerto-kubernetes-manager-on-a-kubernetes-cluster)
 4.	[Downloading the Zerto Operations Help Utility](#downloading-the-zerto-operations-help-utility)
 
-## Preparing Helm
+## Preparing Helm(#preparing-helm)
 
 On the Kubernetes platform, enter the following commands:
 
@@ -21,7 +21,7 @@ helm repo update
 
 <span class="Note">Note: Helm name (in the example above, zerto-z4k) should be a logical name entered by the user.</span>
 
-## Obtaining the Image Pull Key Secret
+## Obtaining the Image Pull Key Secret(#obtaining-the-image-pull-key-secret)
 
 1.	Go to [myZerto](https://www.zerto.com/myzerto/).
 2.	If required, log in using your myZerto credentials.
