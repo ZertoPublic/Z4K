@@ -117,8 +117,8 @@ Creating an initial access token can be achieved in one of two ways:
 
 ### Creating an Initial Access Token - Option 1
 
-> **Note:**	Use this option only if two-factor authentication (2FA) is **not** enabled for the Keycloak management user.
-> 
+> **Note**:	Use this option only if two-factor authentication (2FA) is **not** enabled for the Keycloak management user.
+ 
 1.  Generate an initial access token via REST commands to Keycloak.
 2.  Download and execute the following script:
 ``` shell
@@ -126,7 +126,7 @@ wget https://z4k.zerto.com/public/generate_initial_access_token.bash
 chmod +x generate_initial_access_token.bash
 ./generate_initial_access_token.bash
 ```
-> **Note:**	The URL should end with /auth
+> **Note**:	The URL should end with /auth
 
 ### Creating an Initial Access Token - Option 2
 
@@ -266,7 +266,7 @@ chmod +x kubectl-zrt
 sudo cp kubectl-zrt /usr/bin/
 ```
 
-> **Note:**	If kubectl-zrt is not installed in /usr/bin, you must point to the relevant location.
+> **Note**:	If kubectl-zrt is not installed in /usr/bin, you must point to the relevant location.
 
 -   To view all Zerto commands, run 
     ```kubectl-zrt –```
