@@ -71,12 +71,14 @@ helm install <installation names> zerto-z4k/z4k \
 ```
 helm install <installation names> zerto-z4k/z4k -f values.yaml --namespace $NAMESPACE
 ```
-Where,
+Where:
+
 | Parameter | Description |
 | --------- | ------- |
 | \<installation names\> | Specify an easy to recognize name. |
 | $NAMESPACE | A dedicated Zerto namespace. Zerto recommends using the namespace 'zerto'. |
 | $SITE |	A unique site name. |
+
 
 In **OpenShift on VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes.
 Therefore, to enable VRA communication, you must disable ingress deployment and provide the external IP of the sites.
@@ -161,13 +163,15 @@ helm install <installation name> zerto-4k/zkm-px \
 --set config.zkeycloakUrl=$ZKEYCLOAK_URL \
 --namespace $NAMESPACE
 ```
->   Where,
+>   Where:
+>   
 >   | Parameter	| Description |
 >   | --------- | ------- | 
 >   |\<installation names\>	| Specify an easy to recognize name. |
 >   | $SITE |	A unique site name. |
 >   | $ZKM_URL |	URL for ZKM. Typically: https://<load balancer addr>/zkm |
 >   | $ZKEYCLOAK _URL | URL for Keycloak. Typically: https://<load balancer addr>/auth |
+
 
 ### Option 2    
 1. Create the following values.yaml:
@@ -185,11 +189,15 @@ helm install <installation name> zerto-4k/zkm-px \
     ```
     helm install <installation names> zerto-z4k/zkm-px -f values.yaml --namespace $NAMESPACE
     ```
-    >   Where,
+    
+    >   Where:
+    
     >   | Parameter	| Description |
     >   | --------- | ------- | 
     >   |\<installation names\>	| Specify an easy to recognize name. |
     >   | $NAMESPACE | A dedicated Zerto namespace. We recommend using the namespace zerto. |
+    
+    
     In **OpenShift** on **VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes. Therefore, to enable VRA communication, you must disable ingress deployment and provide the external IP of the sites.
 
     
@@ -217,13 +225,14 @@ helm install <installation name> zerto/zkm \
 --namespace $NAMESPACE
 ```
     
-Where,
+Where:
 
 | Parameter |	Description |
 | --------- | --------- |
 | \<installation names\> |	Specify an easy to recognize name. |
 | $NAMESPACE |	A dedicated Zerto namespace. We recommend using the namespace zerto. |
-    
+
+
 ### Option 2 
     
 1.  Create the following values.yaml:
