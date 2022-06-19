@@ -6,8 +6,8 @@ nav:
 - Home: index.md
 - Prerequisites and Requirements: MinimumRequirements.md
 - Z4K Deployment Architecture: DeployingZertoForK8S.md
-- Deployment Guide: HowToDeployZerto.md
-- Administration Guide: HowToRunZertoOperations.md
+- Deployment Guide: DeploymentGuide.md
+- Administration Guide: AdministrationGuide.md
 - Supported Platforms: SupportedPlatforms.md
 - More Resources: MoreResources.md
 - API Documentation: openapi.md
