@@ -36,6 +36,9 @@ Then, you can perform one of the following:
 <span class="Note">Note: It is not mandatory to configure the Journal disk size (JournalDiskSizeInGb) and history (JournalHistoryInHours); they have default values of 2 GB and 8 hours respectively.</span>
 
 
+
+
+
     ```
     apiVersion: z4k.zerto.com/v1
     kind: vpg
