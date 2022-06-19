@@ -6,6 +6,7 @@
 ## Prerequisites
 - Helm Package Manager, minimum version 3.
 - A storage class must be specified and set as the default prior to Z4K installation.
+- Cluster security policy should allow creation of privileged pods.
 
 ## Storage Requirements
 -	Zerto for Kubernetes containerized applications also consume storage:
