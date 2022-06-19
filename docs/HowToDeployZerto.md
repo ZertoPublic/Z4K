@@ -71,6 +71,7 @@ helm install <installation names> zerto-z4k/z4k \
 ```
 helm install <installation names> zerto-z4k/z4k -f values.yaml --namespace $NAMESPACE
 ```
+
 Where:
 
 | Parameter | Description |
@@ -163,6 +164,7 @@ helm install <installation name> zerto-4k/zkm-px \
 --set config.zkeycloakUrl=$ZKEYCLOAK_URL \
 --namespace $NAMESPACE
 ```
+
 >   Where:
 >   
 >   | Parameter	| Description |
