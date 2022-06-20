@@ -1,5 +1,6 @@
 2.x Version Changes
 ===================
 * Implement One-to-Many VPG configuration
------------------------------------------
-* fix kubectl apply issue
+* Support HPE new CSI
+* [bug_fix_z4k_459_atomic] change the seq to atomic
+* Fix kubectl apply issue
