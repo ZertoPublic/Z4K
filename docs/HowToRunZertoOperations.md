@@ -5,9 +5,10 @@
 After deploying Zerto for Kubernetes, create a VPG, configure one-to-many (optional), tag checkpoints, and then test failover:
 
 1.	[Create a VPG](#creating-a-vpg)
-2.	[Configure One-to-Many](#configuring-one-to-many)
-3.	[Tag a Checkpoint](#tagging-a-checkpoint)
-4.	[Test Failover](#testing-failover)
+2.	[Update Existing VPG](#updating-existing-vpg)
+3.	[Configure One-to-Many](#configuring-one-to-many)
+4.	[Tag a Checkpoint](#tagging-a-checkpoint)
+5.	[Test Failover](#testing-failover)
 
 Then, you can perform one of the following:
 
@@ -50,7 +51,6 @@ spec:
   TargetCluster: 
     Id: prod_cluster
 ```
-
 2. Annotate Kubernetes entities to include them in the VPG.
 
 >>-	A VPG can contain a selection of entities like stateful sets, deployments, services, secrets and configmaps.
@@ -100,6 +100,34 @@ spec:
       labels: 
         app: debian
 
+```
+
+## Updating existing VPG
+
+In case you need to update an existing VPG you need to create a yaml file as you did it for create VPG,
+with additional section: "metadata". The "metadata" section should contain the VPG name and the namespace id:
+
+``` yaml
+--- 
+apiVersion: z4k.zerto.com/v1
+kind: vpg
+spec: 
+  JournalDiskSizeInGb: 160
+  JournalHistoryInHours: 12
+  RecoveryStorageClass: GoldSC
+  SourceCluster: 
+    Id: prod_cluster
+  TargetCluster: 
+    Id: prod_cluster
+metadata:  
+  name: <VPG name>
+  namespace: <z4k namespace>
+```
+
+Update kubernetes command:
+
+``` shell
+kubectl apply -f vpg.yaml
 ```
 
 ## Configuring One-to-Many
