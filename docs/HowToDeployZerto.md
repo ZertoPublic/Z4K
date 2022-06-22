@@ -100,6 +100,8 @@ If the IngressClassNames are not the default names, use the following flags to s
 --set zkm.zkeycloak.ingress.annotations.kubernetes\\.io/ingress\\.class=$ingressClassName
 ```
 
+> **Note:** In order to find the default ingress class name you need to run ```kubectl get ingressclass```.
+
 ## Installing Zerto Kubernetes Manager Proxy on Additional Kubernetes Clusters
 
 This installation includes the following components:
