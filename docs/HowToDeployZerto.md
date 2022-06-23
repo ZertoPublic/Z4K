@@ -38,6 +38,10 @@ This installation includes the following components:
 -	Zerto Kubernetes Manager Proxy (ZKM-PX)
 
 Use either of these options to install Zerto for Kubernetes on any of the Zerto supported Kubernetes platforms.
+> **Note**: At any of the installation options followed the following flag can be added to capture helm install logs for debugging/troubleshotting purposes:
+```
+--debug > <path_to_file>.txt
+```
 
 ### Option 1
 
