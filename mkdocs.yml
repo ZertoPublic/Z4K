@@ -17,6 +17,7 @@ plugins:
 - zerto_swagger
 - search
 markdown_extensions:
+  - tables
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
