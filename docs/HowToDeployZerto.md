@@ -39,6 +39,11 @@ This installation includes the following components:
 
 Use either of these options to install Zerto for Kubernetes on any of the Zerto supported Kubernetes platforms.
 
+> **Note**: For both options you can add the following flag to capture helm install logs for debugging and troubleshotting purposes:
+```
+--debug > <path_to_file>.txt
+```
+
 ### Option 1
 
 Enter the following command, replacing the "$" variables with values relevant to your deployment.
@@ -194,6 +199,7 @@ global:
     >   | --------- | ------- | 
     >   |\<installation names\>	| Specify an easy to recognize name. |
     >   | $NAMESPACE | A dedicated Zerto namespace. We recommend using the namespace zerto. |
+    
     In **OpenShift** on **VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes. Therefore, to enable VRA communication, you must disable ingress deployment and provide the external IP of the sites.
 
     
