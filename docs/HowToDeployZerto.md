@@ -78,9 +78,10 @@ zkm-px:
 helm install <installation names> zerto-z4k/z4k -f values.yaml --namespace $NAMESPACE
 ```
 Where,
+
 | Parameter | Description |
-| --------- | ------- |
-| \<installation names\> | Specify an easy to recognize name. |
+| --------- | ----------- |
+| <installation names\> | Specify an easy to recognize name. |
 | $NAMESPACE | A dedicated Zerto namespace. Zerto recommends using the namespace 'zerto'. |
 | $SITE |	A unique site name. |
 
@@ -180,13 +181,14 @@ helm install <installation name> zerto-4k/zkm-px \
 --set config.zkeycloakUrl=$ZKEYCLOAK_URL \
 --namespace $NAMESPACE
 ```
->   Where,
->   | Parameter	| Description |
->   | --------- | ------- | 
->   |\<installation names\>	| Specify an easy to recognize name. |
->   | $SITE |	A unique site name. |
->   | $ZKM_URL |	URL for ZKM. Typically: https://<load balancer addr>/zkm |
->   | $ZKEYCLOAK _URL | URL for Keycloak. Typically: https://<load balancer addr>/auth |
+  Where,
+
+| Parameter	| Description |
+| --------- | ----------- |
+| <installation names\>	| Specify an easy to recognize name. |
+| $SITE |	A unique site name. |
+| $ZKM_URL |	URL for ZKM. Typically: "https://<load balancer addr>/zkm" |
+| $ZKEYCLOAK _URL | URL for Keycloak. Typically: https://<load balancer addr>/auth |
 
 ### Option 2    
 1. Create the following values.yaml:
@@ -205,20 +207,23 @@ global:
     ```
     helm install <installation names> zerto-z4k/zkm-px -f values.yaml --namespace $NAMESPACE
     ```
-    >   Where,
-    >   | Parameter	| Description |
-    >   | --------- | ------- | 
-    >   |\<installation names\>	| Specify an easy to recognize name. |
-    >   | $NAMESPACE | A dedicated Zerto namespace. We recommend using the namespace zerto. |
+ 
+ Where,
+
+ | Parameter	| Description |
+ | ---------  | ----------- | 
+ | <installation names\>	| Specify an easy to recognize name. |
+ | $NAMESPACE | A dedicated Zerto namespace. We recommend using the namespace zerto. |
     
-    In **OpenShift** on **VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes. Therefore, to enable VRA communication, you must disable ingress deployment and provide the external IP of the sites.
+In **OpenShift** on **VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes. Therefore, to enable VRA communication, you must disable ingress deployment and provide the external IP of the sites.
 
     
-    **To disable ingress deployment and provide the external IP of the sites** enter the following commands:
-    ```
-    --set zkmProxyIngressControllerEnabled=false
-    --set config.externalIp=$SITE_IP
-    ```
+**To disable ingress deployment and provide the external IP of the sites** enter the following commands:
+
+```
+--set zkmProxyIngressControllerEnabled=false
+--set config.externalIp=$SITE_IP
+```
 
 ## Installing Zerto Kubernetes Manager on a Kubernetes Cluster
 
@@ -242,7 +247,7 @@ Where,
 
 | Parameter |	Description |
 | --------- | --------- |
-| \<installation names\> |	Specify an easy to recognize name. |
+| <installation names\> |	Specify an easy to recognize name. |
 | $NAMESPACE |	A dedicated Zerto namespace. We recommend using the namespace zerto. |
     
 ### Option 2 
