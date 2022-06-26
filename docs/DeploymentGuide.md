@@ -80,7 +80,11 @@ Where:
 | $NAMESPACE | A dedicated Zerto namespace. Zerto recommends using the namespace 'zerto'. |
 | $SITE |	A unique site name. |
 
-
+<span class="Note">Note: For both options you can add the following flag to capture helm install logs for debugging and troubleshotting purposes.   </span>
+```
+--debug > <path_to_file>.txt
+```
+ 
 In **OpenShift on VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes.
 Therefore, to enable VRA communication, you must disable ingress deployment and provide the external IP of the sites.
 
