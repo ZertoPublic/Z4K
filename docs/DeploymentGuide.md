@@ -201,6 +201,18 @@ helm install <installation name> zerto-4k/zkm-px \
     >   |\<installation names\>	| Specify an easy to recognize name. |
     >   | $NAMESPACE | A dedicated Zerto namespace. We recommend using the namespace zerto. |
     
+    To install the ingress controller with static IP the following flags are needed in the value.yaml file (as input for HELM during the installation):
+
+    For ZKM:
+``` 
+shell
+--set ingress-nginx.controller.service.loadBalancerIP=$STATIC_IP
+```
+    
+    For PX only:
+``` shell
+--set zkm-px.ingress-nginx.controller.service.loadBalancerIP=$STATIC_IP
+```
     
     In **OpenShift** on **VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes. Therefore, to enable VRA communication, you must disable ingress deployment and provide the external IP of the sites.
 
