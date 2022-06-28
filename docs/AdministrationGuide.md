@@ -11,7 +11,7 @@ Then, you can perform one of the following:
 
 -	[Perform a Failover](#Performing-a-Failover)
 -	[Restore a Single VPG](#Restoring-a-Single-VPG)
--	[Configure Long-term Retention (LTR) in Kubernetes Environments](#Long-term-Retention-LTR-in-Kubernetes-Environments)
+-	[Configure Long-term Retention (LTR) in Kubernetes Environments](#Long-term-Retention-in-Kubernetes-Environments)
 	>	Zerto for Kubernetes supports backing up Kubernetes workloads and their data to a Long-term Repository and restoring them from the Long-term Repository to the original site, or to a different site/namespace.
 - [Log Retention](#Log-Retention)
 	>	Log collection occurs automatically, and the logs are uploaded to Amazon S3. You can also collect logs ad hoc.
@@ -227,7 +227,8 @@ kubectl zrt commit-restore [vpg-name]
 kubectl zrt rollback-restore [vpg-name]
 ```
 
-## Long-term Retention (LTR) in Kubernetes Environments
+
+## Long-term Retention in Kubernetes Environments
 
 Zerto for Kubernetes supports backing up Kubernetes workloads and their data to a long-term repository and restoring them from the long-term repository to the original site, or to a different site. The repository where backed up data is kept is called a Long-term Retention (LTR) repository.
 
@@ -415,6 +416,7 @@ These parameters give you flexibility in restoring a VPG to the original site, o
 You can also restore from a repository that has VPGs backupsets from a different site and restore them to a new site using the parameter backupset-id.
 	
 When the restore task completes successfully, Kubernetes entities with the prefix "res-" are created in the specified site and namespace.
+
 
 ## Log Retention
 
