@@ -11,7 +11,7 @@ Then, you can perform one of the following:
 
 -	[Perform a Failover](#Performing-a-Failover)
 -	[Restore a Single VPG](#Restoring-a-Single-VPG)
--	[Configure Long-term Retention (LTR) in Kubernetes Environments](#Long-term-Retention-in-Kubernetes-Environments)
+-	[Configure Long-term Retention (LTR) in Kubernetes Environments](#Long-Term-Retention-in-Kubernetes-Environments)
 	>	Zerto for Kubernetes supports backing up Kubernetes workloads and their data to a Long-term Repository and restoring them from the Long-term Repository to the original site, or to a different site/namespace.
 - [Log Retention](#Log-Retention)
 	>	Log collection occurs automatically, and the logs are uploaded to Amazon S3. You can also collect logs ad hoc.
@@ -228,7 +228,7 @@ kubectl zrt rollback-restore [vpg-name]
 ```
 
 
-## Long-term Retention in Kubernetes Environments
+## Long Term Retention in Kubernetes Environments
 
 Zerto for Kubernetes supports backing up Kubernetes workloads and their data to a long-term repository and restoring them from the long-term repository to the original site, or to a different site. The repository where backed up data is kept is called a Long-term Retention (LTR) repository.
 
@@ -243,7 +243,7 @@ To configure Long-term Retention for your Kubernetes environment, use the follow
 
 1.	[Back up the VPG](#Backing-up-a-VPG)
 2.	[Manually trigger a Backup](#Manually-Trigger-a-Backup)
-3.	[Schedule Long-term Retention Backups](#Scheduling-Long-term-Retention-Backups)
+3.	[Schedule Long-term Retention Backups](#Scheduling-Long-Term-Retention-Backups)
 4.	[Restore the VPG from a Long-term Repository](#Restoring-a-VPG-from-Long-term-Repository)
 
 
@@ -339,7 +339,7 @@ kubectl zrt ltr-backup [vpg-name] [checkpoint-id]
 kubectl get backupset
 ```
 
-### Scheduling Long-term Retention Backups
+### Scheduling Long Term Retention Backups
 
 To schedule Long-term Retention backups, add **SchedulingAndRetentionSettings** to the VPGs **BackupSettings**.
 
@@ -396,7 +396,7 @@ spec:
 -	A Full Method cannot be followed by an Incremental Method. In other words, if there is a Full Method, it should be the last in the chain.
 -	Zerto Kubernetes Manager schedules backups and expirations as needed.
 	
-### Restoring a VPG from a Long-term Repository
+### Restoring a VPG from a Long Term Repository
 
 To restore a VPG from a Long-term repository, run the command:
 
