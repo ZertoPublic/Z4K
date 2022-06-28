@@ -10,8 +10,8 @@ After deploying Zerto for Kubernetes, create a VPG, configure one-to-many (optio
 Then, you can perform one of the following:
 
 -	[Perform a Failover](#Performing-a-Failover)
--	[Restore a Single VPG](#Restoring-a-Single-VPF)
--	[Configure Long-term Retention (LTR) in Kubernetes Environments](#Long-term-Retention-(LTR)-in-Kubernetes-Environments)
+-	[Restore a Single VPG](#Restoring-a-Single-VPG)
+-	[Configure Long-term Retention (LTR) in Kubernetes Environments](#Long-term-Retention-LTR-in-Kubernetes-Environments)
 	>	Zerto for Kubernetes supports backing up Kubernetes workloads and their data to a Long-term Repository and restoring them from the Long-term Repository to the original site, or to a different site/namespace.
 - [Log Retention](#Log-Retention)
 	>	Log collection occurs automatically, and the logs are uploaded to Amazon S3. You can also collect logs ad hoc.
