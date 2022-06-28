@@ -2,7 +2,7 @@
 
 To deploy Zerto For Kubernetes perform the following procedures:
 
-1.	[Prepare Helm](#preparing-Helm)
+1.	[Prepare Helm](#Preparing-Helm)
 2.	[Obtain the Image Pull Key Secret](#Obtaining-the-Image-Pull-Key-Secret)
 3.	Next, select one of the following installation procedures:
     -	[Install Zerto for Kubernetes on a Kubernetes Cluster](#Installing-Zerto-for-Kubernetes-on-a-Kubernetes-Cluster)
