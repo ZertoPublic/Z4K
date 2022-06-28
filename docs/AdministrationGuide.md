@@ -243,7 +243,7 @@ To configure Long-term Retention for your Kubernetes environment, use the follow
 
 1.	[Back up the VPG](#Backing-up-a-VPG)
 2.	[Manually trigger a Backup](#Manually-Trigger-a-Backup)
-3.	[Schedule Long-term Retention Backups](#Scheduling-Long-Term-Retention-Backups)
+3.	[Schedule Long-term Retention Backups](#Scheduling-Long--Term-Retention-Backups)
 4.	[Restore the VPG from a Long-term Repository](#Restoring-a-VPG-from-a-Long-Term-Repository)
 
 
