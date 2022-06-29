@@ -39,6 +39,11 @@ This installation includes the following components:
 
 Use either of these options to install Zerto for Kubernetes on any of the Zerto supported Kubernetes platforms.
 
+> **Note**: For both options you can add the following flag to capture helm install logs for debugging and troubleshotting purposes:
+```
+--debug > <path_to_file>.txt
+```
+
 ### Option 1
 
 Enter the following command, replacing the "$" variables with values relevant to your deployment.
@@ -73,15 +78,27 @@ zkm-px:
 helm install <installation names> zerto-z4k/z4k -f values.yaml --namespace $NAMESPACE
 ```
 Where,
+
 | Parameter | Description |
-| --------- | ------- |
-| \<installation names\> | Specify an easy to recognize name. |
+| --------- | ----------- |
+| <installation names\> | Specify an easy to recognize name. |
 | $NAMESPACE | A dedicated Zerto namespace. Zerto recommends using the namespace 'zerto'. |
 | $SITE |	A unique site name. |
 
+To install the ingress controller with static IP the following flags are needed in the value.yaml file (as input for HELM during the installation):
+
+For zkm:
+``` shell
+--set ingress-nginx.controller.service.loadBalancerIP=$STATIC_IP
+```
+For px only:
+``` shell
+--set zkm-px.ingress-nginx.controller.service.loadBalancerIP=$STATIC_IP
+```
+
+
 In **OpenShift on VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes.
 Therefore, to enable VRA communication, you must disable ingress deployment and provide the external IP of the sites.
-
 
 **To disable ingress deployment and provide the external IP of the sites** enter the following commands:
 ``` shell
@@ -100,6 +117,8 @@ If the IngressClassNames are not the default names, use the following flags to s
 --set zkm.zkeycloak.ingress.annotations.kubernetes\\.io/ingress\\.class=$ingressClassName
 ```
 
+> **Note:** In order to find the default ingress class name you need to run ```kubectl get ingressclass```.
+
 ## Installing Zerto Kubernetes Manager Proxy on Additional Kubernetes Clusters
 
 This installation includes the following components:
@@ -117,8 +136,8 @@ Creating an initial access token can be achieved in one of two ways:
 
 ### Creating an Initial Access Token - Option 1
 
-> **Note:**	Use this option only if two-factor authentication (2FA) is **not** enabled for the Keycloak management user.
-> 
+> **Note**:	Use this option only if two-factor authentication (2FA) is **not** enabled for the Keycloak management user.
+ 
 1.  Generate an initial access token via REST commands to Keycloak.
 2.  Download and execute the following script:
 ``` shell
@@ -126,7 +145,7 @@ wget https://z4k.zerto.com/public/generate_initial_access_token.bash
 chmod +x generate_initial_access_token.bash
 ./generate_initial_access_token.bash
 ```
-> **Note:**	The URL should end with /auth
+> **Note**:	The URL should end with /auth
 
 ### Creating an Initial Access Token - Option 2
 
@@ -162,13 +181,14 @@ helm install <installation name> zerto-4k/zkm-px \
 --set config.zkeycloakUrl=$ZKEYCLOAK_URL \
 --namespace $NAMESPACE
 ```
->   Where,
->   | Parameter	| Description |
->   | --------- | ------- | 
->   |\<installation names\>	| Specify an easy to recognize name. |
->   | $SITE |	A unique site name. |
->   | $ZKM_URL |	URL for ZKM. Typically: https://<load balancer addr>/zkm |
->   | $ZKEYCLOAK _URL | URL for Keycloak. Typically: https://<load balancer addr>/auth |
+  Where,
+
+| Parameter	| Description |
+| --------- | ----------- |
+| <installation names\>	| Specify an easy to recognize name. |
+| $SITE |	A unique site name. |
+| $ZKM_URL |	URL for ZKM. Typically: "https://<load balancer addr>/zkm" |
+| $ZKEYCLOAK _URL | URL for Keycloak. Typically: https://<load balancer addr>/auth |
 
 ### Option 2    
 1. Create the following values.yaml:
@@ -187,19 +207,23 @@ global:
     ```
     helm install <installation names> zerto-z4k/zkm-px -f values.yaml --namespace $NAMESPACE
     ```
-    >   Where,
-    >   | Parameter	| Description |
-    >   | --------- | ------- | 
-    >   |\<installation names\>	| Specify an easy to recognize name. |
-    >   | $NAMESPACE | A dedicated Zerto namespace. We recommend using the namespace zerto. |
-    In **OpenShift** on **VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes. Therefore, to enable VRA communication, you must disable ingress deployment and provide the external IP of the sites.
+ 
+ Where,
+
+ | Parameter	| Description |
+ | ---------  | ----------- | 
+ | <installation names\>	| Specify an easy to recognize name. |
+ | $NAMESPACE | A dedicated Zerto namespace. We recommend using the namespace zerto. |
+    
+In **OpenShift** on **VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes. Therefore, to enable VRA communication, you must disable ingress deployment and provide the external IP of the sites.
 
     
-    **To disable ingress deployment and provide the external IP of the sites** enter the following commands:
-    ```
-    --set zkmProxyIngressControllerEnabled=false
-    --set config.externalIp=$SITE_IP
-    ```
+**To disable ingress deployment and provide the external IP of the sites** enter the following commands:
+
+```
+--set zkmProxyIngressControllerEnabled=false
+--set config.externalIp=$SITE_IP
+```
 
 ## Installing Zerto Kubernetes Manager on a Kubernetes Cluster
 
@@ -223,7 +247,7 @@ Where,
 
 | Parameter |	Description |
 | --------- | --------- |
-| \<installation names\> |	Specify an easy to recognize name. |
+| <installation names\> |	Specify an easy to recognize name. |
 | $NAMESPACE |	A dedicated Zerto namespace. We recommend using the namespace zerto. |
     
 ### Option 2 
@@ -266,7 +290,7 @@ chmod +x kubectl-zrt
 sudo cp kubectl-zrt /usr/bin/
 ```
 
-> **Note:**	If kubectl-zrt is not installed in /usr/bin, you must point to the relevant location.
+> **Note**:	If kubectl-zrt is not installed in /usr/bin, you must point to the relevant location.
 
 -   To view all Zerto commands, run 
     ```kubectl-zrt –```
