@@ -8,7 +8,8 @@ To deploy Zerto For Kubernetes perform the following procedures:
     -	[Install Zerto for Kubernetes on a Kubernetes Cluster](#Installing-Zerto-for-Kubernetes-on-a-Kubernetes-Cluster)
     -   [Install Zerto Kubernetes Manager Proxy on Additional Kubernetes Clusters](#Installing-Zerto-Kubernetes-Manager-Proxy-on-Additional-Kubernetes-Clusters)
     -	[Installing Zerto Kubernetes Manager on a Kubernetes Cluster](#Installing-Zerto-Kubernetes-Manager-on-a-Kubernetes-Cluster)
-4.	[Downloading the Zerto Operations Help Utility](#Downloading-the-Zerto-Operations-Help-Utility)
+4.	[Download the Zerto Operations Help Utility](#Downloading-the-Zerto-Operations-Help-Utility)
+5.	[Update Z4K with a New Certificate](#Updating-Z4K-with-a-New-Certificate)
 
 ## Preparing Helm
 
@@ -300,3 +301,12 @@ sudo cp kubectl-zrt /usr/bin/
     ```kubectl-zrt –```
 
     >   ![kubectl-zrt](Images/Z4K_Kubernetes_Commands.png?raw=true)
+
+
+## Updating Z4K with a New Certificate
+    
+To update your Z4K with a new Zerto certificate run the following command with the relevant environment variables:
+    
+```
+kubectl set env deployment/<zkm-deploy-name> LICENSE_KEY=<new_license> -n <namespace>
+```
