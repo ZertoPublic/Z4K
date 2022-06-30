@@ -310,3 +310,9 @@ To update your Z4K with a new Zerto certificate run the following command with t
 ```
 kubectl set env deployment/<zkm-deploy-name> LICENSE_KEY=<new_license> -n <namespace>
 ```
+
+To verify the new certificate has been succesfully updated run the following command and go to the deployemnt description under the Environment variable LICENSE_KEY:
+
+```
+kubectl describe deployments.apps <deply-zkm-name> -n <zerto-namespace>
+```
