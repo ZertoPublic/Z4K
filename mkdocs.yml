@@ -16,3 +16,11 @@ nav:
 plugins:
 - zerto_swagger
 - search
+markdown_extensions:
+  - tables
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
