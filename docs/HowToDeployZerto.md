@@ -192,8 +192,11 @@ helm install <installation name> zerto-4k/zkm-px \
 | $ZKEYCLOAK _URL | URL for Keycloak. Typically: https://<load balancer addr>/auth |
 
 ### Option 2    
+
 1. Create the following values.yaml:
-``` yaml
+
+```
+yaml
 --- 
 config: 
   siteId: $SITE
@@ -204,17 +207,19 @@ global:
     imagePullSecret: $IMAGE_PULL_KEY
     initialAccessToken: $INITIAL_ACCESS_TOKEN
 ```
+    
 2.  Install using the following command:
+    
     ```
     helm install <installation names> zerto-z4k/zkm-px -f values.yaml --namespace $NAMESPACE
     ```
  
  Where,
 
- | Parameter	| Description |
+ | Parameter  | Description |
  | ---------  | ----------- | 
- | <installation names\>	| Specify an easy to recognize name. |
- | $NAMESPACE | A dedicated Zerto namespace. We recommend using the namespace zerto. |
+ | <installation names\>  | Specify an easy to recognize name. |
+ | $NAMESPACE  | A dedicated Zerto namespace. We recommend using the namespace zerto. |
     
 In **OpenShift** on **VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes. Therefore, to enable VRA communication, you must disable ingress deployment and provide the external IP of the sites.
 
@@ -254,21 +259,26 @@ Where,
 ### Option 2 
     
 1.  Create the following values.yaml:
-    ``` yaml
---- 
-global: 
-  authentication: 
-    adminPassword: $ADMIN_PASSWORD
-    adminUser: $ADMIN_USER
-    imagePullSecret: $IMAGE_PULL_KEY
-    managementPassword: $KEYCLOAK_PASSWORD
-    managementUser: $KEYCLOAK_USER
+
+    ```
+    yaml
+    --- 
+    global: 
+      authentication: 
+        adminPassword: $ADMIN_PASSWORD
+        adminUser: $ADMIN_USER
+        imagePullSecret: $IMAGE_PULL_KEY
+        managementPassword: $KEYCLOAK_PASSWORD
+        managementUser: $KEYCLOAK_USER
     ``` 
+
 2. Install using the following command:  
+
     ```
     helm install <installation names> zerto-z4k/zkm -f values.yaml –namespace $NAMESPACE
     ```
-    In **OpenShift** on **VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes. Therefore, to enable VRA communication, you need to disable ingress deployment.
+
+In **OpenShift** on **VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes. Therefore, to enable VRA communication, you need to disable ingress deployment.
 
 **To disable ingress deployment** enter the following commands:
 
