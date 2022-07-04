@@ -23,7 +23,7 @@ Then, you can perform one of the following:
 	>	How to view and configure tweaks and values.
 
 
-## Creating a VPG
+### Creating a VPG
 
 
 1. Create a .yaml file to represent a VPG.
@@ -95,7 +95,7 @@ spec:
 	    claimName: my-vol1-debian-5to6
 ```
 
-## Configuring One-to-Many
+### Configuring One-to-Many
 
 Z4K can protect the same entity multiple times. 
 
@@ -127,7 +127,7 @@ metadata:
 kubectl create -f vpg.yaml
 ```
 
-### Viewing VPG Status
+#### Viewing VPG Status
 
 To display the VPG status as well as an overview of which entities are protected within the VPG, the VPG’s SLA and it's settings, run the command:
 
@@ -137,7 +137,7 @@ kubectl get vpg
 ```
 
 
-## Tagging a Checkpoint
+### Tagging a Checkpoint
 
 To tag a checkpoint, run the command:
 
@@ -145,7 +145,7 @@ To tag a checkpoint, run the command:
 kubectl zrt tag [vpg-name] [tag-name]
 ```
 
-### Displaying Available Checkpoints
+#### Displaying Available Checkpoints
 
 -	To display a list of all available checkpoints for a VPG, including properties like the checkpoint ID, run the command:
 
@@ -163,7 +163,7 @@ Where:
 | maxAge    | Minutes: m (example: 5m), Hours: h (example: 5h) , Days: d (example: 5d) | N |
 
 
-## Testing Failover
+### Testing Failover
 
 -	To test failover, run the command:
 
@@ -179,7 +179,7 @@ kubectl zrt failover-test [vpg-name] [checkpoint-id]
 kubectl zrt stop-test [vpg-name]
 ```
 
-## Performing a Failover
+### Performing a Failover
 	
 -	To failover run the command:
 
@@ -201,7 +201,7 @@ kubectl zrt commit [vpg-name]
 kubectl zrt rollback [vpg-name]
 ```
 	
-## Restoring a Single VPG
+### Restoring a Single VPG
 
 On a single cluster deployment, only the restore and failover test operations are available. Failover is not available.
 
@@ -228,11 +228,11 @@ kubectl zrt rollback-restore [vpg-name]
 ```
 
 
-## Long Term Retention in Kubernetes Environments
+### Long Term Retention in Kubernetes Environments
 
 Zerto for Kubernetes supports backing up Kubernetes workloads and their data to a long-term repository and restoring them from the long-term repository to the original site, or to a different site. The repository where backed up data is kept is called a Long-term Retention (LTR) repository.
 
-### Supported Repository Types
+#### Supported Repository Types
 
 Zerto for Kubernetes supports two LTR repository types:
 
@@ -248,7 +248,7 @@ To configure Long-term Retention for your Kubernetes environment, use the follow
 
 
 
-### Backing up a VPG
+#### Backing up a VPG
 
 To backup a VPG to a target LTR repository, create the VPG and update the VPG yaml file (vpg.yaml) with the LTR repository type.
 
@@ -320,7 +320,7 @@ Example vpg.yaml File - Backing Up to Azure Blob Storage
 -	The secret must contain a data item for the ApplicationId and a data item for the ClientSecret, and can be created in any site to which Zerto Kubernetes Manager has access. In the example above, this is site1.
 
 
-### Manually Trigger a Backup 
+#### Manually Trigger a Backup 
 	
 You must manually trigger a backup to create a retention set.
 
@@ -340,7 +340,7 @@ kubectl zrt ltr-backup [vpg-name] [checkpoint-id]
 kubectl get backupset
 ```
 
-### Scheduling Long Term Retention Backups
+#### Scheduling Long Term Retention Backups
 
 To schedule Long-term Retention backups, add **SchedulingAndRetentionSettings** to the VPGs **BackupSettings**.
 
@@ -390,14 +390,14 @@ spec:
       ExpiresAfterUnit: Days
 ```
 
-#### Important Considerations for SchedulingAndRetentionSettings
+##### Important Considerations for SchedulingAndRetentionSettings
 
 -	There must be at least one Full Method.
 -	There can be no more than one Incremental Method.
 -	A Full Method cannot be followed by an Incremental Method. In other words, if there is a Full Method, it should be the last in the chain.
 -	Zerto Kubernetes Manager schedules backups and expirations as needed.
 	
-### Restoring a VPG from a Long Term Repository
+#### Restoring a VPG from a Long Term Repository
 
 To restore a VPG from a Long-term repository, run the command:
 
@@ -419,40 +419,40 @@ You can also restore from a repository that has VPGs backupsets from a different
 When the restore task completes successfully, Kubernetes entities with the prefix "res-" are created in the specified site and namespace.
 
 
-## Log Retention
+### Log Retention
 
 Zerto for Kubernetes uses Apache log4net™ logging framework to generate, collect and output log statements.
 
-#### Log Volume Size
+##### Log Volume Size
 - A ZKM service can have up to 200 log files.
 - A ZKM-PX service can have up to 50 log files.
 
-#### Log Rotation
+##### Log Rotation
 - Log files are automatically archived when the log file size exceeds 10MB. 
 - Archived log files can be deleted manually.
 
-#### Required Storage
+##### Required Storage
 - A log file is 0.6MB after automatic archiving.
 
 Therefore:
 - A ZKM service needs 200 x 0.6MB = ~120MB
 - A ZKM-PX service needs 50 x 0.5MB = ~30MB
 
-#### Log Location
+##### Log Location
 Logs are stored locally on zkm/zkm-px pods /logs. After ad hoc log collection logs are uploaded to Amazon and stored in S3 bucket.
 
-### Ad Hoc Log Collection
+#### Ad Hoc Log Collection
 
 Use one of the following methods to generate logs.
 
-#### Ad Hoc Log Collection Method 1
+##### Ad Hoc Log Collection Method 1
 Run the following command, which runs a script on Zerto Kubernetes Manager Proxy (ZKM-PX) in the background:
 
 ```
 kubectl-zrt collect-logs <case/bug number>
 ```
 
-#### Ad Hoc Log Collection Method 2
+##### Ad Hoc Log Collection Method 2
 
 -	Connect to the pod using the command: 
 
@@ -470,7 +470,7 @@ kubectl exec
 /scripts/collect_logs_ng.bash
 ```
 
-## Protecting Ingress Controller Resources
+### Protecting Ingress Controller Resources
 
 There are 2 options to configure Ingress Controller Resources with a deployment for protection:
 	
@@ -528,7 +528,7 @@ $ kubectl get vpg -n <namespace>
   website-vpg1 Protecting        node-1 node-1 0            1           0        0          0       1         10    6 seconds 49 seconds     2
 ```
 	
-## Taints and Tolerations
+### Taints and Tolerations
 	
 Z4K supports taints and tolerations configuration for nodes and pods.
 
@@ -538,7 +538,7 @@ Z4K supports taints and tolerations configuration for nodes and pods.
 -	When Taints and Tolerations are in use they need to be predefined in pods and nodes for VPG protection, before recovery oeprations take place.
 -	For more info on Taints and Tolerations see [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
 
-## Tweaks
+### Tweaks
 
 Z4K allows users to view and customize tweaks for Z4K components using the following commands:
 
