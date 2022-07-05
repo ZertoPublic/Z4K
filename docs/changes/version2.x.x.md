@@ -4,7 +4,7 @@
 ----------------------------------------------
 *2.4.0 Support HPE New CSI
 --------------------------
-* 2.4.1 [bug_fix_z4k_459_atomic] change the seq to atomic
+* 2.4.1 [Fix_z4k_459_atomic] change the seq to atomic
 * 2.4.2 Add VPG additional validations
 * 2.4.3 obfuscate secret/access keys
 * 2.4.4 Fix kubectl apply issue
