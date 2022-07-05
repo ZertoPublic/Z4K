@@ -195,8 +195,7 @@ helm install <installation name> zerto-4k/zkm-px \
 
 1. Create the following values.yaml:
 
-```
-yaml
+``` yaml
 --- 
 config: 
   siteId: $SITE
@@ -260,8 +259,7 @@ Where,
     
 1.  Create the following values.yaml:
 
-    ```
-    yaml
+    ``` yaml
     --- 
     global: 
       authentication: 
