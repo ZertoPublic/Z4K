@@ -173,6 +173,7 @@ Use either of these options to install Zerto Kubernetes Manager Proxy on additio
 
 ### Option 1
 Enter the following commands:
+
 ``` shell
 helm install <installation name> zerto-4k/zkm-px \
 --set global.imagePullSecret=$IMAGE_PULL_KEY \
