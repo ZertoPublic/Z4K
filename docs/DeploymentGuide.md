@@ -11,7 +11,7 @@ To deploy Zerto For Kubernetes perform the following procedures:
 4.	[Download the Zerto Operations Help Utility](#Downloading-the-Zerto-Operations-Help-Utility)
 5.	[Update Z4K with a New Certificate](#Updating-Z4K-with-a-New-Certificate)
 
-## Preparing Helm
+### Preparing Helm
 
 On the Kubernetes platform, enter the following commands:
 
@@ -22,7 +22,7 @@ helm repo update
 
 <span class="Note">Note: Helm name (in the example above, zerto-z4k) should be a logical name entered by the user.</span>
 
-## Obtaining the Image Pull Key Secret
+### Obtaining the Image Pull Key Secret
 
 1.	Go to [myZerto](https://www.zerto.com/myzerto/).
 2.	If required, log in using your myZerto credentials.
@@ -31,7 +31,7 @@ helm repo update
 
 ![PullKey](Images/PullKey.png?raw=true)
 
-## Installing Zerto for Kubernetes on a Kubernetes Cluster
+### Installing Zerto for Kubernetes on a Kubernetes Cluster
 
 This installation includes the following components:
 
@@ -40,7 +40,7 @@ This installation includes the following components:
 
 Use either of these options to install Zerto for Kubernetes on any of the Zerto supported Kubernetes platforms.
 
-### Option 1
+#### Option 1
 
 Enter the following command, replacing the "$" variables with values relevant to your deployment.
 ```
@@ -54,7 +54,7 @@ helm install <installation names> zerto-z4k/z4k \
 --namespace $NAMESPACE
 ```
 
-### Option 2
+#### Option 2
 1.	Create the following values.yaml:
 >    ```
 >     global:
@@ -109,7 +109,7 @@ If the IngressClassNames are not the default names, use the following flags to s
 
  <span class="Note">Note: In order to find the default ingress class name you must run ```kubectl get ingressclass```.</span>
 
-## Installing Zerto Kubernetes Manager Proxy on Additional Kubernetes Clusters
+### Installing Zerto Kubernetes Manager Proxy on Additional Kubernetes Clusters
 
 This installation includes the following components:
 -	Zerto Kubernetes Manager Proxy (ZKM-PX)
@@ -119,12 +119,12 @@ Perform these steps:
 1.	[Get an initial access token from Keycloak](#Getting-an-Initial-Access-Token-from-Keycloak)
 2.	[Install Zerto Kubernetes Manager Proxy on Additional Clusters](#Installing-Zerto-Kubernetes-Manager-Proxy-on-Additional-Custers)
 
-## Getting an initial access token from Keycloak
+### Getting an initial access token from Keycloak
 Before you can begin to install Zerto Kubernetes Manager Proxy on additional Kubernetes clusters, you first need to get an initial access token from Keycloak, which was installed as part of ***z4k/zkm*** installation.
 
 Creating an initial access token can be achieved in one of two ways:
 
-### Creating an Initial Access Token - Option 1
+#### Creating an Initial Access Token - Option 1
 
 <span class="Note">Note: Use this option only if two-factor authentication (2FA) is **not** enabled for the Keycloak management user.</span>
  
@@ -137,7 +137,7 @@ chmod +x generate_initial_access_token.bash
 ```
 <span class="Note">Note: The URL should end with /auth.</span>
 
-### Creating an Initial Access Token - Option 2
+#### Creating an Initial Access Token - Option 2
 
 1.	Edit your hosts file so that **zkm.z4k.zerto.com** points to your load balancer address.
 2.	Browse to Keycloak: [https://zkm.z4k.zerto.com/auth](https://zkm.z4k.zerto.com/auth)
@@ -156,11 +156,11 @@ chmod +x generate_initial_access_token.bash
 10.	Save the token.
 11.	Click **Back** to return to Keycloak.
 
-## Installing Zerto Kubernetes Manager Proxy on Additional Clusters
+### Installing Zerto Kubernetes Manager Proxy on Additional Clusters
 
 Use either of these options to install Zerto Kubernetes Manager Proxy on additional clusters, on any of the Zerto supported Kubernetes platforms.
 
-### Option 1
+#### Option 1
 Enter the following commands:
 ```
 helm install <installation name> zerto-4k/zkm-px \
@@ -182,7 +182,7 @@ helm install <installation name> zerto-4k/zkm-px \
 >   | $ZKEYCLOAK _URL | URL for Keycloak. Typically: https://<load balancer addr>/auth |
 
 
-### Option 2    
+#### Option 2    
 1. Create the following values.yaml:
    ``` yaml
     global:
@@ -230,11 +230,11 @@ helm install <installation name> zerto-4k/zkm-px \
     --set config.externalIp=$SITE_IP
     ```
 
-## Installing Zerto Kubernetes Manager on a Kubernetes Cluster
+### Installing Zerto Kubernetes Manager on a Kubernetes Cluster
 
 Use one of these options to install the Zerto Kubernetes Manager (ZKM) on any of the Zerto supported Kubernetes platforms.
 
-### Option 1
+#### Option 1
 
 Enter the following commands:
 
@@ -256,7 +256,7 @@ Where:
 | $NAMESPACE |	A dedicated Zerto namespace. We recommend using the namespace zerto. |
 
 
-### Option 2 
+#### Option 2 
     
 1.  Create the following values.yaml:
     ``` yaml
@@ -303,7 +303,7 @@ sudo cp kubectl-zrt /usr/bin/
     >   ![kubectl-zrt](Images/Z4K_Kubernetes_Commands.png?raw=true)
 
 
-## Updating Z4K with a New Certificate
+### Updating Z4K with a New Certificate
     
 To update your Z4K with a new Zerto certificate run the following command with the relevant environment variables:
     
