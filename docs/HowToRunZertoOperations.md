@@ -30,12 +30,13 @@ Then, you can perform one of the following:
 
 
 1. Create a .yaml file to represent a VPG.
-    > In the following example the VPG webApp1:
-    >>-	Is configured to self replicate to its source cluster.
-    >>-	Will use the storage class goldSC.
-    >>-	SLA is 12 hours of history.
-    >>-	The Journal can expand up to 160 GB to meet the history requirement.
-    <span class="Note">Note:	It is not mandatory to configure the Journal disk size (JournalDiskSizeInGb) and history (JournalHistoryInHours); they have default values of 2 GB and 8 hours respectively.</span>
+	In the following example the VPG webApp1:
+   -	Is configured to self replicate to its source cluster.
+   -	Will use the storage class goldSC.
+   -	SLA is 12 hours of history.
+   -	The Journal can expand up to 160 GB to meet the history requirement.
+
+<span class="Note">Note:	It is not mandatory to configure the Journal disk size (JournalDiskSizeInGb) and history (JournalHistoryInHours); they have default values of 2 GB and 8 hours respectively.</span>
         
 ``` yaml
 --- 
@@ -51,13 +52,11 @@ spec:
   TargetCluster: 
     Id: prod_cluster
 ```
+
 2. Annotate Kubernetes entities to include them in the VPG.
-
->>-	A VPG can contain a selection of entities like stateful sets, deployments, services, secrets and configmaps.
-
->>-	Applications consisting of several components with inter-dependencies (for example secrets and deployments), should all be tagged with the same VPG annotation in order for the Failover operation to succeed.
-
--	To include an entity in a VPG, you must annotate the entity with the VPG name.
+	-	A VPG can contain a selection of entities like stateful sets, deployments, services, secrets and configmaps.
+ 	-	Applications consisting of several components with inter-dependencies (for example secrets and deployments), should all be tagged with the same VPG annotation in order for the Failover operation to succeed.
+	-	To include an entity in a VPG, you must annotate the entity with the VPG name.
 
 Use the following example of deployment protection for guidelines.
 
