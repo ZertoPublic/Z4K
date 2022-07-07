@@ -1,4 +1,4 @@
-Z4K Analytics is available online from myzerto.com
+Z4K Analytics is available online from Myzerto.com
 
 It has less capabilities than the standard ZVM and currently only the following tabs are available:
 
