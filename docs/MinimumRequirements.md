@@ -1,14 +1,14 @@
 # Minimum Requirements
 
-## Communication Requirements
+#### Communication Requirements
 - All Zerto for Kubernetes components communication occurs using HTTPS, over port 443.
 
-## Prerequisites
+#### Prerequisites
 - Helm Package Manager, minimum version 3.
 - A storage class must be specified and set as the default prior to Z4K installation.
 - Cluster security policy should allow creation of privileged pods.
 
-## Storage Requirements
+#### Storage Requirements
 -	Zerto for Kubernetes containerized applications also consume storage:
 -	Zerto Kubernetes Manager: 3 GB
 -	Zerto Kubernetes Manager Proxy: 1 GB
