@@ -12,17 +12,18 @@ After deploying Zerto for Kubernetes, create a VPG, configure one-to-many (optio
 
 Then, you can perform one of the following:
 
--	[Perform a Failover](performing-a-failover)
--	[Restore a Single VPG](restoring-a-single-vpg)
--	[Configure Long-term Retention (LTR) in Kubernetes Environments](long-term-retention-ltr-in-kubernetes-environments)
+-	[Perform a Failover](#performing-a-failover)
+-	[Restore a Single VPG](#restoring-a-single-vpg)
+-	[Move operation](#move-operation)
+-	[Configure Long-term Retention (LTR) in Kubernetes Environments](#long-term-retention-ltr-in-kubernetes-environments)
 	>	Zerto for Kubernetes supports backing up Kubernetes workloads and their data to a Long-term Repository and restoring them from the Long-term Repository to the original site, or to a different site/namespace.
-- [Log Retention](log-retention)
+- [Log Retention](#log-retention)
 	>	Log collection occurs automatically, and the logs are uploaded to Amazon S3. You can also collect logs ad hoc.
--	[Protect Ingress Controller Resources](protecting-ingress-controller-resources)
+-	[Protect Ingress Controller Resources](#protecting-ingress-controller-resources)
 	>	Zerto for Kubernetes supports replicating Ingress Controller Resources so networking configuration can be replicated and easily deployed on the recovery site.
--	[Taints and Tolerations](taints-and-tolerations)
+-	[Taints and Tolerations](#taints-and-tolerations)
 	>	Z4K supports taints and tolerations configuration for nodes and pods.
--	[Tweaks](tweaks)
+-	[Tweaks](#tweaks)
 	>	How to view and configure tweaks and values.
 
 
@@ -261,6 +262,33 @@ kubectl zrt commit-restore [vpg-name]
 ``` shell
 kubectl zrt rollback-restore [vpg-name]
 ```
+## Move operation
+
+The move operation allows moving the deployments to it's recovery site without preserving them on the protected site.
+The move operation consists of 3 possible commands:
+1. move - Start move live (test before commit)
+2. commit-move - Commit move
+3. rollback-move - Rolling back Move test before commit
+
+The following is used for the above move commands:
+
+``` shell
+kubectl zrt move [vpg-name] [checkpoint ID]
+```
+At that point the VPG state will be updated to StartingMove
+If a checkpoint is not tagged use the value 'latest'
+Once move operation is completed, the VPG status will be updated to MoveBeforeCommit
+
+``` shell
+kubectl zrt rollback-move [vpg-name]
+```
+The VPG will go back into protecting state in it's protected site without being commited to the recovery site.
+
+``` shell
+kubectl zrt commit-move [vpg-name]
+```
+VPG status will be changed to CommittingMove.
+Onc completed, the VPG will be commited, deployment will now exist on the recovery site and VPG will be removed from the environment.
 
 ## Long-term Retention (LTR) in Kubernetes Environments
 
