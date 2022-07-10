@@ -3,8 +3,8 @@ theme:
   name: readthedocs
   highlightjs: false
 nav:
-- Introduction to Z4K: index.md
-- Z4K Deployment Architecture: DeployingZertoForK8S.md
+- Zerto for Kubernetes Overview: index.md
+- Deployment Architecture: DeployingZertoForK8S.md
 - Prerequisites and Requirements: MinimumRequirements.md
 - Supported Platforms: SupportedPlatforms.md
 - Deployment: DeploymentGuide.md
