@@ -5,12 +5,12 @@ theme:
 nav:
 - Home: index.md
 - Prerequisites and Requirements: MinimumRequirements.md
-- Z4K Deployment Architecture: DeployingZertoForK8S.md
-- Deployment Guide: DeploymentGuide.md
-- Administration Guide: AdministrationGuide.md
 - Supported Platforms: SupportedPlatforms.md
-- More Resources: MoreResources.md
+- Z4K Deployment Architecture: DeployingZertoForK8S.md
+- Deployment: DeploymentGuide.md
+- Administration: AdministrationGuide.md
 - API Documentation: openapi.md
+- More Resources: MoreResources.md
 - ChangeLog:
   - '2.x.x': ./changes/version2.x.x.md
 plugins:
