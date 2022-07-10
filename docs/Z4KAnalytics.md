@@ -8,4 +8,4 @@ It has less capabilities than the standard ZVM and currently only the following 
 
 To get more info and access your Zerto Analytics please login to Myzerto.com and use the following link:
 Zerto Analytics
-https://help.zerto.com/bundle/Zerto.Analytics.HTML/page/Content/Zerto_Analytics/Zerto_Analytics_-_Overview_and_Use.htm
+[Zerto Analytics - Overview and Use] (https://help.zerto.com/bundle/Zerto.Analytics.HTML/page/Content/Zerto_Analytics/Zerto_Analytics_-_Overview_and_Use.htm)
