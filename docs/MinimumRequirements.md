@@ -20,4 +20,4 @@
 1. Zerto recommends that you set the recovery site StorageClass to "WaitForFistCustomer" volume bind mode.
 2. Each recover VRA has specific volumes that must be bound to it.
 If using "immediate" volume binding mode, the volume might be created on a different node and once the VRA POD is created, it would have to move to that node.
-If the system doesn't allow the PV to move freely between nodes, the VRA POD won't come up.
+If the system doesn't allow the PV to move freely between nodes, the VRA POD won't come up.</span>
