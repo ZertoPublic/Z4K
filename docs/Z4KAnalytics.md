@@ -8,5 +8,4 @@ Currently only supports the following tabs:
 2. VPGs
 3. Monitoring
 
-For more info and access to Zerto Analytics, login to Myzerto.com and use the following link:
-[Zerto Analytics - Overview and Use](https://help.zerto.com/bundle/Zerto.Analytics.HTML/page/Content/Zerto_Analytics/Zerto_Analytics_-_Overview_and_Use.htm)
+For more information about Zerto Analytics, see [Zerto Analytics - Overview and Use](https://help.zerto.com/bundle/Zerto.Analytics.HTML/page/Content/Zerto_Analytics/Zerto_Analytics_-_Overview_and_Use.htm)
