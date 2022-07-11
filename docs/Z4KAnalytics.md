@@ -1,8 +1,13 @@
 # Z4K Analytics
 
-Z4K Analytics is available online from Myzerto.com
+Z4K Analytics is available through Zerto Analytics.
 
-Currently only supports the following tabs:
+Access Zerto Analtyics from one of the following locations:
+
+  *	From a URL: https://analytics.zerto.com
+  * From myZerto: www.zerto.com/myzerto. Sign in using your credentials and select the Analytics tab.
+
+Z4K Analytics currently supports the following tabs:
 
 1. Dashboard
 2. VPGs
