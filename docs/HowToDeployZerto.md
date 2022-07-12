@@ -12,7 +12,7 @@ Perform the following procedures:
     -	[Create the Initial Access Token from Keycloak](*create-the-initial-access-yoken-from-keycloak)
     -	[Install Zerto Kubernetes Manager Proxy](#install-zerto-kubernetes-manager-proxy)
 6.	[Downloading the Zerto Operations Help Utility](#downloading-the-zerto-operations-help-utility)
-7.	[Update Z4K with a new Zerto Certificate](#updating-z4k-with-a-new-zerto-certificate)
+7.	[Update Z4K with a new Zerto License](#updating-z4k-with-a-new-zerto-license)
 
 ## Prepare Helm
 
@@ -300,15 +300,15 @@ sudo cp kubectl-zrt /usr/bin/
 
     >   [kubectl-zrt](Images/Z4K_Kubernetes_Commands.png?raw=true)
 
-## Updating Z4K with a New Zerto Certificate
+## Updating Z4K with a New Zerto License
     
-To update your Z4K with a new Zerto certificate run the following command with the relevant environment variables:
+To update your Z4K with a new Zerto license run the following command with the relevant environment variables:
     
 ```
 kubectl set env deployment/<zkm-deploy-name> LICENSE_KEY=<new_license> -n <namespace>
 ```
 
-To verify the new certificate has been succesfully updated run the following command and go to the deployemnt description under the Environment variable LICENSE_KEY:
+To verify the new license has been succesfully updated run the following command and go to the deployemnt description under the Environment variable LICENSE_KEY:
 
 ```
 kubectl describe deployments.apps <deply-zkm-name> -n <zerto-namespace>
