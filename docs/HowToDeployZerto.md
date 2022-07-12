@@ -38,11 +38,11 @@ helm repo update
 
 To configure the ingress controller with static IP, set the following flags in the value.yaml file as input for HELM during the installation:
 
-For ZKM
+For Zerto Kubernetes Manager (ZKM)
 ``` shell
 --set ingress-nginx.controller.service.loadBalancerIP=$STATIC_IP
 ```
-For ZKM-PX only
+For Zerto Kubernetes Manager Proxy (ZKM-PX) only
 ``` shell
 --set zkm-px.ingress-nginx.controller.service.loadBalancerIP=$STATIC_IP
 ```
@@ -308,7 +308,7 @@ To update your Z4K with a new Zerto license run the following command with the r
 kubectl set env deployment/<zkm-deploy-name> LICENSE_KEY=<new_license> -n <namespace>
 ```
 
-To verify the new license has been succesfully updated run the following command and go to the deployemnt description under the Environment variable LICENSE_KEY:
+To verify the new license has been succesfully updated run the following command and go to the deployment description under the Environment variable LICENSE_KEY:
 
 ```
 kubectl describe deployments.apps <deply-zkm-name> -n <zerto-namespace>
