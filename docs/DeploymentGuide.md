@@ -9,7 +9,7 @@ To deploy Zerto For Kubernetes perform the following procedures.
 5.	[Install Zerto for Kubernetes Components](*Install-Zerto-for-Kubernetes-Components)
     -   [Install Zerto for Kubernetes](#Install-Zerto-for-Kubernetes)
     -	[Install Zerto for Kubernetes Manager](#Install-Zerto-for-Kubernetes-Manager)
-    -	[Create the Initial Access Token from Keycloak](*Create-the-Initial-Access-Token-using-Keycloak)
+    -	[Create the Initial Access Token using Keycloak](*Create-the-Initial-Access-Token-using-Keycloak)
     -	[Install Zerto for Kubernetes Manager Proxy](#Install-Zerto-for-Kubernetes-Manager-Proxy)
 6.	[Download the Zerto Operations Help Utility](#Download-the-Zerto-Operations-Help-Utility)
 7.	[Update Z4K with a new License](#Update-Z4K-with-a-New-License)
@@ -226,7 +226,7 @@ chmod +x generate_initial_access_token.bash
 
 #### Install Zerto for Kubernetes Manager Proxy
 
-1. [Create the Initial Access Token from Keycloak](*creating-the-initial-access-token-from-keycloak)
+1. [Create the Initial Access Token using Keycloak](*Create-the-Initial-Access-Token-using-Keycloak)
 2. Install Zerto Kubernetes Manager Proxy (ZKM-PX) on any of the Zerto supported Kubernetes platforms using one of the following options.
 
 ##### Option 1
