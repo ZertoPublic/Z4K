@@ -136,7 +136,7 @@ Where,
 | $SITE |	A unique site name. |
 
 
-### Install Zerto Kubernetes Manager
+### Install Zerto for Kubernetes Manager
 
 Use one of these options to install the Zerto Kubernetes Manager (ZKM) on any of the Zerto supported Kubernetes platforms.
 
@@ -182,7 +182,7 @@ Where,
     helm install <installation names> zerto-z4k/zkm -f values.yaml –namespace $NAMESPACE
     ```
 
-### Creating the Initial Access Token using Keycloak
+### Create the Initial Access Token using Keycloak
 
 KeyCloak is installed during the ZKM installation. Before you can begin to install Zerto Kubernetes Manager Proxy (ZKM-PX) on additional Kubernetes clusters, you must create an initial access token using Keycloak.
 
@@ -280,7 +280,7 @@ global:
     
 
 
-## Downloading the Zerto Operations Help Utility
+## Download the Zerto Operations Help Utility
     
 -   Download the Help Utility so you can enter Zerto operations commands. This is a bash script wrapper for the kubectl API extension.
 -   To use the Help Utility, first download then run the command 
