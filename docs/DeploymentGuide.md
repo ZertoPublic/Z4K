@@ -280,6 +280,65 @@ global:
  | $NAMESPACE  | A dedicated Zerto namespace. We recommend using the namespace zerto. |
     
 
+#### Installing Zerto 4 Kubernetes on OpenShift
+
+In **OpenShift on VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes.
+Therefore, to enable VRA communication, you must disable ingress deployment and provide the external IP of the sites.
+
+**To disable ingress deployment and provide the external IP of the sites** enter the following commands:
+``` shell
+--set zkm.zkmIngressControllerEnabled=false
+--set zkm-px.zkmProxyIngressControllerEnabled=false
+--set zkm-px.config.externalIp=$SITE_IP
+--set zkm.useNginxRoutePath=false
+```
+
+#### Set Custom Ingress Class Names
+
+To find the default ingress class name run the command:
+
+```kubectl get ingressclass```
+If the IngressClassNames are not the default names, use the following flags to specify the used IngressClassNames:
+``` shell
+helm install z4k zerto-z4k/z4k \
+--set zkm-px.image.zkmPxRepository=zapps-registry.zerto.com/z4k/stable/zkm-px \
+--set zkm-px.image.flowsRepository: zapps-registry.zerto.com/z4k/stable/zkm-installer-flows \
+--set zkm-px.config.siteId: $SITE \
+--set zkm.image.zkmRepository=zapps-registry.zerto.com/z4k/stable/zkm \
+--set zkm.image.coreRepository=zapps-registry.zerto.com/z4k/stable/zkm-core \
+--set zkm.client.licenseKey: $licenseKey
+--set global.authentication.managementUser=$KEYCLOAK_USER \
+--set global.authentication.managementPassword=$KEYCLOAK_PASSWORD \
+--set global.authentication.adminUser=$ADMIN_USER \
+--set global.authentication.adminPassword=$ADMIN_PASSWORD \
+--set global.imagePullSecret=$imagePullSecret \
+--set zkm.zkmIngressControllerEnabled=false \
+--set zkm-px.zkmProxyIngressControllerEnabled=false \
+--set zkm-px.config.externalIp=$externalIp \
+--set zkm.useNginxRoutePath=false \
+--set zkm-px.vras.ingressClass=$OPENSHIFTCLASS \
+--set zkm-px.ingress-nginx.controller.ingressClass=$OPENSHIFTCLASS \
+--set zkm.ingress-nginx.controller.ingressClass=$OPENSHIFTCLASS \
+--set zkm.ingress.annotations.kubernetes\\.io/ingress\\.class=$OPENSHIFTCLASS \
+--set zkm.zkeycloak.ingress.annotations.kubernetes\\.io/ingress\\.class=$OPENSHIFTCLASS \
+--namespace $NAMESPACE
+```
+
+#### Installing Zerto 4 Kubernetes on OpenShift on Additional cluster
+
+``` shell
+helm install z4k zerto-z4k/zkm-px \
+--set global.authentication.initialAccessToken=$INITIALACCESSTOKEN \
+--set global.imagePullSecret=$IMAGEPULLSECRET \
+--set config.siteId=$SITE \
+--set config.zkmUrl=$ZKMURL \
+--set config.zkeycloakUrl=$ZKEYCLOAKURL
+--set zkmProxyIngressControllerEnabled=false \
+--set vras.ingressClass=$OPENSHIFTCLASS \
+--set ingress-nginx.controller.ingressClass=$OPENSHIFTCLASS \
+--set config.externalIp=$externalIp --namespace $NAMESPACE
+```
+
 
 #### Download the Zerto Operations Help Utility
     
