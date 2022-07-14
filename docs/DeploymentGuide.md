@@ -64,11 +64,12 @@ Installation includes installation of the following components:
 
 Use either of these options to install Zerto for Kubernetes (Z4K) on any of the Zerto supported Kubernetes platforms.
 
-For both options you can add the following flag to capture helm install logs for debugging and troubleshotting purposes:
+<span class="Note">Note:For both options you can add the following flag to capture helm install logs for debugging and troubleshotting purposes:
 
 ```
 --debug > <path_to_file>.txt
 ```
+    </span>
     
     
 ##### Option 1
