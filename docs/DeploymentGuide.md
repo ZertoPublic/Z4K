@@ -2,18 +2,18 @@
 
 Perform the following procedures:
 
-1.	[Prepare Helm](#Prepare-Helm)
-2.	[Obtain the Image Pull Key Secret](#Obtain-the-Image-Pull-Key-Secret)
-3.	[Configure the Ingress Controller](#Configure-the-Ingress-Controller)
-4.	[Install the Zerto for Kubernetes Components](#Install-Zerto-for-Kubernetes-Components)
-    - [Install Zerto for Kubernetes](#Install-Zerto-for-Kubernetes)
-    -	[Install Zerto Kubernetes Manager](#Install-Zerto-Kubernetes-Manager)
-    -	[Create the Initial Access Token from Keycloak](#Create-the-Initial-Access-Token-using-Keycloak)
-    -	[Install Zerto Kubernetes Manager Proxy](#Install-Zerto-Kubernetes-Manager-Proxy)
-    - [Install Zerto for Kubernetes on Openshift](#Install-Zerto-for-Kubernetes-on-Openshift)
-    - [Install Zerto for Kubernetes on OpenShift on Additional cluster](#Install-Zerto-for-Kubernetes-on-Openshift-on-Additional-Cluster)
-5.	[Downloading the Zerto Operations Help Utility](#Download-the-Zerto-Operations-Help-Utility)
-6.	[Update Z4K with a new Zerto License](#Update-Z4K-with-a-new-Zerto-License)
+1.	Prepare Helm
+2.	Obtain the Image Pull Key Secret
+3.	Configure the Ingress Controller
+4.	Install the Zerto for Kubernetes Components
+    - Install Zerto for Kubernetes
+    -	Install Zerto Kubernetes Manager
+    -	Create the Initial Access Token from Keycloak
+    -	Install Zerto Kubernetes Manager Proxy
+    - Install Zerto for Kubernetes on Openshift
+    - Install Zerto for Kubernetes on OpenShift on Additional cluster
+5.	Downloading the Zerto Operations Help Utility
+6.	Update Z4K with a new Zerto License
 
 #### Prepare Helm
 
