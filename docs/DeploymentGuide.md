@@ -24,7 +24,7 @@ helm repo add zerto-z4k https://zapps-helm.zerto.com/z4k/stable
 helm repo update
 ```
 
-> **Note**:	Helm name (in the example above, zerto-z4k) should be a logical name entered by the user.
+<span class="Note">Note:	Helm name (in the example above, zerto-z4k) should be a logical name entered by the user.</span>
 
 #### Obtain the Image Pull Key Secret
 
@@ -64,10 +64,10 @@ Installation includes installation of the following components:
 
 Use either of these options to install Zerto for Kubernetes (Z4K) on any of the Zerto supported Kubernetes platforms.
 
-> **Note**: For both options you can add the following flag to capture helm install logs for debugging and troubleshotting purposes:
+<span class="Note">Note: For both options you can add the following flag to capture helm install logs for debugging and troubleshotting purposes:
 ```
 --debug > <path_to_file>.txt
-```
+```</span>
 
 ##### Option 1
 
@@ -195,7 +195,7 @@ wget https://z4k.zerto.com/public/generate_initial_access_token.bash
 chmod +x generate_initial_access_token.bash
 ./generate_initial_access_token.bash
 ```
-> **Note**:	The URL should end with /auth
+<span class="Note">Note: The URL should end with /auth</span>
 
 
 #### Install Zerto Kubernetes Manager Proxy
@@ -329,7 +329,7 @@ chmod +x kubectl-zrt
 sudo cp kubectl-zrt /usr/bin/
 ```
 
-> **Note**:	If kubectl-zrt is not installed in /usr/bin, you must point to the relevant location.
+<span class="Note">Note:	If kubectl-zrt is not installed in /usr/bin, you must point to the relevant location.</span>
 
 -   To view all Zerto commands, run 
     ```kubectl-zrt –```
