@@ -69,7 +69,7 @@ Use either of these options to install Zerto for Kubernetes (Z4K) on any of the 
 --debug > <path_to_file>.txt
 ```</span>
 
-##### Option 1
+###### Option 1
 
 Enter the following command, replacing the "$" variables with values relevant to your deployment.
 ``` shell
@@ -83,7 +83,7 @@ helm install <installation names> zerto-z4k/z4k \
 --namespace $NAMESPACE
 ```
 
-##### Option 2
+###### Option 2
 1.	Create the following values.yaml:
 ``` yaml
 --- 
