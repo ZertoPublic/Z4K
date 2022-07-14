@@ -6,7 +6,7 @@ To deploy Zerto For Kubernetes perform the following procedures.
 2.	[Obtain the Image Pull Key Secret](#Obtain-the-Image-Pull-Key-Secret)
 3.	[Configure the Ingress Controller](*Configure-the-Ingress-Controller)
 4.	[Set Custom Ingress Class Names](*Set-Custom-Ingress-Class-Names) (If default names are not used)
-5.	[Install the Zerto for Kubernetes Components](*Install-Zerto-for-Kubernetes-Components)
+5.	[Install Zerto for Kubernetes Components](*Install-Zerto-for-Kubernetes-Components)
     -   [Install Zerto for Kubernetes](#Install-Zerto-for-Kubernetes)
     -	[Install Zerto for Kubernetes Manager](#Install-Zerto-for-Kubernetes-Manager)
     -	[Create the Initial Access Token from Keycloak](*Create-the-Initial-Access-Token-from-Keycloak)
