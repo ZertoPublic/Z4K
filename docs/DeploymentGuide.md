@@ -8,11 +8,11 @@ To deploy Zerto For Kubernetes perform the following procedures.
 4.	[Set Custom Ingress Class Names](*Set-Custom-Ingress-Class-Names) (If default names are not used)
 5.	[Install the Zerto for Kubernetes Components](*Install-Zerto-for-Kubernetes-Components)
     -   [Install Zerto for Kubernetes](#Install-Zerto-for-Kubernetes)
-    -	[Install Zerto Kubernetes Manager](#Onstall-Zerto-Kubernetes-Manager)
+    -	[Install Zerto for Kubernetes Manager](#Install-Zerto-for-Kubernetes-Manager)
     -	[Create the Initial Access Token from Keycloak](*Create-the-Initial-Access-Token-from-Keycloak)
-    -	[Install Zerto Kubernetes Manager Proxy](#Install-Zerto-Kubernetes-Manager-Proxy)
-6.	[Downloading the Zerto Operations Help Utility](#Downloading-the-Zerto-Operations-Help-Utility)
-7.	[Update Z4K with a new Zerto License](#Updating-Z4K-with-a-New-Zerto-License)
+    -	[Install Zerto for Kubernetes Manager Proxy](#Install-Zerto-for-Kubernetes-Manager-Proxy)
+6.	[Download the Zerto Operations Help Utility](#Download-the-Zerto-Operations-Help-Utility)
+7.	[Update Z4K with a new Zerto License](#Update-Z4K-with-a-New-Zerto-License)
 
 #### Prepare Helm
 
