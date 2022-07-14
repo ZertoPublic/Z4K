@@ -1,40 +1,41 @@
 # Deployment
 
-To deploy Zerto For Kubernetes perform the following procedures.
+Perform the following procedures:
 
 1.	[Prepare Helm](#Prepare-Helm)
 2.	[Obtain the Image Pull Key Secret](#Obtain-the-Image-Pull-Key-Secret)
-3.	[Configure the Ingress Controller](*Configure-the-Ingress-Controller)
-4.	[Set Custom Ingress Class Names](*Set-Custom-Ingress-Class-Names) (If default names are not used)
-5.	[Install Zerto for Kubernetes Components](*Install-Zerto-for-Kubernetes-Components)
-    -   [Install Zerto for Kubernetes](#Install-Zerto-for-Kubernetes)
-    -	[Install Zerto for Kubernetes Manager](#Install-Zerto-for-Kubernetes-Manager)
-    -	[Create the Initial Access Token using Keycloak](*Create-the-Initial-Access-Token-using-Keycloak)
-    -	[Install Zerto for Kubernetes Manager Proxy](#Install-Zerto-for-Kubernetes-Manager-Proxy)
-6.	[Download the Zerto Operations Help Utility](#Download-the-Zerto-Operations-Help-Utility)
-7.	[Update Z4K with a new License](#Update-Z4K-with-a-New-License)
+3.	[Configure the Ingress Controller](#Configure-the-Ingress-Controller)
+4.	[Install the Zerto for Kubernetes Components](#Install-Zerto-for-Kubernetes-Components)
+    - [Install Zerto for Kubernetes](#Install-Zerto-for-Kubernetes)
+    -	[Install Zerto Kubernetes Manager](#Install-Zerto-Kubernetes-Manager)
+    -	[Create the Initial Access Token from Keycloak](#Creating-the-Initial-Access-Token-using-Keycloak)
+    -	[Install Zerto Kubernetes Manager Proxy](#Install-Zerto-Kubernetes-Manager-Proxy)
+    - [Install Zerto 4 Kubernetes on Openshift](#Install-Zerto-for-Kubernetes-on-Openshift)
+    - [Install Zerto 4 Kubernetes on OpenShift on Additional cluster](#Install-Zerto-for-Kubernetes-on-Openshift-on-Additional-Cluster)
+5.	[Downloading the Zerto Operations Help Utility](#Download-the-Zerto-Operations-Help-Utility)
+6.	[Update Z4K with a new Zerto License](#Update-Z4K-with-a-new-Zerto-License)
 
-#### Prepare Helm
+## Prepare Helm
 
 On the Kubernetes platform, enter the following commands:
 
-```
+``` shell
 helm repo add zerto-z4k https://zapps-helm.zerto.com/z4k/stable
 helm repo update
 ```
 
-<span class="Note">Note: Helm name (in the example above, zerto-z4k) should be a logical name entered by the user.</span>
+> **Note**:	Helm name (in the example above, zerto-z4k) should be a logical name entered by the user.
 
-#### Obtain the Image Pull Key Secret
+## Obtain the Image Pull Key Secret
 
 1.	Go to [myZerto](https://www.zerto.com/myzerto/).
 2.	If required, log in using your myZerto credentials.
 3.	Navigate to [Support & Downloads > Software Downloads > Zerto for K8s](https://www.zerto.com/myzerto/support/downloads/#z4k), and click **Generate Registry Key**.
 4.	Copy the Registry Key. You will need it later when installing the Zerto software.
 
-![PullKey](Images/PullKey.png?raw=true)
+[PullKey](Images/PullKey.png?raw=true)
 
-#### Configure the Ingress Controller
+## Configure the Ingress Controller
 
 To configure the ingress controller with static IP, set the following flags in the value.yaml file as input for HELM during the installation:
 
@@ -47,46 +48,19 @@ For ZKM-PX only
 --set zkm-px.ingress-nginx.controller.service.loadBalancerIP=$STATIC_IP
 ```
 
-In **OpenShift on VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes.
-Therefore, to enable VRA communication, you must disable ingress deployment and provide the external IP of the sites.
 
-**To disable ingress deployment and provide the external IP of the sites** enter the following commands:
-``` shell
---set zkm.zkmIngressControllerEnabled=false
---set zkm-px.zkmProxyIngressControllerEnabled=false
---set zkm-px.config.externalIp=$SITE_IP
---set zkm.useNginxRoutePath=false
-```
-
-#### Set Custom Ingress Class Names
-
-To find the default ingress class name run the command:
-
-```kubectl get ingressclass```
-
-If the IngressClassNames are not the default names, use the following flags to specify the used IngressClassNames:
-
-``` shell
---set zkm-px.vras.ingressClass=$ingressClassName
---set zkm-px.ingress-nginx.controller.ingressClass=$ingressClassName
---set zkm.ingress-nginx.controller.ingressClass=$ingressClassName
---set zkm.ingress.annotations.kubernetes\\.io/ingress\\.class=$ingressClassName
---set zkm.zkeycloak.ingress.annotations.kubernetes\\.io/ingress\\.class=$ingressClassName
-```
-
-
-#### Install Zerto for Kubernetes Components
+## Install Zerto for Kubernetes Components
 
 Installation includes installation of the following components:
 
--   [Zerto for Kubernetes (Z4K)](#Install-Zerto-for-Kubernetes)
--	[Zerto Kubernetes Manager (ZKM)](#Install-Zerto-for-Kubernetes-Manager)
--	[Zerto Kubernetes Manager Proxy (ZKM-PX)](#Install-Zerto-for-Kubernetes-Manager-Proxy)
+-   [Zerto for Kubernetes (Z4K)](#install-zerto-kubernetes-manager)
+-	[Zerto Kubernetes Manager (ZKM)](#install-zerto-kubernetes-manager)
+-	[Zerto Kubernetes Manager Proxy (ZKM-PX)](#install-zerto-kubernetes-manager)
 
 
 
 
-#### Install Zerto for Kubernetes
+### Install Zerto for Kubernetes
 
 Use either of these options to install Zerto for Kubernetes (Z4K) on any of the Zerto supported Kubernetes platforms.
 
@@ -95,7 +69,7 @@ Use either of these options to install Zerto for Kubernetes (Z4K) on any of the 
 --debug > <path_to_file>.txt
 ```
 
-###### Option 1
+#### Option 1
 
 Enter the following command, replacing the "$" variables with values relevant to your deployment.
 ``` shell
@@ -109,7 +83,7 @@ helm install <installation names> zerto-z4k/z4k \
 --namespace $NAMESPACE
 ```
 
-##### Option 2
+#### Option 2
 1.	Create the following values.yaml:
 ``` yaml
 --- 
@@ -137,11 +111,11 @@ Where,
 | $SITE |	A unique site name. |
 
 
-#### Install Zerto for Kubernetes Manager
+### Install Zerto Kubernetes Manager
 
 Use one of these options to install the Zerto Kubernetes Manager (ZKM) on any of the Zerto supported Kubernetes platforms.
 
-##### Option 1
+#### Option 1
 
 Enter the following commands:
 
@@ -162,7 +136,7 @@ Where,
 | <installation names\> |	Specify an easy to recognize name. |
 | $NAMESPACE |	A dedicated Zerto namespace. We recommend using the namespace zerto. |
     
-##### Option 2 
+#### Option 2 
     
 1.  Create the following values.yaml:
 
@@ -183,13 +157,13 @@ Where,
     helm install <installation names> zerto-z4k/zkm -f values.yaml –namespace $NAMESPACE
     ```
 
-#### Create the Initial Access Token using Keycloak
+### Creating the Initial Access Token using Keycloak
 
 KeyCloak is installed during the ZKM installation. Before you can begin to install Zerto Kubernetes Manager Proxy (ZKM-PX) on additional Kubernetes clusters, you must create an initial access token using Keycloak.
 
 Use one of the following processes depending on where you have or have not enabled two-factor authentication (2FA) for the Keycloak management user.
 
-##### Option 1
+#### Option 1
 
 Use this option to create the initial access token if 2FA is enabled for the Keycloak management user.
 
@@ -210,7 +184,7 @@ Use this option to create the initial access token if 2FA is enabled for the Key
 10.	Save the token.
 11.	Click **Back** to return to Keycloak.
 
-##### Option 2
+#### Option 2
 
 Use this option to create the initial access token only if two-factor authentication (2FA) is **not** enabled for the Keycloak management user.
  
@@ -224,12 +198,12 @@ chmod +x generate_initial_access_token.bash
 > **Note**:	The URL should end with /auth
 
 
-#### Install Zerto for Kubernetes Manager Proxy
+### Install Zerto Kubernetes Manager Proxy
 
-1. [Create the Initial Access Token using Keycloak](*Create-the-Initial-Access-Token-using-Keycloak)
+1. [Create the Initial Access Token from Keycloak](*Create-the-Initial-Access-Token-using-Keycloak)
 2. Install Zerto Kubernetes Manager Proxy (ZKM-PX) on any of the Zerto supported Kubernetes platforms using one of the following options.
 
-##### Option 1
+#### Option 1
 Enter the following commands to install Zerto Kubernetes Manager Proxy:
 
 ``` shell
@@ -250,7 +224,7 @@ helm install <installation name> zerto-4k/zkm-px \
 | $ZKM_URL |	URL for ZKM. Typically: "https://<load balancer addr>/zkm" |
 | $ZKEYCLOAK _URL | URL for Keycloak. Typically: https://<load balancer addr>/auth |
 
-##### Option 2    
+#### Option 2    
 
 1. Create the following values.yaml:
 
@@ -280,7 +254,7 @@ global:
  | $NAMESPACE  | A dedicated Zerto namespace. We recommend using the namespace zerto. |
     
 
-#### Installing Zerto 4 Kubernetes on OpenShift
+### Install Zerto 4 Kubernetes on OpenShift
 
 In **OpenShift on VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes.
 Therefore, to enable VRA communication, you must disable ingress deployment and provide the external IP of the sites.
@@ -293,12 +267,14 @@ Therefore, to enable VRA communication, you must disable ingress deployment and 
 --set zkm.useNginxRoutePath=false
 ```
 
-#### Set Custom Ingress Class Names
+### Set Custom Ingress Class Names
 
 To find the default ingress class name run the command:
 
 ```kubectl get ingressclass```
-If the IngressClassNames are not the default names, use the following flags to specify the used IngressClassNames:
+
+Use the following flags to specify the used IngressClassNames:
+
 ``` shell
 helm install z4k zerto-z4k/z4k \
 --set zkm-px.image.zkmPxRepository=zapps-registry.zerto.com/z4k/stable/zkm-px \
@@ -306,25 +282,25 @@ helm install z4k zerto-z4k/z4k \
 --set zkm-px.config.siteId: $SITE \
 --set zkm.image.zkmRepository=zapps-registry.zerto.com/z4k/stable/zkm \
 --set zkm.image.coreRepository=zapps-registry.zerto.com/z4k/stable/zkm-core \
---set zkm.client.licenseKey: $licenseKey
+--set zkm.client.licenseKey: $LICENSEKEY
 --set global.authentication.managementUser=$KEYCLOAK_USER \
 --set global.authentication.managementPassword=$KEYCLOAK_PASSWORD \
 --set global.authentication.adminUser=$ADMIN_USER \
 --set global.authentication.adminPassword=$ADMIN_PASSWORD \
---set global.imagePullSecret=$imagePullSecret \
+--set global.imagePullSecret=$IMAGEPULLSECRET \
 --set zkm.zkmIngressControllerEnabled=false \
 --set zkm-px.zkmProxyIngressControllerEnabled=false \
---set zkm-px.config.externalIp=$externalIp \
+--set zkm-px.config.externalIp=$EXTERNALIP \
 --set zkm.useNginxRoutePath=false \
---set zkm-px.vras.ingressClass=$OPENSHIFTCLASS \
---set zkm-px.ingress-nginx.controller.ingressClass=$OPENSHIFTCLASS \
---set zkm.ingress-nginx.controller.ingressClass=$OPENSHIFTCLASS \
---set zkm.ingress.annotations.kubernetes\\.io/ingress\\.class=$OPENSHIFTCLASS \
---set zkm.zkeycloak.ingress.annotations.kubernetes\\.io/ingress\\.class=$OPENSHIFTCLASS \
+--set zkm-px.vras.ingressClass=$INGRESSCLASSNAMES \
+--set zkm-px.ingress-nginx.controller.ingressClass=$INGRESSCLASSNAMES \
+--set zkm.ingress-nginx.controller.ingressClass=$INGRESSCLASSNAMES \
+--set zkm.ingress.annotations.kubernetes\\.io/ingress\\.class=$INGRESSCLASSNAMES \
+--set zkm.zkeycloak.ingress.annotations.kubernetes\\.io/ingress\\.class=$INGRESSCLASSNAMES \
 --namespace $NAMESPACE
 ```
 
-#### Installing Zerto 4 Kubernetes on OpenShift on Additional cluster
+### Installing Zerto 4 Kubernetes on OpenShift on Additional cluster
 
 ``` shell
 helm install z4k zerto-z4k/zkm-px \
@@ -334,13 +310,13 @@ helm install z4k zerto-z4k/zkm-px \
 --set config.zkmUrl=$ZKMURL \
 --set config.zkeycloakUrl=$ZKEYCLOAKURL
 --set zkmProxyIngressControllerEnabled=false \
---set vras.ingressClass=$OPENSHIFTCLASS \
---set ingress-nginx.controller.ingressClass=$OPENSHIFTCLASS \
+--set vras.ingressClass=$INGRESSCLASSNAMES \
+--set ingress-nginx.controller.ingressClass=$INGRESSCLASSNAMES \
 --set config.externalIp=$externalIp --namespace $NAMESPACE
 ```
 
 
-#### Download the Zerto Operations Help Utility
+### Download the Zerto Operations Help Utility
     
 -   Download the Help Utility so you can enter Zerto operations commands. This is a bash script wrapper for the kubectl API extension.
 -   To use the Help Utility, first download then run the command 
@@ -360,8 +336,7 @@ sudo cp kubectl-zrt /usr/bin/
 
     >   [kubectl-zrt](Images/Z4K_Kubernetes_Commands.png?raw=true)
 
-
-#### Update Z4K with a New License
+### Update Z4K with a New Zerto License
     
 To update your Z4K with a new Zerto license run the following command with the relevant environment variables:
     
