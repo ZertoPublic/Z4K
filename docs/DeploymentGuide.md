@@ -15,7 +15,7 @@ Perform the following procedures:
 5.	[Downloading the Zerto Operations Help Utility](#Download-the-Zerto-Operations-Help-Utility)
 6.	[Update Z4K with a new Zerto License](#Update-Z4K-with-a-new-Zerto-License)
 
-## Prepare Helm
+#### Prepare Helm
 
 On the Kubernetes platform, enter the following commands:
 
@@ -26,7 +26,7 @@ helm repo update
 
 > **Note**:	Helm name (in the example above, zerto-z4k) should be a logical name entered by the user.
 
-## Obtain the Image Pull Key Secret
+#### Obtain the Image Pull Key Secret
 
 1.	Go to [myZerto](https://www.zerto.com/myzerto/).
 2.	If required, log in using your myZerto credentials.
@@ -35,7 +35,7 @@ helm repo update
 
 [PullKey](Images/PullKey.png?raw=true)
 
-## Configure the Ingress Controller
+#### Configure the Ingress Controller
 
 To configure the ingress controller with static IP, set the following flags in the value.yaml file as input for HELM during the installation:
 
@@ -49,7 +49,7 @@ For ZKM-PX only
 ```
 
 
-## Install Zerto for Kubernetes Components
+#### Install Zerto for Kubernetes Components
 
 Installation includes installation of the following components:
 
@@ -60,7 +60,7 @@ Installation includes installation of the following components:
 
 
 
-### Install Zerto for Kubernetes
+#### Install Zerto for Kubernetes
 
 Use either of these options to install Zerto for Kubernetes (Z4K) on any of the Zerto supported Kubernetes platforms.
 
@@ -69,7 +69,7 @@ Use either of these options to install Zerto for Kubernetes (Z4K) on any of the 
 --debug > <path_to_file>.txt
 ```
 
-#### Option 1
+##### Option 1
 
 Enter the following command, replacing the "$" variables with values relevant to your deployment.
 ``` shell
@@ -83,7 +83,7 @@ helm install <installation names> zerto-z4k/z4k \
 --namespace $NAMESPACE
 ```
 
-#### Option 2
+##### Option 2
 1.	Create the following values.yaml:
 ``` yaml
 --- 
@@ -111,11 +111,11 @@ Where,
 | $SITE |	A unique site name. |
 
 
-### Install Zerto Kubernetes Manager
+#### Install Zerto Kubernetes Manager
 
 Use one of these options to install the Zerto Kubernetes Manager (ZKM) on any of the Zerto supported Kubernetes platforms.
 
-#### Option 1
+##### Option 1
 
 Enter the following commands:
 
@@ -136,7 +136,7 @@ Where,
 | <installation names\> |	Specify an easy to recognize name. |
 | $NAMESPACE |	A dedicated Zerto namespace. We recommend using the namespace zerto. |
     
-#### Option 2 
+##### Option 2 
     
 1.  Create the following values.yaml:
 
@@ -157,13 +157,13 @@ Where,
     helm install <installation names> zerto-z4k/zkm -f values.yaml –namespace $NAMESPACE
     ```
 
-### Create the Initial Access Token using Keycloak
+#### Create the Initial Access Token using Keycloak
 
 KeyCloak is installed during the ZKM installation. Before you can begin to install Zerto Kubernetes Manager Proxy (ZKM-PX) on additional Kubernetes clusters, you must create an initial access token using Keycloak.
 
 Use one of the following processes depending on where you have or have not enabled two-factor authentication (2FA) for the Keycloak management user.
 
-#### Option 1
+##### Option 1
 
 Use this option to create the initial access token if 2FA is enabled for the Keycloak management user.
 
@@ -184,7 +184,7 @@ Use this option to create the initial access token if 2FA is enabled for the Key
 10.	Save the token.
 11.	Click **Back** to return to Keycloak.
 
-#### Option 2
+##### Option 2
 
 Use this option to create the initial access token only if two-factor authentication (2FA) is **not** enabled for the Keycloak management user.
  
@@ -198,12 +198,12 @@ chmod +x generate_initial_access_token.bash
 > **Note**:	The URL should end with /auth
 
 
-### Install Zerto Kubernetes Manager Proxy
+#### Install Zerto Kubernetes Manager Proxy
 
 1. [Create the Initial Access Token from Keycloak](*Create-the-Initial-Access-Token-using-Keycloak)
 2. Install Zerto Kubernetes Manager Proxy (ZKM-PX) on any of the Zerto supported Kubernetes platforms using one of the following options.
 
-#### Option 1
+##### Option 1
 Enter the following commands to install Zerto Kubernetes Manager Proxy:
 
 ``` shell
@@ -224,7 +224,7 @@ helm install <installation name> zerto-4k/zkm-px \
 | $ZKM_URL |	URL for ZKM. Typically: "https://<load balancer addr>/zkm" |
 | $ZKEYCLOAK _URL | URL for Keycloak. Typically: https://<load balancer addr>/auth |
 
-#### Option 2    
+##### Option 2    
 
 1. Create the following values.yaml:
 
@@ -254,7 +254,7 @@ global:
  | $NAMESPACE  | A dedicated Zerto namespace. We recommend using the namespace zerto. |
     
 
-### Install Zerto for Kubernetes on OpenShift
+#### Install Zerto for Kubernetes on OpenShift
 
 In **OpenShift on VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes.
 Therefore, to enable VRA communication, you must disable ingress deployment and provide the external IP of the sites.
@@ -267,7 +267,7 @@ Therefore, to enable VRA communication, you must disable ingress deployment and 
 --set zkm.useNginxRoutePath=false
 ```
 
-### Set Custom Ingress Class Names
+#### Set Custom Ingress Class Names
 
 To find the default ingress class name run the command:
 
@@ -300,7 +300,7 @@ helm install z4k zerto-z4k/z4k \
 --namespace $NAMESPACE
 ```
 
-### Install Zerto for Kubernetes on OpenShift on Additional cluster
+#### Install Zerto for Kubernetes on OpenShift on Additional cluster
 
 ``` shell
 helm install z4k zerto-z4k/zkm-px \
@@ -316,7 +316,7 @@ helm install z4k zerto-z4k/zkm-px \
 ```
 
 
-### Download the Zerto Operations Help Utility
+#### Download the Zerto Operations Help Utility
     
 -   Download the Help Utility so you can enter Zerto operations commands. This is a bash script wrapper for the kubectl API extension.
 -   To use the Help Utility, first download then run the command 
@@ -336,7 +336,7 @@ sudo cp kubectl-zrt /usr/bin/
 
     >   [kubectl-zrt](Images/Z4K_Kubernetes_Commands.png?raw=true)
 
-### Update Z4K with a New Zerto License
+#### Update Z4K with a New Zerto License
     
 To update your Z4K with a new Zerto license run the following command with the relevant environment variables:
     
