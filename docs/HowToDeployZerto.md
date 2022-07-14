@@ -8,11 +8,11 @@ Perform the following procedures:
 4.	[Set Custom Ingress Class Names](*set-custom-ingress-class-names) (If default names are not used)
 5.	[Install the Zerto for Kubernetes Components](*install-zerto-for-kubernetes-components)
     -   [Install Zerto for Kubernetes](#install-zerto-for-kubernetes)
-    -	[Install Zerto Kubernetes Manager](#install-zerto-kubernetes-manager)
-    -	[Create the Initial Access Token from Keycloak](*create-the-initial-access-yoken-from-keycloak)
-    -	[Install Zerto Kubernetes Manager Proxy](#install-zerto-kubernetes-manager-proxy)
-6.	[Downloading the Zerto Operations Help Utility](#downloading-the-zerto-operations-help-utility)
-7.	[Update Z4K with a new Zerto License](#updating-z4k-with-a-new-zerto-license)
+    -	[Install Zerto for Kubernetes Manager](#install-zerto-for-kubernetes-manager)
+    -	[Create the Initial Access Token using Keycloak](*create-the-initial-access-token-using-keycloak)
+    -	[Install Zerto for Kubernetes Manager Proxy](#install-zerto-for-kubernetes-manager-proxy)
+6.	[Download the Zerto Operations Help Utility](#download-the-zerto-operations-help-utility)
+7.	[Update Z4K with a new Zerto License](#update-z4k-with-a-new-zerto-license)
 
 ## Prepare Helm
 
@@ -136,7 +136,7 @@ Where,
 | $SITE |	A unique site name. |
 
 
-### Install Zerto Kubernetes Manager
+### Install Zerto for Kubernetes Manager
 
 Use one of these options to install the Zerto Kubernetes Manager (ZKM) on any of the Zerto supported Kubernetes platforms.
 
@@ -280,7 +280,7 @@ global:
     
 
 
-## Downloading the Zerto Operations Help Utility
+## Download the Zerto Operations Help Utility
     
 -   Download the Help Utility so you can enter Zerto operations commands. This is a bash script wrapper for the kubectl API extension.
 -   To use the Help Utility, first download then run the command 
@@ -300,7 +300,7 @@ sudo cp kubectl-zrt /usr/bin/
 
     >   [kubectl-zrt](Images/Z4K_Kubernetes_Commands.png?raw=true)
 
-## Updating Z4K with a New Zerto License
+## Update Z4K with a New Zerto License
     
 To update your Z4K with a new Zerto license run the following command with the relevant environment variables:
     
