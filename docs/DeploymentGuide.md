@@ -8,7 +8,7 @@ Perform the following procedures:
 4.	[Install the Zerto for Kubernetes Components](#Install-Zerto-for-Kubernetes-Components)
     - [Install Zerto for Kubernetes](#Install-Zerto-for-Kubernetes)
     -	[Install Zerto Kubernetes Manager](#Install-Zerto-Kubernetes-Manager)
-    -	[Create the Initial Access Token from Keycloak](#Creating-the-Initial-Access-Token-using-Keycloak)
+    -	[Create the Initial Access Token from Keycloak](#Create-the-Initial-Access-Token-using-Keycloak)
     -	[Install Zerto Kubernetes Manager Proxy](#Install-Zerto-Kubernetes-Manager-Proxy)
     - [Install Zerto 4 Kubernetes on Openshift](#Install-Zerto-for-Kubernetes-on-Openshift)
     - [Install Zerto 4 Kubernetes on OpenShift on Additional cluster](#Install-Zerto-for-Kubernetes-on-Openshift-on-Additional-Cluster)
@@ -157,7 +157,7 @@ Where,
     helm install <installation names> zerto-z4k/zkm -f values.yaml –namespace $NAMESPACE
     ```
 
-### Creating the Initial Access Token using Keycloak
+### Create the Initial Access Token using Keycloak
 
 KeyCloak is installed during the ZKM installation. Before you can begin to install Zerto Kubernetes Manager Proxy (ZKM-PX) on additional Kubernetes clusters, you must create an initial access token using Keycloak.
 
@@ -300,7 +300,7 @@ helm install z4k zerto-z4k/z4k \
 --namespace $NAMESPACE
 ```
 
-### Installing Zerto 4 Kubernetes on OpenShift on Additional cluster
+### Install Zerto 4 Kubernetes on OpenShift on Additional cluster
 
 ``` shell
 helm install z4k zerto-z4k/zkm-px \
