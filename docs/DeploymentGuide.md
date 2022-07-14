@@ -319,8 +319,9 @@ helm install z4k zerto-z4k/zkm-px \
 #### Download the Zerto Operations Help Utility
     
 -   Download the Help Utility so you can enter Zerto operations commands. This is a bash script wrapper for the kubectl API extension.
--   To use the Help Utility, first download then run the command 
+-   Run the command: 
     ```kubectl-zrt```
+    
 -   To run Zerto operation commands, on the Kubernetes platform enter the following commands:
 
 ``` shell
@@ -331,8 +332,8 @@ sudo cp kubectl-zrt /usr/bin/
 
 <span class="Note">Note:	If kubectl-zrt is not installed in /usr/bin, you must point to the relevant location.</span>
 
--   To view all Zerto commands, run 
-    ```kubectl-zrt –```
+-   To view all Zerto commands, run the command:
+        ```kubectl-zrt –```
 
     >   [kubectl-zrt](Images/Z4K_Kubernetes_Commands.png?raw=true)
 
