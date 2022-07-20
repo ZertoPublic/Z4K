@@ -1,5 +1,7 @@
 2.x Version Changes
 ===================
+===================
+-------------------
 *2.1.0 Implement One-To-Many VPG Configuration
 ----------------------------------------------
 *2.4.0 Support HPE New CSI
@@ -11,3 +13,4 @@
 * 2.4.5 Fix secret obfuscates class to support all types of Json values
 * 2.4.6 Check volume mode is block in pod init containers spec when the volume not found in pod containers
 * 2.4.7 Fix z4k-493 - Null reference exception on mixed volume types in init containers
+* 2.4.8 Merge add_memory_status_z4k_187 to master
