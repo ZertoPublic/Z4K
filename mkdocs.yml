@@ -9,6 +9,7 @@ nav:
 - Deployment Guide: HowToDeployZerto.md
 - Administration Guide: HowToRunZertoOperations.md
 - Supported Platforms: SupportedPlatforms.md
+- Z4K Analytics: Z4KAnalytics.md
 - More Resources: MoreResources.md
 - API Documentation: openapi.md
 - ChangeLog:
@@ -18,6 +19,7 @@ plugins:
 - search
 markdown_extensions:
   - tables
+  - admonition
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
