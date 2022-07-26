@@ -1,7 +1,5 @@
 2.x Version Changes
 ===================
-===================
--------------------
 *2.1.0 Implement One-To-Many VPG Configuration
 ----------------------------------------------
 *2.4.0 Support HPE New CSI
