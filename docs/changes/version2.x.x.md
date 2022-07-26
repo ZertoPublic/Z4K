@@ -11,4 +11,5 @@
 * 2.4.5 Fix secret obfuscates class to support all types of Json values
 * 2.4.6 Check volume mode is block in pod init containers spec when the volume not found in pod containers
 * 2.4.7 Fix issue 207463 - Null reference exception on mixed volume types in init containers
+* 2.4.8 Add memory counters from driver allocations. (Status)
 
