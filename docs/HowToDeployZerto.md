@@ -88,10 +88,10 @@ helm install <installation names> zerto-z4k/z4k \
 ``` yaml
 --- 
 global: 
+  imagePullSecret: $IMAGE_PULL_KEY
   authentication: 
     adminPassword: $ADMIN_PASSWORD
     adminUser: $ADMIN_USER
-    imagePullSecret: $IMAGE_PULL_KEY
     managementPassword: $KEYCLOAK_PASSWORD
     managementUser: $KEYCLOAK_USER
 zkm-px: 
