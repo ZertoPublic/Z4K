@@ -26,9 +26,7 @@ Then, you can perform one of the following:
 #### Creating a VPG
 
 
-1. Create a .yaml file to represent a VPG.
-
-The following example shows VPG webApp1 configured as follows:
+1. Create a .yaml file to represent a VPG. The following example shows VPG webApp1 configured as follows:
 
 -	Configured to self replicate to its source cluster.
 
