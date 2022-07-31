@@ -27,7 +27,7 @@ Then, you can perform one of the following:
 
 
 1. Create a .yaml file to represent a VPG.
- >	In the following example we create VPG webApp1 with the following configuration:
+ >		In the following example we create VPG webApp1 with the following configuration:
  >	   -	Configured to self replicate to its source cluster.
  >	   -	Will use the storage class goldSC.
  > 	   -	SLA is 12 hours of history.
