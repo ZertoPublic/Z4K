@@ -51,3 +51,9 @@ ZSJ9.JZ07dDaxYyUfbxI1vHbe2KDYpyVbkbxcBc1wk4qk40A","token_type":"Bearer","not-bef
 3.  Copy the access_token value.
 4.  Click **Authorise**.
 5.  In the **Available authorization** dialog, in the **Value** field type "Bearer" and paste the access_token.
+
+![Authorize](Images/authorization.png?raw=true)
+
+6.  Click **Authorise** and then **Close** to close the dialog.
+
+!!zswagger api.json!!
