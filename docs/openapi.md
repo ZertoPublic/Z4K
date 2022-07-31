@@ -12,13 +12,13 @@ To access the Z4K API if you're using Z4K ingress, run the command:
 
 To access the Z4K API if you're using external ingress, use the following steps.
 
-1.  Copy an EXTERNAL-IP/Loadbalancer-IP value into browser and add the /zkm/api/help:
+1)  Copy an EXTERNAL-IP/Loadbalancer-IP value into browser and add the /zkm/api/help:
 
       https://![](https://img.shields.io/static/v1?label=&message=a11ed2fcc9d734cf594793d044753d97-1234567.eu-central-1.elb.amazonaws.com&color=blue)/zkm/api/help
 
       This will authorize you to run Swagger commands. 
 
-2.  Prepare an access token:
+2)  Prepare an access token:
 ```
 curl --location --request POST 'https://<EXTERNAL-IP or loadbalancer-IP>/auth/realms/zerto/protocol/openid-connect/token' \
 --data-urlencode 'username=keycloack username' \
@@ -48,12 +48,12 @@ XNoIiwiYXpwIjoiYWRtaW4tY2xpIiwic2Vzc2lvbl9zdGF0ZSI6IjMxN2QyYTdlLTA4MjYtNDExOS05M
 ZSJ9.JZ07dDaxYyUfbxI1vHbe2KDYpyVbkbxcBc1wk4qk40A","token_type":"Bearer","not-before-policy":0,"session_state":"317d2a7e-0826-4119-
 92eb-ed0e2f2226a2","scope":"email profile"}% 
 ```
-3.  Copy the access_token value.
-4.  Click **Authorise**.
-5.  In the **Available authorization** dialog, in the **Value** field type "Bearer" and paste the access_token.
+3)  Copy the access_token value.
+4)  Click **Authorise**.
+5)  In the **Available authorization** dialog, in the **Value** field type "Bearer" and paste the access_token.
 
 ![Authorize](Images/authorization.png?raw=true)
 
-6.  Click **Authorise** and then **Close** to close the dialog.
+6)  Click **Authorise** and then **Close** to close the dialog.
 
 !!zswagger api.json!!
