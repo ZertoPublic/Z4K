@@ -38,8 +38,6 @@ The following example shows VPG webApp1 configured as follows:
 
 -	Journal can expand up to 160 GB to meet the history requirement.
 
-><span class="Note">Note: It is not mandatory to configure the Journal disk size (JournalDiskSizeInGb) and history (JournalHistoryInHours); they have default values of 2 GB and 8 hours respectively.</span>
-
 >    ```
 >    apiVersion: z4k.zerto.com/v1
 >    kind: vpg
@@ -53,6 +51,9 @@ The following example shows VPG webApp1 configured as follows:
 >      JournalDiskSizeInGb : 160
 >      JournalHistoryInHours : 12
 >     ```
+
+><span class="Note">Note: It is not mandatory to configure the Journal disk size (JournalDiskSizeInGb) and history (JournalHistoryInHours); they have default values of 2 GB and 8 hours respectively.</span>
+
      
 2. Annotate Kubernetes entities to include them in the VPG.
 
