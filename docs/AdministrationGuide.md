@@ -27,11 +27,11 @@ Then, you can perform one of the following:
 
 
 1. Create a .yaml file to represent a VPG.
- >In the following example the VPG webApp1:
- >   -	Is configured to self replicate to its source cluster.
- >   -	Will use the storage class goldSC.
- >   -	SLA is 12 hours of history.
- >   -	The Journal can expand up to 160 GB to meet the history requirement.
+ >	In the following example we create VPG webApp1 with the following configuration:
+ >	   -	Configured to self replicate to its source cluster.
+ >	   -	Will use the storage class goldSC.
+ > 	   -	SLA is 12 hours of history.
+ >  	   -	Journal can expand up to 160 GB to meet the history requirement.
 
 ><span class="Note">Note: It is not mandatory to configure the Journal disk size (JournalDiskSizeInGb) and history (JournalHistoryInHours); they have default values of 2 GB and 8 hours respectively.</span>
 
