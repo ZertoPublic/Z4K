@@ -14,4 +14,4 @@
 * 2.4.8 Add memory counters from driver allocations. (Status)
 * 2.4.9 During uninstall zkm-px site info of the removed site should be deleted from Z4K sites list
 * 2.4.10 Fix duplication site name validation (z4k-36)
-
+* 2.4.11 Remove "fo-***" namespace/s after stop/rollback FO operations
