@@ -12,5 +12,6 @@ Zerto for Kubernetes can be deployed on multiple Kubernetes platforms.
 | Oracle Container Engine for Kubernetes (OKE) |   |Supported in combination with Rook. |
 | VMware Tanzu  | VMware 6.7 | Supported in combination with Rook. |
 |   | VMware 7.0u2 |Full native support. <br> Kubernetes 1.19.9\1.20.5 or higher (CSI Block device support) on top of Tanzu Kubernetes Grid (TKG) is supported.  ||
+| HPE Ezmeral | 5.3 & 5.4 | XFS is not supported. |
 
 
