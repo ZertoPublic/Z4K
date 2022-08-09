@@ -196,7 +196,7 @@ Use this option to create the initial access token only if two-factor authentica
 1.  Generate an initial access token via REST commands to Keycloak.
 2.  Download and execute the following script:
 ``` shell
-wget https://z4k.zerto.com/public/generate_initial_access_token.bash
+wget https://z4k.zerto.com/generate_initial_access_token.bash
 chmod +x generate_initial_access_token.bash
 ./generate_initial_access_token.bash
 ```
@@ -329,7 +329,7 @@ helm install z4k zerto-z4k/zkm-px \
 -   To run Zerto operation commands, on the Kubernetes platform enter the following commands:
 
 ``` shell
-wget https://z4k.zerto.com/public/kubectl-zrt
+wget https://z4k.zerto.com/kubectl-zrt
 chmod +x kubectl-zrt
 sudo cp kubectl-zrt /usr/bin/
 ```
