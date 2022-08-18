@@ -16,8 +16,9 @@
 -	A storageClass with VolumeBindingMode of type "WaitForFirstConsumer" is needed for Zerto to work with persistent volumes.
 -	The environments storage should support volume mode using Block ("VolumeMode: Block").
 
-<span class="Note">Note
-1. Zerto recommends that you set the recovery site StorageClass to "WaitForFistCustomer" volume bind mode.
-2. Each recovery VRA has specific volumes that must be bound to it.
-If using "immediate" volume binding mode, the volume might be created on a different node and once the VRA POD is created, it would have to move to that node.
-If the system doesn't allow the PV to move freely between nodes, the VRA POD won't come up.</span>
+<span class="Note">Notes:
+- Zerto recommends that you set the recovery site StorageClass to "WaitForFistCustomer" volume bind mode.
+- Each recovery VRA has specific volumes that must be bound to it.
+    - If using "immediate" volume binding mode, the volume might be created on a different node and once the VRA POD is created, it would have to move to that node.
+    - If the system doesn't allow the PV to move freely between nodes, the VRA POD won't come up.
+</span>
