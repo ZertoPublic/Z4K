@@ -4,11 +4,11 @@ theme:
   highlightjs: false
 nav:
 - Zerto for Kubernetes Overview: index.md
-- Z4K Deployment Architecture: DeployingZertoForK8S.md
+- Deployment Architecture: DeployingZertoForK8S.md
 - Prerequisites and Requirements: MinimumRequirements.md
 - Supported Platforms: SupportedPlatforms.md
-- Deployment: HowToDeployZerto.md
-- Administration: HowToRunZertoOperations.md
+- Deployment: DeploymentGuide.md
+- Administration: AdministrationGuide.md
 - Z4K Analytics: Z4KAnalytics.md
 - API Documentation: openapi.md
 - More Resources: MoreResources.md
