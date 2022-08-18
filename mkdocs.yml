@@ -5,7 +5,7 @@ theme:
 nav:
 - Zerto for Kubernetes Overview: index.md
 - Deployment Architecture: DeployingZertoForK8S.md
-- Prerequisites and Requirements: PrerequisitesAndRequirements:.md
+- Prerequisites and Requirements: PrerequisitesAndRequirements.md
 - Supported Platforms: SupportedPlatforms.md
 - Deployment: DeploymentGuide.md
 - Administration: AdministrationGuide.md
