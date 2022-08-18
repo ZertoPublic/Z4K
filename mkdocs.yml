@@ -3,7 +3,7 @@ theme:
   name: readthedocs
   highlightjs: false
 nav:
-- Home: index.md
+- Zerto for Kubernetes Overview: index.md
 - Prerequisites and Requirements: MinimumRequirements.md
 - Z4K Deployment Architecture: DeployingZertoForK8S.md
 - Deployment Guide: HowToDeployZerto.md
