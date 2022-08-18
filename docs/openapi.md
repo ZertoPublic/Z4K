@@ -1,8 +1,8 @@
 # Z4K Open API
 
-## Access Z4K API
+### Access Z4K API
 
-### With Z4K Ingress
+#### With Z4K Ingress
 
 To access the Z4K API if you're using Z4K ingress, run the command:
 
@@ -10,17 +10,17 @@ To access the Z4K API if you're using Z4K ingress, run the command:
    kubectl get services -n <z4k namespace>
 ```
 
-### With External Ingress
+#### With External Ingress
 
 To access the Z4K API if you're using external ingress use the loadbalance IP.
 
-## Access Swagger 
+### Access Swagger 
 
 Type an EXTERNAL-IP/Loadbalancer-IP value as a address in your browes and add the /zkm/api/help:
 
       https://![](https://img.shields.io/static/v1?label=&message=a11ed2fcc9d734cf594793d044753d97-1234567.eu-central-1.elb.amazonaws.com&color=blue)/zkm/api/help
 
-## Obtain Swagger Authorization
+### Obtain Swagger Authorization
 
 To get authorization to make a Swagger and API calls:
 
