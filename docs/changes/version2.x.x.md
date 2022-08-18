@@ -1,7 +1,5 @@
 2.x Version Changes
 ===================
-===================
--------------------
 *2.1.0 Implement One-To-Many VPG Configuration
 ----------------------------------------------
 *2.4.0 Support HPE New CSI
@@ -17,4 +15,5 @@
 * 2.4.9 During uninstall zkm-px site info of the removed site should be deleted from Z4K sites list
 * 2.4.10 Fix duplication site name validation (z4k-36)
 * 2.4.11 Remove "fo-***" namespace/s after stop/rollback FO operations
+* 2.4.12 Merge bug_fix_z4k_459_atomic_verbose_log to master
 * 2.4.13 Merge pr_mistake_compile_error to master
