@@ -4,6 +4,7 @@ theme:
   highlightjs: false
 nav:
 - Zerto for Kubernetes Overview: index.md
+- Deployment Architecture: DeploymentArchitecture.md
 - Prerequisites and Requirements: PrerequisitesAndRequirements.md
 - Supported Platforms: SupportedPlatforms.md
 - Deployment: DeploymentGuide.md
