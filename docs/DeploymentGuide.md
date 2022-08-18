@@ -1,19 +1,19 @@
-# How To: Deploy Zerto For Kubernetes
+# Deployment
 
 Perform the procedures in the following order:
 
-1.	[Prepare Helm]
-2.	[Obtain the Image Pull Key Secret]
-3.	[Configure the Ingress Controller]
-4.	[Install the Zerto for Kubernetes Components]
-    - [Install Zerto for Kubernetes]
-    -	[Install Zerto Kubernetes Manager]
-    -	[Create the Initial Access Token from Keycloak]
-    -	[Install Zerto Kubernetes Manager Proxy]
-    - [Install Zerto 4 Kubernetes on Openshift]
-    - [Install Zerto 4 Kubernetes on OpenShift on Additional cluster]
-5.	[Downloading the Zerto Operations Help Utility]
-6.	[Update Z4K with a new Zerto License]
+1.	Prepare Helm
+2.	Obtain the Image Pull Key Secret
+3.	Configure the Ingress Controller
+4.	Install the Zerto for Kubernetes Components
+    - Install Zerto for Kubernetes
+    -	Install Zerto Kubernetes Manager
+    -	Create the Initial Access Token from Keycloak
+    -	Install Zerto Kubernetes Manager Proxy
+    - Install Zerto 4 Kubernetes on Openshift
+    - Install Zerto 4 Kubernetes on OpenShift on Additional cluster
+5.	Downloading the Zerto Operations Help Utility
+6.	Update Z4K with a new Zerto License
 
 #### Prepare Helm
 
@@ -70,7 +70,7 @@ Use either of these options to install Zerto for Kubernetes (Z4K) on any of the 
     ```</span>
 
     
-##### Option 1
+##### Install Z4K Option 1
 
 Enter the following command, replacing the "$" variables with values relevant to your deployment.
 ``` shell
@@ -84,7 +84,7 @@ helm install <installation names> zerto-z4k/z4k \
 --namespace $NAMESPACE
 ```
 
-##### Option 2
+##### Install Z4K Option 2
 1.	Create the following values.yaml:
 ``` yaml
 --- 
@@ -121,7 +121,7 @@ Where,
 
 Use one of these options to install the Zerto Kubernetes Manager (ZKM) on any of the Zerto supported Kubernetes platforms.
 
-##### Option 1
+##### Install ZKM Option 1
 
 Enter the following commands:
 
@@ -142,7 +142,7 @@ Where,
 | <installation names\> |	Specify an easy to recognize name. |
 | $NAMESPACE |	A dedicated Zerto namespace. We recommend using the namespace zerto. |
     
-##### Option 2 
+##### Install ZKM Option 2 
     
 1.  Create the following values.yaml:
 
@@ -169,9 +169,9 @@ KeyCloak is installed during the ZKM installation. Before you can begin to insta
 
 Use one of the following processes depending on where you have or have not enabled two-factor authentication (2FA) for the Keycloak management user.
 
-##### Option 1
+##### If 2FA is Enabled for Keycloak Management User
 
-Use this option to create the initial access token if 2FA is enabled for the Keycloak management user.
+Use this option to create the initial access token if two-factor authentication (2FA) is enabled for the Keycloak management user.
 
 1.	Edit your hosts file so that **zkm.z4k.zerto.com** points to your load balancer address.
 2.	Browse to Keycloak: [https://zkm.z4k.zerto.com/auth](https://zkm.z4k.zerto.com/auth)
@@ -190,9 +190,9 @@ Use this option to create the initial access token if 2FA is enabled for the Key
 10.	Save the token.
 11.	Click **Back** to return to Keycloak.
 
-##### Option 2
+##### If 2FA is Disabled for Keycloak Management User
 
-Use this option to create the initial access token only if two-factor authentication (2FA) is **not** enabled for the Keycloak management user.
+Use this option to create the initial access token only if 2FA is disabled for the Keycloak management user.
  
 1.  Generate an initial access token via REST commands to Keycloak.
 2.  Download and execute the following script:
@@ -209,7 +209,7 @@ chmod +x generate_initial_access_token.bash
 1. [Create the Initial Access Token from Keycloak](*creating-the-initial-access-yoken-from-keycloak)
 2. Install Zerto Kubernetes Manager Proxy (ZKM-PX) on any of the Zerto supported Kubernetes platforms using one of the following options.
 
-##### Option 1
+##### Install ZKM-PX Option 1
 Enter the following commands to install Zerto Kubernetes Manager Proxy:
 
 ``` shell
@@ -230,7 +230,7 @@ helm install <installation name> zerto-4k/zkm-px \
 | $ZKM_URL |	URL for ZKM. Typically: "https://<load balancer addr>/zkm" |
 | $ZKEYCLOAK _URL | URL for Keycloak. Typically: https://<load balancer addr>/auth |
 
-##### Option 2    
+##### Install ZKM-PX Option 2    
 
 1. Create the following values.yaml:
 
