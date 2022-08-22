@@ -4,7 +4,7 @@
 
 You can access the Z4K API in two ways.
 1. With Z4K ingress
-2. With External ingress
+2. With external ingress
 
 
 ##### With Z4K Ingress
