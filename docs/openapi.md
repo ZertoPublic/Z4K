@@ -2,6 +2,11 @@
 
 #### Access Z4K API
 
+You can access the Z4K API in two ways.
+1. With Z4K ingress
+2. With External ingress
+
+
 ##### With Z4K Ingress
 
 To access the Z4K API if you're using Z4K ingress, run the command:
