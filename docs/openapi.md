@@ -1,8 +1,8 @@
 # Z4K Open API
 
-#### Access Z4K API
+#### Access Z4K Open API
 
-You can access the Z4K API in two ways.
+You can access the Z4K Open API in two ways.
 1. With Z4K ingress
 2. With external ingress
 
