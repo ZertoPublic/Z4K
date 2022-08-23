@@ -1,4 +1,4 @@
-# Z4K open API
+# Z4K Open API
 
 #### With Z4K Ingress
 
