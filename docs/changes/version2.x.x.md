@@ -17,3 +17,5 @@
 * 2.4.11 Remove "fo-***" namespace/s after stop/rollback FO operations
 * 2.4.12 Merge bug_fix_z4k_459_atomic_verbose_log to master
 * 2.4.13 Merge pr_mistake_compile_error to master
+* 2.4.14 remove disks from driver before reopen them after recreate
+
