@@ -9,6 +9,7 @@ nav:
 - Deployment: DeploymentGuide.md
 - Administration: AdministrationGuide.md
 - Z4K Analytics: Z4KAnalytics.md
+- Accessing the Z4K Open API: Accessing the Open API.md
 - API Documentation: openapi.md
 - More Resources: MoreResources.md
 - ChangeLog:
