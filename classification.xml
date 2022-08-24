@@ -7,7 +7,7 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Nadina Rosentuler-Barnatan</Author>
-  <LastAuthor>Rina Sussman</LastAuthor>
+  <LastAuthor>Andy Lewis</LastAuthor>
   <Created>2021-05-10T10:36:25Z</Created>
   <LastSaved>2021-05-11T12:35:33Z</LastSaved>
   <Version>16.00</Version>
@@ -17,14 +17,13 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <SupBook>
-   <Path>C:\Zoomin\Install.ZCM.HTML\Values</Path>
+   <Path>Values</Path>
    <SheetName>Values</SheetName>
   </SupBook>
-  <WindowHeight>8110</WindowHeight>
-  <WindowWidth>19200</WindowWidth>
+  <WindowHeight>7920</WindowHeight>
+  <WindowWidth>21570</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -45,19 +44,20 @@
  <Worksheet ss:Name="Classification">
   <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:Width="50.5"/>
-   <Column ss:AutoFitWidth="0" ss:Width="79"/>
+   <Column ss:Width="50.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="78.75"/>
    <Column ss:Width="66"/>
    <Column ss:Width="54"/>
-   <Column ss:AutoFitWidth="0" ss:Width="92.5" ss:Span="2"/>
-   <Column ss:Index="8" ss:AutoFitWidth="0" ss:Width="90"/>
-   <Column ss:AutoFitWidth="0" ss:Width="102"/>
-   <Column ss:AutoFitWidth="0" ss:Width="83.5"/>
-   <Column ss:AutoFitWidth="0" ss:Width="128.5"/>
-   <Column ss:AutoFitWidth="0" ss:Width="131.5"/>
-   <Column ss:AutoFitWidth="0" ss:Width="145" ss:Span="1"/>
+   <Column ss:AutoFitWidth="0" ss:Width="92.25" ss:Span="1"/>
+   <Column ss:Index="7" ss:AutoFitWidth="0" ss:Width="126"/>
+   <Column ss:AutoFitWidth="0" ss:Width="125.25"/>
+   <Column ss:Width="115.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="123.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="162.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="164.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="144.75" ss:Span="1"/>
    <Column ss:Index="15" ss:AutoFitWidth="0" ss:Width="162"/>
-   <Column ss:AutoFitWidth="0" ss:Width="145" ss:Span="2"/>
+   <Column ss:AutoFitWidth="0" ss:Width="144.75" ss:Span="2"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Filename</Data></Cell>
     <Cell><Data ss:Type="String">Platform</Data></Cell>
@@ -82,13 +82,15 @@
     <Cell><Data ss:Type="String">MAP</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">z4k</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">content-install</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">content-deploy</Data></Cell>
+    <Cell><Data ss:Type="String">content-Deployment</Data></Cell>
+    <Cell><Data ss:Type="String">content-administration</Data></Cell>
+    <Cell><Data ss:Type="String">content-tweaks</Data></Cell>
+    <Cell><Data ss:Type="String">content-automationapi</Data></Cell>
+    <Cell><Data ss:Type="String">content-tweaks</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">apply-ALL</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">z4k</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">content-install</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">content-deploy</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">default</Data></Cell>
@@ -107,11 +109,12 @@
     <VerticalResolution>1200</VerticalResolution>
    </Print>
    <Selected/>
+   <LeftColumnVisible>2</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -124,26 +127,26 @@
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R36C2,R4C3:R36C3,R7C10:R36C10,R2C4:R3C4,R2C8:R36C9,R2C10,R2C11:R36C11,R2C13:R36C18,R4C12:R36C12</Range>
+   <Range>R2C2:R36C2,R4C3:R36C3,R7C10:R36C10,R2C4:R3C4,R2C8:R36C9,R2C11:R36C18,R2C10</Range>
    <Type>List</Type>
-   <Value>'C:\Zoomin\Install.ZCM.HTML\[Values]Values'!#REF!</Value>
+   <Value>Values!#REF!</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C5:R36C7</Range>
    <Type>List</Type>
-   <Value>'C:\Zoomin\Install.ZCM.HTML\[Values]Values'!#REF!</Value>
+   <Value>Values!#REF!</Value>
    <ErrorHide/>
   </DataValidation>
  </Worksheet>
  <Worksheet ss:Name="Values">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="11" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:Width="62.5"/>
-   <Column ss:Width="98.5"/>
+   <Column ss:Width="62.25"/>
+   <Column ss:Width="98.25"/>
    <Column ss:Width="54"/>
-   <Column ss:Width="76"/>
-   <Column ss:AutoFitWidth="0" ss:Width="206.5"/>
-   <Column ss:Width="167.5"/>
+   <Column ss:Width="75.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="206.25"/>
+   <Column ss:Width="167.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Platform</Data></Cell>
     <Cell><Data ss:Type="String">Product Type</Data></Cell>
