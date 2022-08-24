@@ -20,8 +20,8 @@
    <Path>Values</Path>
    <SheetName>Values</SheetName>
   </SupBook>
-  <WindowHeight>7920</WindowHeight>
-  <WindowWidth>21570</WindowWidth>
+  <WindowHeight>12165</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
@@ -87,6 +87,8 @@
     <Cell><Data ss:Type="String">content-tweaks</Data></Cell>
     <Cell><Data ss:Type="String">content-automationapi</Data></Cell>
     <Cell><Data ss:Type="String">content-tweaks</Data></Cell>
+    <Cell><Data ss:Type="String">Category-automationapi</Data></Cell>
+    <Cell><Data ss:Type="String">Category-Deploymentandupgrade</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">apply-ALL</Data></Cell>
@@ -109,12 +111,12 @@
     <VerticalResolution>1200</VerticalResolution>
    </Print>
    <Selected/>
-   <LeftColumnVisible>2</LeftColumnVisible>
+   <LeftColumnVisible>8</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -228,8 +230,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>19</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
