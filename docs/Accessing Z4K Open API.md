@@ -1,6 +1,6 @@
 # Accessing Z4K REST API
 
-You can access the Z4K Open API in two ways.
+You can access the Z4K REST API in two ways.
 1. With Z4K ingress
 2. With external ingress
 
