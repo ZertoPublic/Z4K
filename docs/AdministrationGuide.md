@@ -48,10 +48,10 @@ spec:
   JournalHistoryInHours: 12
   Name: “webApp1”
   RecoveryStorageClass: GoldSC
-  SourceCluster: 
-    Id: prod_cluster
-  TargetCluster: 
-    Id: prod_cluster
+  SourceSite: 
+    Id: prod_site
+  TargetSite: 
+    Id: dr_site
 ```
 
 2. Annotate Kubernetes entities to include them in the VPG.
@@ -115,10 +115,10 @@ spec:
   JournalDiskSizeInGb: 160
   JournalHistoryInHours: 12
   RecoveryStorageClass: GoldSC
-  SourceCluster: 
-    Id: prod_cluster
-  TargetCluster: 
-    Id: prod_cluster
+  SourceSite: 
+    Id: prod_site
+  TargetSite: 
+    Id: dr_site
 metadata:  
   name: <VPG name>
   namespace: <z4k namespace>
