@@ -13,17 +13,17 @@ The installation includes the following:
 -	**Keycloak:** Keycloak is an open source identity and access management tool which is used for user and component authentication. It is deployed automatically as part of the ZKM installation, and only one instance is required.
 -	**Zerto Analytics:** A Zerto user interface which provides a view over all existing VPGs.
 
-## Zerto for Kubernetes on a Single Kubernetes Cluster Deployment
+### Zerto for Kubernetes on a Single Kubernetes Cluster Deployment
 
 ![SingleCLuster](Images/Z4K_Single_Kubernetes_Cluster_Deployment.png?raw=true)
 
-## Zerto for Kubernetes on Multiple Kubernetes Cluster Deployments
+### Zerto for Kubernetes on Multiple Kubernetes Cluster Deployments
 
 In this deployment Zerto recommends installing the Zerto Kubernetes Manager on the recovery cluster.
 
 ![MultipleCLuster](Images/Z4K_Multiple_Kubernetes_Cluster_Deployments.png?raw=true)
 
-## Zerto for Kubernetes on Multiple Kubernetes Cluster Deployments - with a Separate Zerto Kubernetes Manager Cluster
+### Zerto for Kubernetes on Multiple Kubernetes Cluster Deployments - with a Separate Zerto Kubernetes Manager Cluster
 
 In this deployment Zerto recommends installing the Zerto Kubernetes Manager on the recovery cluster.
 
