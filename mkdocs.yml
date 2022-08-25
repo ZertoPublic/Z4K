@@ -10,7 +10,7 @@ nav:
 - Deployment: DeploymentGuide.md
 - Administration: AdministrationGuide.md
 - Z4K Analytics: Z4KAnalytics.md
-- Accessing the Z4K REST API: Z4KRESTAPI.md
+- Accessing the Z4K REST API: AccessingZ4KRESTAPI.md
 - Z4K REST API: Z4KRESTAPI.md
 - More Resources: MoreResources.md
 - ChangeLog:
