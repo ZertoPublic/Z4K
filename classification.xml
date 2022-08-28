@@ -20,8 +20,8 @@
    <Path>Values</Path>
    <SheetName>Values</SheetName>
   </SupBook>
-  <WindowHeight>12165</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>7920</WindowHeight>
+  <WindowWidth>21570</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
@@ -84,15 +84,15 @@
     <Cell ss:Index="7"><Data ss:Type="String">content-install</Data></Cell>
     <Cell><Data ss:Type="String">content-Deployment</Data></Cell>
     <Cell><Data ss:Type="String">content-administration</Data></Cell>
-    <Cell><Data ss:Type="String">content-tweaks</Data></Cell>
     <Cell><Data ss:Type="String">content-automationapi</Data></Cell>
-    <Cell><Data ss:Type="String">content-tweaks</Data></Cell>
-    <Cell><Data ss:Type="String">Category-automationapi</Data></Cell>
-    <Cell><Data ss:Type="String">Category-Deploymentandupgrade</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">apply-ALL</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">z4k</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">content-install</Data></Cell>
+    <Cell><Data ss:Type="String">content-Deployment</Data></Cell>
+    <Cell><Data ss:Type="String">content-administration</Data></Cell>
+    <Cell><Data ss:Type="String">content-automationapi</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">default</Data></Cell>
@@ -111,12 +111,11 @@
     <VerticalResolution>1200</VerticalResolution>
    </Print>
    <Selected/>
-   <LeftColumnVisible>8</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -129,7 +128,7 @@
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R36C2,R4C3:R36C3,R7C10:R36C10,R2C4:R3C4,R2C8:R36C9,R2C11:R36C18,R2C10</Range>
+   <Range>R2C2:R36C2,R4C3:R36C3,R7C10:R36C10,R2C4:R3C4,R2C12:R2C18,R2C10:R3C10,R3C11:R36C18,R2C8:R36C9</Range>
    <Type>List</Type>
    <Value>Values!#REF!</Value>
   </DataValidation>
