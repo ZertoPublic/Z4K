@@ -1,4 +1,4 @@
-# Accessing the Z4K Open API
+# Accessing the Z4K REST API
 
 #### With Z4K Ingress
 
