@@ -84,9 +84,9 @@
     <Cell ss:Index="7"><Data ss:Type="String">content-install</Data></Cell>
     <Cell><Data ss:Type="String">content-Deployment</Data></Cell>
     <Cell><Data ss:Type="String">content-administration</Data></Cell>
-    <Cell><Data ss:Type="String">content-tweaks</Data></Cell>
+    
     <Cell><Data ss:Type="String">content-automationapi</Data></Cell>
-    <Cell><Data ss:Type="String">content-tweaks</Data></Cell>
+    
     <Cell><Data ss:Type="String">Category-automationapi</Data></Cell>
     <Cell><Data ss:Type="String">Category-Deploymentandupgrade</Data></Cell>
    </Row>
