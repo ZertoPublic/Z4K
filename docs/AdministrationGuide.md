@@ -37,17 +37,17 @@ Then, you can perform one of the following:
 -	Journal can expand up to 160 GB to meet the history requirement.
 
 >    ```
->    apiVersion: z4k.zerto.com/v1
->    kind: vpg
->    spec:
->      Name : “webApp1”
->      SourceCluster :
->        Id: "prod_cluster”
->       TargetCluster :
->        Id: "prod_cluster"
->      RecoveryStorageClass : GoldSC
->      JournalDiskSizeInGb : 160
->      JournalHistoryInHours : 12
+>	apiVersion: z4k.zerto.com/v1
+>	kind: vpg
+>	spec: 
+>	  JournalDiskSizeInGb: 160
+>	  JournalHistoryInHours: 12
+>	  Name: “webApp1”
+>	  RecoveryStorageClass: GoldSC
+>	  SourceSite: 
+>	    Id: prod_site
+> 	 TargetSite: 
+> 	   Id: dr_site
 >     ```
 
 ><span class="Note">Note: It is not mandatory to configure the Journal disk size (JournalDiskSizeInGb) and history (JournalHistoryInHours); they have default values of 2 GB and 8 hours respectively.</span>
