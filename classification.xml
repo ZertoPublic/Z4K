@@ -52,7 +52,7 @@
    <Column ss:AutoFitWidth="0" ss:Width="92.25" ss:Span="1"/>
    <Column ss:Index="7" ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="128.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="149.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="83.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="128.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="131.25"/>
@@ -82,16 +82,16 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MAP</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">z4k</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">content-Deployment</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">content-Deploy</Data></Cell>
     <Cell><Data ss:Type="String">content-automationapi</Data></Cell>
-    <Cell><Data ss:Type="String">content-administration</Data></Cell>
+    <Cell><Data ss:Type="String">content-Admin</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">apply-ALL</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">z4k</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">content-Deployment</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">content-Deploy</Data></Cell>
     <Cell><Data ss:Type="String">content-automationapi</Data></Cell>
-    <Cell><Data ss:Type="String">content-administration</Data></Cell>
+    <Cell><Data ss:Type="String">content-Admin</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">default</Data></Cell>
@@ -114,8 +114,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -128,12 +128,12 @@
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R36C2,R4C3:R36C3,R7C10:R36C10,R2C4:R3C4,R4C12:R36C12,R2C9:R2C10,R2C11:R36C11,R2C13:R36C18,R3C9:R36C9,R2C8:R36C8</Range>
+   <Range>R2C2:R36C2,R4C3:R36C3,R7C10:R36C10,R2C4:R3C4,R4C12:R36C12,R2C10,R2C11:R36C11,R2C13:R36C18,R2C8:R36C8</Range>
    <Type>List</Type>
    <Value>'C:\Zoomin\Install.ZCM.HTML\[Values]Values'!#REF!</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R36C6,R4C7:R36C7</Range>
+   <Range>R2C5:R36C6,R4C7:R36C7,R4C9:R36C9</Range>
    <Type>List</Type>
    <Value>'C:\Zoomin\Install.ZCM.HTML\[Values]Values'!#REF!</Value>
    <ErrorHide/>
@@ -208,7 +208,7 @@
     <Cell><Data ss:Type="String">Category-automationapi</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5"><Data ss:Type="String">content-administration</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">content-admin</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="5"><Data ss:Type="String">content-upgrade</Data></Cell>
@@ -229,8 +229,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>13</ActiveRow>
      <ActiveCol>4</ActiveCol>
+     <RangeSelection>C5</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
