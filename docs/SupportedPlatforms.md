@@ -13,6 +13,3 @@ Zerto for Kubernetes can be deployed on multiple Kubernetes platforms.
 | Red Hat OpenShift | 4.6 and higher  |csi-rbdplugin  |  |
 | VMware Tanzu  | VMware 6.7 | vsphere-csi-node |Supported in combination with Rook. |
 |   | VMware 7.0u2 |vsphere-csi-node |Full native support. <br> Kubernetes 1.19.9\1.20.5 or higher (CSI Block device support) on top of Tanzu Kubernetes Grid (TKG) is supported.  ||
-
-
-
