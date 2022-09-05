@@ -7,8 +7,8 @@ nav:
 - Deployment Architecture: DeploymentArchitecture.md
 - Prerequisites and Requirements: PrerequisitesAndRequirements.md
 - Supported Platforms: SupportedPlatforms.md
-- Deployment: DeploymentGuide.md
-- Administration: AdministrationGuide.md
+- Z4K Deployment: Z4KDeploymentGuide.md
+- Z4K Administration: Z4KAdministrationGuide.md
 - Z4K Analytics: Z4KAnalytics.md
 - Accessing the Z4K REST API: AccessingZ4KRESTAPI.md
 - Z4K REST API: openapi.md
