@@ -10,8 +10,8 @@ Perform the procedures in the following order:
     -	Install Zerto Kubernetes Manager
     -	Create the Initial Access Token from Keycloak
     -	Install Zerto Kubernetes Manager Proxy
-    - Install Zerto 4 Kubernetes on Openshift
-    - Install Zerto 4 Kubernetes on OpenShift on Additional cluster
+    - Install Z4K on Openshift
+    - Install Z4K on OpenShift on Additional cluster
 5.	Downloading the Zerto Operations Help Utility
 6.	Update Z4K with a new Zerto License
 
@@ -246,7 +246,7 @@ global:
     initialAccessToken: $INITIAL_ACCESS_TOKEN
 ```
     
-2.  Install using the following command:
+2.  Install ZKM-PX using the following command:
     
     ```
     helm install <installation names> zerto-z4k/zkm-px -f values.yaml --namespace $NAMESPACE
@@ -260,7 +260,7 @@ global:
  | $NAMESPACE  | A dedicated Zerto namespace. We recommend using the namespace zerto. |
     
 
-#### Installing Zerto 4 Kubernetes on OpenShift
+#### Installing Z4K on OpenShift
 
 In **OpenShift on VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes.
 Therefore, to enable VRA communication, you must disable ingress deployment and provide the external IP of the sites.
@@ -306,7 +306,7 @@ helm install z4k zerto-z4k/z4k \
 --namespace $NAMESPACE
 ```
 
-#### Installing Zerto 4 Kubernetes on OpenShift on Additional cluster
+#### Installing Z4K on OpenShift on an Additional Cluster
 
 ``` shell
 helm install z4k zerto-z4k/zkm-px \
