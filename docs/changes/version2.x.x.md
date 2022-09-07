@@ -1,6 +1,5 @@
 2.x Version Changes
 ===================
-===================
 -------------------
 *2.1.0 Implement One-To-Many VPG Configuration
 ----------------------------------------------
@@ -22,3 +21,4 @@
 * 2.4.14 Remove disks from driver before reopen them after recreate
 * 2.4.15 Add VPG validator
 * 2.4.16 Merge fix_z4k-503 to master
+* 2.4.17 Fix validation error messages
