@@ -22,3 +22,4 @@
 * 2.4.15 Add VPG validator
 * 2.4.16 Merge fix_z4k-503 to master
 * 2.4.17 Fix validation error messages
+* 2.4.18 Obfuscate secret/access key in AWS and for secretKey/applicationId in Azure
