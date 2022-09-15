@@ -5,7 +5,7 @@
 After deploying Zerto for Kubernetes, create a VPG, configure one-to-many (optional), tag checkpoints, and then test failover.
 
 1.	Create a VPG
-2.	Update Existing VPG
+2.	Update Existing VPGs
 3.	Configure One-to-Many
 4.	Tag a Checkpoint
 5.	Test Failover
@@ -102,7 +102,7 @@ spec:
 
 ```
 
-#### Updating Existing VPG
+#### Updating Existing VPGs
 
 In case you need to update an existing VPG you need to create a yaml file as you did it for create VPG,
 with additional section: "metadata". The "metadata" section should contain the VPG name and the namespace id:
@@ -309,7 +309,7 @@ To configure Long-term Retention for your Kubernetes environment, use the follow
 4.	Restore the VPG from a Long-term Repository
 
 
-##### Backing up a VPG
+##### Backing Up a VPG
 
 To backup a VPG to a target LTR repository, create the VPG and update the VPG yaml file (vpg.yaml) with the LTR repository type.
 
