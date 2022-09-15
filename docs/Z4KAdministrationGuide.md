@@ -15,12 +15,12 @@ Then, you can perform one of the following:
 -	Perform a Failover
 -	Restore a Single VPG
 -	Move operation
--	Configure Long-term Retention (LTR) in Kubernetes Environments
-	>	Zerto for Kubernetes supports backing up Kubernetes workloads and their data to a Long-term Repository and restoring them from the Long-term Repository to the original site, or to a different site/namespace.
+-	Configure Long-term Retention in Kubernetes Environments
+	>	Z4K supports backing up Kubernetes workloads and their data to a Long-term Repository and restoring them from the Long-term Repository to the original site, or to a different site/namespace.
 - Log Retention
 	>	Log collection occurs automatically, and the logs are uploaded to Amazon S3. You can also collect logs ad hoc.
--	Protect Ingress Controller Resources](#protecting-ingress-controller-resources)
-	>	Zerto for Kubernetes supports replicating Ingress Controller Resources so networking configuration can be replicated and easily deployed on the recovery site.
+-	Protect Ingress Controller Resources
+	>	Z4K supports replicating Ingress Controller Resources so networking configuration can be replicated and easily deployed on the recovery site.
 -	Taints and Tolerations
 	>	Z4K supports taints and tolerations configuration for nodes and pods.
 -	Tweaks
@@ -239,7 +239,7 @@ kubectl zrt rollback [vpg-name]
 	
 #### Restoring a Single VPG
 
-On a single cluster deployment, only the restore and failover test operations are available. Failover is not available.
+On a single cluster deployment, only the restore and failover test operations are available. Failover is not available on  single cluster deployments.
 
 -	To restore a single VPG, run the command:
 
@@ -290,23 +290,23 @@ kubectl zrt commit-move [vpg-name]
 VPG status will be changed to CommittingMove.
 Onc completed, the VPG will be commited, deployment will now exist on the recovery site and VPG will be removed from the environment.
 
-#### Long-term Retention (LTR) in Kubernetes Environments
+#### Long-term Retention in Kubernetes Environments
 
-Zerto for Kubernetes supports backing up Kubernetes workloads and their data to a long-term repository and restoring them from the long-term repository to the original site, or to a different site. The repository where backed up data is kept is called a Long-term Retention (LTR) repository.
+Z4K supports backing up Kubernetes workloads and their data to a long-term repository (LTR) and restoring them from the LTR to the original site, or to a different site.
 
 ##### Supported Repository Types
 
-Zerto for Kubernetes supports two LTR repository types:
+Z4K supports two LTR repository types:
 
 - AWS S3
 - Azure Blob Storage
 	
-To configure Long-term Retention for your Kubernetes environment, use the following procedures:
+To configure LTR for your Kubernetes environment, use the following procedures:
 
 1.	Back up the VPG
 2.	Manually trigger a Backup
-3.	Schedule Long-term Retention Backups
-4.	Restore the VPG from a Long-term Repository
+3.	Schedule LTR Backups
+4.	Restore the VPG from a LTR
 
 
 ##### Backing Up a VPG
@@ -405,9 +405,9 @@ kubectl zrt ltr-backup [vpg-name] [checkpoint-id]
 kubectl get backupset
 ```
 
-##### Scheduling Long-term Retention Backups
+##### Scheduling LTR Backups
 
-To schedule Long-term Retention backups, add **SchedulingAndRetentionSettings** to the VPGs **BackupSettings**.
+To schedule LTR backups, add **SchedulingAndRetentionSettings** to the VPGs **BackupSettings**.
 
 Use the following example as a guideline.
 
@@ -469,9 +469,9 @@ spec:
 -	A Full Method cannot be followed by an Incremental Method. In other words, if there is a Full Method, it should be the last in the chain.
 -	Zerto Kubernetes Manager schedules backups and expirations as needed.
 	
-##### Restoring a VPG from a Long-term Repository
+##### Restoring a VPG from LTR
 
-To restore a VPG from a Long-term repository, run the command:
+To restore a VPG from LTR, run the command:
 
 ```
 kubectl zrt ltr-restore [backupset-id] [site-id] [storage-class] [namespace]
