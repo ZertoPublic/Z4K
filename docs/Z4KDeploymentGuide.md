@@ -362,11 +362,11 @@ To verify the new license has been succesfully updated, run the following comman
 kubectl describe deployments.apps <deply-zkm-name> -n <zerto-namespace>
 ```
 
-#### Upgrade Zerto For Kubernetes
+#### Upgrading Z4K
 
-To upgrade the Z4K solution you must first upgrade the Zerto Kubernetes Managment site and then upgrade the Zerto Kubernetes Manager Proxy.
+To upgrade the Z4K solution you must first upgrade the Zerto Kubernetes Managment (ZKM) site and then upgrade the Zerto Kubernetes Manager Proxy (ZKM-PX) site.
 
-###### Upgrade Zerto For Kubernetes site
+###### Upgrade ZKM Site
     
 Use the following commands to get the release name and then upgrade.
 
@@ -388,9 +388,9 @@ NOTES:
 See the installed app by running these command:
 kubectl get deployments -n <namespace>
 ```
-###### Upgrade Zerto Kubernetes Manager Proxy
+###### Upgrade ZKM-PX
 
-Upgrade the Zerto Kubernetes Managment Proxy site **after** upgrading the Zerto Kubernetes Managment site using the same commands to get the release name and then upgrade.
+Upgrade the ZKM-PX site **after** upgrading the ZKM site using the same commands to get the release name and then upgrade.
 
 ```
 ➜**>helm list -n <namespace>**
@@ -413,9 +413,9 @@ kubectl get deployments -n <namespace>
 
 #### Uninstalling Z4K
 
-To uninstall Z4K you must first uninstall the Zerto Kubernetes Manager Proxy site and then uninstall the ZKM site:
+To uninstall Z4K you must first uninstall the ZKM-PX site and then uninstall the ZKM site:
 
-###### Uninstall Zerto Kubernetes Manager Proxy
+###### Uninstall ZKM-PX
     
 Get the release name:
 ```
@@ -427,10 +427,10 @@ NAME            NAMESPACE       REVISION        UPDATED                         
 ➜>helm uninstall <release name> -n <namespace>
 ```
 
-###### Uninstall Zerto For Kubernetes Site
+###### Uninstall ZKM Site
 
-Verify that you're on the Z4K Managment cluster.
-Use the following commands to get the release name and when use it to uninstall:
+1. Verify that you're on the ZKM cluster.
+2. Use the following commands to get the release name and when use it to uninstall:
 
 ```   
 ➜**>helm list -n <namespace>**
