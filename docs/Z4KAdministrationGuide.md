@@ -517,7 +517,7 @@ Logs are stored locally on zkm/zkm-px pods /logs. After ad hoc log collection lo
 Use one of the following methods to generate logs.
 
 ##### Ad Hoc Log Collection Method 1
-Run the following command, which runs a script on Zerto Kubernetes Manager Proxy (ZKM-PX) in the background:
+Run the following command, which runs a script on the ZKM-PX in the background:
 
 ```
 kubectl-zrt collect-logs <case/bug number>
