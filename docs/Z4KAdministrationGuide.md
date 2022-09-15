@@ -510,7 +510,7 @@ Therefore:
 - A ZKM-PX service needs 50 x 0.5MB = ~30MB
 
 ##### Log Location
-Logs are stored locally on zkm/zkm-px pods /logs. After ad hoc log collection logs are uploaded to Amazon and stored in S3 bucket.
+Logs are stored locally on zkm/zkm-px pods /logs. The ad hoc logs are uploaded to Amazon and stored in S3 bucket.
 
 #### Ad Hoc Log Collection
 
