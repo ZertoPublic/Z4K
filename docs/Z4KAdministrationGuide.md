@@ -617,7 +617,11 @@ Z4K supports taints and tolerations configuration for nodes and pods.
 
 Z4K allows users to view and customize tweaks for Z4K components using the following commands:
 
-To view existing tweaks and values:
+-	To view existing tweaks and values use the command:
+```	
+$ kubectl zrt get-potential-tweaks
+```
+**Example**	
 ```
 $ kubectl zrt get-potential-tweaks
 NAME                                                  VALUE               DEFAULT             DESCRIPTION
@@ -626,13 +630,22 @@ EnableZertoAnalyticsTransmitter                       True                True  
 DisableUndoLog                                        False               False
 ScratchSizeInGb                                       2                   2
 ```
-To set a new value for an existing tweak:
+-	To set a new value for an existing tweak, use the command:
+```	
+$ kubectl zrt set-tweak ScratchSizeInGb <value>
+```
+
+**Example**
 ```
 $ kubectl zrt set-tweak ScratchSizeInGb 4
 ztweak.z4k.zerto.com/ScratchSizeInGb created
 ```
 	
-After the change in value you can review the tweaks value to confirm the change:
+-	To review the tweaks value and confirm settings, use the command:
+```
+$ kubectl zrt get-potential-tweaks
+```
+**Example**
 ```
 $ kubectl zrt get-potential-tweaks
 NAME                                                  VALUE               DEFAULT             DESCRIPTION
