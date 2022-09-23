@@ -125,7 +125,7 @@ Where,
 
 #### Install Zerto Kubernetes Manager
 
-Use one of these options to install the Zerto Kubernetes Manager (ZKM) on any of the Zerto supported Kubernetes platforms.
+Use one of these two options to install the Zerto Kubernetes Manager (ZKM) on any of the Zerto supported Kubernetes platforms.
 
 ##### Install ZKM Option 1
 
