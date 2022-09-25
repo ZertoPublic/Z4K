@@ -180,7 +180,7 @@ Use one of the following processes depending on where you have or have not enabl
 Use this option to create the initial access token if two-factor authentication (2FA) is enabled for the Keycloak management user.
 
 1.	Edit your hosts file so that **zkm.z4k.zerto.com** points to your load balancer address.
-2.	Browse to Keycloak: [https://zkm.z4k.zerto.com/auth](#https://zkm.z4k.zerto.com/auth)
+2.	Browse to Keycloak: [https://zkm.z4k.zerto.com/auth](https://zkm.z4k.zerto.com/auth)
 >   ![Browse](Images/Keycloak_Option2_Browse.png?raw=true)
 3.	Log in to the **Administration Console** using your **$KEYCLOAK_USER** and **$KEYCLOAK_PASSWORD**.
 4.	Log in to Keycloak.
