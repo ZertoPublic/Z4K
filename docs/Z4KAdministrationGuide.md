@@ -607,11 +607,40 @@ $ kubectl get vpg -n <namespace>
 	
 Z4K supports taints and tolerations configuration for nodes and pods.
 
-<span class="Note">Note: Nodes that are tainted with a taint that does not allow VRA installation ("NoSchedule" effect) cannot have it's deployments protected.</span>
+You can add a node annotation called “zertorole” to force VRA installation behaviour.
+
+-	Add the value “worker” to force VRA installation.
+-	Add the value “master” to force skipping VRA installation.
+
+##### Adding and Updating Zertorole Annotation
+
+-	To force VRA installation, add or update the annotation on the current node with the command:
+
+```
+kubectl annotate node <node-name> --overwrite zertorole=worker
+```
+	
+-	To skip VRA installation, add or update the annotation on the current node with the command:
+	
+```
+kubectl annotate node <node-name> --overwrite zertorole=master
+```
+
+<span class="Note">Note: Use --overwrite to update an annotation that already exists.</span>
+
+##### Removing Zertorole Annotation
+
+To remove a zertorole annotation use a minus - sign at the end of the annotation:
+
+```
+	kubectl annotate node <node-name> zertorole-
+```
+
+	<span class="Note">Note: Nodes that are tainted with a taint that does not allow VRA installation ("NoSchedule" effect) cannot have it's deployments protected.</span>
 	
 -	Taints and tolerations are not replicated.
--	When Taints and Tolerations are in use they need to be predefined in pods and nodes for VPG protection, before recovery oeprations take place.
--	For more info on Taints and Tolerations see [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
+-	When Taints and Tolerations are in use they must be predefined in pods and nodes for VPG protection, **before** recovery oeprations take place.
+-	For more info, see [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
 
 #### Tweaks
 
