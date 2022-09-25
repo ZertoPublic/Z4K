@@ -169,7 +169,7 @@ Where,
     helm install <installation names> zerto-z4k/zkm -f values.yaml –namespace $NAMESPACE
     ```
 
-#### Creating the Initial Access Token using Keycloak
+#### Create the Initial Access Token using Keycloak
 
 KeyCloak is installed during the ZKM installation. Before you can begin to install Zerto Kubernetes Manager Proxy (ZKM-PX) on additional Kubernetes clusters, you must create an initial access token using Keycloak.
 
@@ -212,7 +212,7 @@ chmod +x generate_initial_access_token.bash
 
 #### Install Zerto Kubernetes Manager Proxy
 
-1. [Create the Initial Access Token from Keycloak](#creating-the-initial-access-yoken-from-keycloak)
+1. [Create the Initial Access Token using Keycloak](#Create-the-initial-access-token-using-keycloak)
 2. Install Zerto Kubernetes Manager Proxy (ZKM-PX) on any of the Zerto supported Kubernetes platforms using one of the following options.
 
 ##### Install ZKM-PX Option 1
@@ -266,7 +266,7 @@ global:
  | $NAMESPACE  | A dedicated Zerto namespace. We recommend using the namespace zerto. |
     
 
-#### Installing Z4K on OpenShift
+#### Install Z4K on OpenShift
 
 In **OpenShift on VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes.
 Therefore, to enable VRA communication, you must disable ingress deployment and provide the external IP of the sites.
@@ -312,7 +312,7 @@ helm install z4k zerto-z4k/z4k \
 --namespace $NAMESPACE
 ```
 
-#### Installing Z4K on OpenShift on an Additional Cluster
+#### Install Z4K on OpenShift on an Additional Cluster
 
 ``` shell
 helm install z4k zerto-z4k/zkm-px \
@@ -328,7 +328,7 @@ helm install z4k zerto-z4k/zkm-px \
 ```
 
 
-#### Downloading the Zerto Operations Help Utility
+#### Download the Zerto Operations Help Utility
     
 -   Download the Help Utility so you can enter Zerto operations commands. This is a bash script wrapper for the kubectl API extension.
 -   To use the Help Utility, first download then run the command 
@@ -348,7 +348,7 @@ sudo cp kubectl-zrt /usr/bin/
 
     >   ![kubectl-zrt](Images/Z4K_Kubernetes_Commands.png?raw=true)
 
-#### Updating Z4K with a New Zerto License
+#### Update Z4K with a New Zerto License
     
 To update Z4K with a new Zerto license, run the following command with the relevant environment variables:
     
