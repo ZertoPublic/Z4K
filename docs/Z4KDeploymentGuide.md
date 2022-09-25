@@ -212,7 +212,7 @@ chmod +x generate_initial_access_token.bash
 
 #### Install Zerto Kubernetes Manager Proxy
 
-1. [Create the Initial Access Token from Keycloak](*creating-the-initial-access-yoken-from-keycloak)
+1. [Create the Initial Access Token from Keycloak](#creating-the-initial-access-yoken-from-keycloak)
 2. Install Zerto Kubernetes Manager Proxy (ZKM-PX) on any of the Zerto supported Kubernetes platforms using one of the following options.
 
 ##### Install ZKM-PX Option 1
