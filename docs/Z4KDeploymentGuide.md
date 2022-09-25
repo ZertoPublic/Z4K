@@ -12,7 +12,7 @@ Perform the procedures in the following order:
     -	Install Zerto Kubernetes Manager Proxy
     - Install Z4K on Openshift
     - Install Z4K on OpenShift on Additional cluster
-5.	Downloading the Zerto Operations Help Utility
+5.	Download the Zerto Operations Help Utility
 6.	Update Z4K with a new Zerto License
 7.  Upgrade Zerto for Kubernetes
     - Upgrade ZKM site
@@ -212,7 +212,7 @@ chmod +x generate_initial_access_token.bash
 
 #### Install Zerto Kubernetes Manager Proxy
 
-1. [Create the Initial Access Token using Keycloak](#Create-the-initial-access-token-using-keycloak)
+1. [Create the Initial Access Token using Keycloak](#create-the-initial-access-token-using-keycloak)
 2. Install Zerto Kubernetes Manager Proxy (ZKM-PX) on any of the Zerto supported Kubernetes platforms using one of the following options.
 
 ##### Install ZKM-PX Option 1
