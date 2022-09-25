@@ -59,9 +59,9 @@ For ZKM-PX only
 
 Installation includes installation of the following components:
 
--   [Zerto for Kubernetes (Z4K)](#install-zerto-kubernetes-manager)
--	[Zerto Kubernetes Manager (ZKM)](#install-zerto-kubernetes-manager)
--	[Zerto Kubernetes Manager Proxy (ZKM-PX)](#install-zerto-kubernetes-manager)
+-   Zerto for Kubernetes (Z4K)
+-	Zerto Kubernetes Manager (ZKM)
+-	Zerto Kubernetes Manager Proxy (ZKM-PX)
 
 
 
@@ -180,7 +180,7 @@ Use one of the following processes depending on where you have or have not enabl
 Use this option to create the initial access token if two-factor authentication (2FA) is enabled for the Keycloak management user.
 
 1.	Edit your hosts file so that **zkm.z4k.zerto.com** points to your load balancer address.
-2.	Browse to Keycloak: [https://zkm.z4k.zerto.com/auth](https://zkm.z4k.zerto.com/auth)
+2.	Browse to Keycloak: [https://zkm.z4k.zerto.com/auth](#https://zkm.z4k.zerto.com/auth)
 >   ![Browse](Images/Keycloak_Option2_Browse.png?raw=true)
 3.	Log in to the **Administration Console** using your **$KEYCLOAK_USER** and **$KEYCLOAK_PASSWORD**.
 4.	Log in to Keycloak.
@@ -212,7 +212,7 @@ chmod +x generate_initial_access_token.bash
 
 #### Install Zerto Kubernetes Manager Proxy
 
-1. [Create the Initial Access Token using Keycloak](#create-the-initial-access-token-using-keycloak)
+1. Create the initial access token using keycloak
 2. Install Zerto Kubernetes Manager Proxy (ZKM-PX) on any of the Zerto supported Kubernetes platforms using one of the following options.
 
 ##### Install ZKM-PX Option 1
@@ -252,7 +252,7 @@ global:
     initialAccessToken: $INITIAL_ACCESS_TOKEN
 ```
     
-2.  Install ZKM-PX using the following command:
+2.  Install ZKM-PX using the command:
     
     ```
     helm install <installation names> zerto-z4k/zkm-px -f values.yaml --namespace $NAMESPACE
@@ -281,7 +281,7 @@ Therefore, to enable VRA communication, you must disable ingress deployment and 
 
 #### Set Custom Ingress Class Names
 
-To find the default ingress class name run the command:
+To find the default ingress class name, run the command:
 
 ```kubectl get ingressclass```
 
@@ -331,7 +331,7 @@ helm install z4k zerto-z4k/zkm-px \
 #### Download the Zerto Operations Help Utility
     
 -   Download the Help Utility so you can enter Zerto operations commands. This is a bash script wrapper for the kubectl API extension.
--   To use the Help Utility, first download then run the command 
+-   To use the Help Utility, first download then run the command:
     ```kubectl-zrt```
 -   To run Zerto operation commands, on the Kubernetes platform enter the following commands:
 
