@@ -4,7 +4,7 @@ Zerto for Kubernetes can be deployed on multiple Kubernetes platforms.
 
 | Platform                             | Version  |  CSI| Notes |
 | ------------------------------------ |--|--- |--- |
-| Amazon Elastic Kubernetes Service (Amazon EKS)|  | ebs-csi-node |   |
+| Amazon Elastic Kubernetes Service (Amazon EKS)|  | ebs-csi-node | Supported up to version 1.22  |
 | Azure Kubernetes Service (AKS)|   |  csi-azuredisk-node   |  |
 | Google Kubernetes Engine (GKE)|   | pdcsi-node | COS nodes are not supported. Therefore, Autopilot deployment is not supported.|  |
 | HPE Ezmeral | 5.3 & 5.4 |csi-nodeplugin-kdf, pdcsi-node|  |
