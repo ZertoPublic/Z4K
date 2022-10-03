@@ -1,5 +1,6 @@
 2.x Version Changes
 ===================
+===================
 -------------------
 *2.1.0 Implement One-To-Many VPG Configuration
 ----------------------------------------------
@@ -23,3 +24,4 @@
 * 2.4.16 Merge fix_z4k-503 to master
 * 2.4.17 Fix validation error messages
 * 2.4.18 Obfuscate secret/access key in AWS and for secretKey/applicationId in Azure
+* 2.4.19 Implement VPG validation task
