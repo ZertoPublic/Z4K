@@ -1,8 +1,6 @@
 2.x Version Changes
 ===================
-All notable changes are documented here.
-
-*Version 2.4.x
+*Version 2.4.x Support HPE New CSI
 --------------------------
 * 2.4.11 Remove "fo-***" namespace/s after stop/rollback FO operations
 * 2.4.10 Fix duplication site name validation (z4k-36)
@@ -17,10 +15,10 @@ All notable changes are documented here.
 * 2.4.1 Fix issue 205134 - Change the seq to atomic
 * 2.4.0 Support HPE New CSI
 
-*Version 2.1.x
+*Version 2.1.x  Implement One-To-Many VPG Configuration
 ----------------------------------------------
 * 2.1.0  Implement One-To-Many VPG Configuration
 
-*Version 1.1
---------------------------
+2.x Version Changes
+===================
 Version 2.1.0 replaces version 1
