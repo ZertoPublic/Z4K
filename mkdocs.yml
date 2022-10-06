@@ -15,7 +15,7 @@ nav:
 - More Resources: MoreResources.md
 - Change Log:
   - '2.x.x': ./changes/version2.x.x.md
- plugins:
+plugins:
 - zerto_swagger
 - search
 markdown_extensions:
