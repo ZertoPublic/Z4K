@@ -1,4 +1,4 @@
-Change Log
+2.x Version Changes
 ===================
 All notable changes are documented here.
 
@@ -21,6 +21,6 @@ All notable changes are documented here.
 ----------------------------------------------
 * 2.1.0  Implement One-To-Many VPG Configuration
 
-### Version 1.x 
+2.x Version Changes
 --------------------------
 Version 2.1.0 replaces version 1
