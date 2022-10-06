@@ -13,8 +13,8 @@ nav:
 - Accessing the Z4K REST API: AccessingZ4KRESTAPI.md
 - Z4K REST API: openapi.md
 - More Resources: MoreResources.md
-- Change Log: /changes/ChangeLog.md
-plugins:
+- Change Log: ./changes/ChangeLog.md
+ plugins:
 - zerto_swagger
 - search
 markdown_extensions:
