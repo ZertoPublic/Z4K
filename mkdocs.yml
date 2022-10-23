@@ -1,4 +1,4 @@
-site_name: ZIC for AWS
+site_name: Zerto for Kubernetes (Z4K)
 theme:
   name: readthedocs
   highlightjs: false
