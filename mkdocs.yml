@@ -3,8 +3,16 @@ theme:
   name: readthedocs
   highlightjs: false
 nav:
-- Name to appear in zoomin: filename.md
-
+- Zerto for Kubernetes Overview: Z4KOverview.md
+- Deployment Architecture: DeploymentArchitecture.md
+- Prerequisites and Requirements: PrerequisitesAndRequirements.md
+- Supported Platforms: SupportedPlatforms.md
+- Z4K Deployment: Z4KDeploymentGuide.md
+- Z4K Administration: Z4KAdministrationGuide.md
+- Z4K Analytics: Z4KAnalytics.md
+- Accessing the Z4K REST API: AccessingZ4KRESTAPI.md
+- Z4K REST API: openapi.md
+- More Resources: MoreResources.md
 - ChangeLog:
   - '2.x.x': ./changes/version2.x.x.md
 plugins:
