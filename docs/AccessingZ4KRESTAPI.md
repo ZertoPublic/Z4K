@@ -19,7 +19,7 @@ To access the Z4K API if you're using external ingress use the loadbalance IP.
 
 #### Access Swagger 
 
-Type an EXTERNAL-IP/Loadbalancer-IP value as a address in your browes and add the /zkm/api/help:
+Type an EXTERNAL-IP/Loadbalancer-IP value as an address in your browser and add the /zkm/api/help:
 
       https://![](https://img.shields.io/static/v1?label=&message=a11ed2fcc9d734cf594793d044753d97-1234567.eu-central-1.elb.amazonaws.com&color=blue)/zkm/api/help
 
@@ -59,5 +59,5 @@ ZSJ9.JZ07dDaxYyUfbxI1vHbe2KDYpyVbkbxcBc1wk4qk40A","token_type":"Bearer","not-bef
 
     ![Authorize](Images/authorization.png?raw=true)
    
-4.  Click **Authorise** 
+4.  Click **Authorize** 
 5.  Click **Close**.
