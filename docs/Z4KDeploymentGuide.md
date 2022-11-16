@@ -70,7 +70,7 @@ Installation includes installation of the following components:
 
 Use either of these options to install Zerto for Kubernetes (Z4K) on any of the Zerto supported Kubernetes platforms.
 
-<span class="Note">Note: For both options you can add the following flag to capture helm install logs for debugging and troubleshotting purposes:
+<span class="Note">Note: For both options you can add the following flag to capture helm install logs for debugging and troubleshooting purposes:
 ```
 --debug > <path_to_file>.txt
     ```</span>
@@ -356,7 +356,7 @@ To update Z4K with a new Zerto license, run the following command with the relev
 kubectl set env deployment/<zkm-deploy-name> LICENSE_KEY=<new_license> -n <namespace>
 ```
 
-To verify the new license has been succesfully updated, run the following command and go to the deployemnt description under the Environment variable LICENSE_KEY:
+To verify the new license has been successfully updated, run the following command and go to the deployment description under the Environment variable LICENSE_KEY:
 
 ```
 kubectl describe deployments.apps <deply-zkm-name> -n <zerto-namespace>
@@ -364,7 +364,7 @@ kubectl describe deployments.apps <deply-zkm-name> -n <zerto-namespace>
 
 #### Upgrading Z4K
 
-To upgrade the Z4K solution you must first upgrade the Zerto Kubernetes Managment (ZKM) site and then upgrade the Zerto Kubernetes Manager Proxy (ZKM-PX) site.
+To upgrade the Z4K solution you must first upgrade the Zerto Kubernetes Management (ZKM) site and then upgrade the Zerto Kubernetes Manager Proxy (ZKM-PX) site.
 
 ###### Upgrade ZKM Site
     

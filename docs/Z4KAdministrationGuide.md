@@ -56,7 +56,7 @@ spec:
 
 2. Annotate Kubernetes entities to include them in the VPG.
 	-	A VPG can contain a selection of entities like stateful sets, deployments, services, secrets and configmaps.
- 	-	Applications consisting of several components with inter-dependencies (for example secrets and deployments), should all be tagged with the same VPG annotation in order for the Failover operation to succeed.
+ 	-	Applications consisting of several components with interdependencies (for example secrets and deployments), should all be tagged with the same VPG annotation in order for the Failover operation to succeed.
 	-	To include an entity in a VPG, you must annotate the entity with the VPG name.
 
 Use the following example of deployment protection for guidelines.
