@@ -496,18 +496,21 @@ Zerto for Kubernetes uses Apache log4net™ logging framework to generate, colle
 
 ##### Log Volume Size
 - A ZKM service can have up to 200 log files.
-- A ZKM-PX service can have up to 50 log files.
+- A ZKM-PX service can have up to 200 log files.
 
 ##### Log Rotation
 - Log files are automatically archived when the log file size exceeds 10MB. 
 - Archived log files can be deleted manually.
 
 ##### Required Storage
-- A log file is 0.6MB after automatic archiving.
+- A log file is 1.8MB after automatic archiving.
 
 Therefore:
-- A ZKM service needs 200 x 0.6MB = ~120MB
-- A ZKM-PX service needs 50 x 0.5MB = ~30MB
+- A ZKM service needs 200 x 1.8MB = ~360MB
+- A ZKM-PX service needs 200 x 1.8MB = ~360MB
+- All log configuration such as log file size, log level (debug,info e.t.c), max number of archived files can be changed by editing the appropriate config map.
+For ZKM - zkm-config
+For ZKM-PX - zkm-px-config
 
 ##### Log Location
 Logs are stored locally on zkm/zkm-px pods /logs. The ad hoc logs are uploaded to Amazon and stored in S3 bucket.
@@ -540,6 +543,15 @@ kubectl exec
 ```
 /scripts/collect_logs_ng.bash
 ```
+
+##### Automatic Log collection
+- In case the customer has an issue that occurred in the past and the archived log files does not have required information due to the log cicle already deleted the needed log file - the automatic log collection may be helpful.
+To enable autologging:
+- Set tweak AutoLogCaseNumber with the customer bug or case number.
+- Set tweak AutoLogForNDays with the number of days to run autologging. The default is 15 days. 
+
+By default Autologging will be performed at noon every day. You can change the time value during helm install/upgrade procedure by providing the "autoLoggingTimeout" cron value. (autoLoggingTimeout: "0 0 0 * * *") 
+Use [Cron Descryptor](https://www.freeformatter.com/cron-expression-generator-quartz.html) to define cron values.      
 
 #### Protecting Ingress Controller Resources
 
