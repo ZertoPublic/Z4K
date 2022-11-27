@@ -1,5 +1,8 @@
 2.x Version Changes
 ===================
+
+* 2.4.24 Introduced automatic log collection for specific customer case for several days (15 days by default) 
+* 2.4.23 Allow to upgrade from master to another branch and vice versa
 * 2.4.22 Z4K logs enhancement.
 * 2.4.21 Copy Linux binaries to csi pod
 * 2.4.20 Merge network_zpref_test to master
