@@ -1,5 +1,6 @@
 2.x Version Changes
 ===================
+* 2.4.22 Z4K logs enhancement.
 * 2.4.20 Merge network_zpref_test to master
 * 2.4.19 Implement VPG validation task
 * 2.4.18 Obfuscate secret/access key in AWS and for secretKey/applicationId in Azure
