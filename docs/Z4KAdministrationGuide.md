@@ -546,6 +546,7 @@ kubectl exec
 
 ##### Automatic Log collection
 - In case the customer has an issue that occurred in the past and the archived log files does not have required information due to the log cicle already deleted the needed log file - the automatic log collection may be helpful.
+
 To enable autologging:
 - Set tweak AutoLogCaseNumber with the customer bug or case number.
 - Set tweak AutoLogForNDays with the number of days to run autologging. The default is 15 days. 
