@@ -1,5 +1,7 @@
 # Supported Platforms
 
+Zerto for Kubernetes can be deployed on multiple Kubernetes platforms.
+
 | Platform                             | Version  |  CSI| Notes |
 | ------------------------------------ |--|--- |--- |
 | Amazon Elastic Kubernetes Service (Amazon EKS)|  | ebs-csi-node | Supported up to version 1.22  |
