@@ -6,6 +6,7 @@ nav:
 - Zerto for Kubernetes Overview: Z4KOverview.md
 - Deployment Architecture: DeploymentArchitecture.md
 - Prerequisites and Requirements: PrerequisitesAndRequirements.md
+- Limitations: Limitations.md
 - Supported Platforms: SupportedPlatforms.md
 - Z4K Deployment: Z4KDeploymentGuide.md
 - Z4K Administration: Z4KAdministrationGuide.md
