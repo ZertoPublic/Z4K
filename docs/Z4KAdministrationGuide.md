@@ -545,13 +545,18 @@ kubectl exec
 ```
 
 ##### Automatic Log collection
-- In case the customer has an issue that occurred in the past and the archived log files does not have required information due to the log cycle already deleted the needed log file - the automatic log collection may be helpful.
+
+Automatic log collection, autologging,  may be helpful when a customer experienced an issue in the past and the archived log files not longer contain the log file because the log cycle already deleted it.
 
 To enable autologging:
-- Set tweak AutoLogCaseNumber with the customer bug or case number.
-- Set tweak AutoLogForNDays with the number of days to run autologging. The default is 15 days. 
+- Set tweak **AutoLogCaseNumber** with the customer bug or case number.
+- Set tweak **AutoLogForNDays** with the number of days to run autologging. The default is 15 days. 
 
-By default Autologging will be performed at noon every day. You can change the time value during helm install/upgrade procedure by providing the "autoLoggingTimeout" cron value. (autoLoggingTimeout: "0 0 0 * * *") 
+By default autologging is performed at noon every day. You can change the time value during the helm install/upgrade procedure by providing the "autoLoggingTimeout" cron value:
+```
+autoLoggingTimeout: "0 0 0 * * *" 
+```
+
 Use [Cron Descryptor](https://www.freeformatter.com/cron-expression-generator-quartz.html) to define cron values.      
 
 #### Protecting Ingress Controller Resources
