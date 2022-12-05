@@ -10,11 +10,11 @@
 
 #### Storage Requirements
 -	Zerto for Kubernetes containerized applications also consume storage:
--	Zerto Kubernetes Manager: 3 GB
--	Zerto Kubernetes Manager Proxy: 1 GB
--	Keycloak Database: 2 GB
--	A storageClass with VolumeBindingMode of type "WaitForFirstConsumer" is needed for Zerto to work with persistent volumes.
--	The environment's storage should support volume mode using Block ("VolumeMode: Block").
+    -	Zerto Kubernetes Manager: 3 GB
+    -	Zerto Kubernetes Manager Proxy: 1 GB
+    -	Keycloak Database: 2 GB
+    -	A storageClass with VolumeBindingMode of type "WaitForFirstConsumer" is needed for Zerto to work with persistent volumes.
+    -	The environment's storage should support volume mode using Block ("VolumeMode: Block").
 
 #### Recovery Site Volume Bind Requirements
 - Zerto recommends that you set the recovery site StorageClass to "WaitForFistCustomer" volume bind mode.
