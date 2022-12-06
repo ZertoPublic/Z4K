@@ -22,4 +22,4 @@ If you need assistance for testing, contact your Zerto account representative to
 
 Kubernetes distribution incompatibility or performance issues cannot be addressed by opening support tickets with Zerto. 
 
-Instead, an idea request via the MyZerto portal should be created. Requests will be evaluated, but are not a guaranteed within any specified period.
+Instead, an idea request via the MyZerto portal should be created. Requests will be evaluated, but are not guaranteed within any specified period.
