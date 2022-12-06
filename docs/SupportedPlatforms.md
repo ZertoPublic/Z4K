@@ -9,6 +9,8 @@ Zerto for Kubernetes can be deployed on multiple Kubernetes platforms.
 | Azure Kubernetes Service (AKS)|   |  csi-azuredisk-node   |  |
 | Red Hat OpenShift | 4.6 and higher  |csi-rbdplugin  |  ||
 
+<br/>
+<br/>
 
 See also [Prerequisites and Requirements](https://help.zerto.com/bundle/Z4K-User-Documentation/page/PrerequisitesAndRequirements.html)
 
