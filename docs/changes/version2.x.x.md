@@ -1,6 +1,7 @@
 2.x Version Changes
 ===================
 * 2.4.27 Log Collection - Fixed wrong kubernetes events comparison and filtering.
+* 2.4.26 Copy Linux files only if they don't exist on the system
 * 2.4.25 Collect CSI pod logs (optional)
 * 2.4.24 Introduced automatic log collection for specific customer case for several days (15 days by default) 
 * 2.4.23 Allow to upgrade from master to another branch and vice versa
