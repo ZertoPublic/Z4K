@@ -1,5 +1,6 @@
 2.x Version Changes
 ===================
+* 2.4.28 Z4K -  Fixed runtime rendering of logfiles filepath from nlog.config in NLogHelper.cs.
 * 2.4.27 Log Collection - Fixed wrong kubernetes events comparison and filtering.
 * 2.4.26 Copy Linux files only if they don't exist on the system
 * 2.4.25 Collect CSI pod logs (optional)
