@@ -1,4 +1,4 @@
-## Platforms Previously Tested or Known to Work with Zerto for Kubernetes
+# Platforms Previously Tested or Known to Work with Zerto for Kubernetes
 </br>
 </br>
 
