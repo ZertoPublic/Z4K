@@ -217,7 +217,7 @@ kubectl zrt stop-test [vpg-name]
 
 #### Performing a Failover
 	
--	To failover run the command:
+-	To failover, run the command:
 
 ``` shell
 kubectl zrt failover-live [vpg-name] [checkpoint-id]
@@ -230,6 +230,8 @@ kubectl zrt failover-live [vpg-name] [checkpoint-id]
 ``` shell
 kubectl zrt commit [vpg-name]
 ```
+
+<span class="Note">Note: Upon commit operation, the VPG is deleted.</span>
 	
 -	To rollback the failover, run the command:
 
