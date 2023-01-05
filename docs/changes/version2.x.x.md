@@ -1,5 +1,6 @@
 2.x Version Changes
 ===================
+* 2.4.31 Add missing hosted service initialization
 * 2.4.30 add csi tapping container
 * 2.4.29 unix_socket based solution
 * 2.4.28 Z4K -  Fixed runtime rendering of logfiles filepath from nlog.config in NLogHelper.cs.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Z4K is tested and validated on EKS, AKS and OpenShift platforms.</BR>
