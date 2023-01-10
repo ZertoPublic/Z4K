@@ -1,5 +1,6 @@
 2.x Version Changes
 ===================
+* 2.4.34 Improved VerySimpleRestClient.cs functions to make them consistent
 * 2.4.32 Logs enhancement - local log colection
 * 2.4.31 Add missing hosted service initialization
 * 2.4.30 add csi tapping container
