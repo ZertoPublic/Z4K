@@ -1,6 +1,8 @@
 2.x Version Changes
 ===================
+* 2.4.34 Improved VerySimpleRestClient.cs functions to make them consistent
 * 2.4.33 Merge z4k-692 to master
+* 2.4.32 Logs enhancement - local log colection
 * 2.4.31 Add missing hosted service initialization
 * 2.4.30 add csi tapping container
 * 2.4.29 unix_socket based solution
