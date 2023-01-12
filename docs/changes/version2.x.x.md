@@ -1,5 +1,6 @@
 2.x Version Changes
 ===================
+* 2.4.35 fixed typo and added path validation for local log collection
 * 2.4.34 Improved rest client method signature
 * 2.4.33 Improved logger reconfigure mechanizm
 * 2.4.32 Logs enhancement - local log colection
