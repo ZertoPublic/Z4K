@@ -1,5 +1,6 @@
 2.x Version Changes
 ===================
+* 2.4.41 Z4K-720 - Updated kubectl-zrt and added timeframe infra for log collection
 * 2.4.40 Check if local download successfully completed.
 * 2.4.38 Add "vra-" prefix to log file
 * 2.4.35 fixed typo and added path validation for local log collection
