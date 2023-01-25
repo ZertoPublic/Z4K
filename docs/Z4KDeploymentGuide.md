@@ -185,7 +185,7 @@ Use this option to create the initial access token if two-factor authentication 
 3.	Log in to the **Administration Console** using your **$KEYCLOAK_USER** and **$KEYCLOAK_PASSWORD**.
 4.	Log in to Keycloak.
 >   ![Sign In](Images/Keycloak_Option2_SignIn.png?raw=true)
-5.	Select the **Realm Settings** option from the drop-down menu, and in the right pane, select the **Client Registration Policies** tab.
+5.	Select the **Realm Settings** option from the drop-down menu, and in the right pane, select the **Client Registration** tab.
 6.	Click **Create**.
 >   ![Create](Images/Keycloak_Option2_InitialAccessToken_Create.png?raw=true)
 7.	In the Add Initial Access Token panel, in the **Expiration** field define time-frame within which the token will expire in **Seconds/Minutes/Hours/Days**.
