@@ -1,5 +1,18 @@
 2.x Version Changes
 ===================
+* 2.4.43 Fixed log collection timeframes message and logic
+* 2.4.42 Z4K-578 get checkpoints from VRA by in chunks
+* 2.4.41 Z4K-720 - Updated kubectl-zrt and added timeframe infra for log collection
+* 2.4.40 Check if local download successfully completed.
+* 2.4.39 Typo upon download completion
+* 2.4.38 Add "vra-" prefix to log file
+* 2.4.35 fixed typo and added path validation for local log collection
+* 2.4.34 Improved rest client method signature
+* 2.4.33 Improved logger reconfigure mechanizm
+* 2.4.32 Logs enhancement - local log colection
+* 2.4.31 Add missing hosted service initialization
+* 2.4.30 add csi tapping container
+* 2.4.29 unix_socket based solution
 * 2.4.28 Z4K -  Fixed runtime rendering of logfiles filepath from nlog.config in NLogHelper.cs.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Z4K is tested and validated on EKS, AKS and OpenShift platforms.</BR>
 * 2.4.27 Log Collection - Fixed wrong kubernetes events comparison and filtering.
 * 2.4.26 Copy Linux files only if they don't exist on the system
