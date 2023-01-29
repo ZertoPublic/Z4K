@@ -19,11 +19,6 @@ Then, you can perform one of the following:
 	>	Z4K supports backing up Kubernetes workloads and their data to an Extended Journal Copy and restoring them from the Extended Journal Copy to the original site, or to a different site/namespace.
 -	Protect Ingress Controller Resources
 	>	Z4K supports replicating Ingress Controller Resources so networking configuration can be replicated and easily deployed on the recovery site.
--	Taints and Tolerations
-	>	Z4K supports taints and tolerations configuration for nodes and pods.
--	Tweaks
-	>	How to view and configure tweaks and values.
-
 
 #### Creating a VPG
 
