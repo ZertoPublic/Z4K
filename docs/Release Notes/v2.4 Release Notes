@@ -1,1 +1,42 @@
-
+2.4.43 Fixed log collection timeframes message and logic
+2.4.42 Z4K-578 get checkpoints from VRA by in chunks
+2.4.41 Z4K-720 - Updated kubectl-zrt and added timeframe infra for log collection
+2.4.40 Check if local download successfully completed.
+2.4.39 Typo upon download completion
+2.4.38 Add "vra-" prefix to log file
+2.4.35 fixed typo and added path validation for local log collection
+2.4.34 Improved rest client method signature
+2.4.33 Improved logger reconfigure mechanizm
+2.4.32 Logs enhancement - local log colection
+2.4.31 Add missing hosted service initialization
+2.4.30 add csi tapping container
+2.4.29 unix_socket based solution
+2.4.28 Z4K - Fixed runtime rendering of logfiles filepath from nlog.config in NLogHelper.cs.
+          Z4K is tested and validated on EKS, AKS and OpenShift platforms.
+2.4.27 Log Collection - Fixed wrong kubernetes events comparison and filtering.
+2.4.26 Copy Linux files only if they don't exist on the system
+2.4.25 Collect CSI pod logs (optional)
+2.4.24 Introduced automatic log collection for specific customer case for several days (15 days by default)
+2.4.23 Allow to upgrade from master to another branch and vice versa
+2.4.22 Z4K logs enhancement.
+2.4.21 Copy Linux binaries to csi pod
+2.4.20 Merge network_zpref_test to master
+2.4.19 Implement VPG validation task
+2.4.18 Obfuscate secret/access key in AWS and for secretKey/applicationId in Azure
+2.4.17 Fix validation error messages
+2.4.16 Merge fix_z4k-503 to master
+2.4.15 Add VPG validator
+2.4.14 Remove disks from driver before reopen them after recreate
+2.4.13 Merge pr_mistake_compile_error to master
+2.4.12 Merge bug_fix_z4k_459_atomic_verbose_log to master
+2.4.11 Remove "fo-***" namespace/s after stop/rollback FO operations
+2.4.10 Fix duplication site name validation (z4k-36)
+2.4.9 During uninstall zkm-px site info of the removed site should be deleted from Z4K sites list
+2.4.8 Add memory counters from driver allocations. (Status)
+2.4.7 Fix issue 207463 - Null reference exception on mixed volume types in init containers
+2.4.6 Check volume mode is block in pod init containers spec when the volume not found in pod containers
+2.4.5 Fix secret obfuscates class to support all types of Json values
+2.4.4 Fix kubectl apply issue
+2.4.3 Obfuscate secret/access keys
+2.4.2 Add VPG additional validations
+2.4.1 Fix issue 205134 - Change the seq to atomic *2.4.0 Support HPE New CSI
