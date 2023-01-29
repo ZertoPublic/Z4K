@@ -15,8 +15,8 @@ Then, you can perform one of the following:
 -	Perform a Failover
 -	Restore a Single VPG
 -	Move operation
--	Configure Long-term Retention in Kubernetes Environments
-	>	Z4K supports backing up Kubernetes workloads and their data to a Long-term Repository and restoring them from the Long-term Repository to the original site, or to a different site/namespace.
+-	Configure Extended Journal Copy in Kubernetes Environments
+	>	Z4K supports backing up Kubernetes workloads and their data to an Extended Journal Copy and restoring them from the Extended Journal Copy to the original site, or to a different site/namespace.
 -	Protect Ingress Controller Resources
 	>	Z4K supports replicating Ingress Controller Resources so networking configuration can be replicated and easily deployed on the recovery site.
 -	Taints and Tolerations
@@ -290,28 +290,28 @@ kubectl zrt commit-move [vpg-name]
 VPG status will be changed to CommittingMove.
 Onc completed, the VPG will be commited, deployment will now exist on the recovery site and VPG will be removed from the environment.
 
-#### Long-term Retention in Kubernetes Environments
+#### Extended Journal Copy in Kubernetes Environments
 
-Z4K supports backing up Kubernetes workloads and their data to a long-term repository (LTR) and restoring them from the LTR to the original site, or to a different site.
+Z4K supports backing up Kubernetes workloads and their data to an Extended Journal Copy and restoring them from the Extended Journal Copy to the original site, or to a different site.
 
 ##### Supported Repository Types
 
-Z4K supports two LTR repository types:
+Z4K supports two types of Extended Journal Copy:
 
 - AWS S3
 - Azure Blob Storage
 	
-To configure LTR for your Kubernetes environment, use the following procedures:
+To configure Extended Journal Copy for your Kubernetes environment, use the following procedures:
 
 1.	Back up the VPG
 2.	Manually trigger a Backup
-3.	Schedule LTR Backups
-4.	Restore the VPG from a LTR
+3.	Schedule Extended Journal Copy Backups
+4.	Restore the VPG from an Extended Journal Copy
 
 
 ##### Backing Up a VPG
 
-To backup a VPG to a target LTR repository, create the VPG and update the VPG yaml file (vpg.yaml) with the LTR repository type.
+To backup a VPG to a target Extended Journal Copy, create the VPG and update the VPG yaml file (vpg.yaml) with the Extended Journal Copy type.
 
 Use the following examples as guidelines.
   
@@ -405,9 +405,9 @@ kubectl zrt ltr-backup [vpg-name] [checkpoint-id]
 kubectl get backupset
 ```
 
-##### Scheduling LTR Backups
+##### Scheduling Extended Journal Copy Backups
 
-To schedule LTR backups, add **SchedulingAndRetentionSettings** to the VPGs **BackupSettings**.
+To schedule Extended Journal Copy backups, add **SchedulingAndRetentionSettings** to the VPGs **BackupSettings**.
 
 Use the following example as a guideline.
 
@@ -469,9 +469,9 @@ spec:
 -	A Full Method cannot be followed by an Incremental Method. In other words, if there is a Full Method, it should be the last in the chain.
 -	Zerto Kubernetes Manager schedules backups and expirations as needed.
 	
-##### Restoring a VPG from LTR
+##### Restoring a VPG from Extended Journal Copy
 
-To restore a VPG from LTR, run the command:
+To restore a VPG from Extended Journal Copy, run the command:
 
 ```
 kubectl zrt ltr-restore [backupset-id] [site-id] [storage-class] [namespace]
