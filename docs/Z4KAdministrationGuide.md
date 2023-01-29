@@ -294,9 +294,9 @@ Onc completed, the VPG will be commited, deployment will now exist on the recove
 
 Z4K supports backing up Kubernetes workloads and their data to an Extended Journal Copy and restoring them from the Extended Journal Copy to the original site, or to a different site.
 
-##### Supported Repository Types
+##### Supported Storage Types
 
-Z4K supports two types of Extended Journal Copy:
+Z4K supports two types of Extended Journal Copy storage:
 
 - AWS S3
 - Azure Blob Storage
@@ -583,10 +583,10 @@ kubectl annotate node <node-name> --overwrite zertorole=master
 To remove a zertorole annotation use a minus - sign at the end of the annotation:
 
 ```
-	kubectl annotate node <node-name> zertorole-
+kubectl annotate node <node-name> zertorole-
 ```
 
-	<span class="Note">Note: Nodes that are tainted with a taint that does not allow VRA installation ("NoSchedule" effect) cannot have it's deployments protected.</span>
+<span class="Note">Note: Nodes that are tainted with a taint that does not allow VRA installation ("NoSchedule" effect) cannot have it's deployments protected.</span>
 	
 -	Taints and tolerations are not replicated.
 -	When Taints and Tolerations are in use they must be predefined in pods and nodes for VPG protection, **before** recovery oeprations take place.
