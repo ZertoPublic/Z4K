@@ -309,7 +309,7 @@ To configure Extended Journal Copy for your Kubernetes environment, use the foll
 4.	Restore the VPG from an Extended Journal Copy
 
 
-##### Backing Up a VPG
+##### Backing Up a VPG to a Target Extended Journal Copy
 
 To backup a VPG to a target Extended Journal Copy, create the VPG and update the VPG yaml file (vpg.yaml) with the Extended Journal Copy type.
 
@@ -536,7 +536,7 @@ $ kubectl annotate pod <ingress_pod_id> -n <namespace> vpg=<vpg_id>
 pod/ingress-nginx-2-controller-6dcb748f9-7z6bz annotated
 ```	
 
-### Protecting Ingress Controller Resources
+##### Displaying Ingress Controller Resources
 
 To display Ingress controller annotation run the following command:
 ```	
