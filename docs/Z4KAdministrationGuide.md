@@ -17,8 +17,6 @@ Then, you can perform one of the following:
 -	Move operation
 -	Configure Long-term Retention in Kubernetes Environments
 	>	Z4K supports backing up Kubernetes workloads and their data to a Long-term Repository and restoring them from the Long-term Repository to the original site, or to a different site/namespace.
-- Log Retention
-	>	Log collection occurs automatically, and the logs are uploaded to Amazon S3. You can also collect logs ad hoc.
 -	Protect Ingress Controller Resources
 	>	Z4K supports replicating Ingress Controller Resources so networking configuration can be replicated and easily deployed on the recovery site.
 -	Taints and Tolerations
@@ -492,74 +490,6 @@ You can also restore from a repository that has VPGs backupsets from a different
 	
 When the restore task completes successfully, Kubernetes entities with the prefix "res-" are created in the specified site and namespace.
 
-#### Log Retention
-
-Zerto for Kubernetes uses Apache log4net™ logging framework to generate, collect and output log statements.
-
-##### Log Volume Size
-- A ZKM service can have up to 200 log files.
-- A ZKM-PX service can have up to 200 log files.
-
-##### Log Rotation
-- Log files are automatically archived when the log file size exceeds 10MB. 
-- Archived log files can be deleted manually.
-
-##### Required Storage
-- A log file is 1.8MB after automatic archiving.
-
-Therefore:
-- A ZKM service needs 200 x 1.8MB = ~360MB
-- A ZKM-PX service needs 200 x 1.8MB = ~360MB
-- All log configuration such as log file size, log level (debug,info e.t.c), max number of archived files can be changed by editing the appropriate config map.
-For ZKM - zkm-config
-For ZKM-PX - zkm-px-config
-
-##### Log Location
-Logs are stored locally on zkm/zkm-px pods /logs. The ad hoc logs are uploaded to Amazon and stored in S3 bucket.
-
-#### Ad Hoc Log Collection
-
-Use one of the following methods to generate logs.
-
-##### Ad Hoc Log Collection Method 1
-Run the following command, which runs a script on the ZKM-PX in the background:
-
-```
-kubectl-zrt collect-logs <case/bug number>
-```
-
-##### Ad Hoc Log Collection Method 2
-
--	Connect to the pod using the command: 
-
-```
-kubectl exec
-```
-  
--	Run one of the following scripts: 
-
-```
-/scripts/collect_logs_lt.bash
-```
-*-OR-*
-```
-/scripts/collect_logs_ng.bash
-```
-
-##### Automatic Log collection
-
-Automatic log collection, autologging,  may be helpful when a customer experienced an issue in the past and the archived log files not longer contain the log file because the log cycle already deleted it.
-
-To enable autologging:
-- Set tweak **AutoLogCaseNumber** with the customer bug or case number.
-- Set tweak **AutoLogForNDays** with the number of days to run autologging. The default is 15 days. 
-
-By default autologging is performed at noon every day. You can change the time value during the helm install/upgrade procedure by providing the "autoLoggingTimeout" cron value:
-```
-autoLoggingTimeout: "0 0 0 * * *" 
-```
-
-Use [Cron Descryptor](https://www.freeformatter.com/cron-expression-generator-quartz.html) to define cron values.      
 
 #### Protecting Ingress Controller Resources
 
@@ -700,5 +630,3 @@ $ kubectl zrt get-potential-tweaks
 NAME                                                  VALUE               DEFAULT             DESCRIPTION
 ScratchSizeInGb                                       4                   2
 ```
-
-
