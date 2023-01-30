@@ -1,3 +1,21 @@
+#### Version 2.4.43
+
+##### Updates
+Updated Z4K to 2.4.43
+
+##### Bug Fixes and Enhancements
+-  Fixed log collection timeframes message and logic
+
+
+#### Version 2.4.42
+
+##### Updates
+Updated Z4K to 2.4.42
+
+##### Bug Fixes and Enhancements
+-  Z4K-578 Get checkpoints from VRA by in chunksFixed log collection timeframes message and logic
+
+
 2.4.43 Fixed log collection timeframes message and logic
 2.4.42 Z4K-578 get checkpoints from VRA by in chunks
 2.4.41 Z4K-720 - Updated kubectl-zrt and added timeframe infra for log collection
