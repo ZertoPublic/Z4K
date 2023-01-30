@@ -9,7 +9,7 @@
 * 2.4.35 fixed typo and added path validation for local log collection
 * 2.4.34 Improved rest client method signature
 * 2.4.33 Improved logger reconfigure mechanizm
-* 2.4.32 Logs enhancement - local log colection
+* 2.4.32 Logs enhancement - local log collection
 * 2.4.31 Add missing hosted service initialization
 * 2.4.30 add csi tapping container
 * 2.4.29 unix_socket based solution
