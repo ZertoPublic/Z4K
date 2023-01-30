@@ -5,7 +5,7 @@ Zerto for Kubernetes can be deployed on multiple Kubernetes platforms.
 
 | Platform                             | Version  |  CSI| Notes |
 | ------------------------------------ |--|--- |--- |
-| Amazon Elastic Kubernetes Service (Amazon EKS)|  | ebs-csi-node | Supported in version 1.22, 1.23  |
+| Amazon Elastic Kubernetes Service (Amazon EKS)|  | ebs-csi-node | Supported in versions 1.22, 1.23  |
 | Azure Kubernetes Service (AKS)|   |  csi-azuredisk-node   | Supported in Kubernetes versions 1.22, 1.23  |
 | Red Hat OpenShift | 4.6 and higher  |csi-rbdplugin  | Supported in version 1.22  ||
 
