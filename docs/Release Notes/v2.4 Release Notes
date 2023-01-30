@@ -16,6 +16,110 @@ Updated Z4K to 2.4.42
 -  Z4K-578 Get checkpoints from VRA by in chunksFixed log collection timeframes message and logic
 
 
+#### Version 2.4.41
+
+##### Updates
+
+##### Bug Fixes and Enhancements
+-  Z4K-720 - Updated kubectl-zrt and added timeframe infra for log collection
+
+
+#### Version 2.4.40
+
+##### Updates
+- Updated software to version 2.4.40
+
+##### Bug Fixes and Enhancements
+- Check if local download successfully completed.  
+
+
+#### Version 2.4.39
+
+##### Updates
+
+##### Bug Fixes and Enhancements
+- Typo upon download completion
+
+#### Version 2.4.38
+
+##### Updates
+
+##### Bug Fixes and Enhancements
+- Add "vra-" prefix to log file
+
+#### Version 2.4.37 - N/A
+
+##### Updates
+
+##### Bug Fixes and Enhancements
+
+#### Version 2.4.36 - N/A
+
+##### Updates
+
+##### Bug Fixes and Enhancements
+
+#### Version 2.4.35
+
+##### Updates
+
+##### Bug Fixes and Enhancements
+- Fixed typo and added path validation for local log collection
+
+
+#### Version 2.4.34
+
+##### Updates
+
+##### Bug Fixes and Enhancements
+- Improved rest client method signature
+
+#### Version 2.4.33
+
+##### Updates
+
+##### Bug Fixes and Enhancements
+- Improved logger reconfigure mechanism
+
+
+#### Version 2.4.32
+
+##### Updates
+
+##### Bug Fixes and Enhancements
+- Logs enhancement - local log colection
+
+#### Version 2.4.31
+
+##### Updates
+
+##### Bug Fixes and Enhancements
+- Add missing hosted service initialization
+
+
+#### Version 2.4.30
+
+##### Updates
+
+##### Bug Fixes and Enhancements
+- Add CSI tapping container
+
+
+#### Version 2.4.29
+
+##### Updates
+
+##### Bug Fixes and Enhancements
+- unix_socket based solution
+
+#### Version 2.4.28
+
+##### Updates
+
+##### Bug Fixes and Enhancements
+- Fixed runtime rendering of log files filepath from nlog.config in NLogHelper.cs.
+- Z4K is tested and validated on EKS, AKS and OpenShift platforms only.
+
 2.4.43 Fixed log collection timeframes message and logic
 2.4.42 Z4K-578 get checkpoints from VRA by in chunks
 2.4.41 Z4K-720 - Updated kubectl-zrt and added timeframe infra for log collection
