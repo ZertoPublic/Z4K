@@ -2,14 +2,27 @@
 
 Zerto for Kubernetes can be deployed on multiple Kubernetes platforms.
 
-| Platform                             | Version  |  CSI| Notes |
+
+| Platform                             | Version  |  CSI| Supported Kubernetes Versions |
 | ------------------------------------ |--|--- |--- |
-| Amazon Elastic Kubernetes Service (Amazon EKS)|  | ebs-csi-node |   |
-| Azure Kubernetes Service (AKS)|   |  csi-azuredisk-node   |  |
-| Google Kubernetes Engine (GKE)|   | pdcsi-node | COS nodes are not supported. Therefore, Autopilot deployment is not supported.|  |
-| HPE Ezmeral | 5.3 & 5.4 |csi-nodeplugin-kdf, pdcsi-node| XFS is not supported. |
-| IBM Cloud Kubernetes Service (IKS) |  | ibm-vpc-block-csi-node |   |
-| Oracle Container Engine for Kubernetes (OKE) |   |csi-oci-node |Supported in combination with Rook. |
-| Red Hat OpenShift | 4.6 and higher  |csi-rbdplugin  |  |
-| VMware Tanzu  | VMware 6.7 | vsphere-csi-node |Supported in combination with Rook. |
-|   | VMware 7.0u2 |vsphere-csi-node |Full native support. <br> Kubernetes 1.19.9\1.20.5 or higher (CSI Block device support) on top of Tanzu Kubernetes Grid (TKG) is supported.  ||
+| Amazon Elastic Kubernetes Service (Amazon EKS)|  | ebs-csi-node | 1.22, 1.23  |
+| Azure Kubernetes Service (AKS)|   |  csi-azuredisk-node   | 1.22, 1.23  |
+| Red Hat OpenShift | 4.6 and higher  |csi-rbdplugin  |  1.22  ||
+
+<br/>
+<br/>
+
+
+Platforms previously tested or known to work can be viewed [here](./PreviouslyTestedPlatforms.md).
+
+
+Zerto does not test and validate all Kubernetes distributions that can potentially be used by end users. 
+
+It is the end users' responsibility to ensure that the distribution meets the following [prerequisites](https://help.zerto.com/bundle/Z4K-User-Documentation/page/PrerequisitesAndRequirements.html).
+
+Zerto recommends that users perform functional tests like creating a VPG and performing a Failover prior to selecting any Kubernetes distribution.  
+<br/>
+<br/>
+If you need assistance for testing, please contact your Zerto account representative to engage with Zerto professional services.
+
+If your specific distribution or CSI plugin is not listed above, please open a feature via the MyZerto portal. Requests will be evaluated but are not guaranteed within any specified period.

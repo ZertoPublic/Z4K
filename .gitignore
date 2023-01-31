@@ -24,6 +24,7 @@ share/python-wheels/
 *.egg
 MANIFEST
 plugins/swagger/mkdocs_zerto_swagger_plugin.egg-info/
+.vscode/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
