@@ -15,17 +15,10 @@ Then, you can perform one of the following:
 -	Perform a Failover
 -	Restore a Single VPG
 -	Move operation
--	Configure Long-term Retention in Kubernetes Environments
-	>	Z4K supports backing up Kubernetes workloads and their data to a Long-term Repository and restoring them from the Long-term Repository to the original site, or to a different site/namespace.
-- Log Retention
-	>	Log collection occurs automatically, and the logs are uploaded to Amazon S3. You can also collect logs ad hoc.
+-	Configure Extended Journal Copy in Kubernetes Environments
+	>	Z4K supports backing up Kubernetes workloads and their data to an Extended Journal Copy and restoring them from the Extended Journal Copy to the original site, or to a different site/namespace.
 -	Protect Ingress Controller Resources
 	>	Z4K supports replicating Ingress Controller Resources so networking configuration can be replicated and easily deployed on the recovery site.
--	Taints and Tolerations
-	>	Z4K supports taints and tolerations configuration for nodes and pods.
--	Tweaks
-	>	How to view and configure tweaks and values.
-
 
 #### Creating a VPG
 
@@ -292,28 +285,28 @@ kubectl zrt commit-move [vpg-name]
 VPG status will be changed to CommittingMove.
 Onc completed, the VPG will be commited, deployment will now exist on the recovery site and VPG will be removed from the environment.
 
-#### Long-term Retention in Kubernetes Environments
+#### Extended Journal Copy in Kubernetes Environments
 
-Z4K supports backing up Kubernetes workloads and their data to a long-term repository (LTR) and restoring them from the LTR to the original site, or to a different site.
+Z4K supports backing up Kubernetes workloads and their data to an Extended Journal Copy and restoring them from the Extended Journal Copy to the original site, or to a different site.
 
-##### Supported Repository Types
+##### Supported Storage Types
 
-Z4K supports two LTR repository types:
+Z4K supports two types of Extended Journal Copy storage:
 
 - AWS S3
 - Azure Blob Storage
 	
-To configure LTR for your Kubernetes environment, use the following procedures:
+To configure Extended Journal Copy for your Kubernetes environment, use the following procedures:
 
 1.	Back up the VPG
 2.	Manually trigger a Backup
-3.	Schedule LTR Backups
-4.	Restore the VPG from a LTR
+3.	Schedule Extended Journal Copy Backups
+4.	Restore the VPG from an Extended Journal Copy
 
 
-##### Backing Up a VPG
+##### Backing Up a VPG to a Target Extended Journal Copy
 
-To backup a VPG to a target LTR repository, create the VPG and update the VPG yaml file (vpg.yaml) with the LTR repository type.
+To backup a VPG to a target Extended Journal Copy, create the VPG and update the VPG yaml file (vpg.yaml) with the Extended Journal Copy type.
 
 Use the following examples as guidelines.
   
@@ -407,9 +400,9 @@ kubectl zrt ltr-backup [vpg-name] [checkpoint-id]
 kubectl get backupset
 ```
 
-##### Scheduling LTR Backups
+##### Scheduling Extended Journal Copy Backups
 
-To schedule LTR backups, add **SchedulingAndRetentionSettings** to the VPGs **BackupSettings**.
+To schedule Extended Journal Copy backups, add **SchedulingAndRetentionSettings** to the VPGs **BackupSettings**.
 
 Use the following example as a guideline.
 
@@ -471,9 +464,9 @@ spec:
 -	A Full Method cannot be followed by an Incremental Method. In other words, if there is a Full Method, it should be the last in the chain.
 -	Zerto Kubernetes Manager schedules backups and expirations as needed.
 	
-##### Restoring a VPG from LTR
+##### Restoring a VPG from Extended Journal Copy
 
-To restore a VPG from LTR, run the command:
+To restore a VPG from Extended Journal Copy, run the command:
 
 ```
 kubectl zrt ltr-restore [backupset-id] [site-id] [storage-class] [namespace]
@@ -492,74 +485,6 @@ You can also restore from a repository that has VPGs backupsets from a different
 	
 When the restore task completes successfully, Kubernetes entities with the prefix "res-" are created in the specified site and namespace.
 
-#### Log Retention
-
-Zerto for Kubernetes uses Apache log4net™ logging framework to generate, collect and output log statements.
-
-##### Log Volume Size
-- A ZKM service can have up to 200 log files.
-- A ZKM-PX service can have up to 200 log files.
-
-##### Log Rotation
-- Log files are automatically archived when the log file size exceeds 10MB. 
-- Archived log files can be deleted manually.
-
-##### Required Storage
-- A log file is 1.8MB after automatic archiving.
-
-Therefore:
-- A ZKM service needs 200 x 1.8MB = ~360MB
-- A ZKM-PX service needs 200 x 1.8MB = ~360MB
-- All log configuration such as log file size, log level (debug,info e.t.c), max number of archived files can be changed by editing the appropriate config map.
-For ZKM - zkm-config
-For ZKM-PX - zkm-px-config
-
-##### Log Location
-Logs are stored locally on zkm/zkm-px pods /logs. The ad hoc logs are uploaded to Amazon and stored in S3 bucket.
-
-#### Ad Hoc Log Collection
-
-Use one of the following methods to generate logs.
-
-##### Ad Hoc Log Collection Method 1
-Run the following command, which runs a script on the ZKM-PX in the background:
-
-```
-kubectl-zrt collect-logs <case/bug number>
-```
-
-##### Ad Hoc Log Collection Method 2
-
--	Connect to the pod using the command: 
-
-```
-kubectl exec
-```
-  
--	Run one of the following scripts: 
-
-```
-/scripts/collect_logs_lt.bash
-```
-*-OR-*
-```
-/scripts/collect_logs_ng.bash
-```
-
-##### Automatic Log collection
-
-Automatic log collection, autologging,  may be helpful when a customer experienced an issue in the past and the archived log files not longer contain the log file because the log cycle already deleted it.
-
-To enable autologging:
-- Set tweak **AutoLogCaseNumber** with the customer bug or case number.
-- Set tweak **AutoLogForNDays** with the number of days to run autologging. The default is 15 days. 
-
-By default autologging is performed at noon every day. You can change the time value during the helm install/upgrade procedure by providing the "autoLoggingTimeout" cron value:
-```
-autoLoggingTimeout: "0 0 0 * * *" 
-```
-
-Use [Cron Descryptor](https://www.freeformatter.com/cron-expression-generator-quartz.html) to define cron values.      
 
 #### Protecting Ingress Controller Resources
 
@@ -606,7 +531,7 @@ $ kubectl annotate pod <ingress_pod_id> -n <namespace> vpg=<vpg_id>
 pod/ingress-nginx-2-controller-6dcb748f9-7z6bz annotated
 ```	
 
-### Protecting Ingress Controller Resources
+##### Displaying Ingress Controller Resources
 
 To display Ingress controller annotation run the following command:
 ```	
@@ -622,83 +547,3 @@ $ kubectl get vpg -n <namespace>
   NAME         STATE      SYNC   SOURCE TARGET STATEFULSETS DEPLOYMENTS SERVICES CONFIGMAPS SECRETS INGRESSES NUMCP RPO       JOURNALHISTORY JOURNALSIZEMB
   website-vpg1 Protecting        node-1 node-1 0            1           0        0          0       1         10    6 seconds 49 seconds     2
 ```
-	
-#### Taints and Tolerations
-	
-Z4K supports taints and tolerations configuration for nodes and pods.
-
-You can add a node annotation called “zertorole” to force VRA installation behaviour.
-
--	Add the value “worker” to force VRA installation.
--	Add the value “master” to force skipping VRA installation.
-
-##### Adding and Updating Zertorole Annotation
-
--	To force VRA installation, add or update the annotation on the current node with the command:
-
-```
-kubectl annotate node <node-name> --overwrite zertorole=worker
-```
-	
--	To skip VRA installation, add or update the annotation on the current node with the command:
-	
-```
-kubectl annotate node <node-name> --overwrite zertorole=master
-```
-
-<span class="Note">Note: Use --overwrite to update an annotation that already exists.</span>
-
-##### Removing Zertorole Annotation
-
-To remove a zertorole annotation use a minus - sign at the end of the annotation:
-
-```
-	kubectl annotate node <node-name> zertorole-
-```
-
-	<span class="Note">Note: Nodes that are tainted with a taint that does not allow VRA installation ("NoSchedule" effect) cannot have it's deployments protected.</span>
-	
--	Taints and tolerations are not replicated.
--	When Taints and Tolerations are in use they must be predefined in pods and nodes for VPG protection, **before** recovery oeprations take place.
--	For more info, see [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
-
-#### Tweaks
-
-Z4K allows users to view and customize tweaks for Z4K components using the following commands:
-
--	To view existing tweaks and values use the command:
-```	
-$ kubectl zrt get-potential-tweaks
-```
-**Example**	
-```
-$ kubectl zrt get-potential-tweaks
-NAME                                                  VALUE               DEFAULT             DESCRIPTION
-SyncMonitorIntervalInSeconds                          300                 300
-EnableZertoAnalyticsTransmitter                       True                True                Enable Zerto Analytics Transmitter
-DisableUndoLog                                        False               False
-ScratchSizeInGb                                       2                   2
-```
--	To set a new value for an existing tweak, use the command:
-```	
-$ kubectl zrt set-tweak ScratchSizeInGb <value>
-```
-
-**Example**
-```
-$ kubectl zrt set-tweak ScratchSizeInGb 4
-ztweak.z4k.zerto.com/ScratchSizeInGb created
-```
-	
--	To review the tweaks value and confirm settings, use the command:
-```
-$ kubectl zrt get-potential-tweaks
-```
-**Example**
-```
-$ kubectl zrt get-potential-tweaks
-NAME                                                  VALUE               DEFAULT             DESCRIPTION
-ScratchSizeInGb                                       4                   2
-```
-
-
