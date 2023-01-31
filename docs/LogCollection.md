@@ -1,4 +1,4 @@
-#### Log Collection and Retention
+# Log Collection and Retention
 
 Zerto for Kubernetes uses Apache log4net™ logging framework to generate, collect and output log statements.
 
