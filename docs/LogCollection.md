@@ -66,6 +66,8 @@ Example:
 kubect1 zrt collect-logs-locally "/temp/myNewBundle.zip" 2023-01-22 06:00:00" "2023-01-23 06:00:00"
 ```
 
+Access the zip file in your local directory, and unzip to review the log files.
+
 #### Collect Logs using a Script
 
 Follow these steps to run a script on the ZKM-PX in the background to collect logs to S3:
