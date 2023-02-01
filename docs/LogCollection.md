@@ -50,14 +50,14 @@ kubect1 zrt collect-logs "case12345" 2023-01-22 06:00:00" "2023-01-23 06:00:00"
 Collect logs to a local file system by running the command:
 
 ```
-collect-logs-locally <caseNum> <StartTime> <endTime></tmp/tmp/filename.zip 
+collect-logs-locally <pathToFilename.zip> <StartTime> <endTime> 
 ```
 
 Where:
 
 | Parameter |	Comment |
 | --------- | ------- |
-| caseNum | (Required) Case name or description.| 
+| pathToFilename.zip | (Required) Path to log bundle zip file. | 
 | startTime | (Optional) Collection start time in yyyy-mm-dd HH:mm:ss format. Default is 7 days. |
 | endTime | (Optional) Collection end time in yyyy-mm-dd HH:mm:ss format. Default is now. |
 
@@ -66,7 +66,7 @@ Example:
 kubect1 zrt collect-logs-locally "/temp/myNewBundle.zip" 2023-01-22 06:00:00" "2023-01-23 06:00:00"
 ```
 
-#### Collect Logs by Running a Script
+#### Collect Logs using a Script
 
 Follow these steps to run a script on the ZKM-PX in the background to collect logs to S3:
 
