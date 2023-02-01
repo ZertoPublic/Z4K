@@ -57,7 +57,7 @@ Where:
 
 | Parameter |	Comment |
 | --------- | ------- |
-| pathToFilename.zip | (Required) Path to log bundle zip file. | 
+| pathToFilename.zip | (Required) Path to log bundle zip file. If you specify a folder that doesn't exist, you will be prompted to create one.| 
 | startTime | (Optional) Collection start time in yyyy-mm-dd HH:mm:ss format. Default is 7 days. |
 | endTime | (Optional) Collection end time in yyyy-mm-dd HH:mm:ss format. Default is now. |
 
