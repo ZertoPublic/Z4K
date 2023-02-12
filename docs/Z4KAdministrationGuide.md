@@ -278,10 +278,16 @@ There are 3 commands for different move operations:
 The following syntax is used for the move commands:
 
 ``` shell
-kubectl zrt move [vpg-name] [checkpoint ID]
+kubectl zrt move [VPG] [checkpoint_ID]
 ```
 
-If a checkpoint is not tagged use the value 'latest'
+Where:
+
+| Parameter |	Value |
+| --------- | ----- |
+| VPG      |	VPG name |
+| checkpoint_ID    | Checkpoint. If a checkpoint is not tagged use the value 'latest'|
+
 
 After the command is run, the VPG state will be updated to StartingMove.
 
