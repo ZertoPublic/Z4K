@@ -16,8 +16,10 @@ nav:
   - Z4K Taints and Tolerations: TaintsandTolerations.md
   - Z4K Tweaks: Tweaks.md
 - Z4K Analytics: Z4KAnalytics.md
-- Accessing the Z4K REST API: AccessingZ4KRESTAPI.md
-- Z4K REST API: openapi.md
+- Z4K REST API.md: Z4K REST API
+- Z4K REST API.md:
+  - Accessing the Z4K REST API: AccessingZ4KRESTAPI.md
+  - Z4K APIs: openapi.md
 - More Resources: MoreResources.md
 - ChangeLog:
   - '2.x.x': ./changes/version2.x.x.md
