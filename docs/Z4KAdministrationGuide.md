@@ -259,31 +259,39 @@ kubectl zrt rollback-restore [vpg-name]
 ```
 #### Move Operation
 
-The move operation allows moving the deployments to it's recovery site without preserving them on the protected site.
-The move operation consists of 3 possible commands:
-1. move - Start move live (test before commit)
-2. commit-move - Commit move
-3. rollback-move - Rolling back Move test before commit
+The move operation moves the deployments to the recovery site without preserving the VPGs on the protected site.
 
-The following is used for the above move commands:
+There are 3 commands for different move operations:
+
+1. move - Start move live, test before committing
+2. commit-move - Commit move
+3. rollback-move - Roll back the Move test before committing
+
+The following syntax is used for these move commands:
 
 ``` shell
 kubectl zrt move [vpg-name] [checkpoint ID]
 ```
-At that point the VPG state will be updated to StartingMove
+
 If a checkpoint is not tagged use the value 'latest'
-Once move operation is completed, the VPG status will be updated to MoveBeforeCommit
+
+After the command is run, the VPG state will be updated to StartingMove.
+
+When the move operation is completed, the VPG status will be updated to MoveBeforeCommit.
 
 ``` shell
 kubectl zrt rollback-move [vpg-name]
 ```
-The VPG will go back into protecting state in it's protected site without being commited to the recovery site.
+The VPG in the protected site will go back into protecting state without being committed to the recovery site.
 
 ``` shell
 kubectl zrt commit-move [vpg-name]
 ```
-VPG status will be changed to CommittingMove.
-Onc completed, the VPG will be commited, deployment will now exist on the recovery site and VPG will be removed from the environment.
+The VPG status will be changed to CommittingMove.
+
+When the operation is completed, the VPG will be committed and the deployment will now exist on the recovery site. 
+
+The VPG will be removed from the environment.
 
 #### Extended Journal Copy in Kubernetes Environments
 
@@ -310,7 +318,7 @@ To backup a VPG to a target Extended Journal Copy, create the VPG and update the
 
 Use the following examples as guidelines.
   
-*Example vpg.yaml File - Backing Up to AWS S3*
+###### Example vpg.yaml File - Backing Up to AWS S3
   
 ``` yaml
 --- 
@@ -341,7 +349,11 @@ spec:
     Id: <TargetSite>  
 ```
 
-*Example vpg.yaml File - Backing Up to Azure Blob Storage*
+-	The AWS S3 access key and secret key should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is mysecret.
+-	The secret must contain a data item for the AccessKey and a data item for the SecretKey, and can be created in any site to which Zerto Kubernetes Manager has access. In the example above, this is site1.
+
+
+###### Example vpg.yaml File - Backing Up to Azure Blob Storage
   
 ``` yaml
 --- 
@@ -371,18 +383,13 @@ spec:
 
 ```
 
--	The AWS S3 access key and secret key should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is mysecret.
--	The secret must contain a data item for the AccessKey and a data item for the SecretKey, and can be created in any site to which Zerto Kubernetes Manager has access. In the example above, this is site1.
-Example vpg.yaml File - Backing Up to Azure Blob Storage
-
-
 -	The Azure application id and client secret should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is mysecret. 
 -	The secret must contain a data item for the ApplicationId and a data item for the ClientSecret, and can be created in any site to which Zerto Kubernetes Manager has access. In the example above, this is site1.
 
 
 ##### Manually Trigger a Backup 
 	
-You must manually trigger a backup to create a retention set.
+You must manually trigger a backup to create an Extended Journal Copy.
 
 
 -	To manually trigger a backup, run the command:
@@ -391,10 +398,10 @@ You must manually trigger a backup to create a retention set.
 kubectl zrt ltr-backup [vpg-name] [checkpoint-id]
 ```
 
->	A backup task is triggered. When the task completes successfully, a retention set is created.
+>	A backup task is triggered. When the task completes successfully, an Extended Journal Copy is created.
 
 
--	To access the generated retention set ID (backupset ID), run the command:
+-	To access the generated Extended Journal Copy ID (backupset ID), run the command:
 
 ``` shell
 kubectl get backupset
