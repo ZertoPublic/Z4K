@@ -264,6 +264,7 @@ kubectl zrt commit-restore [vpg-name]
 ``` shell
 kubectl zrt rollback-restore [vpg-name]
 ```
+
 #### Move Operation
 
 The move operation moves the deployments to the recovery site without preserving the VPGs on the protected site.
@@ -274,7 +275,7 @@ There are 3 commands for different move operations:
 2. commit-move - Commit move
 3. rollback-move - Roll back the Move test before committing
 
-The following is used for the  move commands:
+The following syntax is used for the move commands:
 
 ``` shell
 kubectl zrt move [vpg-name] [checkpoint ID]
@@ -289,12 +290,12 @@ When the move operation is completed, the VPG status will be updated to MoveBefo
 ``` shell
 kubectl zrt rollback-move [vpg-name]
 ```
-The VPG in the protected iste will go back into Protecting state without being committed to the recovery site.
+The VPG in the protected site will go back into Protecting state without being committed to the recovery site.
 
 ``` shell
 kubectl zrt commit-move [vpg-name]
 ```
-VPG status will be changed to CommittingMove.
+The VPG status will be changed to CommittingMove.
 
 When the operation is completed, the VPG will be committed and the deployment will now exist on the recovery site.
 
