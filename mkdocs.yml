@@ -4,17 +4,18 @@ theme:
   highlightjs: false
 nav:
 - Zerto for Kubernetes Overview: Z4KOverview.md
-- Deployment Architecture: DeploymentArchitecture.md
-- Prerequisites and Requirements: PrerequisitesAndRequirements.md
-- Limitations: Limitations.md
-- Known Issues: Known_Issues.md
-- Supported Platforms: SupportedPlatforms.md
-- Z4K Deployment: Z4KDeploymentGuide.md
+- Zerto for Kubernetes Overview:
+  - Deployment Architecture: DeploymentArchitecture.md
+  - Limitations: Limitations.md
+  - Known Issues: Known_Issues.md
+- Z4K Deployment: 
+  - Prerequisites and Requirements: PrerequisitesAndRequirements.md
+  - Supported Platforms: SupportedPlatforms.md
+  - Deploying Z4K: Z4KDeploymentGuide.md
+  - Z4K Taints and Tolerations: TaintsandTolerations.md
 - Z4K Administration: Z4KAdministrationGuide.md
 - Z4K Administration: 
-  - Z4K Log Collection: LogCollection.md
-  - Z4K Taints and Tolerations: TaintsandTolerations.md
-  - Z4K Tweaks: Tweaks.md
+- Z4K Log Collection: LogCollection.md
 - Z4K Analytics: Z4KAnalytics.md
 - Z4K REST API.md: Z4K REST API
 - Z4K REST API.md:
