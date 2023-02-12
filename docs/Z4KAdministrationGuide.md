@@ -264,33 +264,48 @@ kubectl zrt commit-restore [vpg-name]
 ``` shell
 kubectl zrt rollback-restore [vpg-name]
 ```
+
 #### Move Operation
 
-The move operation allows moving the deployments to it's recovery site without preserving them on the protected site.
-The move operation consists of 3 possible commands:
-1. move - Start move live (test before commit)
-2. commit-move - Commit move
-3. rollback-move - Rolling back Move test before commit
+The move operation moves the deployments to the recovery site without preserving the VPGs on the protected site.
 
-The following is used for the above move commands:
+There are 3 commands for different move operations:
+
+1. move - Start move live, test before committing
+2. commit-move - Commit move
+3. rollback-move - Roll back the Move test before committing
+
+The following syntax is used for the move commands:
 
 ``` shell
-kubectl zrt move [vpg-name] [checkpoint ID]
+kubectl zrt move [VPG] [checkpoint_ID]
 ```
-At that point the VPG state will be updated to StartingMove
-If a checkpoint is not tagged use the value 'latest'
-Once move operation is completed, the VPG status will be updated to MoveBeforeCommit
+
+Where:
+
+| Parameter |	Value |
+| --------- | ----- |
+| VPG      |	VPG name |
+| checkpoint_ID    | Checkpoint. If a checkpoint is not tagged use the value 'latest'|
+
+
+After the command is run, the VPG state will be updated to StartingMove.
+
+When the move operation is completed, the VPG status will be updated to MoveBeforeCommit.
 
 ``` shell
 kubectl zrt rollback-move [vpg-name]
 ```
-The VPG will go back into protecting state in it's protected site without being commited to the recovery site.
+The VPG in the protected site will go back into Protecting state without being committed to the recovery site.
 
 ``` shell
 kubectl zrt commit-move [vpg-name]
 ```
-VPG status will be changed to CommittingMove.
-Onc completed, the VPG will be commited, deployment will now exist on the recovery site and VPG will be removed from the environment.
+The VPG status will be changed to CommittingMove.
+
+When the operation is completed, the VPG will be committed and the deployment will now exist on the recovery site.
+
+The VPG will be removed from the environment.
 
 #### Long-term Retention in Kubernetes Environments
 
@@ -317,7 +332,7 @@ To backup a VPG to a target LTR repository, create the VPG and update the VPG ya
 
 Use the following examples as guidelines.
   
-*Example vpg.yaml File - Backing Up to AWS S3*
+###### Example vpg.yaml File - Backing Up to AWS S3
   
 ``` yaml
 --- 
@@ -348,7 +363,12 @@ spec:
     Id: <TargetSite>  
 ```
 
-*Example vpg.yaml File - Backing Up to Azure Blob Storage*
+
+-	The AWS S3 access key and secret key should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is *mysecret*.
+-	The secret must contain a data item for the AccessKey and a data item for the SecretKey, and can be created in any site to which Zerto Kubernetes Manager has access. In the example above, this is *site1*.
+
+
+###### Example vpg.yaml File - Backing Up to Azure Blob Storage
   
 ``` yaml
 --- 
@@ -378,13 +398,8 @@ spec:
 
 ```
 
--	The AWS S3 access key and secret key should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is mysecret.
--	The secret must contain a data item for the AccessKey and a data item for the SecretKey, and can be created in any site to which Zerto Kubernetes Manager has access. In the example above, this is site1.
-Example vpg.yaml File - Backing Up to Azure Blob Storage
-
-
--	The Azure application id and client secret should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is mysecret. 
--	The secret must contain a data item for the ApplicationId and a data item for the ClientSecret, and can be created in any site to which Zerto Kubernetes Manager has access. In the example above, this is site1.
+-	The Azure application id and client secret should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is *mysecret*. 
+-	The secret must contain a data item for the ApplicationId and a data item for the ClientSecret, and can be created in any site to which Zerto Kubernetes Manager has access. In the example above, this is *site1*.
 
 
 ##### Manually Trigger a Backup 
@@ -594,7 +609,7 @@ spec:
 ```
 
 	
-*-OR-*
+-OR-
 
 -	Configure protection using an existing deployment by running the command:
 ```
