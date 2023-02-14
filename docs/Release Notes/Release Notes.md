@@ -62,4 +62,4 @@
 - Support HPE New CSI
 
 #### Version 2.1.x
-- 
+- Implement one-to-many VPG configuration
