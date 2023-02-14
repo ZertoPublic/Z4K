@@ -1,4 +1,4 @@
-# Version 2.4 Release Notes
+# Release Notes
 
 #### Version 2.4.x
 
