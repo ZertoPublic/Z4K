@@ -8,11 +8,12 @@ Logs are stored locally on zkm/zkm-px pods /logs. The ad hoc logs are uploaded t
 
 - A ZKM service can have up to 200 log files.
 - A ZKM-PX service can have up to 200 log files.
+- Log files are automatically archived when the log file size exceeds 10MB. 
 - A log file is 1.8MB after automatic archiving.
   Therefore:
   - A ZKM service needs 200 x 1.8MB = ~360MB
   - A ZKM-PX service needs 200 x 1.8MB = ~360MB
-- Log files are automatically archived when the log file size exceeds 10MB. 
+
 - Archived log files can be deleted manually.
 
 ##### Log Configuration
