@@ -149,7 +149,7 @@ kubect1 exec
 /scripts/collect_logs_ng.bash
 ```
 
-#### Automatic Log collection
+#### Enabling Automatic Log Collection
 
 Automatic log collection, autologging,  may be helpful when a customer previously experienced an issue and the archived log files no longer contain the log file because the log cycle already deleted it.
 
