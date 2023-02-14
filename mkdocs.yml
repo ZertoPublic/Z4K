@@ -21,7 +21,6 @@ nav:
 - Z4K REST API:
   - Accessing the Z4K REST API: AccessingZ4KRESTAPI.md
   - Z4K APIs: openapi.md
-- More Resources: MoreResources.md
 - ChangeLog:
   - '2.x.x': ./changes/version2.x.x.md
 plugins:
