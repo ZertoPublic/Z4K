@@ -27,7 +27,7 @@ Logs are stored locally on zkm/zkm-px pods /logs. The ad hoc logs are uploaded t
   - For ZKM the config map is **zkm-config**
   - For ZKM-PX the config map is **zkm-px-config**
 
-For example:
+**Example log configuration file**
 ```
 keepVariablesOnReload="true"
       throwExceptions="true"
