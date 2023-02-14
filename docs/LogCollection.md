@@ -4,8 +4,6 @@ Virtual replication logs can be collected to help Zerto Support resolve problems
 
 #### Log Size and Storage Requirements
 
-Z4K uses Apache log4net™ logging framework to generate, collect and output log statements.
-
 ##### Log Volume Size
 - A ZKM service can have up to 200 log files.
 - A ZKM-PX service can have up to 200 log files.
@@ -83,7 +81,7 @@ keepVariablesOnReload="true"
 
 #### Using Remote Log Collection
 
-Remote Log Collection allows customers to authorize Zerto Support engineers to collect logs from their environment.
+Remote Log Collection enables Zerto Support engineers to collect logs from a customer's environment.
 
 Run the following command to collect local logs remotely:
 
