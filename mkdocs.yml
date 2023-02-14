@@ -16,8 +16,8 @@ nav:
 - Z4K Administration: Z4KAdministrationGuide.md
 - Z4K Log Collection: LogCollection.md
 - Z4K Analytics: Z4KAnalytics.md
-- Z4K REST API.md: Z4K REST API.md
-- Z4K REST API.md:
+- Z4K REST API: Z4K REST API.md
+- Z4K REST API:
   - Accessing the Z4K REST API: AccessingZ4KRESTAPI.md
   - Z4K APIs: openapi.md
 - More Resources: MoreResources.md
