@@ -14,9 +14,9 @@ Virtual replication logs can be collected to help Zerto Support resolve problems
 
 ##### Required Storage
 - A log file is 1.8MB after automatic archiving.
-Therefore:
-- A ZKM service needs 200 x 1.8MB = ~360MB
-- A ZKM-PX service needs 200 x 1.8MB = ~360MB
+  Therefore:
+  - A ZKM service needs 200 x 1.8MB = ~360MB
+  - A ZKM-PX service needs 200 x 1.8MB = ~360MB
 
 ##### Log Location
 Logs are stored locally on zkm/zkm-px pods /logs. The ad hoc logs are uploaded to Amazon and stored in S3 bucket.
