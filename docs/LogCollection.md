@@ -18,7 +18,7 @@ Logs are stored locally on zkm/zkm-px pods /logs. The ad hoc logs are uploaded t
 
 ##### Log Configuration
 
-- The log file size (maxArchiveFiles), max number of archived files (archiveAboveSize) and log level (minlevel) can be changed by editing the appropriate config map.
+The log file size (maxArchiveFiles), max number of archived files (archiveAboveSize) and log level (minlevel) can be changed by editing the appropriate config map.
   - For ZKM the config map is **zkm-config**
   - For ZKM-PX the config map is **zkm-px-config**
 
