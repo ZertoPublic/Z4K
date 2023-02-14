@@ -13,7 +13,7 @@ nav:
   - Prerequisites and Requirements: PrerequisitesAndRequirements.md
   - Supported Platforms: SupportedPlatforms.md
   - Deploying Z4K: Z4KDeploymentGuide.md
-  - Taints and Tolerations: Taintsandtolerations.md
+  - Taints and Tolerations: TaintsandTolerations.md
 - Z4K Administration: Z4KAdministrationGuide.md
 - Z4K REST API: Z4KRESTAPI.md
 - Z4K REST API:
