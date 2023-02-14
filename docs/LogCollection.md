@@ -1,4 +1,4 @@
-# Collecting Z4K Logs
+# Z4K Log Collection
 
 Virtual replication logs can be collected to help Zerto Support resolve problems related to Z4K.
 
