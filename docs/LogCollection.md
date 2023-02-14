@@ -81,7 +81,7 @@ keepVariablesOnReload="true"
 
 #### Using Remote Log Collection
 
-Remote Log Collection enables Zerto Support engineers to collect logs from a customer's environment.
+Remote log collection enables Zerto Support engineers to collect logs from a customer's environment.
 
 Run the following command to collect local logs remotely:
 
@@ -103,7 +103,7 @@ kubectl-zrt collect-logs <case/bug number>
 kubect1 zrt collect-logs "case12345" 2023-01-22 06:00:00" "2023-01-23 06:00:00"
 ```
 
-#### Collecting Logs Locally
+#### Collecting Logs to a Local Drive
 
 Run the following command to collect logs to a local file system:
 
@@ -149,7 +149,7 @@ kubect1 exec
 
 #### Enabling Automatic Log Collection
 
-Automatic log collection, autologging,  may be helpful when a customer previously experienced an issue and the archived log files no longer contain the log file because the log cycle already deleted it.
+Automatic log collection, autologging, may be helpful when a customer previously experienced an issue and the archived log files no longer contain the log file because the log cycle already deleted it.
 
 To enable autologging:
 - Set tweak **AutoLogCaseNumber** with the customer bug or case number.
