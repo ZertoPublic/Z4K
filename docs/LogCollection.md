@@ -1,4 +1,8 @@
-# Log Collection and Retention
+# Collecting Z4K Logs
+
+Virtual replication logs can be collected to help Zerto Support resolve problems related to Z4K.
+
+#### Log Size and Storage Requirements
 
 Zerto for Kubernetes uses Apache log4net™ logging framework to generate, collect and output log statements.
 
@@ -15,17 +19,19 @@ Zerto for Kubernetes uses Apache log4net™ logging framework to generate, colle
 Therefore:
 - A ZKM service needs 200 x 1.8MB = ~360MB
 - A ZKM-PX service needs 200 x 1.8MB = ~360MB
-- All log configuration such as log file size, log level (debug,info e.t.c), max number of archived files can be changed by editing the appropriate config map.
-For ZKM - zkm-config
-For ZKM-PX - zkm-px-config
+- All log configuration such as log file size, log level, and max number of archived files can be changed by editing the appropriate config map.
+  - For ZKM the config map is **zkm-config**
+  - For ZKM-PX the config map is **zkm-px-config**
 
 ##### Log Location
 Logs are stored locally on zkm/zkm-px pods /logs. The ad hoc logs are uploaded to Amazon and stored in S3 bucket.
 
 
-#### Collect Logs to S3
+#### Using Remote Log Collection
 
-Run the following command to collect local logs to S3:
+Remote Log Collection allows customers to authorize Zerto Support engineers to collect logs from their environment.
+
+Run the following command to collect local logs remotely:
 
 ```
 kubectl-zrt collect-logs <caseNum> <StartTime> <endTime>
@@ -45,7 +51,7 @@ kubectl-zrt collect-logs <case/bug number>
 kubect1 zrt collect-logs "case12345" 2023-01-22 06:00:00" "2023-01-23 06:00:00"
 ```
 
-#### Collect Logs Locally
+#### Collecting Logs Locally
 
 Collect logs to a local file system by running the command:
 
@@ -68,7 +74,7 @@ kubect1 zrt collect-logs-locally "/temp/myNewBundle.zip" 2023-01-22 06:00:00" "2
 
 Access the zip file in your local directory, and unzip to review the log files.
 
-#### Collect Logs using a Script
+#### Collecting Logs using a Script
 
 Follow these steps to run a script on the ZKM-PX in the background to collect logs to S3:
 
@@ -91,7 +97,7 @@ kubect1 exec
 
 #### Automatic Log collection
 
-Automatic log collection, autologging,  may be helpful when a customer experienced an issue in the past and the archived log files not longer contain the log file because the log cycle already deleted it.
+Automatic log collection, autologging,  may be helpful when a customer previously experienced an issue and the archived log files no longer contain the log file because the log cycle already deleted it.
 
 To enable autologging:
 - Set tweak **AutoLogCaseNumber** with the customer bug or case number.
