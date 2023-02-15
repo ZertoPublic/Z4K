@@ -1,4 +1,4 @@
-# Taints and Tolerations
+# Z4K Taints and Tolerations
 	
 Z4K supports taints and tolerations configuration for nodes and pods. 
 
