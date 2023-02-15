@@ -219,6 +219,43 @@ kubectl zrt commit-restore [vpg-name]
 ```
 kubectl zrt rollback-restore [vpg-name]
 ```
+#### Move operation
+
+The move operation moves the deployments to the recovery site without preserving the VPGs on the protected site.
+
+There are 3 commands for different move operations:
+
+1. Move - Start move live, test before committing
+2. Commit-move - Commit move
+3. Rollback-move - Roll back the Move test before committing
+
+The following syntax is used for these move commands:
+
+```
+kubectl zrt move [vpg-name] [checkpoint ID]
+```
+
+If a checkpoint is not tagged, use the value 'latest'
+
+After the command is run, the VPG state will be updated to StartingMove.
+
+When the move operation is complete, the VPG status will be updated to MoveBeforeCommit.
+
+```
+kubectl zrt rollback-move [vpg-name]
+```
+
+The VPG in the protected site will go back into protecting state without being committed to the recovery site.
+
+```
+kubectl zrt commit-move [vpg-name]
+```
+
+The VPG status will be changed to CommittingMove.
+
+When the operation has completed, the VPG will be committed and the deployment will now exist on the recovery site.
+
+The VPG will be removed from the environment.
 
 
 #### Extended Journal Copy Repositories in Kubernetes Environments
@@ -331,9 +368,9 @@ kubectl zrt ltr-backup [vpg-name] [checkpoint-id]
 kubectl get backupset
 ```
 
-##### Scheduling an Extended Journal Copy
+##### Scheduling an Extended Journal Copy Backup
 
-To schedule an Extended Journal Copy, add **SchedulingAndRetentionSettings** to the VPGs **BackupSettings**.
+To schedule an Extended Journal Copy bakcup, add **SchedulingAndRetentionSettings** to the VPGs **BackupSettings**.
 
 Use the following example as a guideline.
 
@@ -409,15 +446,13 @@ You can also restore from an Extended Journal Copy repository that has VPGs back
 	
 When the restore task completes successfully, Kubernetes entities with the prefix "res-" are created in the specified site and namespace.
 
-
-
 #### Protecting Ingress Controller Resources
 
 There are 2 options to configure Ingress Controller Resources with a deployment for protection:
 	
--	Configure protection when creating a new deployment, as defined in the YAML example below:
+- Configure protection when creating a new deployment, as defined in the YAML example below:
 
-```
+	>```
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -442,7 +477,7 @@ spec:
 	
 -OR-
 
--	Configure protection using an existing deployment by running the command:
+- Configure protection using an existing deployment by running the command:
 ```
 $ kubectl get pod ingress-nginx-2-controller-6dcb748f9-7z6bz -n ingress-nginx-2 -o json | jq .metadata.annotations
 {
