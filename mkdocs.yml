@@ -8,6 +8,7 @@ nav:
   - Deployment Architecture: DeploymentArchitecture.md
   - Limitations: Limitations.md
   - Known Issues: Known_Issues.md
+  - Release Updates: ReleaseNotes.md
 - Z4K Deployment: Z4KDeployment.md
 - Z4K Deployment:
   - Prerequisites and Requirements: PrerequisitesAndRequirements.md
