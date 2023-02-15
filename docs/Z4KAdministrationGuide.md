@@ -201,7 +201,8 @@ Where:
 kubectl zrt failover-test [vpg-name] [checkpoint-id]
 ```
 
->Where [checkpoint ID] can be either an ID, or enter "latest" for the latest checkpoint.
+>Where:
+> [checkpoint ID] can be either an ID, or enter "latest" for the latest checkpoint.
 
 -	To stop the test run, run the command:
 
@@ -217,7 +218,8 @@ kubectl zrt stop-test [vpg-name]
 kubectl zrt failover-live [vpg-name] [checkpoint-id]
 ```
 
->Where [checkpoint-id] can be either an ID, or enter "latest" for the latest checkpoint.
+>Where:
+>[checkpoint-id] can be either an ID, or enter "latest" for the latest checkpoint.
 
 -	To commit the failover, run the command:
 
@@ -243,7 +245,8 @@ On a single cluster deployment, only the restore and failover test operations ar
 kubectl zrt restore [vpg-name] [checkpoint-id]
 ```
 	
->Where [checkpoint-id] can be either an ID, or enter latest, for the latest checkpoint.
+>Where:
+>[checkpoint-id] can be either an ID, or enter latest, for the latest checkpoint.
 
 -	To commit the restore, run the command:
 
@@ -276,7 +279,8 @@ The move command starts and tests a live move.
 kubectl zrt move [vpg-name] [checkpoint ID]
 ```
 
->Where [checkpoint ID] can be either an ID, or enter "latest" for the latest checkpoint.
+>Where:
+>[checkpoint ID] can be either an ID, or enter "latest" for the latest checkpoint.
 
 >	After the command is run, the VPG state will be updated to StartingMove.
 
@@ -332,7 +336,7 @@ To backup a VPG to a target Extended Journal Copy, create the VPG and update the
 
 Use the following examples as guidelines.
   
-###### Example vpg.yaml File - Backing Up to AWS S3
+###### Example vpg.yaml File for Backing Up to AWS S3
   
 ``` yaml
 --- 
@@ -367,7 +371,7 @@ spec:
 -	The secret must contain a data item for the AccessKey and a data item for the SecretKey, and can be created in any site to which Zerto Kubernetes Manager has access. In the example above, this is site1.
 
 
-###### Example vpg.yaml File - Backing Up to Azure Blob Storage
+###### Example vpg.yaml File for Backing Up to Azure Blob Storage
   
 ``` yaml
 --- 
@@ -540,7 +544,7 @@ spec:
 ```
 
 	
-*-OR-*
+-OR-
 
 -	Configure protection using an existing deployment by running the command:
 ```
@@ -561,8 +565,10 @@ $ kubectl get pod <ingress_pod_id> -n <namespace> -o json | jq .metadata.annotat
   "kubernetes.io/psp": "eks.privileged",
   "vpg": "website-vpg1"
 }
-```	
-*Example output for checking VPG configuration with Ingress controller protected*
+```
+
+**Example output for checking VPG configuration with Ingress controller protected**
+
 ```
 $ kubectl get vpg -n <namespace>
   NAME         STATE      SYNC   SOURCE TARGET STATEFULSETS DEPLOYMENTS SERVICES CONFIGMAPS SECRETS INGRESSES NUMCP RPO       JOURNALHISTORY JOURNALSIZEMB
