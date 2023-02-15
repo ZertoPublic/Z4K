@@ -452,7 +452,7 @@ There are 2 options to configure Ingress Controller Resources with a deployment 
 	
 - Configure protection when creating a new deployment, as defined in the YAML example below:
 
-	>```
+```
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
