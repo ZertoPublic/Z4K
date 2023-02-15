@@ -11,12 +11,11 @@ Then, you can perform one of the following:
 
 -	Perform a Failover
 -	Restore a Single VPG
+-	Execute a Move operation
 -	Configure an Extended Journal Copy repository in Kubernetes environments
 	Zerto for Kubernetes supports backing up Kubernetes workloads and their data to an Extended Journal Copy and restoring them from the Extended Journal Copy to the original site or to a different site or namespace.
 -	Protect Ingress Controller Resources
 	Zerto for Kubernetes supports replicating Ingress Controller Resources so networking configuration can be replicated and easily deployed on the recovery site.
--	Taints and Tolerations
-	Z4K supports taints and tolerations configuration for nodes and pods.
 
 
 #### Creating a VPG
