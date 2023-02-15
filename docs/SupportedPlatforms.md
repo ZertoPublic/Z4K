@@ -1,6 +1,6 @@
-# Supported Platforms
+# Z4K Supported Platforms
 
-Zerto for Kubernetes can be deployed on multiple Kubernetes platforms.
+Z4K can be deployed on multiple Kubernetes platforms.
 
 
 | Platform                             | Version  |  CSI| Supported Kubernetes Versions |
