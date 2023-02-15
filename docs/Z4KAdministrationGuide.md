@@ -202,6 +202,7 @@ kubectl zrt failover-test [vpg-name] [checkpoint-id]
 ```
 
 >Where:
+>
 > [checkpoint ID] can be either an ID, or enter "latest" for the latest checkpoint.
 
 -	To stop the test run, run the command:
@@ -219,6 +220,7 @@ kubectl zrt failover-live [vpg-name] [checkpoint-id]
 ```
 
 >Where:
+>
 >[checkpoint-id] can be either an ID, or enter "latest" for the latest checkpoint.
 
 -	To commit the failover, run the command:
@@ -246,6 +248,7 @@ kubectl zrt restore [vpg-name] [checkpoint-id]
 ```
 	
 >Where:
+>
 >[checkpoint-id] can be either an ID, or enter latest, for the latest checkpoint.
 
 -	To commit the restore, run the command:
@@ -280,11 +283,11 @@ kubectl zrt move [vpg-name] [checkpoint ID]
 ```
 
 >Where:
+
 >[checkpoint ID] can be either an ID, or enter "latest" for the latest checkpoint.
 
-After the command is run, the VPG state will be updated to StartingMove.
-
-When the move operation is complete, the VPG status will be updated to MoveBeforeCommit.
+- After the command is run, the VPG state will be updated to StartingMove.
+- When the move operation is complete, the VPG status will be updated to MoveBeforeCommit.
 
 ##### Rollback-Move
 
@@ -294,7 +297,7 @@ The commit-move command rolls back the move test before committing.
 kubectl zrt rollback-move [vpg-name]
 ```
 
-The VPG in the protected site will go back into protecting state without being committed to the recovery site.
+- The VPG in the protected site will go back into protecting state without being committed to the recovery site.
 
 ##### Commit-Move
 
