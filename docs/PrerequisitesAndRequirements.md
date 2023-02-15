@@ -1,4 +1,4 @@
-# Minimum Requirements
+# Z4K Minimum Requirements
 
 #### Communication Requirements
 - All Zerto for Kubernetes components communication occurs using HTTPS, over port 443.
