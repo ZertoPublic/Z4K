@@ -247,7 +247,7 @@ To backup a VPG to a target Extended Journal Copy repository, create the VPG and
 
 Use the following examples as guidelines.
   
-*Example vpg.yaml File - Backing Up to AWS S3*
+**Example vpg.yaml File - Backing Up to AWS S3**
   
 ```
 apiVersion: z4k.zerto.com/v1
@@ -279,7 +279,7 @@ spec:
 -	The AWS S3 access key and secret key should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is "mysecret".
 -	The secret must contain a data item for the AccessKey and a data item for the SecretKey, and can be created in any site to which Zerto Kubernetes Manager has access. In the example above, this is "site1".
 
-*Example vpg.yaml File - Backing Up to Azure Blob Storage*
+**Example vpg.yaml File - Backing Up to Azure Blob Storage**
   
 ```
 apiVersion: z4k.zerto.com/v1
@@ -415,7 +415,7 @@ When the restore task completes successfully, Kubernetes entities with the prefi
 
 There are 2 options to configure Ingress Controller Resources with a deployment for protection:
 	
--	Configure protection when creating a new deployment, as illustrated in the YAML example below:
+-	Configure protection when creating a new deployment, as defined in the YAML example below:
 
 ```
 apiVersion: networking.k8s.io/v1
