@@ -20,6 +20,8 @@ kubectl annotate node <node-name> zertorole=master
 
 ####  Updating Zertorole Annotation
 
+Use --overwrite to update an annotation that already exists.
+
 -	To update the annotation to force VRA installation, on the current node run the command:
 
 ```
@@ -32,20 +34,15 @@ kubectl annotate node <node-name> --overwrite zertorole=worker
 kubectl annotate node <node-name> --overwrite zertorole=master
 ```
 
-<span class="Note">Note: Use --overwrite to update an annotation that already exists.</span>
-
-
 #### Removing Zertorole Annotation
 
-To remove a zertorole annotation use a minus - sign at the end of the annotation:
+To remove a zertorole annotation use a minus (-) sign at the end of the annotation:
 
 ```
 kubectl annotate node <node-name> zertorole-
 ```
 
-<span class="Note">Notes:
--	Nodes that are tainted with a taint that does not allow VRA installation ("NoSchedule" effect) cannot have protected deployments.
 -	Taints and tolerations are not replicated.
--	When Taints and Tolerations are in use they must be predefined in pods and nodes for VPG protection, **before** recovery oeprations take place.</span>	
-
+-	When Taints and Tolerations are in use they must be predefined in pods and nodes for VPG protection **before** recovery oeprations take place.	
+-	Nodes with a taint that does not allow VRA installation ("NoSchedule" effect) cannot have protected deployments.
 -	For more info, see [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
