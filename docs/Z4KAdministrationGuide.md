@@ -332,6 +332,7 @@ To configure an Extended Journal Copy for your Kubernetes environment, use the f
 To backup a VPG to a target Extended Journal Copy, create the VPG and update the VPG yaml file (vpg.yaml) with the Extended Journal Copy type.
 
 Use the following examples as guidelines.
+
   
 ###### Example vpg.yaml File for Backing Up to AWS S3
   
@@ -366,6 +367,7 @@ spec:
 
 -	The AWS S3 access key and secret key should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is mysecret.
 -	The secret must contain a data item for the AccessKey and a data item for the SecretKey, and can be created in any site to which Zerto Kubernetes Manager has access. In the example above, this is site1.
+
 
 
 ###### Example vpg.yaml File for Backing Up to Azure Blob Storage
