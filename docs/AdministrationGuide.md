@@ -1,40 +1,34 @@
 # Administration
 
-After deploying Zerto for Kubernetes, create a VPG, configure one-to-many (optional), tag checkpoints, and then test failover:
+After deploying Zerto for Kubernetes, create a VPG, optionally configure one-to-many, tag checkpoints, and then test failover:
 
-1.	[Create a VPG](#Creating-a-VPG)
-2.	[Configure One-to-Many](#Configuring-One-to-Many)
-3.	[Tag a Checkpoint](#Tagging-a-Checkpoint)
-4.	[Test Failover](#Testing-Failover)
+1.	Create a VPG
+2.	Configure One-to-Many
+3.	Tag a Checkpoint
+4.	Test Failover
 
 Then, you can perform one of the following:
 
--	[Perform a Failover](#Performing-a-Failover)
--	[Restore a Single VPG](#Restoring-a-Single-VPG)
--	[Configure Long-term Retention (LTR) in Kubernetes Environments](#Long-Term-Retention-in-Kubernetes-Environments)
-	>	Zerto for Kubernetes supports backing up Kubernetes workloads and their data to a Long-term Repository and restoring them from the Long-term Repository to the original site, or to a different site/namespace.
-- [Log Retention](#Log-Retention)
-	>	Log collection occurs automatically, and the logs are uploaded to Amazon S3. You can also collect logs ad hoc.
--	[Protect Ingress Controller Resources](#Protecting-Ingress-Controller-Resources)
-	>	Zerto for Kubernetes supports replicating Ingress Controller Resources so networking configuration can be replicated and easily deployed on the recovery site.
--	[Taints and Tolerations](#Taints-and-Tolerations)
-	>	Z4K supports taints and tolerations configuration for nodes and pods.
--	[Tweaks](#Tweaks)
-	>	How to view and configure tweaks and values.
+-	Perform a Failover
+-	Restore a Single VPG
+-	Configure an Extended Journal Copy in Kubernetes environments
+	Zerto for Kubernetes supports backing up Kubernetes workloads and their data to an Extended Journal Copy and restoring them from the Extended Journal Copy to the original site or to a different site or namespace.
+-	Protect Ingress Controller Resources
+	Zerto for Kubernetes supports replicating Ingress Controller Resources so networking configuration can be replicated and easily deployed on the recovery site.
+-	Taints and Tolerations
+	Z4K supports taints and tolerations configuration for nodes and pods.
 
 
 #### Creating a VPG
 
 
-1. Create a .yaml file to represent a VPG. The following example shows VPG webApp1 configured as follows:
+1. Create a .yaml file to represent a VPG. 
+ 	The following example shows VPG webApp1 configured as follows:
 
--	Configured to self replicate to its source cluster.
-
--	Will use the storage class goldSC.
-
--	SLA is 12 hours of history.
-
--	Journal can expand up to 160 GB to meet the history requirement.
+	- VPG webApp1 will self replicate to its source cluster.
+	- VPG webApp1 Will use the storage class goldSC.
+	- VPG webApp1's SLA is 12 hours of history.
+	- VPG webApp1's journal can expand up to 160 GB to meet the history requirement.
 
 >    ```
 >	apiVersion: z4k.zerto.com/v1
@@ -229,27 +223,27 @@ kubectl zrt rollback-restore [vpg-name]
 
 #### Long Term Retention in Kubernetes Environments
 
-Zerto for Kubernetes supports backing up Kubernetes workloads and their data to a long-term repository and restoring them from the long-term repository to the original site, or to a different site. The repository where backed up data is kept is called a Long-term Retention (LTR) repository.
+Zerto for Kubernetes supports backing up Kubernetes workloads and their data to an Extended Journal Copy and restoring them from the an Extended Journal Copy to the original site, or to a different site.
 
 ##### Supported Repository Types
 
-Zerto for Kubernetes supports two LTR repository types:
+Zerto for Kubernetes supports two an Extended Journal Copy repository types:
 
 - AWS S3
 - Azure Blob Storage
 	
-To configure Long-term Retention for your Kubernetes environment, use the following procedures:
+To configure an Extended Journal Copy for your Kubernetes environment, use the following procedures:
 
-1.	[Back up the VPG](#Backing-up-a-VPG)
-2.	[Manually trigger a Backup](#Manually-Trigger-a-Backup)
-3.	[Schedule Long-term Retention Backups](#Scheduling-Long-Term-Retention-Backups)
-4.	[Restore the VPG from a Long-term Repository](#Restoring-a-VPG-from-a-Long-Term-Repository)
+1.	Back up the VPG
+2.	Manually trigger a Backup
+3.	Schedule an Extended Journal Copy
+4.	Restore the VPG from an Extended Journal Copy
 
 
 
 ##### Backing up a VPG
 
-To backup a VPG to a target LTR repository, create the VPG and update the VPG yaml file (vpg.yaml) with the LTR repository type.
+To backup a VPG to a target Extended Journal Copy repository, create the VPG and update the VPG yaml file (vpg.yaml) with the an Extended Journal Copy repository type.
 
 Use the following examples as guidelines.
   
@@ -282,6 +276,9 @@ spec:
   
 ```
 
+-	The AWS S3 access key and secret key should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is "mysecret".
+-	The secret must contain a data item for the AccessKey and a data item for the SecretKey, and can be created in any site to which Zerto Kubernetes Manager has access. In the example above, this is "site1".
+
 *Example vpg.yaml File - Backing Up to Azure Blob Storage*
   
 ```
@@ -310,13 +307,8 @@ spec:
 	      NamespaceName: default
 ```
 
--	The AWS S3 access key and secret key should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is mysecret.
--	The secret must contain a data item for the AccessKey and a data item for the SecretKey, and can be created in any site to which Zerto Kubernetes Manager has access. In the example above, this is site1.
-Example vpg.yaml File - Backing Up to Azure Blob Storage
-
-
--	The Azure application id and client secret should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is mysecret. 
--	The secret must contain a data item for the ApplicationId and a data item for the ClientSecret, and can be created in any site to which Zerto Kubernetes Manager has access. In the example above, this is site1.
+-	The Azure application id and client secret should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is "mysecret". 
+-	The secret must contain a data item for the ApplicationId and a data item for the ClientSecret, and can be created in any site to which Zerto Kubernetes Manager has access. In the example above, this is "site1".
 
 
 ##### Manually Trigger a Backup 
@@ -339,9 +331,9 @@ kubectl zrt ltr-backup [vpg-name] [checkpoint-id]
 kubectl get backupset
 ```
 
-##### Scheduling Long Term Retention Backups
+##### Scheduling an Extended Journal Copy
 
-To schedule Long-term Retention backups, add **SchedulingAndRetentionSettings** to the VPGs **BackupSettings**.
+To schedule an Extended Journal Copy, add **SchedulingAndRetentionSettings** to the VPGs **BackupSettings**.
 
 Use the following example as a guideline.
 
@@ -396,9 +388,9 @@ spec:
 -	A Full Method cannot be followed by an Incremental Method. In other words, if there is a Full Method, it should be the last in the chain.
 -	Zerto Kubernetes Manager schedules backups and expirations as needed.
 	
-##### Restoring a VPG from a Long Term Repository
+##### Restoring a VPG from an Extended Journal Copy
 
-To restore a VPG from a Long-term repository, run the command:
+To restore a VPG from an Extended Journal Copy, run the command:
 
 ```
 kubectl zrt ltr-restore [backupset-id] [site-id] [storage-class] [namespace]
