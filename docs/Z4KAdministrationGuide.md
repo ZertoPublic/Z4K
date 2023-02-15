@@ -14,7 +14,7 @@ Then, you can perform one of the following:
 
 -	Perform a Failover
 -	Restore a Single VPG
--	Move operation
+-	Perform a Move operation
 -	Configure Extended Journal Copy in Kubernetes Environments
 	>	Z4K supports backing up Kubernetes workloads and their data to an Extended Journal Copy and restoring them from the Extended Journal Copy to the original site, or to a different site/namespace.
 -	Protect Ingress Controller Resources
@@ -24,11 +24,12 @@ Then, you can perform one of the following:
 
 
 1. Create a .yaml file to represent a VPG.
-	In the following example the VPG webApp1:
-   -	Is configured to self replicate to its source cluster.
-   -	Will use the storage class goldSC.
-   -	SLA is 12 hours of history.
-   -	The Journal can expand up to 160 GB to meet the history requirement.
+	The following example shows VPG webApp1 configured as follows:
+
+	- VPG webApp1 will self-replicate to its source cluster.
+	- VPG webApp1 Will use the storage class goldSC.
+	- VPG webApp1's SLA is 12 hours of history.
+	- VPG webApp1's journal can expand up to 160 GB to meet the history requirement..
 
 <span class="Note">Note:	It is not mandatory to configure the Journal disk size (JournalDiskSizeInGb) and history (JournalHistoryInHours); they have default values of 2 GB and 8 hours respectively.</span>
         
@@ -158,7 +159,7 @@ kubectl create -f vpg.yaml
 
 #### Viewing VPG Status
 
-To display the VPG status as well as an overview of which entities are protected within the VPG, the VPG’s SLA and it's settings, run the command:
+To display the VPG status as well as an overview of which entities are protected within the VPG, the VPG’s SLA and its settings, run the command:
 
 
 ``` shell
@@ -257,41 +258,54 @@ kubectl zrt commit-restore [vpg-name]
 ``` shell
 kubectl zrt rollback-restore [vpg-name]
 ```
-#### Move Operation
 
-The move operation moves the deployments to the recovery site without preserving the VPGs on the protected site.
+#### Performing Move Operations
 
 There are 3 commands for different move operations:
 
-1. move - Start move live, test before committing
-2. commit-move - Commit move
-3. rollback-move - Roll back the Move test before committing
+1. Move
+2. Commit-move
+3. Rollback-move
 
-The following syntax is used for these move commands:
 
-``` shell
+##### Move
+
+The move command starts and tests a live move. 
+
+```
 kubectl zrt move [vpg-name] [checkpoint ID]
 ```
 
-If a checkpoint is not tagged use the value 'latest'
+>Where [checkpoint ID] can be either an ID, or enter "latest" for the latest checkpoint.
 
-After the command is run, the VPG state will be updated to StartingMove.
+>	After the command is run, the VPG state will be updated to StartingMove.
 
-When the move operation is completed, the VPG status will be updated to MoveBeforeCommit.
+When the move operation is complete, the VPG status will be updated to MoveBeforeCommit.
 
-``` shell
+##### Rollback-Move
+
+The commit-move command rolls back the move test before committing.
+
+```
 kubectl zrt rollback-move [vpg-name]
 ```
-The VPG in the protected site will go back into protecting state without being committed to the recovery site.
 
-``` shell
+##### Commit-Move
+
+The commit-move command is used to commit a move test.
+
+>	The VPG in the protected site will go back into protecting state without being committed to the recovery site.
+
+```
 kubectl zrt commit-move [vpg-name]
 ```
-The VPG status will be changed to CommittingMove.
 
-When the operation is completed, the VPG will be committed and the deployment will now exist on the recovery site. 
+>	The VPG status will be changed to CommittingMove.
 
-The VPG will be removed from the environment.
+>	When the operation has completed, the VPG will be committed and the deployment will now exist on the recovery site.
+
+>	The VPG will be removed from the environment.
+
 
 #### Extended Journal Copy in Kubernetes Environments
 
