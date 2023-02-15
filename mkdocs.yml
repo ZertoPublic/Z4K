@@ -15,7 +15,7 @@ nav:
   - Supported Platforms: SupportedPlatforms.md
   - Deploying Z4K: Z4KDeploymentGuide.md
   - Taints and Tolerations: TaintsandTolerations.md
-- Z4K Administration: Z4KAdministrationGuide.md
+- Z4K Administration: AdministrationGuide.md
 - Z4K REST API: Z4KRESTAPI.md
 - Z4K REST API:
   - Accessing the Z4K REST API: AccessingZ4KRESTAPI.md
