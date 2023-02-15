@@ -224,9 +224,9 @@ The move operations move the deployments to the recovery site without preserving
 
 There are 3 commands for different move operations:
 
-1. Move - Start move live, test before committing
-2. Commit-move - Commit move
-3. Rollback-move - Roll back the Move test before committing
+1. Move
+2. Commit-move
+3. Rollback-move
 
 ##### Move
 
