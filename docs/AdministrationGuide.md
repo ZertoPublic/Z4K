@@ -11,7 +11,7 @@ Then, you can perform one of the following:
 
 -	Perform a Failover
 -	Restore a Single VPG
--	Execute a Move operation
+-	Perform Move operations
 -	Configure an Extended Journal Copy repository in Kubernetes environments
 	Zerto for Kubernetes supports backing up Kubernetes workloads and their data to an Extended Journal Copy and restoring them from the Extended Journal Copy to the original site or to a different site or namespace.
 -	Protect Ingress Controller Resources
@@ -228,9 +228,13 @@ There are 3 commands for different move operations:
 2. Commit-move
 3. Rollback-move
 
-##### Move
+##### Performing Move Operations
 
 The move command starts the live move and tests before committing the move.
+
+##### Move
+
+The move command starts and tests a live move. 
 
 ```
 kubectl zrt move [vpg-name] [checkpoint ID]
