@@ -1,6 +1,9 @@
 # Taints and Tolerations
 	
-Z4K supports taints and tolerations configuration for nodes and pods.
+- Z4K supports taints and tolerations configuration for nodes and pods.
+- Taints and tolerations are not replicated.
+- When Taints and Tolerations are in use they must be predefined in pods and nodes for VPG protection **before** recovery oeprations take place.	
+- Nodes with a taint that does not allow VRA installation ("NoSchedule" effect) cannot have protected deployments.
 
 You can add a node annotation called “zertorole” to force VRA installation behavior.
 
@@ -42,7 +45,5 @@ To remove a zertorole annotation use a minus (-) sign at the end of the annotati
 kubectl annotate node <node-name> zertorole-
 ```
 
--	Taints and tolerations are not replicated.
--	When Taints and Tolerations are in use they must be predefined in pods and nodes for VPG protection **before** recovery oeprations take place.	
--	Nodes with a taint that does not allow VRA installation ("NoSchedule" effect) cannot have protected deployments.
--	For more info, see [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
+
+For more information on Kubernetes taints and tolerations, see [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
