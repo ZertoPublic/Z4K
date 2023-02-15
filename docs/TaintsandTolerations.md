@@ -42,6 +42,7 @@ To remove a zertorole annotation use a minus (-) sign at the end of the annotati
 kubectl annotate node <node-name> zertorole-
 ```
 
+**Notes:**
 - Taints and tolerations are not replicated.
 - When Taints and Tolerations are in use they must be predefined in pods and nodes for VPG protection **before** recovery oeprations take place.	
 - Nodes with a taint that does not allow VRA installation ("NoSchedule" effect) cannot have protected deployments.
