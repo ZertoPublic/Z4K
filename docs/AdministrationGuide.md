@@ -228,9 +228,6 @@ There are 3 commands for different move operations:
 2. Commit-move
 3. Rollback-move
 
-##### Performing Move Operations
-
-The move command starts the live move and tests before committing the move.
 
 ##### Move
 
@@ -239,6 +236,7 @@ The move command starts and tests a live move.
 ```
 kubectl zrt move [vpg-name] [checkpoint ID]
 ```
+
 >Where [checkpoint ID] can be either an ID, or enter "latest" for the latest checkpoint.
 
 >	After the command is run, the VPG state will be updated to StartingMove.
@@ -247,7 +245,7 @@ When the move operation is complete, the VPG status will be updated to MoveBefor
 
 ##### Rollback-Move
 
-The commit-move command rolls back the Move test before committing.
+The commit-move command rolls back the move test before committing.
 
 ```
 kubectl zrt rollback-move [vpg-name]
@@ -255,7 +253,7 @@ kubectl zrt rollback-move [vpg-name]
 
 ##### Commit-Move
 
-The commit-move command commits the move.
+The commit-move command is used to commit a move test.
 
 >	The VPG in the protected site will go back into protecting state without being committed to the recovery site.
 
