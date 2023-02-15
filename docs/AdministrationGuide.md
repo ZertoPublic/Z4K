@@ -410,56 +410,6 @@ You can also restore from an Extended Journal Copy repository that has VPGs back
 When the restore task completes successfully, Kubernetes entities with the prefix "res-" are created in the specified site and namespace.
 
 
-#### Log Retention
-
-Zerto for Kubernetes uses Apache log4net™ logging framework to generate, collect and output log statements.
-
-###### Log Volume Size
-- A ZKM service can have up to 200 log files.
-- A ZKM-PX service can have up to 50 log files.
-
-###### Log Rotation
-- Log files are automatically archived when the log file size exceeds 10MB. 
-- Archived log files can be deleted manually.
-
-###### Required Storage
-- A log file is 0.6MB after automatic archiving.
-
-Therefore:
-- A ZKM service needs 200 x 0.6MB = ~120MB
-- A ZKM-PX service needs 50 x 0.5MB = ~30MB
-
-###### Log Location
-Logs are stored locally on zkm/zkm-px pods /logs. After ad hoc log collection logs are uploaded to Amazon and stored in S3 bucket.
-
-##### Ad Hoc Log Collection
-
-Use one of the following methods to generate logs.
-
-###### Ad Hoc Log Collection Method 1
-Run the following command, which runs a script on Zerto Kubernetes Manager Proxy (ZKM-PX) in the background:
-
-```
-kubectl-zrt collect-logs <case/bug number>
-```
-
-###### Ad Hoc Log Collection Method 2
-
--	Connect to the pod using the command: 
-
-```
-kubectl exec
-```
-  
--	Run one of the following scripts: 
-
-```
-/scripts/collect_logs_lt.bash
-```
-*-OR-*
-```
-/scripts/collect_logs_ng.bash
-```
 
 #### Protecting Ingress Controller Resources
 
@@ -490,7 +440,7 @@ spec:
 ```
 
 	
-*-OR-*
+-OR-
 
 -	Configure protection using an existing deployment by running the command:
 ```
@@ -518,41 +468,3 @@ $ kubectl get vpg -n <namespace>
   NAME         STATE      SYNC   SOURCE TARGET STATEFULSETS DEPLOYMENTS SERVICES CONFIGMAPS SECRETS INGRESSES NUMCP RPO       JOURNALHISTORY JOURNALSIZEMB
   website-vpg1 Protecting        node-1 node-1 0            1           0        0          0       1         10    6 seconds 49 seconds     2
 ```
-	
-#### Taints and Tolerations
-	
-Z4K supports taints and tolerations configuration for nodes and pods.
-
-<span class="Note">Note: Nodes that are tainted with a taint that does not allow VRA installation cannot have it's deployments protected.</span>
-	
--	Taints and tolerations are not replicated.
--	When Taints and Tolerations are in use they need to be predefined in pods and nodes for VPG protection, before recovery oeprations take place.
--	For more info on Taints and Tolerations see [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
-
-#### Tweaks
-
-Z4K allows users to view and customize tweaks for Z4K components using the following commands:
-
-To view existing tweaks and values:
-```
-$ kubectl zrt get-potential-tweaks
-NAME                                                  VALUE               DEFAULT             DESCRIPTION
-SyncMonitorIntervalInSeconds                          300                 300
-EnableZertoAnalyticsTransmitter                       True                True                Enable Zerto Analytics Transmitter
-DisableUndoLog                                        False               False
-ScratchSizeInGb                                       2                   2
-```
-To set a new value for an existing tweak:
-```
-$ kubectl zrt set-tweak ScratchSizeInGb 4
-ztweak.z4k.zerto.com/ScratchSizeInGb created
-```
-	
-After the change in value you can review the tweaks value to confirm the change:
-```
-$ kubectl zrt get-potential-tweaks
-NAME                                                  VALUE               DEFAULT             DESCRIPTION
-ScratchSizeInGb                                       4                   2
-```
-
-
