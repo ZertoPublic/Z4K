@@ -233,10 +233,9 @@ The following syntax is used for these move commands:
 ```
 kubectl zrt move [vpg-name] [checkpoint ID]
 ```
+>Where [checkpoint ID] can be either an ID, or enter "latest" for the latest checkpoint.
 
-If a checkpoint is not tagged, use the value 'latest'
-
-After the command is run, the VPG state will be updated to StartingMove.
+>	After the command is run, the VPG state will be updated to StartingMove.
 
 When the move operation is complete, the VPG status will be updated to MoveBeforeCommit.
 
@@ -244,17 +243,17 @@ When the move operation is complete, the VPG status will be updated to MoveBefor
 kubectl zrt rollback-move [vpg-name]
 ```
 
-The VPG in the protected site will go back into protecting state without being committed to the recovery site.
+>	The VPG in the protected site will go back into protecting state without being committed to the recovery site.
 
 ```
 kubectl zrt commit-move [vpg-name]
 ```
 
-The VPG status will be changed to CommittingMove.
+>	The VPG status will be changed to CommittingMove.
 
-When the operation has completed, the VPG will be committed and the deployment will now exist on the recovery site.
+>	When the operation has completed, the VPG will be committed and the deployment will now exist on the recovery site.
 
-The VPG will be removed from the environment.
+>	The VPG will be removed from the environment.
 
 
 #### Extended Journal Copy Repositories in Kubernetes Environments
@@ -349,14 +348,15 @@ spec:
 
 ##### Manually Trigger a Backup 
 	
-You must manually trigger a backup to create a retention set.
+You must manually trigger a backup to create an Extended Journal Copy.
 
 
 -	To manually trigger a backup, run the command:
 
 ```
-kubectl zrt ltr-backup [vpg-name] [checkpoint-id]
+kubectl zrt ltr-backup [vpg-name] [checkpoint]
 ```
+>Where [checkpoint ID] can be either an ID, or enter "latest" for the latest checkpoint.
 
 >	A backup task is triggered. When the task completes successfully, a retention set is created.
 
