@@ -11,7 +11,7 @@ Then, you can perform one of the following:
 
 -	Perform a Failover
 -	Restore a Single VPG
--	Configure an Extended Journal Copy in Kubernetes environments
+-	Configure an Extended Journal Copy repository in Kubernetes environments
 	Zerto for Kubernetes supports backing up Kubernetes workloads and their data to an Extended Journal Copy and restoring them from the Extended Journal Copy to the original site or to a different site or namespace.
 -	Protect Ingress Controller Resources
 	Zerto for Kubernetes supports replicating Ingress Controller Resources so networking configuration can be replicated and easily deployed on the recovery site.
@@ -221,11 +221,11 @@ kubectl zrt rollback-restore [vpg-name]
 ```
 
 
-#### Long Term Retention in Kubernetes Environments
+#### Extended Journal Copy Repositories in Kubernetes Environments
 
 Zerto for Kubernetes supports backing up Kubernetes workloads and their data to an Extended Journal Copy and restoring them from the an Extended Journal Copy to the original site, or to a different site.
 
-##### Supported Repository Types
+##### Supported Extended Journal Copy Repository Types
 
 Zerto for Kubernetes supports two an Extended Journal Copy repository types:
 
@@ -243,7 +243,7 @@ To configure an Extended Journal Copy for your Kubernetes environment, use the f
 
 ##### Backing up a VPG
 
-To backup a VPG to a target Extended Journal Copy repository, create the VPG and update the VPG yaml file (vpg.yaml) with the an Extended Journal Copy repository type.
+To backup a VPG to a target Extended Journal Copy repository, create the VPG and update the VPG yaml file (vpg.yaml) with the the Extended Journal Copy repository type.
 
 Use the following examples as guidelines.
   
@@ -405,7 +405,7 @@ Where:
 | namespace | namespace in which you want the restored Kubernetes entities to be created. |
 
 These parameters give you flexibility in restoring a VPG to the original site, or to a different site or namespace.
-You can also restore from a repository that has VPGs backupsets from a different site and restore them to a new site using the parameter backupset-id.
+You can also restore from an Extended Journal Copy repository that has VPGs backup sets from a different site and restore them to a new site using the parameter backupset-id.
 	
 When the restore task completes successfully, Kubernetes entities with the prefix "res-" are created in the specified site and namespace.
 
