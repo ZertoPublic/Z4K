@@ -1,6 +1,8 @@
 # Taints and Tolerations
 	
-Z4K supports taints and tolerations configuration for nodes and pods. Use the node annotation “zertorole” to set VRA installation behavior.
+Z4K supports taints and tolerations configuration for nodes and pods. 
+
+Use the node annotation “zertorole” to set VRA installation behavior.
 
 #### Adding Zertorole Annotation
 
