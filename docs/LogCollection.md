@@ -121,21 +121,6 @@ kubect1 zrt collect-logs-locally "/temp/myNewBundle.zip" 2023-01-22 06:00:00" "2
 
 Access the zip file in the local directory, and unzip to review the log files.
 
-#### Enabling Automatic Log Collection
-
-Automatic log collection, autologging, may be helpful when a customer previously experienced an issue and the archived log files no longer contain the log file because the log cycle already deleted it.
-
-To enable autologging:
-- Set tweak **AutoLogCaseNumber** with the customer bug or case number.
-- Set tweak **AutoLogForNDays** with the number of days to run autologging. The default is 15 days. 
-
-By default autologging is performed at noon every day. You can change the time value during the helm install/upgrade procedure by providing the "autoLoggingTimeout" cron value:
-```
-autoLoggingTimeout: "0 0 0 * * *" 
-```
-
-Use [Cron Descryptor](https://www.freeformatter.com/cron-expression-generator-quartz.html) to define cron values.
-
 #### Collecting Logs using a Script
 
 Follow these steps to run a script on the ZKM-PX in the background to collect logs to S3:
