@@ -282,7 +282,7 @@ kubectl zrt move [vpg-name] [checkpoint ID]
 >Where:
 >[checkpoint ID] can be either an ID, or enter "latest" for the latest checkpoint.
 
->	After the command is run, the VPG state will be updated to StartingMove.
+After the command is run, the VPG state will be updated to StartingMove.
 
 When the move operation is complete, the VPG status will be updated to MoveBeforeCommit.
 
@@ -294,21 +294,19 @@ The commit-move command rolls back the move test before committing.
 kubectl zrt rollback-move [vpg-name]
 ```
 
+The VPG in the protected site will go back into protecting state without being committed to the recovery site.
+
 ##### Commit-Move
 
 The commit-move command is used to commit a move test.
-
->	The VPG in the protected site will go back into protecting state without being committed to the recovery site.
 
 ```
 kubectl zrt commit-move [vpg-name]
 ```
 
->	The VPG status will be changed to CommittingMove.
-
->	When the operation has completed, the VPG will be committed and the deployment will now exist on the recovery site.
-
->	The VPG will be removed from the environment.
+- The VPG status will be changed to CommittingMove.
+- When the operation has completed, the VPG will be committed and the deployment will now exist on the recovery site.
+- The VPG will be removed from the environment.
 
 
 #### Extended Journal Copy in Kubernetes Environments
@@ -322,12 +320,12 @@ Z4K supports two types of Extended Journal Copy storage:
 - AWS S3
 - Azure Blob Storage
 	
-To configure Extended Journal Copy for your Kubernetes environment, use the following procedures:
+To configure an Extended Journal Copy for your Kubernetes environment, use the following procedures:
 
-1.	Back up the VPG
-2.	Manually trigger a Backup
-3.	Schedule Extended Journal Copy Backups
-4.	Restore the VPG from an Extended Journal Copy
+1.	Back up the VPG.
+2.	Manually trigger a Backup.
+3.	Schedule Extended Journal Copy Backups.
+4.	Restore the VPG from an Extended Journal Copy.
 
 
 ##### Backing Up a VPG to a Target Extended Journal Copy
