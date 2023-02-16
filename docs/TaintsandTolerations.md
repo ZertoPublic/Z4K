@@ -8,15 +8,15 @@ Use the node annotation “zertorole” to set VRA installation behavior.
 
 -	To force VRA installation, add the following annotation on the current node:
 
-```
-kubectl annotate node <node-name> zertorole=worker
-```
+	```
+	kubectl annotate node <node-name> zertorole=worker
+	```
 	
 -	To skip VRA installation, add the following annotation on the current node:
 	
-```
-kubectl annotate node <node-name> zertorole=master
-```
+	```
+	kubectl annotate node <node-name> zertorole=master
+	```
 
 ####  Updating Zertorole Annotation
 
@@ -24,15 +24,15 @@ Use --overwrite to update an annotation that already exists.
 
 -	To update the annotation to force VRA installation, on the current node run the command:
 
-```
-kubectl annotate node <node-name> --overwrite zertorole=worker
-```
+	```
+	kubectl annotate node <node-name> --overwrite zertorole=worker
+	```
 	
 -	To update the annotation to skip VRA installation, on the current node run the command:
 	
-```
-kubectl annotate node <node-name> --overwrite zertorole=master
-```
+	```
+	kubectl annotate node <node-name> --overwrite zertorole=master
+	```
 
 #### Removing Zertorole Annotation
 
