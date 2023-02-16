@@ -16,37 +16,42 @@ Then, you can perform one of the following:
 -	Restore a Single VPG
 -	Perform a Move operation
 -	Configure Extended Journal Copy in Kubernetes Environments
-	>	Z4K supports backing up Kubernetes workloads and their data to an Extended Journal Copy and restoring them from the Extended Journal Copy to the original site, or to a different site/namespace.
+	Z4K supports backing up Kubernetes workloads and their data to an Extended Journal Copy and restoring them from the Extended Journal Copy to the original site, or to a different site/namespace.
 -	Protect Ingress Controller Resources
-	>	Z4K supports replicating Ingress Controller Resources so networking configuration can be replicated and easily deployed on the recovery site.
+	Z4K supports replicating Ingress Controller Resources so networking configuration can be replicated and easily deployed on the recovery site.
 
 #### Creating a VPG
 
 
 1. Create a .yaml file to represent a VPG.
-	The following example shows VPG webApp1 configured as follows:
+	
+	The following example shows the configuration for VPG webApp1.
+	
+	``` yaml
+	--- 
+	apiVersion: z4k.zerto.com/v1
+	kind: vpg
+	spec: 
+	  JournalDiskSizeInGb: 160
+	  JournalHistoryInHours: 12
+	  Name: “webApp1”
+	  RecoveryStorageClass: GoldSC
+	  SourceSite: 
+	    Id: prod_site
+	  TargetSite: 
+	    Id: dr_site
+	```
+	
+	VPG webApp1 is configured to:
 
-	- VPG webApp1 will self-replicate to its source cluster.
-	- VPG webApp1 Will use the storage class goldSC.
-	- VPG webApp1's SLA is 12 hours of history.
-	- VPG webApp1's journal can expand up to 160 GB to meet the history requirement..
+	- Self-replicate to its source cluster.
+	- Use the storage class goldSC.
+	- Have an SLA with 12 hours of history.
+	- Expand its journal up to 160 GB to meet the history requirement.
 
 <span class="Note">Note:	It is not mandatory to configure the Journal disk size (JournalDiskSizeInGb) and history (JournalHistoryInHours); they have default values of 2 GB and 8 hours respectively.</span>
         
-``` yaml
---- 
-apiVersion: z4k.zerto.com/v1
-kind: vpg
-spec: 
-  JournalDiskSizeInGb: 160
-  JournalHistoryInHours: 12
-  Name: “webApp1”
-  RecoveryStorageClass: GoldSC
-  SourceSite: 
-    Id: prod_site
-  TargetSite: 
-    Id: dr_site
-```
+
 
 2. Annotate Kubernetes entities to include them in the VPG.
 	-	A VPG can contain a selection of entities like stateful sets, deployments, services, secrets and configmaps.
@@ -98,8 +103,10 @@ spec:
 
 #### Updating Existing VPGs
 
-In case you need to update an existing VPG you need to create a yaml file as you did it for create VPG,
-with additional section: "metadata". The "metadata" section should contain the VPG name and the namespace id:
+If you need to update an existing VPG you must create a yaml file as you did to create the VPG,
+with an additional section called "metadata" that contains the VPG name and the namespace id.
+
+For example:
 
 ``` yaml
 --- 
@@ -114,8 +121,8 @@ spec:
   TargetSite: 
     Id: dr_site
 metadata:  
-  name: <VPG name>
-  namespace: <z4k namespace>
+  name: webApp1
+  namespace: zerto
 ```
 
 Update kubernetes command:
