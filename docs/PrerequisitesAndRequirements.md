@@ -1,7 +1,6 @@
 # Communication Requirements
 
 #### Prerequisites
-- Supported Kubernetes version is 1.22.
 - There is at least one worker node (non control-plain node) in the Kubernetes cluster.
 - All Zerto for Kubernetes components communication occurs using HTTPS, over port 443.
 - Helm Package Manager, minimum version 3.
