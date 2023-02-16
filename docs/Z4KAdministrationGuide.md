@@ -208,7 +208,7 @@ Where:
 kubectl zrt failover-test [vpg-name] [checkpoint-id]
 ```
 
-Where:
+Where:</br>
 [checkpoint ID] can be either an ID, or enter "latest" for the latest checkpoint.
 
 -	To stop the test run, run the command:
@@ -225,7 +225,7 @@ kubectl zrt stop-test [vpg-name]
 kubectl zrt failover-live [vpg-name] [checkpoint-id]
 ```
 
-Where:
+Where:</br>
 [checkpoint-id] can be either an ID, or enter "latest" for the latest checkpoint.
 
 -	To commit the failover, run the command:
@@ -252,7 +252,7 @@ On a single cluster deployment, only the restore and failover test operations ar
 kubectl zrt restore [vpg-name] [checkpoint-id]
 ```
 	
-Where:
+Where:</br>
 [checkpoint-id] can be either an ID, or enter latest, for the latest checkpoint.
 
 -	To commit the restore, run the command:
@@ -286,7 +286,7 @@ The move command starts and tests a live move.
 kubectl zrt move [vpg-name] [checkpoint ID]
 ```
 
-Where:
+Where:</br>
 [checkpoint ID] can be either an ID, or enter "latest" for the latest checkpoint.
 
 - After the command is run, the VPG state will be updated to StartingMove.
