@@ -1,6 +1,7 @@
 # Z4K Supported Platforms
 
 Z4K can be deployed on multiple Kubernetes platforms.
+The minimm supported Kubernetes version is 1.22.
 
 
 | Platform                             | Version  |  CSI| Supported Kubernetes Versions |
