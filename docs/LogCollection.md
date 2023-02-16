@@ -136,10 +136,10 @@ Follow these steps to run a script on the ZKM-PX in the background to collect lo
     ```
     /scripts/collect_logs_lt.bash
     ```
-
-  -OR-
-
-   ```
-   /scripts/collect_logs_ng.bash
-   ```
+    
+    -OR-
+    
+    ```
+    /scripts/collect_logs_ng.bash
+    ```
 
