@@ -1,7 +1,5 @@
 # Prerequisites and Requirements
 
-#### Communication Requirements
-- All Zerto for Kubernetes components communication occurs using HTTPS, over port 443.
 
 #### Prerequisites
 
@@ -11,6 +9,7 @@
 - A storage class must be specified and set as the default prior to Z4K installation.
 - Cluster security policy should allow creation of privileged pods.
 
+
 #### Storage Requirements
 
 -	Zerto for Kubernetes containerized applications also consume storage:
@@ -19,6 +18,7 @@
   -	Keycloak Database: 2 GB
   -	A storageClass with VolumeBindingMode of type "WaitForFirstConsumer" is needed for Zerto to work with persistent volumes.
   -	The environments storage should support volume mode using Block ("VolumeMode: Block").
+
 
 #### Recovery Site Volume Bind Requirements
 
