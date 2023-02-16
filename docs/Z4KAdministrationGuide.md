@@ -104,9 +104,9 @@ spec:
 #### Updating Existing VPGs
 
 If you need to update an existing VPG you must create a yaml file as you did to create the VPG,
-with an additional section called "metadata" that contains the VPG name and the namespace id.
+with an additional section called "metadata" that contains the VPG name and the namespace id, and run the update command.
 
-For example:
+Example yaml:
 
 ``` yaml
 --- 
@@ -125,7 +125,7 @@ metadata:
   namespace: zerto
 ```
 
-Update kubernetes command:
+Run the update kubernetes command:
 
 ``` shell
 kubectl apply -f vpg.yaml
