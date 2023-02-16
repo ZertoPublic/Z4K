@@ -1,5 +1,7 @@
 2.x Version Changes
 ===================
+
+* 2.4.57 Validate initial access token
 * 2.4.56 Improve CSI tapping mechanism to be CSI agnostic.
 * 2.4.55 In case VRA name exceeds 63 characters limit, use hash of the node name instead
 * 2.4.54 Fixed error message text when log collection start time or end time are later than current time.
