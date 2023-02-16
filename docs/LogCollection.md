@@ -126,20 +126,20 @@ Access the zip file in the local directory, and unzip to review the log files.
 Follow these steps to run a script on the ZKM-PX in the background to collect logs to S3:
 
 -	Connect to the pod using the command:
-
-  ```
-  kubect1 exec
-  ```
+  
+    ```
+    kubect1 exec
+   ```
 
 -	Run one of the following scripts:
 
-  ```
-  /scripts/collect_logs_lt.bash
-  ```
+    ```
+    /scripts/collect_logs_lt.bash
+    ```
 
   -OR-
 
-  ```
-  /scripts/collect_logs_ng.bash
-  ```
+   ```
+   /scripts/collect_logs_ng.bash
+   ```
 
