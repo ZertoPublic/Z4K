@@ -129,11 +129,9 @@ Follow these steps to run a script on the ZKM-PX in the background to collect lo
   
     ```
     kubect1 exec
-   ```
-
+    ```
 
 -	Run one of the following scripts:
-
 
     ```
     /scripts/collect_logs_lt.bash
