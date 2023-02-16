@@ -145,24 +145,24 @@ To protect the same entity multiple times:
 
 - Add all of the VPG names in the annotation field with a ';' delimiter sign:
 
-``` yaml
---- 
-kind: Deployment
-metadata: 
-  annotations: 
-    vpg: "webApp1Self; webApp1Site2; webApp1Site3 /<VPG names as configured in VPG yaml files>"
-  labels: 
-    app: debian
-  name: debian
-    * * *
-```   
+	``` yaml
+	--- 
+	kind: Deployment
+	metadata: 
+	  annotations: 
+	    vpg: "webApp1Self; webApp1Site2; webApp1Site3 /<VPG names as configured in VPG yaml files>"
+	  labels: 
+	    app: debian
+	  name: debian
+	    * * *
+	```   
 
 - Create the VPG by running the command:
 
 
-``` shell
-kubectl create -f vpg.yaml
-```
+	``` shell
+	kubectl create -f vpg.yaml
+	```
 
 #### Viewing VPG Status
 
@@ -184,7 +184,7 @@ kubectl zrt tag [vpg-name] [tag-name]
 
 ##### Displaying Available Checkpoints
 
--	To display a list of all available checkpoints for a VPG, including properties like the checkpoint ID, run the command:
+To display a list of all available checkpoints for a VPG, including properties like the checkpoint ID, run the command:
 
 
 ``` shell
@@ -204,43 +204,43 @@ Where:
 
 -	To test failover, run the command:
 
-``` shell
-kubectl zrt failover-test [vpg-name] [checkpoint-id]
-```
+	``` shell
+	kubectl zrt failover-test [vpg-name] [checkpoint-id]
+	```
 
-Where:</br>
-[checkpoint ID] can be either an ID, or enter "latest" for the latest checkpoint.
+	Where:</br>
+	[checkpoint ID] can be either an ID, or enter "latest" for the latest checkpoint.
 
 -	To stop the test run, run the command:
 
-``` shell
-kubectl zrt stop-test [vpg-name]
-```
+	``` shell
+	kubectl zrt stop-test [vpg-name]
+	```
 
 #### Performing a Failover
 	
 -	To failover, run the command:
 
-``` shell
-kubectl zrt failover-live [vpg-name] [checkpoint-id]
-```
+	``` shell
+	kubectl zrt failover-live [vpg-name] [checkpoint-id]
+	```
 
-Where:</br>
-[checkpoint-id] can be either an ID, or enter "latest" for the latest checkpoint.
+	Where:</br>
+	[checkpoint-id] can be either an ID, or enter "latest" for the latest checkpoint.
 
 -	To commit the failover, run the command:
 
-``` shell
-kubectl zrt commit [vpg-name]
-```
+	``` shell
+	kubectl zrt commit [vpg-name]
+	```
 
 <span class="Note">Note: Upon commit operation, the VPG is deleted.</span>
 	
 -	To rollback the failover, run the command:
 
-``` shell
-kubectl zrt rollback [vpg-name]
-```
+	``` shell
+	kubectl zrt rollback [vpg-name]
+	```
 	
 #### Restoring a Single VPG
 
@@ -248,26 +248,26 @@ On a single cluster deployment, only the restore and failover test operations ar
 
 -	To restore a single VPG, run the command:
 
-``` shell
-kubectl zrt restore [vpg-name] [checkpoint-id]
-```
+	``` shell
+	kubectl zrt restore [vpg-name] [checkpoint-id]
+	```
 	
-Where:</br>
-[checkpoint-id] can be either an ID, or enter latest, for the latest checkpoint.
+	Where:</br>
+	[checkpoint-id] can be either an ID, or enter latest, for the latest checkpoint.
 
 -	To commit the restore, run the command:
 
 
-``` shell
-kubectl zrt commit-restore [vpg-name]
-```
+	``` shell
+	kubectl zrt commit-restore [vpg-name]
+	```
 
 -	To rollback the restore, run the command:
 
 
-``` shell
-kubectl zrt rollback-restore [vpg-name]
-```
+	``` shell
+	kubectl zrt rollback-restore [vpg-name]
+	```
 
 #### Performing Move Operations
 
@@ -418,18 +418,18 @@ You must manually trigger a backup to create an Extended Journal Copy.
 
 -	To manually trigger a backup, run the command:
 
-``` shell
-kubectl zrt ltr-backup [vpg-name] [checkpoint-id]
-```
+	``` shell
+	kubectl zrt ltr-backup [vpg-name] [checkpoint-id]
+	```
 
->	A backup task is triggered. When the task completes successfully, an Extended Journal Copy is created.
+	A backup task is triggered. When the task completes successfully, an Extended Journal Copy is created.
 
 
 -	To access the generated Extended Journal Copy ID (backupset ID), run the command:
 
-``` shell
-kubectl get backupset
-```
+	``` shell
+	kubectl get backupset
+	```
 
 ##### Scheduling Extended Journal Copy Backups
 
@@ -523,44 +523,44 @@ There are 2 options to configure Ingress Controller Resources with a deployment 
 	
 -	Configure protection when creating a new deployment, as illustrated in the YAML example below:
 
-``` yaml
---- 
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata: 
-  annotations: 
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    vpg: website-vpg1
-  name: minimal-ingress
-spec: 
-  ingressClassName: nginx-example
-  rules: 
-    - 
-      http: ~
-      paths: 
-        - 
-          backend: 
-            name: test
-            port: 
-              number: 80
-            service: ~
-          path: /testpath
-          pathType: Prefix
+	``` yaml
+	--- 
+	apiVersion: networking.k8s.io/v1
+	kind: Ingress
+	metadata: 
+	  annotations: 
+	    nginx.ingress.kubernetes.io/rewrite-target: /
+	    vpg: website-vpg1
+	  name: minimal-ingress
+	spec: 
+	  ingressClassName: nginx-example
+ 	 rules: 
+ 	   - 
+ 	     http: ~
+ 	     paths: 
+ 	       - 
+ 	         backend: 
+ 	           name: test
+ 	           port: 
+ 	             number: 80
+ 	           service: ~
+ 	         path: /testpath
+ 	         pathType: Prefix
 
-```
+	```
 
 	
 -OR-
 
 -	Configure protection using an existing deployment by running the command:
-```
-$ kubectl get pod ingress-nginx-2-controller-6dcb748f9-7z6bz -n ingress-nginx-2 -o json | jq .metadata.annotations
-{
-  "kubernetes.io/psp": "eks.privileged"
-}
-$ kubectl annotate pod <ingress_pod_id> -n <namespace> vpg=<vpg_id>
-pod/ingress-nginx-2-controller-6dcb748f9-7z6bz annotated
-```	
+	```
+	$ kubectl get pod ingress-nginx-2-controller-6dcb748f9-7z6bz -n ingress-nginx-2 -o json | jq .metadata.annotations
+	{
+  	"kubernetes.io/psp": "eks.privileged"
+	}
+	$ kubectl annotate pod <ingress_pod_id> -n <namespace> vpg=<vpg_id>
+	pod/ingress-nginx-2-controller-6dcb748f9-7z6bz annotated
+	```	
 
 ##### Displaying Ingress Controller Resources
 
