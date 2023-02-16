@@ -13,13 +13,7 @@ Perform the procedures in the following order:
     - Install Z4K on Openshift
     - Install Z4K on OpenShift on Additional cluster
 5.	Download the Zerto Operations Help Utility
-6.	Update Z4K with a new Zerto License
-7.  Upgrade Zerto for Kubernetes
-    - Upgrade ZKM site
-    - Upgrade Zerto Kubernetes Manager Proxy
-8.  Uninstall Zerto for Kubernetes
-    - Uninstall Zerto Kubernetes Manager Proxy
-    - Uninstall ZKM site    
+6.	(When required) Update Z4K with a new Zerto License
 
 #### Prepare Helm
 
@@ -360,82 +354,4 @@ To verify the new license has been successfully updated, run the following comma
 
 ```
 kubectl describe deployments.apps <deply-zkm-name> -n <zerto-namespace>
-```
-
-#### Upgrading Z4K
-
-To upgrade the Z4K solution you must first upgrade the Zerto Kubernetes Management (ZKM) site and then upgrade the Zerto Kubernetes Manager Proxy (ZKM-PX) site.
-
-###### Upgrade ZKM Site
-    
-Use the following commands to get the release name and then upgrade.
-
-```
-➜**>helm list -n <namespace>**
-NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
-<release name>  <namespace>     1               2022-09-07 09:16:04.896907435 +0300 IDT deployed        zkm-px-2.4.18+538       2.4.18+538
-
-➜**>helm upgrade <release-name> <helm repository> -n <namespace>**
-
-At the end you will recieve the following message:
-Release "<release name>" has been upgraded. Happy Helming!
-NAME: <release name>
-LAST DEPLOYED: Wed Sep  7 09:26:31 2022
-NAMESPACE: <namespace>
-STATUS: deployed
-REVISION: <revision number>
-NOTES:
-See the installed app by running these command:
-kubectl get deployments -n <namespace>
-```
-###### Upgrade ZKM-PX
-
-Upgrade the ZKM-PX site **after** upgrading the ZKM site using the same commands to get the release name and then upgrade.
-
-```
-➜**>helm list -n <namespace>**
-NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
-<release name>  <namespace>     1               2022-09-07 09:16:04.896907435 +0300 IDT deployed        zkm-px-2.4.18+538       2.4.18+538
-
-➜**>helm upgrade <release-name> <helm repository> -n <namespace>**
-
-At the end you will recieve the following message:
-Release "<release name>" has been upgraded. Happy Helming!
-NAME: <release name>
-LAST DEPLOYED: Wed Sep  7 09:26:31 2022
-NAMESPACE: <namespace>
-STATUS: deployed
-REVISION: <revision number>
-NOTES:
-See the installed app by running these command:
-kubectl get deployments -n <namespace>
-```
-
-#### Uninstalling Z4K
-
-To uninstall Z4K you must first uninstall the ZKM-PX site and then uninstall the ZKM site:
-
-###### Uninstall ZKM-PX
-    
-Get the release name:
-```
-➜>helm list -n <namespace>
-NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
-<release name>  <namespace>     1               2022-09-07 09:16:04.896907435 +0300 IDT deployed        zkm-px-2.4.18+538       2.4.18+538
-
-
-➜>helm uninstall <release name> -n <namespace>
-```
-
-###### Uninstall ZKM Site
-
-1. Verify that you're on the ZKM cluster.
-2. Use the following commands to get the release name and when use it to uninstall:
-
-```   
-➜**>helm list -n <namespace>**
-NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART           APP VERSION
-<release name>  <namespace>     2               2022-09-06 17:15:35.959682086 +0300 IDT deployed        z4k-2.4.18+538  2.4.17+478
-
-➜**>helm uninstall <release name> -n <namespace>**
 ```
