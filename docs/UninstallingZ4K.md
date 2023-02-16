@@ -1,8 +1,8 @@
 # Uninstalling Z4K
 
-To uninstall Z4K you must first uninstall the ZKM-PX site and then uninstall the ZKM site:
+To uninstall Z4K you must first uninstall the Zerto Kubernetes Manager Proxy (ZKM-PX) site and then uninstall the Zerto Kubernetes Management (ZKM) site:
 
-#### Uninstall ZKM-PX
+#### Uninstalling ZKM-PX
     
 Get the release name:
 ```
@@ -14,7 +14,7 @@ NAME            NAMESPACE       REVISION        UPDATED                         
 ➜>helm uninstall <release name> -n <namespace>
 ```
 
-#### Uninstall ZKM Site
+#### Uninstalling ZKM Site
 
 1. Verify that you're on the ZKM cluster.
 2. Use the following commands to get the release name and when use it to uninstall:
