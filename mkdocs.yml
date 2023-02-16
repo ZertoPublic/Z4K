@@ -13,9 +13,10 @@ nav:
 - Z4K Deployment: Z4KDeployment.md
 - Z4K Deployment:
   - Prerequisites and Requirements: PrerequisitesAndRequirements.md
-  - Supported Platforms: SupportedPlatforms.md
   - Deploying Z4K: Z4KDeploymentGuide.md
   - Taints and Tolerations: TaintsandTolerations.md
+  - Upgrading Z4K: UpgradingZ4K.md
+  - Uninstalling Z4K: Uninstalling Z4k.md
 - Z4K Administration: Z4KAdministrationGuide.md
 - Z4K REST API: Z4KRESTAPI.md
 - Z4K REST API:
