@@ -15,9 +15,9 @@ Then, you can perform one of the following:
 -	Perform a Failover
 -	Restore a Single VPG
 -	Perform a Move operation
--	Configure Extended Journal Copy in Kubernetes Environments
+-	Configure Extended Journal Copy in Kubernetes Environments</br>
 	Z4K supports backing up Kubernetes workloads and their data to an Extended Journal Copy and restoring them from the Extended Journal Copy to the original site, or to a different site/namespace.
--	Protect Ingress Controller Resources
+-	Protect Ingress Controller Resources</br>
 	Z4K supports replicating Ingress Controller Resources so networking configuration can be replicated and easily deployed on the recovery site.
 
 #### Creating a VPG
