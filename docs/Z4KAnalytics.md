@@ -14,4 +14,4 @@ Z4K Analytics currently supports the following tabs:
 2. VPGs
 3. Monitoring
 
-For more info about Zerto Analytics see [Zerto Analytics - Overview and Use](https://help.zerto.com/bundle/Zerto.Analytics.HTML/page/Content/Zerto_Analytics/Zerto_Analytics_-_Overview_and_Use.htm)
+For more info about Zerto Analytics see [Zerto Analytics - Overview and Use](https://help.zerto.com/bundle/Zerto.Analytics.HTML/page/Accessing_the_Zerto_Analytics_Portal.htm)
