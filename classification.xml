@@ -17,11 +17,11 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <SupBook>
-   <Path>C:\Zoomin\Install.ZCM.HTML\Values</Path>
+   <Path>\Zoomin\Install.ZCM.HTML\Values</Path>
    <SheetName>Values</SheetName>
   </SupBook>
-  <WindowHeight>7920</WindowHeight>
-  <WindowWidth>21570</WindowWidth>
+  <WindowHeight>12165</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
   <RefModeR1C1/>
@@ -81,14 +81,16 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MAP</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">z4k</Data></Cell>
+    <Cell><Data ss:Type="String">kubernetes</Data></Cell>
+    <Cell><Data ss:Type="String">z4k</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">content-deploy</Data></Cell>
     <Cell><Data ss:Type="String">content-automationapi</Data></Cell>
     <Cell><Data ss:Type="String">content-admin</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">apply-ALL</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">z4k</Data></Cell>
+    <Cell><Data ss:Type="String">kubernetes</Data></Cell>
+    <Cell><Data ss:Type="String">z4k</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">content-deploy</Data></Cell>
     <Cell><Data ss:Type="String">content-automationapi</Data></Cell>
     <Cell><Data ss:Type="String">content-admin</Data></Cell>
@@ -110,11 +112,10 @@
     <VerticalResolution>1200</VerticalResolution>
    </Print>
    <Selected/>
-   <LeftColumnVisible>2</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>24</ActiveRow>
      <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
@@ -128,14 +129,14 @@
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R36C2,R4C3:R36C3,R7C10:R36C10,R2C4:R3C4,R4C12:R36C12,R2C10,R2C11:R36C11,R2C13:R36C18,R2C8:R36C8</Range>
+   <Range>R2C8:R36C8,R7C10:R36C10,R2C4:R3C4,R4C12:R36C12,R2C10,R2C11:R36C11,R2C13:R36C18,R4C2:R36C3</Range>
    <Type>List</Type>
-   <Value>'C:\Zoomin\Install.ZCM.HTML\[Values]Values'!#REF!</Value>
+   <Value>'\Zoomin\Install.ZCM.HTML\[Values]Values'!#REF!</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C5:R36C6,R4C7:R36C7,R4C9:R36C9</Range>
    <Type>List</Type>
-   <Value>'C:\Zoomin\Install.ZCM.HTML\[Values]Values'!#REF!</Value>
+   <Value>'\Zoomin\Install.ZCM.HTML\[Values]Values'!#REF!</Value>
    <ErrorHide/>
   </DataValidation>
  </Worksheet>
@@ -159,7 +160,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">vmware</Data></Cell>
     <Cell><Data ss:Type="String">zvr</Data></Cell>
-    <Cell><Data ss:Type="String">version-95</Data></Cell>
+    <Cell><Data ss:Type="String">version-97</Data></Cell>
     <Cell><Data ss:Type="String">msp</Data></Cell>
     <Cell><Data ss:Type="String">content-howto</Data></Cell>
     <Cell><Data ss:Type="String">Category-RecoveryOperations</Data></Cell>
