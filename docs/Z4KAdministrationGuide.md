@@ -191,7 +191,7 @@ To display a list of all available checkpoints for a VPG, including properties l
 kubectl get checkpoints --selector="vpg=vpgs;minAge=5m;maxAge=3d"
 ```
 
-Where:
+Where,
 
 | Parameter |	Value |	Mandatory Y/N |
 | --------- | ----- | ------------- |
@@ -208,7 +208,7 @@ Where:
 	kubectl zrt failover-test [vpg-name] [checkpoint-id]
 	```
 
-	Where:</br>
+	Where,</br>
 	[checkpoint ID] can be either an ID, or enter "latest" for the latest checkpoint.
 
 -	To stop the test run, run the command:
@@ -225,7 +225,7 @@ Where:
 	kubectl zrt failover-live [vpg-name] [checkpoint-id]
 	```
 
-	Where:</br>
+	Where,</br>
 	[checkpoint-id] can be either an ID, or enter "latest" for the latest checkpoint.
 
 -	To commit the failover, run the command:
@@ -252,7 +252,7 @@ On a single cluster deployment, only the restore and failover test operations ar
 	kubectl zrt restore [vpg-name] [checkpoint-id]
 	```
 	
-	Where:</br>
+	Where,</br>
 	[checkpoint-id] can be either an ID, or enter latest, for the latest checkpoint.
 
 -	To commit the restore, run the command:
@@ -286,7 +286,7 @@ The move command starts and tests a live move.
 kubectl zrt move [vpg-name] [checkpoint ID]
 ```
 
-Where:</br>
+Where,</br>
 [checkpoint ID] can be either an ID, or enter "latest" for the latest checkpoint.
 
 - After the command is run, the VPG state will be updated to StartingMove.
@@ -503,7 +503,7 @@ To restore a VPG from Extended Journal Copy, run the command:
 kubectl zrt ltr-restore [backupset-id] [site-id] [storage-class] [namespace]
 ```
 
-Where:
+Where,
 
 | Parameter |	Comment |
 | --------- | ------- |
