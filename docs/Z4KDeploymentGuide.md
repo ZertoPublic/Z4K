@@ -76,7 +76,7 @@ Use either of these options to install Zerto for Kubernetes (Z4K) on any of the 
     ```</span>
 
     
-##### Install Z4K Option 1
+##### Install Z4K with a Command
 
 Enter the following command, replacing the "$" variables with values relevant to your deployment.
 ``` shell
@@ -90,33 +90,34 @@ helm install <installation names> zerto-z4k/z4k \
 --namespace $NAMESPACE
 ```
 
-##### Install Z4K Option 2
-1.	Create the following values.yaml:
-``` yaml
---- 
-global: 
-  imagePullSecret: $IMAGE_PULL_KEY
-  authentication: 
-    adminPassword: $ADMIN_PASSWORD
-    adminUser: $ADMIN_USER
-    managementPassword: $KEYCLOAK_PASSWORD
-    managementUser: $KEYCLOAK_USER
-zkm-px: 
-  config: 
-    siteId: $SITE
-```
+##### Install Z4K with a Values YAML File
+    
+1.	Create the following values.yaml file:
+    ``` yaml
+    --- 
+    global: 
+      imagePullSecret: $IMAGE_PULL_KEY
+      authentication: 
+        adminPassword: $ADMIN_PASSWORD
+        adminUser: $ADMIN_USER
+        managementPassword: $KEYCLOAK_PASSWORD
+        managementUser: $KEYCLOAK_USER
+    zkm-px: 
+      config: 
+        siteId: $SITE
+    ```
 2. Install using the following command:
-``` shell
-helm install <installation names> zerto-z4k/z4k -f values.yaml --namespace $NAMESPACE
-```
-Where,
+    ``` shell
+    helm install <installation names> zerto-z4k/z4k -f values.yaml --namespace $NAMESPACE
+    ```
+    Where,
 
-| Parameter | Description |
-| --------- | ----------- |
-| <installation names\> | Specify an easy to recognize name. |
-| $NAMESPACE | A dedicated Zerto namespace. Zerto recommends using the namespace 'zerto'. |
-| $SITE |	A unique site name. |
-
+    | Parameter | Description |
+    | --------- | ----------- |
+    | <installation names\> | Specify an easy to recognize name. |
+    | $NAMESPACE | A dedicated Zerto namespace. Zerto recommends using the namespace 'zerto'. |
+    | $SITE |	A unique site name. |
+    
 <span class="Note">Note:
     The <installation name\> must consist of lower case alphanumeric characters or '-', 
     and must start and end with an alphanumeric character (e.g. 'my-name', or '123-abc', regex used for validation is 'a-z0-9?').</span>
@@ -127,7 +128,7 @@ Where,
 
 Use one of these options to install the Zerto Kubernetes Manager (ZKM) on any of the Zerto supported Kubernetes platforms.
 
-##### Install ZKM Option 1
+##### Install ZKM with a Command
 
 Enter the following commands:
 
@@ -148,7 +149,7 @@ Where,
 | <installation names\> |	Specify an easy to recognize name. |
 | $NAMESPACE |	A dedicated Zerto namespace. We recommend using the namespace zerto. |
     
-##### Install ZKM Option 2 
+##### Install ZKM with a Values YAML File 
     
 1.  Create the following values.yaml:
 
@@ -202,11 +203,11 @@ Use this option to create the initial access token only if 2FA is disabled for t
  
 1.  Generate an initial access token via REST commands to Keycloak.
 2.  Download and execute the following script:
-``` shell
-wget https://z4k.zerto.com/generate_initial_access_token.bash
-chmod +x generate_initial_access_token.bash
-./generate_initial_access_token.bash
-```
+    ``` shell
+    wget https://z4k.zerto.com/generate_initial_access_token.bash
+    chmod +x generate_initial_access_token.bash
+    ./generate_initial_access_token.bash
+    ```
 <span class="Note">Note**:	The URL should end with /auth</span>
 
 
@@ -215,7 +216,7 @@ chmod +x generate_initial_access_token.bash
 1. Create the initial access token using keycloak
 2. Install Zerto Kubernetes Manager Proxy (ZKM-PX) on any of the Zerto supported Kubernetes platforms using one of the following options.
 
-##### Install ZKM-PX Option 1
+##### Install ZKM-PX using a Command
 Enter the following commands to install Zerto Kubernetes Manager Proxy:
 
 ``` shell
@@ -236,21 +237,21 @@ helm install <installation name> zerto-4k/zkm-px \
 | $ZKM_URL |	URL for ZKM. Typically: "https://<load balancer addr>/zkm" |
 | $ZKEYCLOAK _URL | URL for Keycloak. Typically: https://<load balancer addr>/auth |
 
-##### Install ZKM-PX Option 2    
+##### Install ZKM-PX with a Values YAML File    
 
 1. Create the following values.yaml:
 
-``` yaml
---- 
-config: 
-  siteId: $SITE
-  zkeycloakUrl: $ZKEYCLOAK_URL
-  zkmUrl: $ZKM_URL
-global: 
-  authentication: 
-    imagePullSecret: $IMAGE_PULL_KEY
-    initialAccessToken: $INITIAL_ACCESS_TOKEN
-```
+    ``` yaml
+    --- 
+    config: 
+      siteId: $SITE
+      zkeycloakUrl: $ZKEYCLOAK_URL
+      zkmUrl: $ZKM_URL
+    global: 
+      authentication: 
+        imagePullSecret: $IMAGE_PULL_KEY
+        initialAccessToken: $INITIAL_ACCESS_TOKEN
+    ```
     
 2.  Install ZKM-PX using the command:
     
@@ -258,12 +259,12 @@ global:
     helm install <installation names> zerto-z4k/zkm-px -f values.yaml --namespace $NAMESPACE
     ```
  
- Where,
+     Where,
 
- | Parameter  | Description |
- | ---------  | ----------- | 
- | <installation names\>  | Specify an easy to recognize name. |
- | $NAMESPACE  | A dedicated Zerto namespace. We recommend using the namespace zerto. |
+     | Parameter  | Description |
+     | ---------  | ----------- | 
+     | <installation names\>  | Specify an easy to recognize name. |
+     | $NAMESPACE  | A dedicated Zerto namespace. We recommend using the namespace zerto. |
     
 
 #### Install Z4K on OpenShift
@@ -335,11 +336,11 @@ helm install z4k zerto-z4k/zkm-px \
     ```kubectl-zrt```
 -   To run Zerto operation commands, on the Kubernetes platform enter the following commands:
 
-``` shell
-wget https://z4k.zerto.com/kubectl-zrt
-chmod +x kubectl-zrt
-sudo cp kubectl-zrt /usr/bin/
-```
+    ``` shell
+    wget https://z4k.zerto.com/kubectl-zrt
+    chmod +x kubectl-zrt
+    sudo cp kubectl-zrt /usr/bin/
+    ```
 
 <span class="Note">Note:	If kubectl-zrt is not installed in /usr/bin, you must point to the relevant location.</span>
 
