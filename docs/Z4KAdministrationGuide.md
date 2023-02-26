@@ -24,33 +24,28 @@ Then, you can perform one of the following:
 
 
 1. Create a .yaml file to represent a VPG.
-	
-	The following example shows the configuration for VPG webApp1.
-	
-	``` yaml
-	--- 
-	apiVersion: z4k.zerto.com/v1
-	kind: vpg
-	spec: 
-	  JournalDiskSizeInGb: 160
-	  JournalHistoryInHours: 12
-	  Name: “webApp1”
-	  RecoveryStorageClass: GoldSC
-	  SourceSite: 
-	    Id: prod_site
-	  TargetSite: 
-	    Id: dr_site
-	```
-	
-	VPG webApp1 is configured to:
-
-	- Self-replicate to its source cluster.
-	- Use the storage class goldSC.
-	- Have an SLA with 12 hours of history.
-	- Expand its journal up to 160 GB to meet the history requirement.
+	In the following example the VPG webApp1:
+   -	Is configured to self replicate to its source cluster.
+   -	Will use the storage class goldSC.
+   -	SLA is 12 hours of history.
+   -	The Journal can expand up to 160 GB to meet the history requirement.
 
 <span class="Note">Note:	It is not mandatory to configure the Journal disk size (JournalDiskSizeInGb) and history (JournalHistoryInHours); they have default values of 2 GB and 8 hours respectively.</span>
         
+``` yaml
+--- 
+apiVersion: z4k.zerto.com/v1
+kind: vpg
+spec: 
+  JournalDiskSizeInGb: 160
+  JournalHistoryInHours: 12
+  Name: “webApp1”
+  RecoveryStorageClass: GoldSC
+  SourceSite: 
+    Id: prod_site
+  TargetSite: 
+    Id: dr_site
+```
 
 
 2. Annotate Kubernetes entities to include them in the VPG.
@@ -358,7 +353,7 @@ spec:
             Id: "<site id where is secret installed>"                      
           Id: 
             Name: mysecret
-            NamespaceId: ~
+            NamespaceId:
               NamespaceName: <Secret Namespace>
         Region: <BucketRegion>
       BackupTargetType: AmazonS3
@@ -372,9 +367,20 @@ spec:
     Id: <TargetSite>  
 ```
 
--	The AWS S3 access key and secret key should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is mysecret.
--	The secret must contain a data item for the AccessKey and a data item for the SecretKey, and can be created in any site to which Zerto Kubernetes Manager has access. In the example above, this is site1.
+-	The AWS S3 access key and secret key should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is *mysecret*.
+-	The secret must have a yaml file that contains a data item for the AccessKey and a data item for the SecretKey. The secret yaml file can be created in any site to which Zerto Kubernetes Manager has access. The following yaml is an example for *s3bucketsecret*.
 
+	```
+	apiVersion: v1
+	kind: Secret
+	metadata:
+	  name: s3bucketsecret
+	  namespace: zerto
+	type: Opaque
+	data:
+	  AccessKey: <access key>
+	  SecretKey: <secret key>
+	```
 
 
 ###### Example vpg.yaml File for Backing Up to Azure Blob Storage
@@ -393,7 +399,7 @@ spec:
             Id: "<site id where is secret installed>"                      
           Id: 
             Name: mysecret
-            NamespaceId: ~
+            NamespaceId:
               NamespaceName: <Secret Namespace>         
         DirectoryId: c659fda3-cf53-43ad-befe-776ee475dcf5
         StorageAccountName: <Storageaccount>
@@ -404,16 +410,26 @@ spec:
     Id: <SourceSite>
   TargetSite: 
     Id: <TargetSite>
-
 ```
 
--	The Azure application id and client secret should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is mysecret. 
--	The secret must contain a data item for the ApplicationId and a data item for the ClientSecret, and can be created in any site to which Zerto Kubernetes Manager has access. In the example above, this is site1.
+-	The Azure application id and client secret should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is *mysecret*. 
+-	The secret must have a yaml file that contains a data item for the ApplicationId and a data item for the ClientSecret. The yaml file can be created in any site to which Zerto Kubernetes Manager has access. The following yaml is an example for *Azureblobsecret*.
 
+	```
+	apiVersion: v1
+	kind: Secret
+	metadata:
+	  name: Azureblobsecret
+	  namespace: zerto
+	type: Opaque
+	data:
+	  ApplicationId: <application ID>
+	  ClientSecret: <client secret>
+	```
 
 ##### Manually Trigger a Backup 
 	
-You must manually trigger a backup to create an Extended Journal Copy.
+You must manually trigger a backup to create a retention set.
 
 
 -	To manually trigger a backup, run the command:
@@ -422,10 +438,10 @@ You must manually trigger a backup to create an Extended Journal Copy.
 	kubectl zrt ltr-backup [vpg-name] [checkpoint-id]
 	```
 
-	A backup task is triggered. When the task completes successfully, an Extended Journal Copy is created.
+	A backup task is triggered. When the task completes successfully, a retention set is created.
 
 
--	To access the generated Extended Journal Copy ID (backupset ID), run the command:
+-	To access the generated retention set ID (backupset ID), run the command:
 
 	``` shell
 	kubectl get backupset
