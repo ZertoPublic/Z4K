@@ -368,14 +368,15 @@ spec:
 ```
 
 -	The AWS S3 access key and secret key should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is *mysecret*.
--	The secret must have a yaml file that contains a data item for the AccessKey and a data item for the SecretKey. The secret yaml file can be created in any site to which Zerto Kubernetes Manager has access. The following yaml is an example for *s3bucketsecret*.
+-	The secret must have a yaml file that contains a data item for the AccessKey and a data item for the SecretKey. The secret yaml file can be created in any site to which Zerto Kubernetes Manager has access. 
 
+	**Example Secret Yaml File for AWS S3**
 	```
 	apiVersion: v1
 	kind: Secret
 	metadata:
-	  name: s3bucketsecret
-	  namespace: zerto
+	  name: <Secret Name>
+	  namespace: <Secret Namespace>
 	type: Opaque
 	data:
 	  AccessKey: <access key>
@@ -413,14 +414,16 @@ spec:
 ```
 
 -	The Azure application id and client secret should be captured as a Kubernetes secret, whose name appears in the vpg.yaml file. In the example above, this is *mysecret*. 
--	The secret must have a yaml file that contains a data item for the ApplicationId and a data item for the ClientSecret. The yaml file can be created in any site to which Zerto Kubernetes Manager has access. The following yaml is an example for *Azureblobsecret*.
+-	The secret must have a yaml file that contains a data item for the ApplicationId and a data item for the ClientSecret. The yaml file can be created in any site to which Zerto Kubernetes Manager has access.
 
+	**Example Secret Yaml File for Azure Blob Storage**
+	
 	```
 	apiVersion: v1
 	kind: Secret
 	metadata:
-	  name: Azureblobsecret
-	  namespace: zerto
+	  name: <Secret Name>
+	  namespace: <Secret Namespace>
 	type: Opaque
 	data:
 	  ApplicationId: <application ID>
