@@ -2,7 +2,7 @@
 
 #### Version 2.4.x
 
-- Added a YAML validator to check the syntax of YAML data.
+- Added YAML validation for syntax and content as part of VPG configuration phase.
 - Fixed log collection timeframes message and logic.
 - Z4K-578: Get checkpoints from VRA in chunks.
 - Z4K-720: Updated kubectl-zrt and added timeframe filtering for log collection.
