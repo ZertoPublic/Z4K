@@ -10,15 +10,15 @@ nav:
   - Release Updates: ReleaseNotes.md
   - Limitations: Limitations.md
   - Known Issues: Known_Issues.md
-- Z4K Deployment:
 - Z4K Deployment: Z4KDeployment.md
+- Z4K Deployment:
   - Prerequisites and Requirements: PrerequisitesAndRequirements.md
   - Deploying Z4K: Z4KDeploymentGuide.md
   - Taints and Tolerations: TaintsandTolerations.md
   - Upgrading Z4K: UpgradingZ4K.md
   - Uninstalling Z4K: UninstallingZ4K.md
-- Z4K Administration: 
-  - Z4K Administration: Z4KAdministrationGuide.md
+ - Z4K Administration:
+ - Z4K Administration: Z4KAdministrationGuide.md
   - Configuring Virtual Protection Groups: ConfiguringVPGs.md
   - Backing up to the Extended Journal Copy: ExtendedJournalCopy.md
   - Disaster Recovery: DisasterRecovery.md
@@ -27,7 +27,7 @@ nav:
   - Z4K APIs: openapi.md
 - Z4K Analytics:
 - Troubleshooting:
-  - Troubleshooting: Troubleshooting.md
+- Troubleshooting: Troubleshooting.md
   - Collecting Z4K Logs: LogCollection.md
 plugins:
 - zerto_swagger
