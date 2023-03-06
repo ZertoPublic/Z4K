@@ -17,7 +17,7 @@ nav:
   - Taints and Tolerations: TaintsandTolerations.md
   - Upgrading Z4K: UpgradingZ4K.md
   - Uninstalling Z4K: UninstallingZ4K.md
- - Z4K Administration: Z4KAdministrationGuide.md
+ - Z4K Administration: AdministrationWorkflow.md
  - Z4K Administration:
   - Configuring Virtual Protection Groups: ConfiguringVPGs.md
   - Backing up to the Extended Journal Copy: ExtendedJournalCopy.md
