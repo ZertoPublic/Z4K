@@ -2,7 +2,8 @@
 
 When the Extended Journal Copy runs for a VPG for the first time, all the data is read and written to the full Retention set. Checkpoints are recorded automatically every few seconds in the full Retention set. Each subsequent incremental Retention process incorporates the changes since the previous run, to provide a complete view of the data at that point in time. The incremental copies rely on the existing full Retention set for that VPG.
 
-When you run a Failover Test operation or Failover operation, you specify a checkpoint to which you want to recover the virtual machines.
+When you run a Failover Test operation or Failover operation, you specify a checkpoint to which you want to recover the virtual machines. When you select a checkpoint – either the last automatically generated checkpoint, an earlier checkpoint, or a tagged checkpoint – Zerto makes sure that the virtual machines at the remote site are recovered to this specified point-in-time. 
+
 
 
 - Tag a checkpoint
@@ -11,18 +12,32 @@ When you run a Failover Test operation or Failover operation, you specify a chec
 - Restore a Single VPG
 - Perform a Move operation
 
-#### Tagging a Checkpoint
 
-To tag a checkpoint, run the command:
+
+
+#### Additing Tagged Checkpoints
+
+In addition to the automatically generated checkpoints, you can add checkpoints manually to ensure application consistency and to identify events that might influence recovery, such as a planned switch-over to a secondary generator. You can recover the machines in a VPG to any checkpoint in the journal, to one added automatically or to one added manually. Thus, recovery is done to a point-in-time when the data integrity of the protected virtual machines is ensured.
+
+When testing a failover or performing a live failover, you can choose the checkpoint as the point to recover to.
+
+To add a tagged checkpoint, run the command:
 
 ``` shell
 kubectl zrt tag [vpg-name] [tag-name]
 ```
 
+Where,
+
+| Parameter |	Description |	
+| --------- | ----- | 
+| vpg-name  | VPG name |
+| tag-name  | A name for the checkpoint |
+
+
 ##### Displaying Available Checkpoints
 
-To display a list of all available checkpoints for a VPG, including properties like the checkpoint ID, run the command:
-
+To display a list of all available checkpoints for a VPG, including automatically generated checkpoints and tagged checkpoints, run the command:
 
 ``` shell
 kubectl get checkpoints --selector="vpg=vpgs;minAge=5m;maxAge=3d"
@@ -32,16 +47,19 @@ Where,
 
 | Parameter |	Value |	Mandatory Y/N |
 | --------- | ----- | ------------- |
-| vpg       |	VPG name |	Y |
+| vpg       | VPG name |	Y |
 | minAge    | Minutes: m (example: 5m), Hours: h (example: 5h) , Days: d (example: 5d) | N |
 | maxAge    | Minutes: m (example: 5m), Hours: h (example: 5h) , Days: d (example: 5d) | N |
 
 
 
+#### Testing Recovery
 
-#### Testing Failover
 
--	To test failover, run the command:
+
+Use the Failover Test operation to test that the virtual machines are correctly replicated at the recovery site during recovery.
+
+-	To start a failover test, run the command:
 
 	``` shell
 	kubectl zrt failover-test [vpg-name] [checkpoint-id]
@@ -50,13 +68,17 @@ Where,
 	Where,</br>
 	[checkpoint ID] can be either an ID, or enter "latest" for the latest checkpoint.
 
--	To stop the test run, run the command:
+-	To stop the failover test, run the command:
 
 	``` shell
 	kubectl zrt stop-test [vpg-name]
 	```
 
-#### Performing a Failover
+#### Performing a Failover Live
+
+Use the Failover operation following a disaster to recover protected virtual machines to the recovery site.
+
+
 	
 -	To failover, run the command:
 
