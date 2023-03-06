@@ -9,7 +9,6 @@ nav:
   - Release Updates: ReleaseNotes.md
   - Limitations: Limitations.md
   - Known Issues: Known_Issues.md
-  - Z4K Deployment: Z4KDeployment.md
 - Z4K Deployment:
   - Prerequisites and Requirements: PrerequisitesAndRequirements.md
   - Deploying Z4K: Z4KDeploymentGuide.md
@@ -20,10 +19,10 @@ nav:
   - Configuring Virtual Protection Groups: ConfiguringVPGs.md
   - Backing up to the Extended Journal Copy: ExtendedJournalCopy.md
   - Disaster Recovery: DisasterRecovery.md
-- Z4K REST API: Z4KRESTAPI.md
+- Z4K REST API:
   - Accessing the Z4K REST API: AccessingZ4KRESTAPI.md
   - Z4K APIs: openapi.md
-- Z4K Analytics: Z4KAnalytics.md
+- Z4K Analytics:
 - Troubleshooting Z4K:
   - Collecting Z4K Logs: LogCollection.md
 plugins:
