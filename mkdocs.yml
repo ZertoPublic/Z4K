@@ -16,7 +16,7 @@ nav:
   - Taints and Tolerations: TaintsandTolerations.md
   - Upgrading Z4K: UpgradingZ4K.md
   - Uninstalling Z4K: UninstallingZ4K.md
-- Z4K Administration: Z4KAdministrationGuide.md
+- Z4K Administration:
   - Configuring Virtual Protection Groups: ConfiguringVPGs.md
   - Backing up to the Extended Journal Copy: ExtendedJournalCopy.md
   - Disaster Recovery: DisasterRecovery.md
@@ -24,7 +24,7 @@ nav:
   - Accessing the Z4K REST API: AccessingZ4KRESTAPI.md
   - Z4K APIs: openapi.md
 - Z4K Analytics: Z4KAnalytics.md
-- Troubleshooting: Troubleshooting.md
+- Troubleshooting:
   - Collecting Z4K Logs: LogCollection.md
 plugins:
 - zerto_swagger
