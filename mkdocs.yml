@@ -10,6 +10,7 @@ nav:
   - Release Updates: ReleaseNotes.md
   - Limitations: Limitations.md
   - Known Issues: Known_Issues.md
+- Z4K Deployment: Z4KDeployment.md
 - Z4K Deployment:
   - Prerequisites and Requirements: PrerequisitesAndRequirements.md
   - Deploying Z4K: Z4KDeploymentGuide.md
