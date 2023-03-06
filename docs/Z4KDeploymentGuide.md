@@ -45,11 +45,14 @@ helm repo update
 
 To configure the ingress controller with static IP, set the following flags in the value.yaml file as input for HELM during the installation:
 
-For ZKM
+##### Configuring the Ingress Controller For ZKM
+
 ``` shell
 --set ingress-nginx.controller.service.loadBalancerIP=$STATIC_IP
 ```
-For ZKM-PX only
+
+##### Configuring the Ingress Controller For ZKM-PX only
+
 ``` shell
 --set zkm-px.ingress-nginx.controller.service.loadBalancerIP=$STATIC_IP
 ```
@@ -70,10 +73,11 @@ Installation includes installation of the following components:
 
 Use either of these options to install Zerto for Kubernetes (Z4K) on any of the Zerto supported Kubernetes platforms.
 
-<span class="Note">Note: For both options you can add the following flag to capture helm install logs for debugging and troubleshooting purposes:
-```
---debug > <path_to_file>.txt
-    ```</span>
+<span class="Note">Note: For both options you can add the following flag to capture helm install logs for debugging and troubleshooting purposes:</br>
+    ```
+    --debug > <path_to_file>.txt
+    ```
+    </span>
 
     
 ##### Install Z4K Option 1
@@ -221,7 +225,7 @@ Enter the following commands to install Zerto Kubernetes Manager Proxy:
 ``` shell
 helm install <installation name> zerto-4k/zkm-px \
 --set global.imagePullSecret=$IMAGE_PULL_KEY \
---set global.authentication.initialAccessToken =$INITINAL_ACCESS_TOKEN
+--set global.authentication.initialAccessToken=$INITINAL_ACCESS_TOKEN
 --set config.siteId=$SITE \
 --set config.zkmUrl=$ZKM_URL \
 --set config.zkeycloakUrl=$ZKEYCLOAK_URL \
@@ -290,11 +294,11 @@ Use the following flags to specify the used IngressClassNames:
 ``` shell
 helm install z4k zerto-z4k/z4k \
 --set zkm-px.image.zkmPxRepository=zapps-registry.zerto.com/z4k/stable/zkm-px \
---set zkm-px.image.flowsRepository: zapps-registry.zerto.com/z4k/stable/zkm-installer-flows \
---set zkm-px.config.siteId: $SITE \
+--set zkm-px.image.flowsRepository=zapps-registry.zerto.com/z4k/stable/zkm-installer-flows \
+--set zkm-px.config.siteId=$SITE \
 --set zkm.image.zkmRepository=zapps-registry.zerto.com/z4k/stable/zkm \
 --set zkm.image.coreRepository=zapps-registry.zerto.com/z4k/stable/zkm-core \
---set zkm.client.licenseKey: $LICENSEKEY
+--set zkm.client.licenseKey=$LICENSEKEY
 --set global.authentication.managementUser=$KEYCLOAK_USER \
 --set global.authentication.managementPassword=$KEYCLOAK_PASSWORD \
 --set global.authentication.adminUser=$ADMIN_USER \
@@ -366,7 +370,7 @@ kubectl describe deployments.apps <deply-zkm-name> -n <zerto-namespace>
 
 To upgrade the Z4K solution you must first upgrade the Zerto Kubernetes Management (ZKM) site and then upgrade the Zerto Kubernetes Manager Proxy (ZKM-PX) site.
 
-###### Upgrade ZKM Site
+##### Upgrade ZKM Site
     
 Use the following commands to get the release name and then upgrade.
 
@@ -388,7 +392,8 @@ NOTES:
 See the installed app by running these command:
 kubectl get deployments -n <namespace>
 ```
-###### Upgrade ZKM-PX
+
+##### Upgrade ZKM-PX
 
 Upgrade the ZKM-PX site **after** upgrading the ZKM site using the same commands to get the release name and then upgrade.
 
@@ -415,7 +420,7 @@ kubectl get deployments -n <namespace>
 
 To uninstall Z4K you must first uninstall the ZKM-PX site and then uninstall the ZKM site:
 
-###### Uninstall ZKM-PX
+##### Uninstalling ZKM-PX
     
 Get the release name:
 ```
@@ -427,10 +432,10 @@ NAME            NAMESPACE       REVISION        UPDATED                         
 ➜>helm uninstall <release name> -n <namespace>
 ```
 
-###### Uninstall ZKM Site
+##### Uninstalling ZKM Site
 
 1. Verify that you're on the ZKM cluster.
-2. Use the following commands to get the release name and when use it to uninstall:
+2. Use the following commands to get the release name and then use it to uninstall:
 
 ```   
 ➜**>helm list -n <namespace>**
