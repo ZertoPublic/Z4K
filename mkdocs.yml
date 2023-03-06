@@ -4,7 +4,6 @@ theme:
   highlightjs: false
 nav:
 - Zerto for Kubernetes Overview: Z4KOverview.md
-- Zerto for Kubernetes Overview:
   - Deployment Architecture: DeploymentArchitecture.md
   - Supported Platforms: SupportedPlatforms.md
   - Release Updates: ReleaseNotes.md
