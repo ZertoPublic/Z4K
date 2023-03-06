@@ -148,3 +148,36 @@ To display the VPG status as well as an overview of which entities are protected
 ``` shell
 kubectl get vpg
 ```
+
+#### Configuring One-to-Many
+
+Z4K can protect the same entity multiple times. 
+
+The recommended configuration is to replicate no more than 3 VPGs (inbound & outbound). Exceeding this configuration is possible, bearing in mind that performance degradation may appear if POD/Cluster resources are being overutilized.
+
+One-to-Many serves two main goals:
+1.	Enables high availability (HA) for protected VPGs.
+2.	Enables Continuous Data Protection (CDP) during migration with a local and a remote copy.
+
+To protect the same entity multiple times:
+
+- Add all of the VPG names in the annotation field with a ';' delimiter sign:
+
+	``` yaml
+	--- 
+	kind: Deployment
+	metadata: 
+	  annotations: 
+	    vpg: "webApp1Self; webApp1Site2; webApp1Site3 /<VPG names as configured in VPG yaml files>"
+	  labels: 
+	    app: debian
+	  name: debian
+	    * * *
+	```   
+
+- Create the VPG by running the command:
+
+
+	``` shell
+	kubectl create -f vpg.yaml
+	```
