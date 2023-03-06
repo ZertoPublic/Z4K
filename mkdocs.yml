@@ -1,6 +1,6 @@
 site_name: Zerto for Kubernetes (Z4K)
 theme:
-  name: zoomindocs
+  name: readthedocs
   highlightjs: false
 nav:
 - Zerto for Kubernetes Overview: Z4KOverview.md
