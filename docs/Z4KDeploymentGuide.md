@@ -231,7 +231,7 @@ Enter the following commands to install Zerto Kubernetes Manager Proxy:
 ``` shell
 helm install <installation name> zerto-4k/zkm-px \
 --set global.imagePullSecret=$IMAGE_PULL_KEY \
---set global.authentication.initialAccessToken =$INITINAL_ACCESS_TOKEN
+--set global.authentication.initialAccessToken=$INITINAL_ACCESS_TOKEN
 --set config.siteId=$SITE \
 --set config.zkmUrl=$ZKM_URL \
 --set config.zkeycloakUrl=$ZKEYCLOAK_URL \
@@ -300,11 +300,11 @@ Use the following flags to specify the used IngressClassNames:
 ``` shell
 helm install z4k zerto-z4k/z4k \
 --set zkm-px.image.zkmPxRepository=zapps-registry.zerto.com/z4k/stable/zkm-px \
---set zkm-px.image.flowsRepository: zapps-registry.zerto.com/z4k/stable/zkm-installer-flows \
---set zkm-px.config.siteId: $SITE \
+--set zkm-px.image.flowsRepository=zapps-registry.zerto.com/z4k/stable/zkm-installer-flows \
+--set zkm-px.config.siteId=$SITE \
 --set zkm.image.zkmRepository=zapps-registry.zerto.com/z4k/stable/zkm \
 --set zkm.image.coreRepository=zapps-registry.zerto.com/z4k/stable/zkm-core \
---set zkm.client.licenseKey: $LICENSEKEY
+--set zkm.client.licenseKey=$LICENSEKEY
 --set global.authentication.managementUser=$KEYCLOAK_USER \
 --set global.authentication.managementPassword=$KEYCLOAK_PASSWORD \
 --set global.authentication.adminUser=$ADMIN_USER \
