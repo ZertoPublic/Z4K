@@ -106,3 +106,12 @@ Run the update kubernetes command:
 ``` shell
 kubectl apply -f vpg.yaml
 ```
+
+#### Viewing VPG Status
+
+To display the VPG status as well as an overview of which entities are protected within the VPG, the VPG’s SLA and its settings, run the command:
+
+``` shell
+kubectl get vpg
+```
+
