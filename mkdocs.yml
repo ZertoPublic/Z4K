@@ -20,6 +20,7 @@ nav:
 - Z4K Administration: Z4KAdministrationGuide.md
   - Configuring Virtual Protection Groups: ConfiguringVPGs.md
   - Backing up to the Extended Journal Copy: ExtendedJournalCopy.md
+  - Disaster Recovery: DisasterRecovery.md
 - Z4K REST API: Z4KRESTAPI.md
 - Z4K REST API:
   - Accessing the Z4K REST API: AccessingZ4KRESTAPI.md
