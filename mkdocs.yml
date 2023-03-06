@@ -18,7 +18,7 @@ nav:
   - Upgrading Z4K: UpgradingZ4K.md
   - Uninstalling Z4K: UninstallingZ4K.md
 - Z4K Administration: Z4KAdministrationGuide.md
-  - Creating Virtual Protection Groups: CreatingVPGs.md
+  - Configuring Virtual Protection Groups: ConfiguringVPGs.md
   - Backing up to the Extended Journal Copy: ExtendedJournalCopy.md
 - Z4K REST API: Z4KRESTAPI.md
 - Z4K REST API:
