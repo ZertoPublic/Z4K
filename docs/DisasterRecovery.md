@@ -1,14 +1,15 @@
 # Disaster Recovery
 
-hen the Extended Journal Copy runs for a VPG for the first time, all the data is read and written to the full Retention set. Checkpoints are recorded automatically every few seconds in the full Retention set. Each subsequent incremental Retention process incorporates the changes since the previous run, to provide a complete view of the data at that point in time. The incremental copies rely on the existing full Retention set for that VPG.
+When the Extended Journal Copy runs for a VPG for the first time, all the data is read and written to the full Retention set. Checkpoints are recorded automatically every few seconds in the full Retention set. Each subsequent incremental Retention process incorporates the changes since the previous run, to provide a complete view of the data at that point in time. The incremental copies rely on the existing full Retention set for that VPG.
 
 When you run a Failover Test operation or Failover operation, you specify a checkpoint to which you want to recover the virtual machines.
 
 
 - Tag a checkpoint
+- Perform a Test Failover
 - Perform a Failover
--	Restore a Single VPG
--	Perform a Move operation
+- Restore a Single VPG
+- Perform a Move operation
 
 #### Tagging a Checkpoint
 
