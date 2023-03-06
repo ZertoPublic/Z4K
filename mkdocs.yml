@@ -4,6 +4,7 @@ theme:
   highlightjs: false
 nav:
 - Zerto for Kubernetes Overview: Z4KOverview.md
+- Zerto for Kubernetes Overview: 
   - Deployment Architecture: DeploymentArchitecture.md
   - Supported Platforms: SupportedPlatforms.md
   - Release Updates: ReleaseNotes.md
@@ -15,6 +16,7 @@ nav:
   - Taints and Tolerations: TaintsandTolerations.md
   - Upgrading Z4K: UpgradingZ4K.md
   - Uninstalling Z4K: UninstallingZ4K.md
+- Z4K Administration: Z4kAdministration.md
 - Z4K Administration:
   - Configuring Virtual Protection Groups: ConfiguringVPGs.md
   - Backing up to the Extended Journal Copy: ExtendedJournalCopy.md
@@ -23,6 +25,7 @@ nav:
   - Accessing the Z4K REST API: AccessingZ4KRESTAPI.md
   - Z4K APIs: openapi.md
 - Z4K Analytics:
+- Troubleshooting Z4K: TroubleshootingZ4K.md
 - Troubleshooting Z4K:
   - Collecting Z4K Logs: LogCollection.md
 plugins:
