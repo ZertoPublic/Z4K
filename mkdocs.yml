@@ -7,7 +7,7 @@ nav:
   - Zerto for Kubernetes Overview:
     - Deployment Architecture: DeploymentArchitecture.md
     - Supported Platforms: SupportedPlatforms.md
-    - Release Updates: ReleaseNotes.md
+    - Release Notes: ReleaseNotes.md
     - Limitations: Limitations.md
     - Known Issues: Known_Issues.md
   - Z4K Deployment: Z4KDeploymentGuide.md
