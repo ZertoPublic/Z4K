@@ -1,6 +1,6 @@
 # Z4K Release Notes
 
-This section provides the new features and enhancements for each version release.
+This section provides the new features and enhancements for each release.
 
 #### Version 2.4.x
 
