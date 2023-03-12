@@ -6,7 +6,7 @@ This section provides the new features and enhancements for each version release
 
 - Local log collection.
 - YAML validation for syntax and content as part of VPG configuration phase
-- Improved log collection with enhancements
+- Log collection enhancements:
   - NLOG.config
   - Per timeframe log collection
 - Support for new HPE CSI Driver for Kubernetes.
