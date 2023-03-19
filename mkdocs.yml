@@ -7,7 +7,7 @@ nav:
   - Zerto for Kubernetes Overview:
     - Deployment Architecture: DeploymentArchitecture.md
     - Supported Platforms: SupportedPlatforms.md
-    - Release Notes: ReleaseNotes.md
+    - Release Updates: ReleaseNotes.md
     - Limitations: Limitations.md
     - Known Issues: Known_Issues.md
   - Z4K Deployment: Z4KDeploymentGuide.md
@@ -20,8 +20,8 @@ nav:
   - Z4K Administration: AdministrationWorkflow.md
   - Z4K Administration:
     - Configuring Virtual Protection Groups: ConfiguringVPGs.md
-    - Backing up to the Extended Journal Copy: ExtendedJournalCopy.md
     - Disaster Recovery: DisasterRecovery.md
+    - Backing up to the Extended Journal Copy: ExtendedJournalCopy.md
   - Z4K REST API:
     - Accessing the Z4K REST API: AccessingZ4KRESTAPI.md
     - Z4K APIs: openapi.md
