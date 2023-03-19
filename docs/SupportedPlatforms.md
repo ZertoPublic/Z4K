@@ -1,6 +1,8 @@
-# Supported Platforms
+# Z4K Supported Platforms
 
-Zerto for Kubernetes can be deployed on multiple Kubernetes platforms.
+Z4K can be deployed on multiple Kubernetes platforms.
+
+The minimum supported Kubernetes version is 1.22.
 
 
 | Platform                             | Version  |  CSI| Supported Kubernetes Versions |
@@ -22,7 +24,7 @@ It is the end users' responsibility to ensure that the distribution meets the fo
 
 Zerto recommends that users perform functional tests like creating a VPG and performing a Failover prior to selecting any Kubernetes distribution.  
 <br/>
-<br/>
+
 If you need assistance for testing, please contact your Zerto account representative to engage with Zerto professional services.
 
 If your specific distribution or CSI plugin is not listed above, please open a feature via the MyZerto portal. Requests will be evaluated but are not guaranteed within any specified period.

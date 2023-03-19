@@ -13,15 +13,9 @@ Perform the procedures in the following order:
     - Install Z4K on Openshift
     - Install Z4K on OpenShift on Additional cluster
 5.	Download the Zerto Operations Help Utility
-6.	Update Z4K with a new Zerto License
-7.  Upgrade Zerto for Kubernetes
-    - Upgrade ZKM site
-    - Upgrade Zerto Kubernetes Manager Proxy
-8.  Uninstall Zerto for Kubernetes
-    - Uninstall Zerto Kubernetes Manager Proxy
-    - Uninstall ZKM site    
+6.	(When required) Update Z4K with a new Zerto License
 
-#### Prepare Helm
+#### Preparing Helm
 
 On the Kubernetes platform, enter the following commands:
 
@@ -32,7 +26,7 @@ helm repo update
 
 <span class="Note">Note:	Helm name (in the example above, zerto-z4k) should be a logical name entered by the user.</span>
 
-#### Obtain the Image Pull Key Secret
+#### Obtaining the Image Pull Key Secret
 
 1.	Go to [myZerto](https://www.zerto.com/myzerto/).
 2.	If required, log in using your myZerto credentials.
@@ -41,21 +35,24 @@ helm repo update
 
 ![PullKey](Images/PullKey.png?raw=true)
 
-#### Configure the Ingress Controller
+#### Configuring the Ingress Controller
 
 To configure the ingress controller with static IP, set the following flags in the value.yaml file as input for HELM during the installation:
 
-For ZKM
+##### Configuring the Ingress Controller for ZKM
+
 ``` shell
 --set ingress-nginx.controller.service.loadBalancerIP=$STATIC_IP
 ```
-For ZKM-PX only
+
+##### Configuring the Ingress Controller for ZKM-PX only
+
 ``` shell
 --set zkm-px.ingress-nginx.controller.service.loadBalancerIP=$STATIC_IP
 ```
 
 
-#### Install Zerto for Kubernetes Components
+#### Installing Zerto for Kubernetes Components
 
 Installation includes installation of the following components:
 
@@ -66,7 +63,7 @@ Installation includes installation of the following components:
 
 
 
-#### Install Zerto for Kubernetes
+#### Installing Zerto for Kubernetes
 
 Use either of these options to install Zerto for Kubernetes (Z4K) on any of the Zerto supported Kubernetes platforms.
 
@@ -76,9 +73,9 @@ Use either of these options to install Zerto for Kubernetes (Z4K) on any of the 
     ```</span>
 
     
-##### Install Z4K Option 1
+##### Installing Z4K with a Command
 
-Enter the following command, replacing the "$" variables with values relevant to your deployment.
+Enter the following commands, replacing the "$" variables with values relevant to your deployment.
 ``` shell
 helm install <installation names> zerto-z4k/z4k \
 --set global.imagePullSecret=$IMAGE_PULL_KEY \
@@ -89,33 +86,47 @@ helm install <installation names> zerto-z4k/z4k \
 --set zkm-px.config.siteId=$SITE \
 --namespace $NAMESPACE
 ```
-
-##### Install Z4K Option 2
-1.	Create the following values.yaml:
-``` yaml
---- 
-global: 
-  imagePullSecret: $IMAGE_PULL_KEY
-  authentication: 
-    adminPassword: $ADMIN_PASSWORD
-    adminUser: $ADMIN_USER
-    managementPassword: $KEYCLOAK_PASSWORD
-    managementUser: $KEYCLOAK_USER
-zkm-px: 
-  config: 
-    siteId: $SITE
-```
-2. Install using the following command:
-``` shell
-helm install <installation names> zerto-z4k/z4k -f values.yaml --namespace $NAMESPACE
-```
 Where,
 
-| Parameter | Description |
-| --------- | ----------- |
-| <installation names\> | Specify an easy to recognize name. |
-| $NAMESPACE | A dedicated Zerto namespace. Zerto recommends using the namespace 'zerto'. |
-| $SITE |	A unique site name. |
+    | Parameter | Description |
+    | --------- | ----------- |
+    | <installation names\> | Specify an easy to recognize name. |
+    | $SITE |	A unique site name. |
+    | $NAMESPACE | A dedicated Zerto namespace. Zerto recommends using the namespace 'zerto'. |
+    
+
+##### Installing Z4K with a Values YAML File
+    
+1.	Create the following values.yaml:
+
+    ``` yaml
+    --- 
+    global: 
+      imagePullSecret: $IMAGE_PULL_KEY
+      authentication: 
+        adminPassword: $ADMIN_PASSWORD
+        adminUser: $ADMIN_USER
+        managementPassword: $KEYCLOAK_PASSWORD
+        managementUser: $KEYCLOAK_USER
+    zkm-px: 
+      config: 
+        siteId: $SITE
+    ```
+    Where,</br>
+    $SITE is a unique site name.
+    
+2. Install Z4K using the following command:
+
+    ``` shell
+    helm install <installation names> zerto-z4k/z4k -f values.yaml --namespace $NAMESPACE
+    ```
+    Where,
+
+    | Parameter | Description |
+    | --------- | ----------- |
+    | <installation names\> | Specify an easy to recognize name. |
+    | $NAMESPACE | A dedicated Zerto namespace. Zerto recommends using the namespace 'zerto'. |
+    | $SITE |	A unique site name. |
 
 <span class="Note">Note:
     The <installation name\> must consist of lower case alphanumeric characters or '-', 
@@ -123,13 +134,13 @@ Where,
 
   
 
-#### Install Zerto Kubernetes Manager
+#### Installing Zerto Kubernetes Manager
 
 Use one of these options to install the Zerto Kubernetes Manager (ZKM) on any of the Zerto supported Kubernetes platforms.
 
-##### Install ZKM Option 1
+##### Installing ZKM with Commands
 
-Enter the following commands:
+Enter the following commands, replacing the "$" variables with values relevant to your deployment.
 
 ``` shell
 helm install <installation name> zerto/zkm \
@@ -148,7 +159,7 @@ Where,
 | <installation names\> |	Specify an easy to recognize name. |
 | $NAMESPACE |	A dedicated Zerto namespace. We recommend using the namespace zerto. |
     
-##### Install ZKM Option 2 
+##### Installing ZKM with a Values YAML File
     
 1.  Create the following values.yaml:
 
@@ -163,13 +174,15 @@ Where,
         managementUser: $KEYCLOAK_USER
     ``` 
 
-2. Install using the following command:  
+2. Install ZKM using the following command:  
 
     ```
     helm install <installation names> zerto-z4k/zkm -f values.yaml –namespace $NAMESPACE
     ```
+    Where,</br>
+    $NAMESPACE is a dedicated Zerto namespace. We recommend using the namespace zerto..
 
-#### Create the Initial Access Token using Keycloak
+#### Creating the Initial Access Token using Keycloak
 
 KeyCloak is installed during the ZKM installation. Before you can begin to install Zerto Kubernetes Manager Proxy (ZKM-PX) on additional Kubernetes clusters, you must create an initial access token using Keycloak.
 
@@ -210,18 +223,19 @@ chmod +x generate_initial_access_token.bash
 <span class="Note">Note**:	The URL should end with /auth</span>
 
 
-#### Install Zerto Kubernetes Manager Proxy
+#### Installing Zerto Kubernetes Manager Proxy
 
 1. Create the initial access token using keycloak
 2. Install Zerto Kubernetes Manager Proxy (ZKM-PX) on any of the Zerto supported Kubernetes platforms using one of the following options.
 
-##### Install ZKM-PX Option 1
+##### Installing ZKM-PX Using Commands
+
 Enter the following commands to install Zerto Kubernetes Manager Proxy:
 
 ``` shell
 helm install <installation name> zerto-4k/zkm-px \
 --set global.imagePullSecret=$IMAGE_PULL_KEY \
---set global.authentication.initialAccessToken =$INITINAL_ACCESS_TOKEN
+--set global.authentication.initialAccessToken=$INITINAL_ACCESS_TOKEN
 --set config.siteId=$SITE \
 --set config.zkmUrl=$ZKM_URL \
 --set config.zkeycloakUrl=$ZKEYCLOAK_URL \
@@ -236,21 +250,22 @@ helm install <installation name> zerto-4k/zkm-px \
 | $ZKM_URL |	URL for ZKM. Typically: "https://<load balancer addr>/zkm" |
 | $ZKEYCLOAK _URL | URL for Keycloak. Typically: https://<load balancer addr>/auth |
 
-##### Install ZKM-PX Option 2    
+
+##### Installing ZKM-PX Using a Values YAML File    
 
 1. Create the following values.yaml:
 
-``` yaml
---- 
-config: 
-  siteId: $SITE
-  zkeycloakUrl: $ZKEYCLOAK_URL
-  zkmUrl: $ZKM_URL
-global: 
-  authentication: 
-    imagePullSecret: $IMAGE_PULL_KEY
-    initialAccessToken: $INITIAL_ACCESS_TOKEN
-```
+    ``` yaml
+    --- 
+    config: 
+      siteId: $SITE
+      zkeycloakUrl: $ZKEYCLOAK_URL
+      zkmUrl: $ZKM_URL
+    global: 
+      authentication: 
+        imagePullSecret: $IMAGE_PULL_KEY
+        initialAccessToken: $INITIAL_ACCESS_TOKEN
+    ```
     
 2.  Install ZKM-PX using the command:
     
@@ -258,15 +273,15 @@ global:
     helm install <installation names> zerto-z4k/zkm-px -f values.yaml --namespace $NAMESPACE
     ```
  
- Where,
+    Where,
 
- | Parameter  | Description |
- | ---------  | ----------- | 
- | <installation names\>  | Specify an easy to recognize name. |
- | $NAMESPACE  | A dedicated Zerto namespace. We recommend using the namespace zerto. |
+    | Parameter  | Description |
+    | ---------  | ----------- | 
+    | <installation names\>  | Specify an easy to recognize name. |
+    | $NAMESPACE  | A dedicated Zerto namespace. We recommend using the namespace zerto. |
     
 
-#### Install Z4K on OpenShift
+#### Installing Z4K on OpenShift
 
 In **OpenShift on VMware platforms**, Zerto does not deploy its own ingress controller but rather utilizes the built-in routes.
 Therefore, to enable VRA communication, you must disable ingress deployment and provide the external IP of the sites.
@@ -279,7 +294,7 @@ Therefore, to enable VRA communication, you must disable ingress deployment and 
 --set zkm.useNginxRoutePath=false
 ```
 
-#### Set Custom Ingress Class Names
+#### Setting Custom Ingress Class Names
 
 To find the default ingress class name, run the command:
 
@@ -290,11 +305,11 @@ Use the following flags to specify the used IngressClassNames:
 ``` shell
 helm install z4k zerto-z4k/z4k \
 --set zkm-px.image.zkmPxRepository=zapps-registry.zerto.com/z4k/stable/zkm-px \
---set zkm-px.image.flowsRepository: zapps-registry.zerto.com/z4k/stable/zkm-installer-flows \
---set zkm-px.config.siteId: $SITE \
+--set zkm-px.image.flowsRepository=zapps-registry.zerto.com/z4k/stable/zkm-installer-flows \
+--set zkm-px.config.siteId=$SITE \
 --set zkm.image.zkmRepository=zapps-registry.zerto.com/z4k/stable/zkm \
 --set zkm.image.coreRepository=zapps-registry.zerto.com/z4k/stable/zkm-core \
---set zkm.client.licenseKey: $LICENSEKEY
+--set zkm.client.licenseKey=$LICENSEKEY
 --set global.authentication.managementUser=$KEYCLOAK_USER \
 --set global.authentication.managementPassword=$KEYCLOAK_PASSWORD \
 --set global.authentication.adminUser=$ADMIN_USER \
@@ -312,7 +327,7 @@ helm install z4k zerto-z4k/z4k \
 --namespace $NAMESPACE
 ```
 
-#### Install Z4K on OpenShift on an Additional Cluster
+#### Installing Z4K on OpenShift on an Additional Cluster
 
 ``` shell
 helm install z4k zerto-z4k/zkm-px \
@@ -328,7 +343,7 @@ helm install z4k zerto-z4k/zkm-px \
 ```
 
 
-#### Download the Zerto Operations Help Utility
+#### Downloading the Zerto Operations Help Utility
     
 -   Download the Help Utility so you can enter Zerto operations commands. This is a bash script wrapper for the kubectl API extension.
 -   To use the Help Utility, first download then run the command:
@@ -348,7 +363,7 @@ sudo cp kubectl-zrt /usr/bin/
 
     >   ![kubectl-zrt](Images/Z4K_Kubernetes_Commands.png?raw=true)
 
-#### Update Z4K with a New Zerto License
+#### Updating Z4K with a New Zerto License
     
 To update Z4K with a new Zerto license, run the following command with the relevant environment variables:
     
@@ -360,82 +375,4 @@ To verify the new license has been successfully updated, run the following comma
 
 ```
 kubectl describe deployments.apps <deply-zkm-name> -n <zerto-namespace>
-```
-
-#### Upgrading Z4K
-
-To upgrade the Z4K solution you must first upgrade the Zerto Kubernetes Management (ZKM) site and then upgrade the Zerto Kubernetes Manager Proxy (ZKM-PX) site.
-
-###### Upgrade ZKM Site
-    
-Use the following commands to get the release name and then upgrade.
-
-```
-➜**>helm list -n <namespace>**
-NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
-<release name>  <namespace>     1               2022-09-07 09:16:04.896907435 +0300 IDT deployed        zkm-px-2.4.18+538       2.4.18+538
-
-➜**>helm upgrade <release-name> <helm repository> -n <namespace>**
-
-At the end you will recieve the following message:
-Release "<release name>" has been upgraded. Happy Helming!
-NAME: <release name>
-LAST DEPLOYED: Wed Sep  7 09:26:31 2022
-NAMESPACE: <namespace>
-STATUS: deployed
-REVISION: <revision number>
-NOTES:
-See the installed app by running these command:
-kubectl get deployments -n <namespace>
-```
-###### Upgrade ZKM-PX
-
-Upgrade the ZKM-PX site **after** upgrading the ZKM site using the same commands to get the release name and then upgrade.
-
-```
-➜**>helm list -n <namespace>**
-NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
-<release name>  <namespace>     1               2022-09-07 09:16:04.896907435 +0300 IDT deployed        zkm-px-2.4.18+538       2.4.18+538
-
-➜**>helm upgrade <release-name> <helm repository> -n <namespace>**
-
-At the end you will recieve the following message:
-Release "<release name>" has been upgraded. Happy Helming!
-NAME: <release name>
-LAST DEPLOYED: Wed Sep  7 09:26:31 2022
-NAMESPACE: <namespace>
-STATUS: deployed
-REVISION: <revision number>
-NOTES:
-See the installed app by running these command:
-kubectl get deployments -n <namespace>
-```
-
-#### Uninstalling Z4K
-
-To uninstall Z4K you must first uninstall the ZKM-PX site and then uninstall the ZKM site:
-
-###### Uninstall ZKM-PX
-    
-Get the release name:
-```
-➜>helm list -n <namespace>
-NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
-<release name>  <namespace>     1               2022-09-07 09:16:04.896907435 +0300 IDT deployed        zkm-px-2.4.18+538       2.4.18+538
-
-
-➜>helm uninstall <release name> -n <namespace>
-```
-
-###### Uninstall ZKM Site
-
-1. Verify that you're on the ZKM cluster.
-2. Use the following commands to get the release name and when use it to uninstall:
-
-```   
-➜**>helm list -n <namespace>**
-NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART           APP VERSION
-<release name>  <namespace>     2               2022-09-06 17:15:35.959682086 +0300 IDT deployed        z4k-2.4.18+538  2.4.17+478
-
-➜**>helm uninstall <release name> -n <namespace>**
 ```

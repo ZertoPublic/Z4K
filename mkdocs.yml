@@ -3,23 +3,35 @@ theme:
   name: readthedocs
   highlightjs: false
 nav:
-- Zerto for Kubernetes Overview: Z4KOverview.md
-- Deployment Architecture: DeploymentArchitecture.md
-- Prerequisites and Requirements: PrerequisitesAndRequirements.md
-- Limitations: Limitations.md
-- Known Issues: Known_Issues.md
-- Supported Platforms: SupportedPlatforms.md
-- Z4K Deployment: Z4KDeploymentGuide.md
-- Z4K Administration: Z4KAdministrationGuide.md
-- Z4K Analytics: Z4KAnalytics.md
-- Accessing the Z4K REST API: AccessingZ4KRESTAPI.md
-- Z4K REST API: openapi.md
-- More Resources: MoreResources.md
-- ChangeLog:
-  - '2.x.x': ./changes/version2.x.x.md
+  - Zerto for Kubernetes Overview: Z4KOverview.md
+  - Zerto for Kubernetes Overview:
+    - Deployment Architecture: DeploymentArchitecture.md
+    - Supported Platforms: SupportedPlatforms.md
+    - Release Updates: ReleaseNotes.md
+    - Limitations: Limitations.md
+    - Known Issues: Known_Issues.md
+  - Z4K Deployment: Z4KDeploymentGuide.md
+  - Z4K Deployment:
+    - Prerequisites and Requirements: PrerequisitesAndRequirements.md
+    - Deploying Z4K: Z4KDeploymentGuide.md
+    - Taints and Tolerations: TaintsandTolerations.md
+    - Upgrading Z4K: UpgradingZ4K.md
+    - Uninstalling Z4K: UninstallingZ4K.md
+  - Z4K Administration: AdministrationWorkflow.md
+  - Z4K Administration:
+    - Configuring Virtual Protection Groups: ConfiguringVPGs.md
+    - Disaster Recovery: DisasterRecovery.md
+    - Backing up to the Extended Journal Copy: ExtendedJournalCopy.md
+  - Z4K REST API:
+    - Accessing the Z4K REST API: AccessingZ4KRESTAPI.md
+    - Z4K APIs: openapi.md
+  - Z4K Analytics: Z4KAnalytics.md
+  - Troubleshooting: TroubleshootingZ4K.md
+  - Troubleshooting:
+    - Collecting Z4K Logs: LogCollection.md
 plugins:
-- zerto_swagger
-- search
+  - zerto_swagger
+  - search
 markdown_extensions:
   - tables
   - admonition
