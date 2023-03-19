@@ -60,7 +60,7 @@
 * 2.4.3 Obfuscate secret/access keys
 * 2.4.2 Added VPG additional validations
 * 2.4.1 Fixed issue 205134 - Change the seq to atomic
-*2.4.0 Support HPE New CSI
+* 2.4.0 Support HPE New CSI
 --------------------------
 *2.1.0 Implement One-To-Many VPG Configuration
 ----------------------------------------------
