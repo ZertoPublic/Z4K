@@ -1,4 +1,4 @@
-# Z4K Release Notes
+# Z4K Release Updates
 
 This section provides the new features and enhancements for each release.
 
