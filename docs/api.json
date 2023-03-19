@@ -817,6 +817,30 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "locally",
+            "in": "query",
+            "description": "default false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "description": "collection timeframe - start time in 'yyyy-MM-ddTHH:mm:ssZ' format",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "description": "collection timeframe - end time in 'yyyy-MM-ddTHH:mm:ssZ' format",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -890,6 +914,53 @@
         }
       }
     },
+    "/api/v1/logcollector/upload": {
+      "post": {
+        "tags": [
+          "SiteLogCollection"
+        ],
+        "summary": "Upload Component logs to the ZKM server",
+        "description": "Only zip/tar files are allowed",
+        "parameters": [
+          {
+            "name": "site",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/logcollector/bundle/{taskid}": {
+      "get": {
+        "tags": [
+          "SiteLogCollection"
+        ],
+        "summary": "Get log bundle by task id",
+        "description": "Get log bundle by task id",
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/v1/site": {
       "get": {
         "tags": [
@@ -930,7 +1001,7 @@
             }
           },
           {
-            "name": "enqueue",
+            "name": "waitIfVpgBusy",
             "in": "query",
             "description": "waitIfVpgBusy true / false",
             "schema": {

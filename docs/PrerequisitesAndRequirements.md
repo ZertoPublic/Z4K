@@ -2,7 +2,6 @@
 
 
 #### Prerequisites
-
 - There is at least one worker node (non control-plain node) in the Kubernetes cluster.
 - All Zerto for Kubernetes components communication occurs using HTTPS, over port 443.
 - Helm Package Manager, minimum version 3.
@@ -21,8 +20,7 @@ Zerto for Kubernetes containerized applications also consume storage:
 
 
 #### Recovery Site Volume Bind Requirements
-
-- Zerto recommends that you set the recovery site StorageClass to "WaitForFistCustomer" volume bind mode.
+- Zerto recommends that you set the recovery site StorageClass to "WaitForFirstConsumer" volume bind mode.
 - Each recovery VRA has specific volumes that must be bound to it.
   - If using "immediate" volume binding mode, the volume might be created on a different node and once the VRA POD is created, it would have to move to that node.
   - If the system doesn't allow the PV to move freely between nodes, the VRA POD won't come up.</span>
