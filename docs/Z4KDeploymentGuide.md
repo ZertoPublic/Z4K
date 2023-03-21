@@ -122,7 +122,6 @@ helm install <installation names> zerto-z4k/z4k \
     ```
     
     Where,
-
     | Parameter | Description |
     | --------- | ----------- |
     | <installation names\> | Specify an easy to recognize name. |
@@ -152,13 +151,12 @@ helm install <installation name> zerto/zkm \
 --set global.authentication.adminPassword =$ADMIN_PASSWORD
 --namespace $NAMESPACE
 ```
-    
-Where,
+      Where,
 
-| Parameter |	Description |
-| --------- | --------- |
-| <installation names\> |	Specify an easy to recognize name. |
-| $NAMESPACE |	A dedicated Zerto namespace. We recommend using the namespace zerto. |
+    | Parameter  | Description |  
+    | --------- | --------- |
+    | <installation names\> |	Specify an easy to recognize name. |
+    | $NAMESPACE |	A dedicated Zerto namespace. We recommend using the namespace zerto. |
     
 ##### Installing ZKM with a Values YAML File
     
@@ -242,7 +240,8 @@ helm install <installation name> zerto-4k/zkm-px \
 --set config.zkeycloakUrl=$ZKEYCLOAK_URL \
 --namespace $NAMESPACE
 ```
-  Where,
+
+Where,
 
 | Parameter	| Description |
 | --------- | ----------- |
