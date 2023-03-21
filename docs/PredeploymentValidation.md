@@ -19,9 +19,9 @@ Use these steps to download, install and run the pre-deployment validation tool.
 
 - Execute the Z4K Pre-Deployment Validator tool **on each cluster** on which Z4K protection will be installed, using the following command:
 
->  ``
->   bash ./Z4K_pre_deployment_validator.bash
->  ``
+>  ```
+>  bash ./Z4K_pre_deployment_validator.bash
+>  ```
 
 >>  The tool starts validating and displays the status on the console. It also creates an output file and a log file.
 
