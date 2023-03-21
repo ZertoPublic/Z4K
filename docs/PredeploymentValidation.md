@@ -6,17 +6,17 @@ Use these steps to download the pre-deployment validation tool and run it on on 
 
 1. Fetch the Z4K pre-deployment validator from the z4k.zerto.com repository, using the following command: 
 
->  ``
+>  ```
 >  wget https://z4k.zerto.com/pre_deployment_validator.tar
->  ``
+>  ```
 
 > The installed tar package contains the bash script and all the needed yaml files. 
 
 2. Use the following command to extract the tar package to the local path within one of the pods in the cluster you will install Z4K on. 
 
->  ``
+>  ```
 >  tar -xvf pre_deployment_validator.tar
->  ``
+>  ```
 
 3. Execute the Z4K Pre-Deployment Validator tool using the following command:
 
@@ -29,7 +29,7 @@ Use these steps to download the pre-deployment validation tool and run it on on 
   
 >  **Example of Console Output**
 
->  ``
+>  ```
 >  
 >  2023-03-19 14:02:42: Running validations on cluster: TomerCluster2
 >  
@@ -78,17 +78,17 @@ Use these steps to download the pre-deployment validation tool and run it on on 
 > 2023-03-19 14:06:05: Compatible Storage Classes include: default, managed, managed-csi,
 > 
 > 2023-03-19 14:06:05: The K8S environment does not meet the mandatory requirements to deploy Zerto Z4K as a Recovery and/or Production site. Fix the issues and run the validator again.
-> ``
+> ```
 
 
 >  - If all validations of the mandatory requirements are met, the following summary will display:
-    ``
+    ```
 >    The K8S environment meets the mandatory requirements to deploy Zerto Z4K as a Recovery and/or Production site. Proceed with Z4K deployment
-   ``
+     ```
 >  - If some mandatory requirements are not met, the following summary will display:
-   ``
+    ```
 >   The K8S environment does not meet the mandatory requirements to deploy Zerto Z4K as a Recovery and/or Production site. Fix the issues and run the validator again.
-   ``
+      ```
 
 Further details can be found in the output and log files.
   
