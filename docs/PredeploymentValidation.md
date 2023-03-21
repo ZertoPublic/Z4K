@@ -2,7 +2,7 @@
 
 Zerto provides a pre-deployment validation tool that verifies whether the K8S environment meets the mandatory requirements for deploying Zerto Z4K on the cluster.
 
-Use these steps to download the pre-deployment validation tool and run it **on each cluster** on which Z4K protection will be installed.
+Use these steps to download, install and run the pre-deployment validation tool.
 
 1. Fetch the Z4K pre-deployment validator from the z4k.zerto.com repository, using the following command: 
 
@@ -18,7 +18,7 @@ Use these steps to download the pre-deployment validation tool and run it **on e
 >  tar -xvf pre_deployment_validator.tar
 >  ```
 
-3. Execute the Z4K Pre-Deployment Validator tool using the following command:
+3. Execute the Z4K Pre-Deployment Validator tool **on each cluster** on which Z4K protection will be installed, using the following command:
 
 >  ``
 >  bash ./Z4K_pre_deployment_validator.bash
@@ -27,7 +27,7 @@ Use these steps to download the pre-deployment validation tool and run it **on e
 >>  The tool starts validating and displays the status on the console. It also creates an output file and a log file.
 
   
->  **Example of Console Output**
+>  **Example Console Output**
 
 >  ```
 >  
@@ -75,7 +75,7 @@ Use these steps to download the pre-deployment validation tool and run it **on e
 
 For troubleshooting purposes, refer to the the output file and log file in the local path.
   
-- The log file is in the format <clusterName><datetime>/logfile.log, and contains the information on the pre-validation tool execution.
+- The log file is in the format <clusterName><datetime>/logfile.log, and contains pre-validation tool execution information.
 
 - The output file is in the format <clusterName><datetime>/output.txt, and contains execution details and validations outputs.
 
