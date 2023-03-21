@@ -6,6 +6,7 @@ nav:
   - Zerto for Kubernetes Overview: Z4KOverview.md
   - Zerto for Kubernetes Overview:
     - Deployment Architecture: DeploymentArchitecture.md
+    - Pre-Deployment Validation (AKS & EKS only): PredeploymentValidation.md
     - Supported Platforms: SupportedPlatforms.md
     - Release Updates: ReleaseNotes.md
     - Limitations: Limitations.md
