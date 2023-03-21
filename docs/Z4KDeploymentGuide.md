@@ -84,7 +84,8 @@ helm install <installation names> zerto-z4k/z4k \
 --set zkm-px.config.siteId=$SITE \
 --namespace $NAMESPACE
 ```
-Where,
+
+    Where,
 
     | Parameter | Description |
     | --------- | ----------- |
@@ -110,6 +111,7 @@ Where,
       config: 
         siteId: $SITE
     ```
+    
     Where,</br>
     $SITE is a unique site name.
     
@@ -118,6 +120,7 @@ Where,
     ``` shell
     helm install <installation names> zerto-z4k/z4k -f values.yaml --namespace $NAMESPACE
     ```
+    
     Where,
 
     | Parameter | Description |
