@@ -94,9 +94,11 @@ Use these steps to download the pre-deployment validation tool and run it on on 
 >    Fix the issues and run the validator again.
 >    ```
 
-Further details can be found in the output and log files.
+#### Troubleshooting the Pre-Deploment Validation
+
+For troubleshooting purposes, refer to the the output file and log file for further details.
   
-- The log file contains the information on the utility execution and can be used for troubleshooting. The log file is in the format <clusterName><datetime>/logfile.log.
+- The log file contains the information on the pre-validation tool execution and can be used for troubleshooting. The log file is in the format <clusterName><datetime>/logfile.log.
 
 - The output file contains execution details and validations outputs. The output file is in the format <clusterName><datetime>/output.txt.
 
