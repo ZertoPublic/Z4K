@@ -4,23 +4,23 @@ Zerto provides a pre-deployment validation tool for Amazon Kubernetes Services (
 
 Use these steps to download, install and run the pre-deployment validation tool.
 
-1. Fetch the Z4K pre-deployment validator from the z4k.zerto.com repository, using the following command: 
+- Fetch the Z4K pre-deployment validator from the z4k.zerto.com repository, using the following command: 
 
 >  ```
 >  wget https://z4k.zerto.com/pre_deployment_validator.tar
 >  ```
 
-2. Use the following command to extract the tar package to the local path within one of the pods in the cluster you will install Z4K on. 
+- Use the following command to extract the tar package to the local path within one of the pods in the cluster you will install Z4K on. 
 
 >  ```
 >  tar -xvf pre_deployment_validator.tar
 >  ```
 >> The installed tar package contains the bash script and all the needed yaml files. 
 
-3. Execute the Z4K Pre-Deployment Validator tool **on each cluster** on which Z4K protection will be installed, using the following command:
+- Execute the Z4K Pre-Deployment Validator tool **on each cluster** on which Z4K protection will be installed, using the following command:
 
 >  ``
->  bash ./Z4K_pre_deployment_validator.bash
+>   bash ./Z4K_pre_deployment_validator.bash
 >  ``
 
 >>  The tool starts validating and displays the status on the console. It also creates an output file and a log file.
