@@ -71,7 +71,7 @@ Use these steps to download the pre-deployment validation tool and run it on on 
 >    Fix the issues and run the validator again.
 >    ```
 
-#### Troubleshooting the Pre-Deploment Validation
+#### Troubleshooting Pre-Deploment Validation
 
 For troubleshooting purposes, refer to the the output file and log file.
   
