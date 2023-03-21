@@ -84,13 +84,15 @@ Use these steps to download the pre-deployment validation tool and run it on on 
 >  - If all validations of the mandatory requirements are met, the following summary will display:
 >  
 >    ```
->    The K8S environment meets the mandatory requirements to deploy Zerto Z4K as a Recovery and/or Production site. Proceed with Z4K deployment
+>    The K8S environment meets the mandatory requirements to deploy Zerto Z4K as a Recovery and/or Production site. 
+>    Proceed with Z4K deployment.
 >    ```
 >  - If some mandatory requirements are not met, the following summary will display:
 >  
 >    ```
->    The K8S environment does not meet the mandatory requirements to deploy Zerto Z4K as a Recovery and/or Production site. Fix the issues and run the validator again.
-     ```
+>    The K8S environment does not meet the mandatory requirements to deploy Zerto Z4K as a Recovery and/or Production site. 
+>    Fix the issues and run the validator again.
+>    ```
 
 Further details can be found in the output and log files.
   
