@@ -1,5 +1,6 @@
 2.x Version Changes
 ===================
+* 2.4.65 Fix obfuscator
 * 2.4.63 Merge z4k-801-deploy-scripts to master
 * 2.4.62 Z4K Pre-Deployment Validator - Added storage classes validations
 * 2.4.61 Remove RCM locks during uninstall site
