@@ -85,10 +85,13 @@ helm install <installation names> zerto-z4k/z4k \
 --namespace $NAMESPACE
 ```
 
- Where,
- <installation names\> is an easy to recognize name.</br>
- $SITE is a unique site name.</br>
- $NAMESPACE is a dedicated Zerto namespace. Zerto recommends using the namespace 'zerto'.
+ 
+    Where,
+    | Parameter | Description |
+    | --------- | ----------- |
+    | <installation names\> | Specify an easy to recognize name. |
+    | $NAMESPACE | A dedicated Zerto namespace. Zerto recommends using the namespace 'zerto'. |
+    | $SITE |	A unique site name. |
     
 
 ##### Installing Z4K with a Values YAML File
