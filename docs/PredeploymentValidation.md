@@ -2,7 +2,7 @@
 
 Zerto provides a pre-deployment validation tool that verifies whether the K8S environment meets the mandatory requirements for deploying Zerto Z4K on the cluster.
 
-Use these steps to download the pre-deployment validation tool and run it on on each cluster on which Z4K protection will be installed.
+Use these steps to download the pre-deployment validation tool and run it on each cluster on which Z4K protection will be installed.
 
 1. Fetch the Z4K pre-deployment validator from the z4k.zerto.com repository, using the following command: 
 
