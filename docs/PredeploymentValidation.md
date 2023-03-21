@@ -24,7 +24,7 @@ Use these steps to download the pre-deployment validation tool and run it on on 
 >  bash ./Z4K_pre_deployment_validator.bash
 >  ``
 
->  The tool runs the validation and displays the status on the console. It also creates an output file and a log file.
+>>  The tool runs the validation and displays the status on the console. It also creates an output file and a log file.
 
   
 >  **Example of Console Output**
