@@ -24,7 +24,7 @@ Use these steps to download the pre-deployment validation tool and run it on on 
 >  bash ./Z4K_pre_deployment_validator.bash
 >  ``
 
->>  The tool runs the validation and displays the status on the console. It also creates an output file and a log file.
+>>  The tool starts validating and displays the status on the console. It also creates an output file and a log file.
 
   
 >  **Example of Console Output**
@@ -96,7 +96,7 @@ Use these steps to download the pre-deployment validation tool and run it on on 
 
 #### Troubleshooting the Pre-Deploment Validation
 
-For troubleshooting purposes, refer to the the output file and log file for further details.
+For troubleshooting purposes, refer to the the output file and log file.
   
 - The log file contains the information on the pre-validation tool execution and can be used for troubleshooting. The log file is in the format <clusterName><datetime>/logfile.log.
 
