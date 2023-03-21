@@ -39,13 +39,13 @@ helm repo update
 
 To configure the ingress controller with static IP, set the following flags in the value.yaml file as input for HELM during the installation:
 
-##### Configuring the Ingress Controller for ZKM
+##### Configuring the Ingress Controller for Zerto Kubernetes Manager (ZKM)
 
 ``` shell
 --set ingress-nginx.controller.service.loadBalancerIP=$STATIC_IP
 ```
 
-##### Configuring the Ingress Controller for ZKM-PX only
+##### Configuring the Ingress Controller for Zerto Kubernetes Manager Proxy (ZKM-PX) only
 
 ``` shell
 --set zkm-px.ingress-nginx.controller.service.loadBalancerIP=$STATIC_IP
@@ -67,10 +67,7 @@ Installation includes installation of the following components:
 
 Use either of these options to install Zerto for Kubernetes (Z4K) on any of the Zerto supported Kubernetes platforms.
 
-<span class="Note">Note: For both options you can add the following flag to capture helm install logs for debugging and troubleshooting purposes:
-```
---debug > <path_to_file>.txt
-    ```</span>
+<span class="Note">Note: For both options you can add the following flag to capture helm install logs for debugging and troubleshooting purposes: ```--debug > <path_to_file>.txt```</span>
 
     
 ##### Installing Z4K with a Command
