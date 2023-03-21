@@ -30,7 +30,7 @@ Use these steps to download, install and run the pre-deployment validation tool.
 
 >  ```
 >  
->  2023-03-19 14:02:42: Running validations on cluster: TomerCluster2
+>  2023-03-19 14:02:42: Running validations on cluster: TomCluster2
 >  2023-03-19 14:02:42: Validating Helm Package Manager Version...
 >  2023-03-19 14:02:42: Done
 >  2023-03-19 14:02:42: Validating Privileged Pods Creation...
@@ -72,7 +72,7 @@ Use these steps to download, install and run the pre-deployment validation tool.
 
 #### Troubleshooting Pre-Deployment Validation
 
-For troubleshooting purposes, refer to the the output file and log file in the local path.
+For troubleshooting purposes, refer to the the log file and output file in the local path.
   
 - The log file is in the format <clusterName><datetime>/logfile.log, and contains pre-validation tool execution information.
 
