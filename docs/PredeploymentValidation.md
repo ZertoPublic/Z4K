@@ -10,13 +10,12 @@ Use these steps to download, install and run the pre-deployment validation tool.
 >  wget https://z4k.zerto.com/pre_deployment_validator.tar
 >  ```
 
->> The installed tar package contains the bash script and all the needed yaml files. 
-
 2. Use the following command to extract the tar package to the local path within one of the pods in the cluster you will install Z4K on. 
 
 >  ```
 >  tar -xvf pre_deployment_validator.tar
 >  ```
+>> The installed tar package contains the bash script and all the needed yaml files. 
 
 3. Execute the Z4K Pre-Deployment Validator tool **on each cluster** on which Z4K protection will be installed, using the following command:
 
