@@ -1,5 +1,6 @@
 2.x Version Changes
 ===================
+* 2.4.67 Workaround for a AKS 1.24 default ingress issue
 * 2.4.66 The LTR secret can be placed on any cluster not only on target cluster
 * 2.4.65 Fix obfuscator
 * 2.4.64 VPG settings validator - update error messages
