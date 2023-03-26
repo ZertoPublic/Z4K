@@ -17,5 +17,5 @@ This section provides the new features and enhancements for each release.
 #### Version 2.1.x
 | Feature | Date |
 | ------- | ---- |
-|Implemented one-to-many VPG configuration. | 05/2022 |
+|Implemented one-to-many VPG configuration.                     | 04/2022 |
 
