@@ -6,7 +6,7 @@ This section provides the new features and enhancements for each release.
 
 | Feature | Date |
 | ------- | ---- |
-| Support local log collection. | 03/2023 |
+| Support local log collection | 03/2023 |
 | Introduced YAML validation for syntax and content as part of VPG configuration phase | 03/2023 |
 | Enhanced log collection| 01/2023 |
 | Support NLOG.config | 01/2023 |
