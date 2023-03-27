@@ -18,3 +18,4 @@ This section provides the new features and enhancements for each release.
 | Feature | Date |
 | ------- | ---- |
 | Support one-to-many VPG configuration                     | 04/2022 |
+
