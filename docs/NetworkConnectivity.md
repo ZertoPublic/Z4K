@@ -6,7 +6,7 @@ When the ZVM-PX is installed on the main site, and “kubectl get sites“ comma
 
 Use the following procedure to verify the ZKM-PX installation parameters.
 
-1.  Validate connectivity to the provided external IP:
+1.  Validate connectivity to the provided external IP.
 
     -  ZKeycloak component:
 
