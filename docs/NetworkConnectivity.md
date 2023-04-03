@@ -8,25 +8,25 @@ Use the following procedure to verify the ZKM-PX installation parameters.
 
 1.  Validate connectivity to the provided external IP:
 
-    a.  ZKeyckloak component :
+    -  ZKeyckloak component:
 
 >>``
 >>curl -I -k https://<EXTERNAL_IP>/auth -H "HOST: zkm.z4k.zerto.com"
 >>``
 
+    -  ZKM component:
 
-    b.  ZKM component :
-
->>``
->>curl -I -k https://<EXTERNAL_IP>/zkm/api/help/index.html -H "HOST: zkm.z4k.zerto.com"
->>``
+    ``
+    curl -I -k https://<EXTERNAL_IP>/zkm/api/help/index.html -H "HOST: zkm.z4k.zerto.com"
+    ``
 
 2.  Switch to ZKM-PX site, and validate the ZKM connectivity:
-``
-kubectl run curltest --image=yauritux/busybox-curl --restart=Never -i --rm -- /bin/curl -I -k https://<EXTERNAL_IP>/zkm/api/help/index.html -H "HOST: zkm.z4k.zerto.com" 
-``
 
-Check which error code is returned.
+    ``
+    kubectl run curltest --image=yauritux/busybox-curl --restart=Never -i --rm -- /bin/curl -I -k https://<EXTERNAL_IP>/zkm/api/help/index.html -H "HOST:           zkm.z4k.zerto.com" 
+    ``
+
+    Check which error code is returned.
 
 3. Check the ZKeyckloak connectivity:
 
