@@ -14,6 +14,7 @@ Use the following procedure to verify the ZKM-PX installation parameters.
 >>curl -I -k https://<EXTERNAL_IP>/auth -H "HOST: zkm.z4k.zerto.com"
 >>``
 
+
     b.  ZKM component :
 
 >>``
