@@ -7,8 +7,8 @@ The minimum supported Kubernetes version is 1.22.
 
 | Platform                             | Version  |  CSI| Supported Kubernetes Versions |
 | ------------------------------------ |--|--- |--- |
-| Amazon Elastic Kubernetes Service (Amazon EKS)|  | ebs-csi-node | 1.22, 1.23, 1.24  |
-| Azure Kubernetes Service (AKS)|   |  csi-azuredisk-node   | 1.22, 1.23  |
+| Amazon Elastic Kubernetes Service (Amazon EKS)|  | ebs-csi-node | 1.22, 1.23  |
+| Azure Kubernetes Service (AKS)|   |  csi-azuredisk-node   | 1.22, 1.23, 1.24  |
 | Red Hat OpenShift | 4.6 and higher  |csi-rbdplugin  |  1.22  ||
 
 <br/>
