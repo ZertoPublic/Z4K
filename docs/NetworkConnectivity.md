@@ -16,7 +16,7 @@ Use the following procedure to verify the ZKM-PX installation parameters.
 
 1.  Validate connectivity to the provided external IP.
 
-    -  ZKeycloak connectivity:
+    -  Keycloak connectivity:
 
        ```
         curl -I -k https://<EXTERNAL_IP>/auth -H "HOST: zkm.z4k.zerto.com    
