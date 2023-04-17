@@ -4,34 +4,35 @@ Zerto provides a Z4K Installer tool to simplify the Z4K installation process. Yo
 
 1. Download the z4k-installer.tar file using wget:
 
-  ```
-  wget https://z4k.zerto.com/z4k-installer.tar
-  ```
+    ```
+    wget https://z4k.zerto.com/z4k-installer.tar
+    ```
 
 2. Extract all files:
 
-  ```
-  tar -xvf z4k-installer.tar
-  ```
+    ```
+    tar -xvf z4k-installer.tar
+    ```
 
-3. Run the tool.
-
-  a.  You can run the tool and provide the required parameters when prompted:
-      - To deploy ZKM and ZKM-PX on the current cluster, run:
+3. To run the tool and provide the required parameters when prompted:
+   
+   - To deploy ZKM and ZKM-PX on the current cluster, run:
     
-        ```
-        ./install-z4k.sh
-        ```
-      
-      - To deploy only ZKM-PX on the current cluster, run:
+     ```
+     ./install-z4k.sh
+     ```
+     
+    - To deploy only ZKM-PX on the current cluster, run:
     
         ```
         ./install-zkm-px.sh 
         ```
-  b. You can run the tool and provide parameters using dedicated flags (add --help to the command).
+    OR
+    
+    To run the tool and provide parameters using the dedicated flags:
    
-      - To deploy ZKM and ZKM-PX on the current cluster and use flags, run:
-   
+     - Add --help to the command to view the flags.
+          
         ```
         ./install-z4k.sh --help
          Flags:
@@ -47,23 +48,23 @@ Zerto provides a Z4K Installer tool to simplify the Z4K installation process. Yo
                --openshift                    Are you installing on Openshift (0/1)
                --installIngress               Do you want to install a dedicated ingress (0/1)
                --repolink                     Helm Repository name (default: zerto-z4k/z4k)
-               -h, --help                         help for z4k-installer
+               -h, --help                     Help for z4k-installer
            ```
-      - To deploy only ZKM-PX on the current cluster and use flags, run:
+    
    
-         ```
-         install-zkm-px.sh --help
-          Flags:
-               --manUser                      Keycloak management user name
-              --manPassword                  Keycloak management password
-              --secret                       Image pull secret
-              --site                         A unique site name
-              --release                      An easy to recognize release name
-              --namespace                    A dedicated Zerto namespace (default: zerto)
-              --externalIp                   Ingress service external IP (of main cluster)
-              --openshift                    Are you installing on Openshift? (0/1)
-              --installIngress               Do you want to install a dedicated ingress? (0/1)
-              --tag                          Tag image (default: latest)
-              --repolink                     Helm Repository name (default: zerto-z4k/zkm-px)
-             -h, --help                         help for z4k-installer
-          ```
+           ```
+           install-zkm-px.sh --help
+           Flags:
+                  --manUser                   Keycloak management user name
+                  --manPassword               Keycloak management password
+                  --secret                    Image pull secret
+                 --site                       A unique site name
+                 --release                    An easy to recognize release name
+                 --namespace                  A dedicated Zerto namespace (default: zerto)
+                 --externalIp                 Ingress service external IP (of main cluster)
+                 --openshift                  Are you installing on Openshift? (0/1)
+                 --installIngress             Do you want to install a dedicated ingress? (0/1)
+                 --tag                        Tag image (default: latest)
+                 --repolink                   Helm Repository name (default: zerto-z4k/zkm-px)
+                 -h, --help                   Help for z4k-installer
+            ```
