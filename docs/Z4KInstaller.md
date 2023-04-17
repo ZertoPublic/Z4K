@@ -14,26 +14,29 @@ Zerto provides a Z4K Installer tool to simplify the Z4K installation process. Yo
     tar -xvf z4k-installer.tar
     ```
 
-3. To run the tool and provide the required parameters when prompted:
+3. Run the tool.
    
-   - To deploy ZKM and ZKM-PX on the current cluster, run:
+   - To deploy ZKM and ZKM-PX on the current cluster, and provide the required parameters when prompted:
     
      ```
      ./install-z4k.sh
      ```
      
-    - To deploy only ZKM-PX on the current cluster, run:
+    - To deploy only ZKM-PX on the current cluster, and provide the required parameters when prompted:
     
-        ```
-        ./install-zkm-px.sh 
-        ```
+      ```
+      ./install-zkm-px.sh 
+      ```
     OR
     
-    To run the tool and provide parameters using the dedicated flags:
+    -   To run the tool and provide parameters using the dedicated flags:
    
-     - Add --help to the command to view the flags.
-     - Run the command with the flags.
+        - Run the command with --help to view the flags.
+        
+        - Run the command with the flags.
           
+       **Examples**   
+       
         ```
         ./install-z4k.sh --help
          Flags:
@@ -51,25 +54,22 @@ Zerto provides a Z4K Installer tool to simplify the Z4K installation process. Yo
                --repolink                     Helm Repository name (default: zerto-z4k/z4k)
                -h, --help                     Help for z4k-installer
             
+          ./install-z4k.sh --keycloakUser USERKEY007  --keycloakPassword A1bcD345
+          
+          install-zkm-px.sh --help
+          Flags:
+               --manUser                    Keycloak management user name
+               --manPassword                Keycloak management password
+               --secret                     Image pull secret
+               --site                       A unique site name
+               --release                    An easy to recognize release name
+               --namespace                  A dedicated Zerto namespace (default: zerto)
+               --externalIp                 Ingress service external IP (of main cluster)
+               --openshift                  Are you installing on Openshift? (0/1)
+               --installIngress             Do you want to install a dedicated ingress? (0/1)
+               --tag                        Tag image (default: latest)
+               --repolink                   Helm Repository name (default: zerto-z4k/zkm-px)
+               -h, --help                   Help for z4k-installer
+           
+           ./install-zkm-px.sh --keycloakUser USERKEY  --keycloakPassword A1bcD345
            ```
-          For example:
-          ./install-z4k.sh --keycloakUser USERKEY  --keycloakPassword A1bcD345
-   
-           ```
-           install-zkm-px.sh --help
-           Flags:
-                 --manUser                    Keycloak management user name
-                 --manPassword                Keycloak management password
-                 --secret                     Image pull secret
-                 --site                       A unique site name
-                 --release                    An easy to recognize release name
-                 --namespace                  A dedicated Zerto namespace (default: zerto)
-                 --externalIp                 Ingress service external IP (of main cluster)
-                 --openshift                  Are you installing on Openshift? (0/1)
-                 --installIngress             Do you want to install a dedicated ingress? (0/1)
-                 --tag                        Tag image (default: latest)
-                 --repolink                   Helm Repository name (default: zerto-z4k/zkm-px)
-                 -h, --help                   Help for z4k-installer
-            ```
-            For example:
-            ./install-zkm-px.sh --keycloakUser USERKEY  --keycloakPassword A1bcD345
