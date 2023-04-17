@@ -50,6 +50,6 @@ Use the following procedure to verify the ZKM-PX installation parameters, after 
 
         Success code = 200. If you get an error code (i.e, 400, 404) handle your connectivity issue accordingly. 
 
-
+<span class="Note">Note: You can also run the script **zkm-px-troubleshooting.sh** which is available as part of the z4k-installer.tar file.</span>
  
 
