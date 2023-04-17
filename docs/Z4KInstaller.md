@@ -24,9 +24,9 @@ Zerto provides a Z4K Installer tool to simplify the Z4K installation process. Yo
       
    - To deploy only ZKM-PX on the current cluster, run:
    
-   ```
-   ./install-zkm-px.sh 
-   ```
+     ```
+    ./install-zkm-px.sh 
+     ```
 
   You will be asked to provide required parameters, or you can provide them using dedicated flags by running the tool with --help to see all possible flags.
    
@@ -49,7 +49,7 @@ Zerto provides a Z4K Installer tool to simplify the Z4K installation process. Yo
            --repolink                     Helm Repository name (default: zerto-z4k/z4k)
        -h, --help                         help for z4k-installer
        ```
-  - To deploy only ZKM-PX on the current cluster and use flags, run:
+   - To deploy only ZKM-PX on the current cluster and use flags, run:
    
      ```
      install-zkm-px.sh
