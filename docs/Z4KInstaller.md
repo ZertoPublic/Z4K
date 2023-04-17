@@ -32,6 +32,7 @@ Zerto provides a Z4K Installer tool to simplify the Z4K installation process. Yo
     To run the tool and provide parameters using the dedicated flags:
    
      - Add --help to the command to view the flags.
+     - Run the command with the flags.
           
         ```
         ./install-z4k.sh --help
@@ -49,15 +50,17 @@ Zerto provides a Z4K Installer tool to simplify the Z4K installation process. Yo
                --installIngress               Do you want to install a dedicated ingress (0/1)
                --repolink                     Helm Repository name (default: zerto-z4k/z4k)
                -h, --help                     Help for z4k-installer
+            
            ```
-    
+          For example:
+          ./install-z4k.sh --keycloakUser USERKEY  --keycloakPassword A1bcD345
    
            ```
            install-zkm-px.sh --help
            Flags:
-                  --manUser                   Keycloak management user name
-                  --manPassword               Keycloak management password
-                  --secret                    Image pull secret
+                 --manUser                    Keycloak management user name
+                 --manPassword                Keycloak management password
+                 --secret                     Image pull secret
                  --site                       A unique site name
                  --release                    An easy to recognize release name
                  --namespace                  A dedicated Zerto namespace (default: zerto)
@@ -68,3 +71,5 @@ Zerto provides a Z4K Installer tool to simplify the Z4K installation process. Yo
                  --repolink                   Helm Repository name (default: zerto-z4k/zkm-px)
                  -h, --help                   Help for z4k-installer
             ```
+            For example:
+            ./install-zkm-px.sh --keycloakUser USERKEY  --keycloakPassword A1bcD345
