@@ -30,7 +30,7 @@ Zerto provides a Z4K Installer tool to simplify the Z4K installation process. Yo
     OR
     
     To deploy ZKM and/or ZKM-PX on the current cluster and provide parameters with dedicated flags: 
-    -  Run the command with --help to see what flags are valid.
+    -  Run the command with ```--help``` to see what flags are valid.
     -  Run the command with the flags.
 
     **Example**
