@@ -12,7 +12,7 @@ This happens when...
 
 #### Solution
 
-Use the following procedure to verify the ZKM-PX installation parameters.
+Use the following procedure to verify the ZKM-PX installation parameters, after successfully installing ZKM and **before** installing ZKM-PX on a new cluster.
 
 1.  Validate connectivity to the provided external IP.
 
@@ -36,7 +36,9 @@ Use the following procedure to verify the ZKM-PX installation parameters.
         kubectl run curltest --image=yauritux/busybox-curl --restart=Never -i --rm -- /bin/curl -I -k https://<EXTERNAL_IP>/zkm/api/help/index.html -H "HOST: zkm.z4k.zerto.com 
        ```
 
-        Check which error code is returned.
+        ** This command will create a pod - run curl command and destroy the pod when done ** 
+
+        Success code = 200. If you get an error code (i.e, 400, 404) handle your connectivity issue accordingly. 
 
     -   Keycloak connectivity:
 
@@ -44,7 +46,9 @@ Use the following procedure to verify the ZKM-PX installation parameters.
         kubectl run curltest --image=yauritux/busybox-curl --restart=Never -i --rm -- /bin/curl -I -k https://<EXTERNAL_IP>/auth/realms/master -H "HOST: zkm.z4k.zerto.com
         ```
 
-        Check which error code is returned.
+        ** This command will create a pod - run curl command and destroy the pod when done ** 
+
+        Success code = 200. If you get an error code (i.e, 400, 404) handle your connectivity issue accordingly. 
 
 
  
