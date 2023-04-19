@@ -1,5 +1,12 @@
 2.x Version Changes
 ===================
+* 2.4.70 Z4K installer - run each install from own cluster + modify output
+* 2.4.69 Remove secret data from Pod Spec Environment Variables
+* 2.4.67 Workaround for a AKS 1.24 default ingress issue
+* 2.4.66 The LTR secret can be placed on any cluster not only on target cluster
+* 2.4.65 Fix obfuscator
+* 2.4.64 VPG settings validator - update error messages
+* 2.4.63 Merge z4k-801-deploy-scripts to master
 * 2.4.62 Z4K Pre-Deployment Validator - Added storage classes validations
 * 2.4.61 Remove RCM locks during uninstall site
 * 2.4.60 Merge z4k-801-add-deployment-scripts to master
@@ -60,7 +67,7 @@
 * 2.4.3 Obfuscate secret/access keys
 * 2.4.2 Added VPG additional validations
 * 2.4.1 Fixed issue 205134 - Change the seq to atomic
-* 2.4.0 Support HPE New CSI
+*2.4.0 Support HPE New CSI
 --------------------------
 *2.1.0 Implement One-To-Many VPG Configuration
 ----------------------------------------------
