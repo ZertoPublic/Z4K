@@ -14,6 +14,7 @@ nav:
   - Z4K Deployment:
     - Prerequisites and Requirements: PrerequisitesAndRequirements.md
     - Deploying Z4K: Z4KDeploymentGuide.md
+    - Pre-Deployment Validation: PredeploymentValidation.md
     - Taints and Tolerations: TaintsandTolerations.md
     - Upgrading Z4K: UpgradingZ4K.md
     - Uninstalling Z4K: UninstallingZ4K.md
