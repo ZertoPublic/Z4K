@@ -1,6 +1,6 @@
 # Pre-Deployment Validation
 
-Zerto provides a pre-deployment validation tool for Amazon Kubernetes Services (AKS) and Amazon Elastic Kubernetes Service (EKS) that verifies whether the K8S environment meets the mandatory requirements for deploying Zerto Z4K on the cluster.
+Zerto provides a pre-deployment validation tool for Amazon Kubernetes Services (AKS), Amazon Elastic Kubernetes Service (EKS) and Openshift that verifies whether the K8S environment meets the mandatory requirements for deploying Zerto Z4K on the cluster.
 
 Use these steps to download, install and run the pre-deployment validation tool.
 
