@@ -20,8 +20,8 @@
    <Path>\Zoomin\Install.ZCM.HTML\Values</Path>
    <SheetName>Values</SheetName>
   </SupBook>
-  <WindowHeight>12165</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>7920</WindowHeight>
+  <WindowWidth>17490</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
   <RefModeR1C1/>
@@ -43,27 +43,29 @@
   <NamedRange ss:Name="TypeofInformation" ss:RefersTo="=#REF!"/>
  </Names>
  <Worksheet ss:Name="Classification">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="19" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Width="50.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="78.75"/>
    <Column ss:Width="66"/>
    <Column ss:Width="54"/>
+   <Column ss:AutoFitWidth="0" ss:Width="88.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="92.25" ss:Span="1"/>
-   <Column ss:Index="7" ss:AutoFitWidth="0" ss:Width="129.75"/>
+   <Column ss:Index="8" ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="128.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="83.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="128.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="131.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="144.75" ss:Span="1"/>
-   <Column ss:Index="15" ss:AutoFitWidth="0" ss:Width="162"/>
+   <Column ss:Index="16" ss:AutoFitWidth="0" ss:Width="162"/>
    <Column ss:AutoFitWidth="0" ss:Width="144.75" ss:Span="2"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Filename</Data></Cell>
     <Cell><Data ss:Type="String">Platform</Data></Cell>
     <Cell><Data ss:Type="String">Product Type</Data></Cell>
     <Cell><Data ss:Type="String">Version</Data></Cell>
+    <Cell><Data ss:Type="String">Access</Data></Cell>
     <Cell><Data ss:Type="String">Customer Type</Data></Cell>
     <Cell><Data ss:Type="String">Customer Type</Data></Cell>
     <Cell><Data ss:Type="String">Content Type</Data></Cell>
@@ -83,7 +85,8 @@
     <Cell><Data ss:Type="String">MAP</Data></Cell>
     <Cell><Data ss:Type="String">kubernetes</Data></Cell>
     <Cell><Data ss:Type="String">z4k</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">content-deploy</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">access-internal</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">content-deploy</Data></Cell>
     <Cell><Data ss:Type="String">content-automationapi</Data></Cell>
     <Cell><Data ss:Type="String">content-admin</Data></Cell>
    </Row>
@@ -91,7 +94,8 @@
     <Cell><Data ss:Type="String">apply-ALL</Data></Cell>
     <Cell><Data ss:Type="String">kubernetes</Data></Cell>
     <Cell><Data ss:Type="String">z4k</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">content-deploy</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">access-internal</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">content-deploy</Data></Cell>
     <Cell><Data ss:Type="String">content-automationapi</Data></Cell>
     <Cell><Data ss:Type="String">content-admin</Data></Cell>
    </Row>
@@ -115,8 +119,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>24</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -129,12 +133,12 @@
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C8:R36C8,R7C10:R36C10,R2C4:R3C4,R4C12:R36C12,R2C10,R2C11:R36C11,R2C13:R36C18,R4C2:R36C3</Range>
+   <Range>R2C9:R36C9,R7C11:R36C11,R4C2:R36C3,R4C13:R36C13,R2C11,R2C12:R36C12,R2C14:R36C19,R2C4:R3C4</Range>
    <Type>List</Type>
    <Value>'\Zoomin\Install.ZCM.HTML\[Values]Values'!#REF!</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R36C6,R4C7:R36C7,R4C9:R36C9</Range>
+   <Range>R2C6:R36C7,R4C8:R36C8,R4C10:R36C10</Range>
    <Type>List</Type>
    <Value>'\Zoomin\Install.ZCM.HTML\[Values]Values'!#REF!</Value>
    <ErrorHide/>
