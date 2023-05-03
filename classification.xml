@@ -7,7 +7,7 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Nadina Rosentuler-Barnatan</Author>
-  <LastAuthor>Rina Sussman</LastAuthor>
+  <LastAuthor>Andy Lewis</LastAuthor>
   <Created>2021-05-10T10:36:25Z</Created>
   <LastSaved>2021-05-11T12:35:33Z</LastSaved>
   <Version>16.00</Version>
@@ -17,11 +17,11 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <SupBook>
-   <Path>\Zoomin\Install.ZCM.HTML\Values</Path>
+   <Path>Values</Path>
    <SheetName>Values</SheetName>
   </SupBook>
-  <WindowHeight>7920</WindowHeight>
-  <WindowWidth>17490</WindowWidth>
+  <WindowHeight>12165</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
   <RefModeR1C1/>
@@ -43,35 +43,33 @@
   <NamedRange ss:Name="TypeofInformation" ss:RefersTo="=#REF!"/>
  </Names>
  <Worksheet ss:Name="Classification">
-  <Table ss:ExpandedColumnCount="19" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Width="50.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="78.75"/>
    <Column ss:Width="66"/>
    <Column ss:Width="54"/>
-   <Column ss:AutoFitWidth="0" ss:Width="88.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="92.25" ss:Span="1"/>
-   <Column ss:Index="8" ss:AutoFitWidth="0" ss:Width="129.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="128.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="129.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="83.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="128.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="131.25"/>
+   <Column ss:Index="7" ss:AutoFitWidth="0" ss:Width="147"/>
+   <Column ss:AutoFitWidth="0" ss:Width="171"/>
+   <Column ss:AutoFitWidth="0" ss:Width="190.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="123.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="162.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="164.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="144.75" ss:Span="1"/>
-   <Column ss:Index="16" ss:AutoFitWidth="0" ss:Width="162"/>
+   <Column ss:Index="15" ss:AutoFitWidth="0" ss:Width="162"/>
    <Column ss:AutoFitWidth="0" ss:Width="144.75" ss:Span="2"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Filename</Data></Cell>
     <Cell><Data ss:Type="String">Platform</Data></Cell>
     <Cell><Data ss:Type="String">Product Type</Data></Cell>
     <Cell><Data ss:Type="String">Version</Data></Cell>
+    <Cell><Data ss:Type="String">Customer Type</Data></Cell>
+    <Cell><Data ss:Type="String">Customer Type</Data></Cell>
+    <Cell><Data ss:Type="String">Content Type</Data></Cell>
+    <Cell><Data ss:Type="String">Content Type</Data></Cell>
+    <Cell><Data ss:Type="String">Content Type</Data></Cell>
     <Cell><Data ss:Type="String">Access</Data></Cell>
-    <Cell><Data ss:Type="String">Customer Type</Data></Cell>
-    <Cell><Data ss:Type="String">Customer Type</Data></Cell>
-    <Cell><Data ss:Type="String">Content Type</Data></Cell>
-    <Cell><Data ss:Type="String">Content Type</Data></Cell>
-    <Cell><Data ss:Type="String">Content Type</Data></Cell>
-    <Cell><Data ss:Type="String">Content Type</Data></Cell>
     <Cell><Data ss:Type="String">Content Type</Data></Cell>
     <Cell><Data ss:Type="String">Content Type</Data></Cell>
     <Cell><Data ss:Type="String">Category</Data></Cell>
@@ -83,21 +81,19 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MAP</Data></Cell>
-    <Cell><Data ss:Type="String">kubernetes</Data></Cell>
-    <Cell><Data ss:Type="String">z4k</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">access-internal</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">content-deploy</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">z4k</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">content-Deployment</Data></Cell>
+    <Cell><Data ss:Type="String">content-administration</Data></Cell>
     <Cell><Data ss:Type="String">content-automationapi</Data></Cell>
-    <Cell><Data ss:Type="String">content-admin</Data></Cell>
+    <Cell><Data ss:Type="String">access-internal</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">apply-ALL</Data></Cell>
-    <Cell><Data ss:Type="String">kubernetes</Data></Cell>
-    <Cell><Data ss:Type="String">z4k</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">access-internal</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">content-deploy</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">z4k</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">content-Deployment</Data></Cell>
+    <Cell><Data ss:Type="String">content-administration</Data></Cell>
     <Cell><Data ss:Type="String">content-automationapi</Data></Cell>
-    <Cell><Data ss:Type="String">content-admin</Data></Cell>
+    <Cell><Data ss:Type="String">access-internal</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">default</Data></Cell>
@@ -119,8 +115,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -133,14 +129,14 @@
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C9:R36C9,R7C11:R36C11,R4C2:R36C3,R4C13:R36C13,R2C11,R2C12:R36C12,R2C14:R36C19,R2C4:R3C4</Range>
+   <Range>R2C2:R36C2,R4C3:R36C3,R7C10:R36C10,R2C4:R3C4,R2C12:R2C18,R3C11:R36C18,R2C8:R36C9</Range>
    <Type>List</Type>
-   <Value>'\Zoomin\Install.ZCM.HTML\[Values]Values'!#REF!</Value>
+   <Value>Values!#REF!</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6:R36C7,R4C8:R36C8,R4C10:R36C10</Range>
+   <Range>R2C5:R36C7</Range>
    <Type>List</Type>
-   <Value>'\Zoomin\Install.ZCM.HTML\[Values]Values'!#REF!</Value>
+   <Value>Values!#REF!</Value>
    <ErrorHide/>
   </DataValidation>
  </Worksheet>
@@ -164,7 +160,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">vmware</Data></Cell>
     <Cell><Data ss:Type="String">zvr</Data></Cell>
-    <Cell><Data ss:Type="String">version-97</Data></Cell>
+    <Cell><Data ss:Type="String">version-95</Data></Cell>
     <Cell><Data ss:Type="String">msp</Data></Cell>
     <Cell><Data ss:Type="String">content-howto</Data></Cell>
     <Cell><Data ss:Type="String">Category-RecoveryOperations</Data></Cell>
@@ -213,7 +209,7 @@
     <Cell><Data ss:Type="String">Category-automationapi</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5"><Data ss:Type="String">content-admin</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">content-administration</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="5"><Data ss:Type="String">content-upgrade</Data></Cell>
@@ -234,8 +230,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveCol>4</ActiveCol>
-     <RangeSelection>C5</RangeSelection>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
