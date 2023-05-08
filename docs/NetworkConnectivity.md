@@ -6,10 +6,6 @@
 
 -   When the ZVM-PX is installed on the main site, the ```kubectl get sites``` command returns only the current site.
 
-#### Root Cause
-
-@Yuri
-
 #### Solution
 
 Use the following procedure to verify the ZKM-PX installation parameters, after successfully installing ZKM and **before** installing ZKM-PX on a new cluster.
